@@ -112,7 +112,7 @@ The system couples **TreeSHAP** feature attribution with a verified banking meta
 
 3. Holding Reserve Depletion (Dimension 2 - Orthogonal):
    * Holding balance metric F3811 = 84,210 (bottom 4th percentile of savings accounts; normal peer median = 603,500).
-   * Overnight dwell time indicates rapid transit with near-zero capital retention.
+   * Reserve depletion relative to total turnover indicates minimal capital retention (pass-through profile).
 
 Disposition Recommendation:
    * Multi-factor convergence verified across 3 orthogonal dimensions.

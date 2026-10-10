@@ -33,13 +33,20 @@ Banks lose the fraud battle when systems produce 10,000 black-box alerts with no
 
 ### 3. Feature Trust & Leakage Quarantine
 * **Permanently Excluded Columns (1,404 columns cataloged in `eda/05_leakage_and_feature_exclusions.csv`):**
-  * `Unnamed: 0`: Target-sorted row position.
-  * `F2230`: Reporting month extraction batch leak (100% of negatives in Oct25; 100% of positives in Sep/Nov/Dec25).
-  * `F3912`: Administrative review/freeze tag proxy (99.94% concordance, $r=0.969$).
-  * `F3287`, `F3290`, `F3611`, `F3614`: September-only query schema artifacts.
-  * 393 zero-variance columns (63 all-null, 330 constant).
-  * 1,011 exact column duplicates (retaining 1 canonical representative per family).
-  * 473 columns with $>90\%$ missingness.
+  * **Special Columns & Fatal Leaks/Artifacts (8 columns):**
+    * `Unnamed: 0`: Target-sorted row position index.
+    * `F3924`: Binary ground-truth target variable.
+    * `F2230`: Reporting month extraction batch leak (100% negatives in Oct25; 100% positives in Sep/Nov/Dec25).
+    * `F3912`: Administrative review/freeze tag proxy (99.94% concordance, $r=0.969$).
+    * `F3287`, `F3290`, `F3611`, `F3614`: September-only query schema artifacts (100% missing elsewhere).
+  * **Sequential Waterfall Pruning on Development Set:**
+    * 389 zero-variance columns on `dev` (all-null or single non-null value among remaining candidates).
+    * 440 high-missingness columns ($\ge 90\%$ nulls among remaining candidates).
+    * 567 exact-match duplicate columns (identical values to an earlier candidate).
+  * **Reconciliation Arithmetic:**
+    * Total columns in raw extract: **3,925** ($1\text{ index} + 3,923\text{ features} + 1\text{ target}$).
+    * Total exclusions in register: **1,404** ($2\text{ special} + 6\text{ leaks/artifacts} + 389\text{ zero-var} + 440\text{ high-null} + 567\text{ dups}$).
+    * Active Feature Space: $3,925 - 1,404 = \mathbf{2,521\text{ active features}}$ (or $3,923\text{ candidate features} - 1,402\text{ excluded features} = \mathbf{2,521}$).
 
 ### 4. Reproducible Preprocessing & Data Cleaning
 * **Missing Value Imputation:** Median imputation fitted strictly on development training folds; no automatic missingness indicators that mimic batch extraction gaps.
