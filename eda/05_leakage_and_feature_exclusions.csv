@@ -1,0 +1,1405 @@
+column_name,category,reason,evidence
+Unnamed: 0,INDEX_LEAK,Target-sorted sequential row position,Monotonically 1..9082; rows 1-9001 are class 0
+F3924,TARGET,Ground truth target label,Binary 0/1 mule disposition
+F2230,BATCH_LEAK,Reporting snapshot month (100% confounded),100% of 0s in Oct25; 100% of 1s in Sep/Nov/Dec25
+F3912,POST_OUTCOME_PROXY,Administrative review/freeze tag,"99.94% concordance (9077/9082 matches, r=0.969)"
+F3287,SEPT_BATCH_ARTIFACT,Non-null entries exist exclusively in Sept25 extract,100% null in Oct25; populated only in Sept fraud sample
+F3290,SEPT_BATCH_ARTIFACT,Non-null entries exist exclusively in Sept25 extract,100% null in Oct25; populated only in Sept fraud sample
+F3611,SEPT_BATCH_ARTIFACT,Non-null entries exist exclusively in Sept25 extract,100% null in Oct25; populated only in Sept fraud sample
+F3614,SEPT_BATCH_ARTIFACT,Non-null entries exist exclusively in Sept25 extract,100% null in Oct25; populated only in Sept fraud sample
+F128,ALL_NULL,100% missing values,Zero populated cells
+F131,ALL_NULL,100% missing values,Zero populated cells
+F176,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F179,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F181,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F182,ALL_NULL,100% missing values,Zero populated cells
+F183,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F184,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F185,ALL_NULL,100% missing values,Zero populated cells
+F186,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F189,ALL_NULL,100% missing values,Zero populated cells
+F192,ALL_NULL,100% missing values,Zero populated cells
+F236,ALL_NULL,100% missing values,Zero populated cells
+F239,ALL_NULL,100% missing values,Zero populated cells
+F290,ALL_NULL,100% missing values,Zero populated cells
+F293,ALL_NULL,100% missing values,Zero populated cells
+F390,ALL_NULL,100% missing values,Zero populated cells
+F393,ALL_NULL,100% missing values,Zero populated cells
+F437,ALL_NULL,100% missing values,Zero populated cells
+F440,ALL_NULL,100% missing values,Zero populated cells
+F492,ALL_NULL,100% missing values,Zero populated cells
+F495,ALL_NULL,100% missing values,Zero populated cells
+F539,ALL_NULL,100% missing values,Zero populated cells
+F542,ALL_NULL,100% missing values,Zero populated cells
+F594,ALL_NULL,100% missing values,Zero populated cells
+F597,ALL_NULL,100% missing values,Zero populated cells
+F616,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F617,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F618,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F619,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F620,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F621,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F640,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F641,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F642,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F643,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F644,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F645,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F646,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F647,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F648,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F649,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F650,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F651,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F652,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F653,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F654,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F655,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F656,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F657,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F658,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F659,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F660,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F661,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F662,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F663,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F688,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F689,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F690,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F691,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F692,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F693,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F694,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F695,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F696,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F697,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F698,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F699,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F700,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F701,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F702,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F703,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F704,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F705,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F724,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F725,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F726,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F727,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F728,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F729,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F748,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F749,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F750,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F751,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F752,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F753,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F754,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F755,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F756,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F757,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F758,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F759,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F760,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F761,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F762,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F763,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F764,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F765,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F766,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F767,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F768,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F769,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F770,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F771,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F791,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F794,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F796,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F797,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F798,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F799,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F800,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F801,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F802,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F803,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F804,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F805,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F806,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F807,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F808,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F809,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F810,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F811,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F812,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F813,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F820,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F821,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F822,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F823,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F824,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F825,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F832,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F833,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F834,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F835,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F836,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F837,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F856,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F857,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F858,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F859,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F860,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F861,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F863,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F866,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F868,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F869,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F870,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F871,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F872,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F873,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F874,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F875,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F876,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F877,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F878,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F879,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F882,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F885,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F894,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F897,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F899,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F900,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F902,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F903,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F904,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F905,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F906,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F907,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F908,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F909,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F910,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F911,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F912,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F913,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F914,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F915,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F916,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F917,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F918,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F919,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F920,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F921,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F923,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F926,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F928,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F929,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F930,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F931,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F932,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F933,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F965,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F968,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1018,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1019,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1020,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1021,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1022,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1023,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1073,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1076,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1126,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1127,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1128,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1129,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1130,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1131,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1181,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1184,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1234,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1235,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1236,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1237,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1238,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1239,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1289,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1292,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1342,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1343,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1344,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1345,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1346,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1347,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1397,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1400,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1450,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1451,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1452,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1453,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1454,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1455,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1505,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1508,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1558,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1559,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1560,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1561,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1562,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1563,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1613,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1616,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1619,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1622,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1666,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1667,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1668,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1669,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1670,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1671,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1674,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1677,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1721,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1724,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1774,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1775,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1776,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1777,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1778,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1779,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1782,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1785,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1829,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1832,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1882,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1883,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1884,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1885,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1886,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1887,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1890,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1893,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1937,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1940,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1943,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1946,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1990,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1991,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1992,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1993,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1994,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1995,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F1998,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2001,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2045,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2048,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2098,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2099,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2100,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2101,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2102,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2103,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2106,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2109,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2153,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2156,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2206,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2207,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2208,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2209,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2210,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2211,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2214,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2217,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2312,ALL_NULL,100% missing values,Zero populated cells
+F2360,ALL_NULL,100% missing values,Zero populated cells
+F2406,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2455,ALL_NULL,100% missing values,Zero populated cells
+F2458,ALL_NULL,100% missing values,Zero populated cells
+F2552,ALL_NULL,100% missing values,Zero populated cells
+F2555,ALL_NULL,100% missing values,Zero populated cells
+F2600,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2603,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2607,ALL_NULL,100% missing values,Zero populated cells
+F2655,ALL_NULL,100% missing values,Zero populated cells
+F2707,ALL_NULL,100% missing values,Zero populated cells
+F2753,ALL_NULL,100% missing values,Zero populated cells
+F2756,ALL_NULL,100% missing values,Zero populated cells
+F2801,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2804,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2806,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2807,ALL_NULL,100% missing values,Zero populated cells
+F2808,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2809,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2810,ALL_NULL,100% missing values,Zero populated cells
+F2811,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2814,ALL_NULL,100% missing values,Zero populated cells
+F2860,ALL_NULL,100% missing values,Zero populated cells
+F2863,ALL_NULL,100% missing values,Zero populated cells
+F2908,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2911,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2913,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2914,ALL_NULL,100% missing values,Zero populated cells
+F2915,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2916,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2917,ALL_NULL,100% missing values,Zero populated cells
+F2918,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F2921,ALL_NULL,100% missing values,Zero populated cells
+F2924,ALL_NULL,100% missing values,Zero populated cells
+F2968,ALL_NULL,100% missing values,Zero populated cells
+F2971,ALL_NULL,100% missing values,Zero populated cells
+F3021,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3022,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3023,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3024,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3027,ALL_NULL,100% missing values,Zero populated cells
+F3030,ALL_NULL,100% missing values,Zero populated cells
+F3074,ALL_NULL,100% missing values,Zero populated cells
+F3077,ALL_NULL,100% missing values,Zero populated cells
+F3127,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3128,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3129,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3130,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3133,ALL_NULL,100% missing values,Zero populated cells
+F3179,ALL_NULL,100% missing values,Zero populated cells
+F3182,ALL_NULL,100% missing values,Zero populated cells
+F3230,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3233,ALL_NULL,100% missing values,Zero populated cells
+F3236,ALL_NULL,100% missing values,Zero populated cells
+F3240,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3243,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3338,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3341,ALL_NULL,100% missing values,Zero populated cells
+F3344,ALL_NULL,100% missing values,Zero populated cells
+F3348,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3351,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3395,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3398,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3449,ALL_NULL,100% missing values,Zero populated cells
+F3452,ALL_NULL,100% missing values,Zero populated cells
+F3456,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3459,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3503,ALL_NULL,100% missing values,Zero populated cells
+F3506,ALL_NULL,100% missing values,Zero populated cells
+F3557,ALL_NULL,100% missing values,Zero populated cells
+F3560,ALL_NULL,100% missing values,Zero populated cells
+F3564,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3567,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3665,ALL_NULL,100% missing values,Zero populated cells
+F3668,ALL_NULL,100% missing values,Zero populated cells
+F3672,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3675,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3719,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3722,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3773,ALL_NULL,100% missing values,Zero populated cells
+F3776,ALL_NULL,100% missing values,Zero populated cells
+F3780,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3783,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3875,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3876,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F3911,ZERO_VARIANCE,Single unique non-null value,Constant value across all 7265 records
+F7,HIGH_MISSINGNESS,Missing rate >= 90%,90.6% missing on dev partition
+F8,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F9,HIGH_MISSINGNESS,Missing rate >= 90%,92.1% missing on dev partition
+F10,HIGH_MISSINGNESS,Missing rate >= 90%,90.6% missing on dev partition
+F11,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F12,HIGH_MISSINGNESS,Missing rate >= 90%,92.1% missing on dev partition
+F36,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F39,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F42,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F45,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F48,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F51,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F72,HIGH_MISSINGNESS,Missing rate >= 90%,91.9% missing on dev partition
+F75,HIGH_MISSINGNESS,Missing rate >= 90%,91.9% missing on dev partition
+F77,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F78,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F79,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F80,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F81,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F82,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F83,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F84,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F86,HIGH_MISSINGNESS,Missing rate >= 90%,96.0% missing on dev partition
+F89,HIGH_MISSINGNESS,Missing rate >= 90%,96.0% missing on dev partition
+F92,HIGH_MISSINGNESS,Missing rate >= 90%,94.8% missing on dev partition
+F95,HIGH_MISSINGNESS,Missing rate >= 90%,94.8% missing on dev partition
+F104,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F107,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F134,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F137,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F140,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F143,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F146,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F149,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F170,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F173,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F175,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F177,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F178,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F180,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F187,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F188,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F190,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F191,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F194,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F197,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F200,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F203,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F212,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F215,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F242,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F245,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F248,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F251,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F254,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F257,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F278,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F281,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F283,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F284,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F285,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F286,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F287,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F288,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F289,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F291,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F292,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F295,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F298,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F301,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F304,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F312,HIGH_MISSINGNESS,Missing rate >= 90%,90.6% missing on dev partition
+F313,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F314,HIGH_MISSINGNESS,Missing rate >= 90%,92.1% missing on dev partition
+F315,HIGH_MISSINGNESS,Missing rate >= 90%,90.6% missing on dev partition
+F316,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F317,HIGH_MISSINGNESS,Missing rate >= 90%,92.1% missing on dev partition
+F341,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F344,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F347,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F350,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F353,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F356,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F377,HIGH_MISSINGNESS,Missing rate >= 90%,91.9% missing on dev partition
+F380,HIGH_MISSINGNESS,Missing rate >= 90%,91.9% missing on dev partition
+F382,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F383,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F384,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F385,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F386,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F387,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F388,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F389,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F391,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F392,HIGH_MISSINGNESS,Missing rate >= 90%,98.3% missing on dev partition
+F395,HIGH_MISSINGNESS,Missing rate >= 90%,96.0% missing on dev partition
+F398,HIGH_MISSINGNESS,Missing rate >= 90%,96.0% missing on dev partition
+F401,HIGH_MISSINGNESS,Missing rate >= 90%,94.8% missing on dev partition
+F404,HIGH_MISSINGNESS,Missing rate >= 90%,94.8% missing on dev partition
+F413,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F416,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F443,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F446,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F449,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F452,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F455,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F458,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F479,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F482,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F484,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F485,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F486,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F487,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F488,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F489,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F490,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F491,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F493,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F494,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F497,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F500,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F503,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F506,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F515,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F518,HIGH_MISSINGNESS,Missing rate >= 90%,90.4% missing on dev partition
+F545,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F548,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F551,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F554,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F557,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F560,HIGH_MISSINGNESS,Missing rate >= 90%,98.8% missing on dev partition
+F581,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F584,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F586,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F587,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F588,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F589,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F590,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F591,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F592,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F593,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F595,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F596,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F599,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F602,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F605,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F608,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F2237,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2238,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2239,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2240,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2241,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2242,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2265,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2266,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2267,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2268,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2269,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2271,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2274,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2276,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2277,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2278,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2279,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2280,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2281,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2301,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2304,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2306,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2307,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2308,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2309,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2310,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2311,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2313,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2314,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2316,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2317,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2319,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2320,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2322,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2323,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2325,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2326,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2333,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2334,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2335,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2336,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2337,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2338,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2365,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F2368,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2371,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2374,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F2377,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F2398,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F2401,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F2403,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2404,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2405,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2407,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2408,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2409,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2410,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2411,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2413,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F2416,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F2419,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2422,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2430,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2431,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2432,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2433,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2434,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2435,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2460,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2461,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2462,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2463,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2464,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2465,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2467,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2470,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2472,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2473,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2474,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2475,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2476,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2477,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2497,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2500,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2502,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2503,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2504,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2505,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2506,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2507,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2508,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2509,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2511,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2512,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2514,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2515,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2517,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2518,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2520,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2521,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2528,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2529,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2530,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2531,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2532,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2557,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2558,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2559,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2560,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2561,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2562,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2564,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2567,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2569,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2570,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2571,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2572,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2573,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2574,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2594,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2597,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2599,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2601,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2602,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2604,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2605,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2606,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2608,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2609,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2611,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2612,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2614,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2615,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2617,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2618,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2620,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2621,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2628,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2629,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2630,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2631,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2632,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2633,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2658,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F2661,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F2664,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2667,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2670,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F2673,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F2694,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F2697,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F2699,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2700,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F2701,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2702,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2703,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F2704,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F2705,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2706,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2708,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2709,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F2711,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F2714,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F2717,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2720,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2728,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2729,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2730,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2731,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2732,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2733,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2758,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2759,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2760,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2761,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2762,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2763,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2765,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2768,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2770,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2771,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2772,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2773,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2774,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2775,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2795,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2798,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2800,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2802,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2803,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2805,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2812,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2813,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2815,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2816,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2818,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2819,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2821,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2822,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2824,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2825,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2827,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2828,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2835,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2836,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2837,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2838,HIGH_MISSINGNESS,Missing rate >= 90%,93.9% missing on dev partition
+F2839,HIGH_MISSINGNESS,Missing rate >= 90%,97.2% missing on dev partition
+F2840,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F2865,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2866,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2867,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2868,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2869,HIGH_MISSINGNESS,Missing rate >= 90%,100.0% missing on dev partition
+F2870,HIGH_MISSINGNESS,Missing rate >= 90%,90.0% missing on dev partition
+F2872,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2875,HIGH_MISSINGNESS,Missing rate >= 90%,99.6% missing on dev partition
+F2877,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2878,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2879,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2880,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F2881,HIGH_MISSINGNESS,Missing rate >= 90%,99.5% missing on dev partition
+F2882,HIGH_MISSINGNESS,Missing rate >= 90%,95.1% missing on dev partition
+F2902,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2905,HIGH_MISSINGNESS,Missing rate >= 90%,94.0% missing on dev partition
+F2907,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2909,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2910,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2912,HIGH_MISSINGNESS,Missing rate >= 90%,97.4% missing on dev partition
+F2919,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2920,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2922,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2923,HIGH_MISSINGNESS,Missing rate >= 90%,99.1% missing on dev partition
+F2926,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2927,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2929,HIGH_MISSINGNESS,Missing rate >= 90%,97.0% missing on dev partition
+F2930,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F2932,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2933,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2935,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F2936,HIGH_MISSINGNESS,Missing rate >= 90%,91.7% missing on dev partition
+F2943,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2944,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2945,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2946,HIGH_MISSINGNESS,Missing rate >= 90%,91.2% missing on dev partition
+F2947,HIGH_MISSINGNESS,Missing rate >= 90%,95.2% missing on dev partition
+F2948,HIGH_MISSINGNESS,Missing rate >= 90%,92.5% missing on dev partition
+F2974,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F2977,HIGH_MISSINGNESS,Missing rate >= 90%,99.8% missing on dev partition
+F2980,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2983,HIGH_MISSINGNESS,Missing rate >= 90%,99.4% missing on dev partition
+F2986,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F2989,HIGH_MISSINGNESS,Missing rate >= 90%,99.3% missing on dev partition
+F3010,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F3013,HIGH_MISSINGNESS,Missing rate >= 90%,92.4% missing on dev partition
+F3015,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F3016,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F3017,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F3018,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F3019,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F3020,HIGH_MISSINGNESS,Missing rate >= 90%,96.3% missing on dev partition
+F3025,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F3026,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F3028,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F3029,HIGH_MISSINGNESS,Missing rate >= 90%,98.4% missing on dev partition
+F3032,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F3035,HIGH_MISSINGNESS,Missing rate >= 90%,96.2% missing on dev partition
+F3038,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F3041,HIGH_MISSINGNESS,Missing rate >= 90%,94.6% missing on dev partition
+F3050,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F3053,HIGH_MISSINGNESS,Missing rate >= 90%,90.7% missing on dev partition
+F3080,HIGH_MISSINGNESS,Missing rate >= 90%,99.7% missing on dev partition
+F3083,HIGH_MISSINGNESS,Missing rate >= 90%,99.7% missing on dev partition
+F3086,HIGH_MISSINGNESS,Missing rate >= 90%,99.2% missing on dev partition
+F3089,HIGH_MISSINGNESS,Missing rate >= 90%,99.2% missing on dev partition
+F3092,HIGH_MISSINGNESS,Missing rate >= 90%,98.7% missing on dev partition
+F3095,HIGH_MISSINGNESS,Missing rate >= 90%,98.7% missing on dev partition
+F3116,HIGH_MISSINGNESS,Missing rate >= 90%,90.5% missing on dev partition
+F3119,HIGH_MISSINGNESS,Missing rate >= 90%,90.5% missing on dev partition
+F3121,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F3122,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F3123,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F3124,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F3125,HIGH_MISSINGNESS,Missing rate >= 90%,99.9% missing on dev partition
+F3126,HIGH_MISSINGNESS,Missing rate >= 90%,94.7% missing on dev partition
+F3131,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F3132,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F3134,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F3135,HIGH_MISSINGNESS,Missing rate >= 90%,96.5% missing on dev partition
+F3137,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F3140,HIGH_MISSINGNESS,Missing rate >= 90%,95.0% missing on dev partition
+F3143,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F3146,HIGH_MISSINGNESS,Missing rate >= 90%,91.8% missing on dev partition
+F25,EXACT_DUPLICATE,Identical duplicate of F19,100% identical values including NaN positions
+F26,EXACT_DUPLICATE,Identical duplicate of F20,100% identical values including NaN positions
+F27,EXACT_DUPLICATE,Identical duplicate of F21,100% identical values including NaN positions
+F28,EXACT_DUPLICATE,Identical duplicate of F22,100% identical values including NaN positions
+F29,EXACT_DUPLICATE,Identical duplicate of F23,100% identical values including NaN positions
+F30,EXACT_DUPLICATE,Identical duplicate of F24,100% identical values including NaN positions
+F32,EXACT_DUPLICATE,Identical duplicate of F31,100% identical values including NaN positions
+F34,EXACT_DUPLICATE,Identical duplicate of F33,100% identical values including NaN positions
+F121,EXACT_DUPLICATE,Identical duplicate of F115,100% identical values including NaN positions
+F122,EXACT_DUPLICATE,Identical duplicate of F116,100% identical values including NaN positions
+F123,EXACT_DUPLICATE,Identical duplicate of F117,100% identical values including NaN positions
+F124,EXACT_DUPLICATE,Identical duplicate of F118,100% identical values including NaN positions
+F125,EXACT_DUPLICATE,Identical duplicate of F119,100% identical values including NaN positions
+F126,EXACT_DUPLICATE,Identical duplicate of F120,100% identical values including NaN positions
+F129,EXACT_DUPLICATE,Identical duplicate of F127,100% identical values including NaN positions
+F132,EXACT_DUPLICATE,Identical duplicate of F130,100% identical values including NaN positions
+F229,EXACT_DUPLICATE,Identical duplicate of F223,100% identical values including NaN positions
+F230,EXACT_DUPLICATE,Identical duplicate of F224,100% identical values including NaN positions
+F231,EXACT_DUPLICATE,Identical duplicate of F225,100% identical values including NaN positions
+F232,EXACT_DUPLICATE,Identical duplicate of F226,100% identical values including NaN positions
+F233,EXACT_DUPLICATE,Identical duplicate of F227,100% identical values including NaN positions
+F234,EXACT_DUPLICATE,Identical duplicate of F228,100% identical values including NaN positions
+F237,EXACT_DUPLICATE,Identical duplicate of F235,100% identical values including NaN positions
+F240,EXACT_DUPLICATE,Identical duplicate of F238,100% identical values including NaN positions
+F330,EXACT_DUPLICATE,Identical duplicate of F324,100% identical values including NaN positions
+F331,EXACT_DUPLICATE,Identical duplicate of F325,100% identical values including NaN positions
+F332,EXACT_DUPLICATE,Identical duplicate of F326,100% identical values including NaN positions
+F333,EXACT_DUPLICATE,Identical duplicate of F327,100% identical values including NaN positions
+F334,EXACT_DUPLICATE,Identical duplicate of F328,100% identical values including NaN positions
+F335,EXACT_DUPLICATE,Identical duplicate of F329,100% identical values including NaN positions
+F337,EXACT_DUPLICATE,Identical duplicate of F336,100% identical values including NaN positions
+F339,EXACT_DUPLICATE,Identical duplicate of F338,100% identical values including NaN positions
+F430,EXACT_DUPLICATE,Identical duplicate of F424,100% identical values including NaN positions
+F431,EXACT_DUPLICATE,Identical duplicate of F425,100% identical values including NaN positions
+F432,EXACT_DUPLICATE,Identical duplicate of F426,100% identical values including NaN positions
+F433,EXACT_DUPLICATE,Identical duplicate of F427,100% identical values including NaN positions
+F434,EXACT_DUPLICATE,Identical duplicate of F428,100% identical values including NaN positions
+F435,EXACT_DUPLICATE,Identical duplicate of F429,100% identical values including NaN positions
+F438,EXACT_DUPLICATE,Identical duplicate of F436,100% identical values including NaN positions
+F441,EXACT_DUPLICATE,Identical duplicate of F439,100% identical values including NaN positions
+F532,EXACT_DUPLICATE,Identical duplicate of F526,100% identical values including NaN positions
+F533,EXACT_DUPLICATE,Identical duplicate of F527,100% identical values including NaN positions
+F534,EXACT_DUPLICATE,Identical duplicate of F528,100% identical values including NaN positions
+F535,EXACT_DUPLICATE,Identical duplicate of F529,100% identical values including NaN positions
+F536,EXACT_DUPLICATE,Identical duplicate of F530,100% identical values including NaN positions
+F537,EXACT_DUPLICATE,Identical duplicate of F531,100% identical values including NaN positions
+F540,EXACT_DUPLICATE,Identical duplicate of F538,100% identical values including NaN positions
+F543,EXACT_DUPLICATE,Identical duplicate of F541,100% identical values including NaN positions
+F634,EXACT_DUPLICATE,Identical duplicate of F628,100% identical values including NaN positions
+F635,EXACT_DUPLICATE,Identical duplicate of F629,100% identical values including NaN positions
+F636,EXACT_DUPLICATE,Identical duplicate of F630,100% identical values including NaN positions
+F637,EXACT_DUPLICATE,Identical duplicate of F631,100% identical values including NaN positions
+F638,EXACT_DUPLICATE,Identical duplicate of F632,100% identical values including NaN positions
+F639,EXACT_DUPLICATE,Identical duplicate of F633,100% identical values including NaN positions
+F742,EXACT_DUPLICATE,Identical duplicate of F736,100% identical values including NaN positions
+F743,EXACT_DUPLICATE,Identical duplicate of F737,100% identical values including NaN positions
+F744,EXACT_DUPLICATE,Identical duplicate of F738,100% identical values including NaN positions
+F745,EXACT_DUPLICATE,Identical duplicate of F739,100% identical values including NaN positions
+F746,EXACT_DUPLICATE,Identical duplicate of F740,100% identical values including NaN positions
+F747,EXACT_DUPLICATE,Identical duplicate of F741,100% identical values including NaN positions
+F785,EXACT_DUPLICATE,Identical duplicate of F773,100% identical values including NaN positions
+F788,EXACT_DUPLICATE,Identical duplicate of F776,100% identical values including NaN positions
+F850,EXACT_DUPLICATE,Identical duplicate of F844,100% identical values including NaN positions
+F851,EXACT_DUPLICATE,Identical duplicate of F845,100% identical values including NaN positions
+F852,EXACT_DUPLICATE,Identical duplicate of F846,100% identical values including NaN positions
+F853,EXACT_DUPLICATE,Identical duplicate of F847,100% identical values including NaN positions
+F854,EXACT_DUPLICATE,Identical duplicate of F848,100% identical values including NaN positions
+F855,EXACT_DUPLICATE,Identical duplicate of F849,100% identical values including NaN positions
+F864,EXACT_DUPLICATE,Identical duplicate of F862,100% identical values including NaN positions
+F867,EXACT_DUPLICATE,Identical duplicate of F865,100% identical values including NaN positions
+F892,EXACT_DUPLICATE,Identical duplicate of F881,100% identical values including NaN positions
+F893,EXACT_DUPLICATE,Identical duplicate of F881,100% identical values including NaN positions
+F895,EXACT_DUPLICATE,Identical duplicate of F884,100% identical values including NaN positions
+F896,EXACT_DUPLICATE,Identical duplicate of F884,100% identical values including NaN positions
+F958,EXACT_DUPLICATE,Identical duplicate of F952,100% identical values including NaN positions
+F959,EXACT_DUPLICATE,Identical duplicate of F953,100% identical values including NaN positions
+F960,EXACT_DUPLICATE,Identical duplicate of F954,100% identical values including NaN positions
+F961,EXACT_DUPLICATE,Identical duplicate of F955,100% identical values including NaN positions
+F962,EXACT_DUPLICATE,Identical duplicate of F956,100% identical values including NaN positions
+F963,EXACT_DUPLICATE,Identical duplicate of F957,100% identical values including NaN positions
+F966,EXACT_DUPLICATE,Identical duplicate of F964,100% identical values including NaN positions
+F969,EXACT_DUPLICATE,Identical duplicate of F967,100% identical values including NaN positions
+F1014,EXACT_DUPLICATE,Identical duplicate of F1012,100% identical values including NaN positions
+F1017,EXACT_DUPLICATE,Identical duplicate of F1015,100% identical values including NaN positions
+F1066,EXACT_DUPLICATE,Identical duplicate of F1060,100% identical values including NaN positions
+F1067,EXACT_DUPLICATE,Identical duplicate of F1061,100% identical values including NaN positions
+F1068,EXACT_DUPLICATE,Identical duplicate of F1062,100% identical values including NaN positions
+F1069,EXACT_DUPLICATE,Identical duplicate of F1063,100% identical values including NaN positions
+F1070,EXACT_DUPLICATE,Identical duplicate of F1064,100% identical values including NaN positions
+F1071,EXACT_DUPLICATE,Identical duplicate of F1065,100% identical values including NaN positions
+F1074,EXACT_DUPLICATE,Identical duplicate of F1072,100% identical values including NaN positions
+F1077,EXACT_DUPLICATE,Identical duplicate of F1075,100% identical values including NaN positions
+F1122,EXACT_DUPLICATE,Identical duplicate of F1120,100% identical values including NaN positions
+F1125,EXACT_DUPLICATE,Identical duplicate of F1123,100% identical values including NaN positions
+F1174,EXACT_DUPLICATE,Identical duplicate of F1168,100% identical values including NaN positions
+F1175,EXACT_DUPLICATE,Identical duplicate of F1169,100% identical values including NaN positions
+F1176,EXACT_DUPLICATE,Identical duplicate of F1170,100% identical values including NaN positions
+F1177,EXACT_DUPLICATE,Identical duplicate of F1171,100% identical values including NaN positions
+F1178,EXACT_DUPLICATE,Identical duplicate of F1172,100% identical values including NaN positions
+F1179,EXACT_DUPLICATE,Identical duplicate of F1173,100% identical values including NaN positions
+F1182,EXACT_DUPLICATE,Identical duplicate of F1180,100% identical values including NaN positions
+F1185,EXACT_DUPLICATE,Identical duplicate of F1183,100% identical values including NaN positions
+F1230,EXACT_DUPLICATE,Identical duplicate of F1228,100% identical values including NaN positions
+F1233,EXACT_DUPLICATE,Identical duplicate of F1231,100% identical values including NaN positions
+F1264,EXACT_DUPLICATE,Identical duplicate of F940,100% identical values including NaN positions
+F1265,EXACT_DUPLICATE,Identical duplicate of F941,100% identical values including NaN positions
+F1266,EXACT_DUPLICATE,Identical duplicate of F942,100% identical values including NaN positions
+F1267,EXACT_DUPLICATE,Identical duplicate of F943,100% identical values including NaN positions
+F1268,EXACT_DUPLICATE,Identical duplicate of F944,100% identical values including NaN positions
+F1269,EXACT_DUPLICATE,Identical duplicate of F945,100% identical values including NaN positions
+F1282,EXACT_DUPLICATE,Identical duplicate of F1276,100% identical values including NaN positions
+F1283,EXACT_DUPLICATE,Identical duplicate of F1277,100% identical values including NaN positions
+F1284,EXACT_DUPLICATE,Identical duplicate of F1278,100% identical values including NaN positions
+F1285,EXACT_DUPLICATE,Identical duplicate of F1279,100% identical values including NaN positions
+F1286,EXACT_DUPLICATE,Identical duplicate of F1280,100% identical values including NaN positions
+F1287,EXACT_DUPLICATE,Identical duplicate of F1281,100% identical values including NaN positions
+F1288,EXACT_DUPLICATE,Identical duplicate of F964,100% identical values including NaN positions
+F1290,EXACT_DUPLICATE,Identical duplicate of F964,100% identical values including NaN positions
+F1291,EXACT_DUPLICATE,Identical duplicate of F967,100% identical values including NaN positions
+F1293,EXACT_DUPLICATE,Identical duplicate of F967,100% identical values including NaN positions
+F1294,EXACT_DUPLICATE,Identical duplicate of F970,100% identical values including NaN positions
+F1295,EXACT_DUPLICATE,Identical duplicate of F971,100% identical values including NaN positions
+F1296,EXACT_DUPLICATE,Identical duplicate of F972,100% identical values including NaN positions
+F1297,EXACT_DUPLICATE,Identical duplicate of F973,100% identical values including NaN positions
+F1298,EXACT_DUPLICATE,Identical duplicate of F974,100% identical values including NaN positions
+F1299,EXACT_DUPLICATE,Identical duplicate of F975,100% identical values including NaN positions
+F1300,EXACT_DUPLICATE,Identical duplicate of F976,100% identical values including NaN positions
+F1301,EXACT_DUPLICATE,Identical duplicate of F977,100% identical values including NaN positions
+F1302,EXACT_DUPLICATE,Identical duplicate of F978,100% identical values including NaN positions
+F1303,EXACT_DUPLICATE,Identical duplicate of F979,100% identical values including NaN positions
+F1304,EXACT_DUPLICATE,Identical duplicate of F980,100% identical values including NaN positions
+F1305,EXACT_DUPLICATE,Identical duplicate of F981,100% identical values including NaN positions
+F1306,EXACT_DUPLICATE,Identical duplicate of F982,100% identical values including NaN positions
+F1307,EXACT_DUPLICATE,Identical duplicate of F983,100% identical values including NaN positions
+F1308,EXACT_DUPLICATE,Identical duplicate of F984,100% identical values including NaN positions
+F1309,EXACT_DUPLICATE,Identical duplicate of F985,100% identical values including NaN positions
+F1310,EXACT_DUPLICATE,Identical duplicate of F986,100% identical values including NaN positions
+F1311,EXACT_DUPLICATE,Identical duplicate of F987,100% identical values including NaN positions
+F1336,EXACT_DUPLICATE,Identical duplicate of F1012,100% identical values including NaN positions
+F1337,EXACT_DUPLICATE,Identical duplicate of F1013,100% identical values including NaN positions
+F1338,EXACT_DUPLICATE,Identical duplicate of F1012,100% identical values including NaN positions
+F1339,EXACT_DUPLICATE,Identical duplicate of F1015,100% identical values including NaN positions
+F1340,EXACT_DUPLICATE,Identical duplicate of F1016,100% identical values including NaN positions
+F1341,EXACT_DUPLICATE,Identical duplicate of F1015,100% identical values including NaN positions
+F1348,EXACT_DUPLICATE,Identical duplicate of F1024,100% identical values including NaN positions
+F1349,EXACT_DUPLICATE,Identical duplicate of F1025,100% identical values including NaN positions
+F1350,EXACT_DUPLICATE,Identical duplicate of F1026,100% identical values including NaN positions
+F1351,EXACT_DUPLICATE,Identical duplicate of F1027,100% identical values including NaN positions
+F1352,EXACT_DUPLICATE,Identical duplicate of F1028,100% identical values including NaN positions
+F1353,EXACT_DUPLICATE,Identical duplicate of F1029,100% identical values including NaN positions
+F1372,EXACT_DUPLICATE,Identical duplicate of F1048,100% identical values including NaN positions
+F1373,EXACT_DUPLICATE,Identical duplicate of F1049,100% identical values including NaN positions
+F1374,EXACT_DUPLICATE,Identical duplicate of F1050,100% identical values including NaN positions
+F1375,EXACT_DUPLICATE,Identical duplicate of F1051,100% identical values including NaN positions
+F1376,EXACT_DUPLICATE,Identical duplicate of F1052,100% identical values including NaN positions
+F1377,EXACT_DUPLICATE,Identical duplicate of F1053,100% identical values including NaN positions
+F1390,EXACT_DUPLICATE,Identical duplicate of F1384,100% identical values including NaN positions
+F1391,EXACT_DUPLICATE,Identical duplicate of F1385,100% identical values including NaN positions
+F1392,EXACT_DUPLICATE,Identical duplicate of F1386,100% identical values including NaN positions
+F1393,EXACT_DUPLICATE,Identical duplicate of F1387,100% identical values including NaN positions
+F1394,EXACT_DUPLICATE,Identical duplicate of F1388,100% identical values including NaN positions
+F1395,EXACT_DUPLICATE,Identical duplicate of F1389,100% identical values including NaN positions
+F1396,EXACT_DUPLICATE,Identical duplicate of F1072,100% identical values including NaN positions
+F1398,EXACT_DUPLICATE,Identical duplicate of F1072,100% identical values including NaN positions
+F1399,EXACT_DUPLICATE,Identical duplicate of F1075,100% identical values including NaN positions
+F1401,EXACT_DUPLICATE,Identical duplicate of F1075,100% identical values including NaN positions
+F1402,EXACT_DUPLICATE,Identical duplicate of F1078,100% identical values including NaN positions
+F1403,EXACT_DUPLICATE,Identical duplicate of F1079,100% identical values including NaN positions
+F1404,EXACT_DUPLICATE,Identical duplicate of F1080,100% identical values including NaN positions
+F1405,EXACT_DUPLICATE,Identical duplicate of F1081,100% identical values including NaN positions
+F1406,EXACT_DUPLICATE,Identical duplicate of F1082,100% identical values including NaN positions
+F1407,EXACT_DUPLICATE,Identical duplicate of F1083,100% identical values including NaN positions
+F1408,EXACT_DUPLICATE,Identical duplicate of F1084,100% identical values including NaN positions
+F1409,EXACT_DUPLICATE,Identical duplicate of F1085,100% identical values including NaN positions
+F1410,EXACT_DUPLICATE,Identical duplicate of F1086,100% identical values including NaN positions
+F1411,EXACT_DUPLICATE,Identical duplicate of F1087,100% identical values including NaN positions
+F1412,EXACT_DUPLICATE,Identical duplicate of F1088,100% identical values including NaN positions
+F1413,EXACT_DUPLICATE,Identical duplicate of F1089,100% identical values including NaN positions
+F1414,EXACT_DUPLICATE,Identical duplicate of F1090,100% identical values including NaN positions
+F1415,EXACT_DUPLICATE,Identical duplicate of F1091,100% identical values including NaN positions
+F1416,EXACT_DUPLICATE,Identical duplicate of F1092,100% identical values including NaN positions
+F1417,EXACT_DUPLICATE,Identical duplicate of F1093,100% identical values including NaN positions
+F1418,EXACT_DUPLICATE,Identical duplicate of F1094,100% identical values including NaN positions
+F1419,EXACT_DUPLICATE,Identical duplicate of F1095,100% identical values including NaN positions
+F1439,EXACT_DUPLICATE,Identical duplicate of F1115,100% identical values including NaN positions
+F1442,EXACT_DUPLICATE,Identical duplicate of F1118,100% identical values including NaN positions
+F1444,EXACT_DUPLICATE,Identical duplicate of F1120,100% identical values including NaN positions
+F1445,EXACT_DUPLICATE,Identical duplicate of F1121,100% identical values including NaN positions
+F1446,EXACT_DUPLICATE,Identical duplicate of F1120,100% identical values including NaN positions
+F1447,EXACT_DUPLICATE,Identical duplicate of F1123,100% identical values including NaN positions
+F1448,EXACT_DUPLICATE,Identical duplicate of F1124,100% identical values including NaN positions
+F1449,EXACT_DUPLICATE,Identical duplicate of F1123,100% identical values including NaN positions
+F1456,EXACT_DUPLICATE,Identical duplicate of F1132,100% identical values including NaN positions
+F1457,EXACT_DUPLICATE,Identical duplicate of F1133,100% identical values including NaN positions
+F1458,EXACT_DUPLICATE,Identical duplicate of F1134,100% identical values including NaN positions
+F1459,EXACT_DUPLICATE,Identical duplicate of F1135,100% identical values including NaN positions
+F1460,EXACT_DUPLICATE,Identical duplicate of F1136,100% identical values including NaN positions
+F1461,EXACT_DUPLICATE,Identical duplicate of F1137,100% identical values including NaN positions
+F1468,EXACT_DUPLICATE,Identical duplicate of F1144,100% identical values including NaN positions
+F1469,EXACT_DUPLICATE,Identical duplicate of F1145,100% identical values including NaN positions
+F1470,EXACT_DUPLICATE,Identical duplicate of F1146,100% identical values including NaN positions
+F1471,EXACT_DUPLICATE,Identical duplicate of F1147,100% identical values including NaN positions
+F1472,EXACT_DUPLICATE,Identical duplicate of F1148,100% identical values including NaN positions
+F1473,EXACT_DUPLICATE,Identical duplicate of F1149,100% identical values including NaN positions
+F1480,EXACT_DUPLICATE,Identical duplicate of F1156,100% identical values including NaN positions
+F1481,EXACT_DUPLICATE,Identical duplicate of F1157,100% identical values including NaN positions
+F1482,EXACT_DUPLICATE,Identical duplicate of F1158,100% identical values including NaN positions
+F1483,EXACT_DUPLICATE,Identical duplicate of F1159,100% identical values including NaN positions
+F1484,EXACT_DUPLICATE,Identical duplicate of F1160,100% identical values including NaN positions
+F1485,EXACT_DUPLICATE,Identical duplicate of F1161,100% identical values including NaN positions
+F1498,EXACT_DUPLICATE,Identical duplicate of F1492,100% identical values including NaN positions
+F1499,EXACT_DUPLICATE,Identical duplicate of F1493,100% identical values including NaN positions
+F1500,EXACT_DUPLICATE,Identical duplicate of F1494,100% identical values including NaN positions
+F1501,EXACT_DUPLICATE,Identical duplicate of F1495,100% identical values including NaN positions
+F1502,EXACT_DUPLICATE,Identical duplicate of F1496,100% identical values including NaN positions
+F1503,EXACT_DUPLICATE,Identical duplicate of F1497,100% identical values including NaN positions
+F1504,EXACT_DUPLICATE,Identical duplicate of F1180,100% identical values including NaN positions
+F1506,EXACT_DUPLICATE,Identical duplicate of F1180,100% identical values including NaN positions
+F1507,EXACT_DUPLICATE,Identical duplicate of F1183,100% identical values including NaN positions
+F1509,EXACT_DUPLICATE,Identical duplicate of F1183,100% identical values including NaN positions
+F1511,EXACT_DUPLICATE,Identical duplicate of F1187,100% identical values including NaN positions
+F1514,EXACT_DUPLICATE,Identical duplicate of F1190,100% identical values including NaN positions
+F1516,EXACT_DUPLICATE,Identical duplicate of F1192,100% identical values including NaN positions
+F1517,EXACT_DUPLICATE,Identical duplicate of F1193,100% identical values including NaN positions
+F1518,EXACT_DUPLICATE,Identical duplicate of F1194,100% identical values including NaN positions
+F1519,EXACT_DUPLICATE,Identical duplicate of F1195,100% identical values including NaN positions
+F1520,EXACT_DUPLICATE,Identical duplicate of F1196,100% identical values including NaN positions
+F1521,EXACT_DUPLICATE,Identical duplicate of F1197,100% identical values including NaN positions
+F1522,EXACT_DUPLICATE,Identical duplicate of F1198,100% identical values including NaN positions
+F1523,EXACT_DUPLICATE,Identical duplicate of F1199,100% identical values including NaN positions
+F1524,EXACT_DUPLICATE,Identical duplicate of F1200,100% identical values including NaN positions
+F1525,EXACT_DUPLICATE,Identical duplicate of F1201,100% identical values including NaN positions
+F1526,EXACT_DUPLICATE,Identical duplicate of F1202,100% identical values including NaN positions
+F1527,EXACT_DUPLICATE,Identical duplicate of F1203,100% identical values including NaN positions
+F1530,EXACT_DUPLICATE,Identical duplicate of F1206,100% identical values including NaN positions
+F1533,EXACT_DUPLICATE,Identical duplicate of F1209,100% identical values including NaN positions
+F1542,EXACT_DUPLICATE,Identical duplicate of F1218,100% identical values including NaN positions
+F1545,EXACT_DUPLICATE,Identical duplicate of F1221,100% identical values including NaN positions
+F1547,EXACT_DUPLICATE,Identical duplicate of F1223,100% identical values including NaN positions
+F1548,EXACT_DUPLICATE,Identical duplicate of F1224,100% identical values including NaN positions
+F1550,EXACT_DUPLICATE,Identical duplicate of F1226,100% identical values including NaN positions
+F1551,EXACT_DUPLICATE,Identical duplicate of F1227,100% identical values including NaN positions
+F1552,EXACT_DUPLICATE,Identical duplicate of F1228,100% identical values including NaN positions
+F1553,EXACT_DUPLICATE,Identical duplicate of F1229,100% identical values including NaN positions
+F1554,EXACT_DUPLICATE,Identical duplicate of F1228,100% identical values including NaN positions
+F1555,EXACT_DUPLICATE,Identical duplicate of F1231,100% identical values including NaN positions
+F1556,EXACT_DUPLICATE,Identical duplicate of F1232,100% identical values including NaN positions
+F1557,EXACT_DUPLICATE,Identical duplicate of F1231,100% identical values including NaN positions
+F1564,EXACT_DUPLICATE,Identical duplicate of F1240,100% identical values including NaN positions
+F1565,EXACT_DUPLICATE,Identical duplicate of F1241,100% identical values including NaN positions
+F1566,EXACT_DUPLICATE,Identical duplicate of F1242,100% identical values including NaN positions
+F1567,EXACT_DUPLICATE,Identical duplicate of F1243,100% identical values including NaN positions
+F1568,EXACT_DUPLICATE,Identical duplicate of F1244,100% identical values including NaN positions
+F1569,EXACT_DUPLICATE,Identical duplicate of F1245,100% identical values including NaN positions
+F1571,EXACT_DUPLICATE,Identical duplicate of F1247,100% identical values including NaN positions
+F1574,EXACT_DUPLICATE,Identical duplicate of F1250,100% identical values including NaN positions
+F1576,EXACT_DUPLICATE,Identical duplicate of F1252,100% identical values including NaN positions
+F1577,EXACT_DUPLICATE,Identical duplicate of F1253,100% identical values including NaN positions
+F1578,EXACT_DUPLICATE,Identical duplicate of F1254,100% identical values including NaN positions
+F1579,EXACT_DUPLICATE,Identical duplicate of F1255,100% identical values including NaN positions
+F1580,EXACT_DUPLICATE,Identical duplicate of F1256,100% identical values including NaN positions
+F1581,EXACT_DUPLICATE,Identical duplicate of F1257,100% identical values including NaN positions
+F1606,EXACT_DUPLICATE,Identical duplicate of F1600,100% identical values including NaN positions
+F1607,EXACT_DUPLICATE,Identical duplicate of F1601,100% identical values including NaN positions
+F1608,EXACT_DUPLICATE,Identical duplicate of F1602,100% identical values including NaN positions
+F1609,EXACT_DUPLICATE,Identical duplicate of F1603,100% identical values including NaN positions
+F1610,EXACT_DUPLICATE,Identical duplicate of F1604,100% identical values including NaN positions
+F1611,EXACT_DUPLICATE,Identical duplicate of F1605,100% identical values including NaN positions
+F1614,EXACT_DUPLICATE,Identical duplicate of F1612,100% identical values including NaN positions
+F1617,EXACT_DUPLICATE,Identical duplicate of F1615,100% identical values including NaN positions
+F1620,EXACT_DUPLICATE,Identical duplicate of F1618,100% identical values including NaN positions
+F1623,EXACT_DUPLICATE,Identical duplicate of F1621,100% identical values including NaN positions
+F1673,EXACT_DUPLICATE,Identical duplicate of F1672,100% identical values including NaN positions
+F1676,EXACT_DUPLICATE,Identical duplicate of F1675,100% identical values including NaN positions
+F1714,EXACT_DUPLICATE,Identical duplicate of F1708,100% identical values including NaN positions
+F1715,EXACT_DUPLICATE,Identical duplicate of F1709,100% identical values including NaN positions
+F1716,EXACT_DUPLICATE,Identical duplicate of F1710,100% identical values including NaN positions
+F1717,EXACT_DUPLICATE,Identical duplicate of F1711,100% identical values including NaN positions
+F1718,EXACT_DUPLICATE,Identical duplicate of F1712,100% identical values including NaN positions
+F1719,EXACT_DUPLICATE,Identical duplicate of F1713,100% identical values including NaN positions
+F1722,EXACT_DUPLICATE,Identical duplicate of F1720,100% identical values including NaN positions
+F1725,EXACT_DUPLICATE,Identical duplicate of F1723,100% identical values including NaN positions
+F1781,EXACT_DUPLICATE,Identical duplicate of F1780,100% identical values including NaN positions
+F1784,EXACT_DUPLICATE,Identical duplicate of F1783,100% identical values including NaN positions
+F1822,EXACT_DUPLICATE,Identical duplicate of F1816,100% identical values including NaN positions
+F1823,EXACT_DUPLICATE,Identical duplicate of F1817,100% identical values including NaN positions
+F1824,EXACT_DUPLICATE,Identical duplicate of F1818,100% identical values including NaN positions
+F1825,EXACT_DUPLICATE,Identical duplicate of F1819,100% identical values including NaN positions
+F1826,EXACT_DUPLICATE,Identical duplicate of F1820,100% identical values including NaN positions
+F1827,EXACT_DUPLICATE,Identical duplicate of F1821,100% identical values including NaN positions
+F1830,EXACT_DUPLICATE,Identical duplicate of F1828,100% identical values including NaN positions
+F1833,EXACT_DUPLICATE,Identical duplicate of F1831,100% identical values including NaN positions
+F1889,EXACT_DUPLICATE,Identical duplicate of F1888,100% identical values including NaN positions
+F1892,EXACT_DUPLICATE,Identical duplicate of F1891,100% identical values including NaN positions
+F1930,EXACT_DUPLICATE,Identical duplicate of F1924,100% identical values including NaN positions
+F1931,EXACT_DUPLICATE,Identical duplicate of F1925,100% identical values including NaN positions
+F1932,EXACT_DUPLICATE,Identical duplicate of F1926,100% identical values including NaN positions
+F1933,EXACT_DUPLICATE,Identical duplicate of F1927,100% identical values including NaN positions
+F1934,EXACT_DUPLICATE,Identical duplicate of F1928,100% identical values including NaN positions
+F1935,EXACT_DUPLICATE,Identical duplicate of F1929,100% identical values including NaN positions
+F1938,EXACT_DUPLICATE,Identical duplicate of F1936,100% identical values including NaN positions
+F1941,EXACT_DUPLICATE,Identical duplicate of F1939,100% identical values including NaN positions
+F1944,EXACT_DUPLICATE,Identical duplicate of F1942,100% identical values including NaN positions
+F1947,EXACT_DUPLICATE,Identical duplicate of F1945,100% identical values including NaN positions
+F1997,EXACT_DUPLICATE,Identical duplicate of F1996,100% identical values including NaN positions
+F2000,EXACT_DUPLICATE,Identical duplicate of F1999,100% identical values including NaN positions
+F2038,EXACT_DUPLICATE,Identical duplicate of F2032,100% identical values including NaN positions
+F2039,EXACT_DUPLICATE,Identical duplicate of F2033,100% identical values including NaN positions
+F2040,EXACT_DUPLICATE,Identical duplicate of F2034,100% identical values including NaN positions
+F2041,EXACT_DUPLICATE,Identical duplicate of F2035,100% identical values including NaN positions
+F2042,EXACT_DUPLICATE,Identical duplicate of F2036,100% identical values including NaN positions
+F2043,EXACT_DUPLICATE,Identical duplicate of F2037,100% identical values including NaN positions
+F2046,EXACT_DUPLICATE,Identical duplicate of F2044,100% identical values including NaN positions
+F2049,EXACT_DUPLICATE,Identical duplicate of F2047,100% identical values including NaN positions
+F2105,EXACT_DUPLICATE,Identical duplicate of F2104,100% identical values including NaN positions
+F2108,EXACT_DUPLICATE,Identical duplicate of F2107,100% identical values including NaN positions
+F2146,EXACT_DUPLICATE,Identical duplicate of F2140,100% identical values including NaN positions
+F2147,EXACT_DUPLICATE,Identical duplicate of F2141,100% identical values including NaN positions
+F2148,EXACT_DUPLICATE,Identical duplicate of F2142,100% identical values including NaN positions
+F2149,EXACT_DUPLICATE,Identical duplicate of F2143,100% identical values including NaN positions
+F2150,EXACT_DUPLICATE,Identical duplicate of F2144,100% identical values including NaN positions
+F2151,EXACT_DUPLICATE,Identical duplicate of F2145,100% identical values including NaN positions
+F2154,EXACT_DUPLICATE,Identical duplicate of F2152,100% identical values including NaN positions
+F2157,EXACT_DUPLICATE,Identical duplicate of F2155,100% identical values including NaN positions
+F2213,EXACT_DUPLICATE,Identical duplicate of F2212,100% identical values including NaN positions
+F2216,EXACT_DUPLICATE,Identical duplicate of F2215,100% identical values including NaN positions
+F2255,EXACT_DUPLICATE,Identical duplicate of F2249,100% identical values including NaN positions
+F2256,EXACT_DUPLICATE,Identical duplicate of F2250,100% identical values including NaN positions
+F2257,EXACT_DUPLICATE,Identical duplicate of F2251,100% identical values including NaN positions
+F2258,EXACT_DUPLICATE,Identical duplicate of F2252,100% identical values including NaN positions
+F2259,EXACT_DUPLICATE,Identical duplicate of F2253,100% identical values including NaN positions
+F2260,EXACT_DUPLICATE,Identical duplicate of F2254,100% identical values including NaN positions
+F2262,EXACT_DUPLICATE,Identical duplicate of F2261,100% identical values including NaN positions
+F2264,EXACT_DUPLICATE,Identical duplicate of F2263,100% identical values including NaN positions
+F2351,EXACT_DUPLICATE,Identical duplicate of F2345,100% identical values including NaN positions
+F2352,EXACT_DUPLICATE,Identical duplicate of F2346,100% identical values including NaN positions
+F2353,EXACT_DUPLICATE,Identical duplicate of F2347,100% identical values including NaN positions
+F2354,EXACT_DUPLICATE,Identical duplicate of F2348,100% identical values including NaN positions
+F2355,EXACT_DUPLICATE,Identical duplicate of F2349,100% identical values including NaN positions
+F2356,EXACT_DUPLICATE,Identical duplicate of F2350,100% identical values including NaN positions
+F2358,EXACT_DUPLICATE,Identical duplicate of F2357,100% identical values including NaN positions
+F2361,EXACT_DUPLICATE,Identical duplicate of F2359,100% identical values including NaN positions
+F2448,EXACT_DUPLICATE,Identical duplicate of F2442,100% identical values including NaN positions
+F2449,EXACT_DUPLICATE,Identical duplicate of F2443,100% identical values including NaN positions
+F2450,EXACT_DUPLICATE,Identical duplicate of F2444,100% identical values including NaN positions
+F2451,EXACT_DUPLICATE,Identical duplicate of F2445,100% identical values including NaN positions
+F2452,EXACT_DUPLICATE,Identical duplicate of F2446,100% identical values including NaN positions
+F2453,EXACT_DUPLICATE,Identical duplicate of F2447,100% identical values including NaN positions
+F2456,EXACT_DUPLICATE,Identical duplicate of F2454,100% identical values including NaN positions
+F2459,EXACT_DUPLICATE,Identical duplicate of F2457,100% identical values including NaN positions
+F2545,EXACT_DUPLICATE,Identical duplicate of F2539,100% identical values including NaN positions
+F2546,EXACT_DUPLICATE,Identical duplicate of F2540,100% identical values including NaN positions
+F2547,EXACT_DUPLICATE,Identical duplicate of F2541,100% identical values including NaN positions
+F2548,EXACT_DUPLICATE,Identical duplicate of F2542,100% identical values including NaN positions
+F2549,EXACT_DUPLICATE,Identical duplicate of F2543,100% identical values including NaN positions
+F2550,EXACT_DUPLICATE,Identical duplicate of F2544,100% identical values including NaN positions
+F2553,EXACT_DUPLICATE,Identical duplicate of F2551,100% identical values including NaN positions
+F2556,EXACT_DUPLICATE,Identical duplicate of F2554,100% identical values including NaN positions
+F2646,EXACT_DUPLICATE,Identical duplicate of F2640,100% identical values including NaN positions
+F2647,EXACT_DUPLICATE,Identical duplicate of F2641,100% identical values including NaN positions
+F2648,EXACT_DUPLICATE,Identical duplicate of F2642,100% identical values including NaN positions
+F2649,EXACT_DUPLICATE,Identical duplicate of F2643,100% identical values including NaN positions
+F2650,EXACT_DUPLICATE,Identical duplicate of F2644,100% identical values including NaN positions
+F2651,EXACT_DUPLICATE,Identical duplicate of F2645,100% identical values including NaN positions
+F2653,EXACT_DUPLICATE,Identical duplicate of F2652,100% identical values including NaN positions
+F2656,EXACT_DUPLICATE,Identical duplicate of F2654,100% identical values including NaN positions
+F2746,EXACT_DUPLICATE,Identical duplicate of F2740,100% identical values including NaN positions
+F2747,EXACT_DUPLICATE,Identical duplicate of F2741,100% identical values including NaN positions
+F2748,EXACT_DUPLICATE,Identical duplicate of F2742,100% identical values including NaN positions
+F2749,EXACT_DUPLICATE,Identical duplicate of F2743,100% identical values including NaN positions
+F2750,EXACT_DUPLICATE,Identical duplicate of F2744,100% identical values including NaN positions
+F2751,EXACT_DUPLICATE,Identical duplicate of F2745,100% identical values including NaN positions
+F2754,EXACT_DUPLICATE,Identical duplicate of F2752,100% identical values including NaN positions
+F2757,EXACT_DUPLICATE,Identical duplicate of F2755,100% identical values including NaN positions
+F2832,EXACT_DUPLICATE,Identical duplicate of F2829,100% identical values including NaN positions
+F2833,EXACT_DUPLICATE,Identical duplicate of F2830,100% identical values including NaN positions
+F2834,EXACT_DUPLICATE,Identical duplicate of F2831,100% identical values including NaN positions
+F2844,EXACT_DUPLICATE,Identical duplicate of F2841,100% identical values including NaN positions
+F2845,EXACT_DUPLICATE,Identical duplicate of F2842,100% identical values including NaN positions
+F2846,EXACT_DUPLICATE,Identical duplicate of F2843,100% identical values including NaN positions
+F2850,EXACT_DUPLICATE,Identical duplicate of F2847,100% identical values including NaN positions
+F2851,EXACT_DUPLICATE,Identical duplicate of F2848,100% identical values including NaN positions
+F2852,EXACT_DUPLICATE,Identical duplicate of F2849,100% identical values including NaN positions
+F2853,EXACT_DUPLICATE,Identical duplicate of F2847,100% identical values including NaN positions
+F2854,EXACT_DUPLICATE,Identical duplicate of F2848,100% identical values including NaN positions
+F2855,EXACT_DUPLICATE,Identical duplicate of F2849,100% identical values including NaN positions
+F2856,EXACT_DUPLICATE,Identical duplicate of F2847,100% identical values including NaN positions
+F2857,EXACT_DUPLICATE,Identical duplicate of F2848,100% identical values including NaN positions
+F2858,EXACT_DUPLICATE,Identical duplicate of F2849,100% identical values including NaN positions
+F2861,EXACT_DUPLICATE,Identical duplicate of F2859,100% identical values including NaN positions
+F2862,EXACT_DUPLICATE,Identical duplicate of F2859,100% identical values including NaN positions
+F2864,EXACT_DUPLICATE,Identical duplicate of F2859,100% identical values including NaN positions
+F2874,EXACT_DUPLICATE,Identical duplicate of F2871,100% identical values including NaN positions
+F2876,EXACT_DUPLICATE,Identical duplicate of F2873,100% identical values including NaN positions
+F2886,EXACT_DUPLICATE,Identical duplicate of F2883,100% identical values including NaN positions
+F2887,EXACT_DUPLICATE,Identical duplicate of F2884,100% identical values including NaN positions
+F2888,EXACT_DUPLICATE,Identical duplicate of F2885,100% identical values including NaN positions
+F2892,EXACT_DUPLICATE,Identical duplicate of F2889,100% identical values including NaN positions
+F2893,EXACT_DUPLICATE,Identical duplicate of F2890,100% identical values including NaN positions
+F2894,EXACT_DUPLICATE,Identical duplicate of F2891,100% identical values including NaN positions
+F2898,EXACT_DUPLICATE,Identical duplicate of F2895,100% identical values including NaN positions
+F2899,EXACT_DUPLICATE,Identical duplicate of F2896,100% identical values including NaN positions
+F2900,EXACT_DUPLICATE,Identical duplicate of F2897,100% identical values including NaN positions
+F2904,EXACT_DUPLICATE,Identical duplicate of F2901,100% identical values including NaN positions
+F2906,EXACT_DUPLICATE,Identical duplicate of F2903,100% identical values including NaN positions
+F2928,EXACT_DUPLICATE,Identical duplicate of F2925,100% identical values including NaN positions
+F2934,EXACT_DUPLICATE,Identical duplicate of F2931,100% identical values including NaN positions
+F2940,EXACT_DUPLICATE,Identical duplicate of F2937,100% identical values including NaN positions
+F2941,EXACT_DUPLICATE,Identical duplicate of F2938,100% identical values including NaN positions
+F2942,EXACT_DUPLICATE,Identical duplicate of F2939,100% identical values including NaN positions
+F2952,EXACT_DUPLICATE,Identical duplicate of F2949,100% identical values including NaN positions
+F2953,EXACT_DUPLICATE,Identical duplicate of F2950,100% identical values including NaN positions
+F2954,EXACT_DUPLICATE,Identical duplicate of F2951,100% identical values including NaN positions
+F2958,EXACT_DUPLICATE,Identical duplicate of F2955,100% identical values including NaN positions
+F2959,EXACT_DUPLICATE,Identical duplicate of F2956,100% identical values including NaN positions
+F2960,EXACT_DUPLICATE,Identical duplicate of F2957,100% identical values including NaN positions
+F2961,EXACT_DUPLICATE,Identical duplicate of F2955,100% identical values including NaN positions
+F2962,EXACT_DUPLICATE,Identical duplicate of F2956,100% identical values including NaN positions
+F2963,EXACT_DUPLICATE,Identical duplicate of F2957,100% identical values including NaN positions
+F2964,EXACT_DUPLICATE,Identical duplicate of F2955,100% identical values including NaN positions
+F2965,EXACT_DUPLICATE,Identical duplicate of F2956,100% identical values including NaN positions
+F2966,EXACT_DUPLICATE,Identical duplicate of F2957,100% identical values including NaN positions
+F2969,EXACT_DUPLICATE,Identical duplicate of F2967,100% identical values including NaN positions
+F2970,EXACT_DUPLICATE,Identical duplicate of F2967,100% identical values including NaN positions
+F2972,EXACT_DUPLICATE,Identical duplicate of F2967,100% identical values including NaN positions
+F2976,EXACT_DUPLICATE,Identical duplicate of F2973,100% identical values including NaN positions
+F2978,EXACT_DUPLICATE,Identical duplicate of F2975,100% identical values including NaN positions
+F2982,EXACT_DUPLICATE,Identical duplicate of F2979,100% identical values including NaN positions
+F2984,EXACT_DUPLICATE,Identical duplicate of F2981,100% identical values including NaN positions
+F2988,EXACT_DUPLICATE,Identical duplicate of F2985,100% identical values including NaN positions
+F2990,EXACT_DUPLICATE,Identical duplicate of F2987,100% identical values including NaN positions
+F2994,EXACT_DUPLICATE,Identical duplicate of F2991,100% identical values including NaN positions
+F2995,EXACT_DUPLICATE,Identical duplicate of F2992,100% identical values including NaN positions
+F2996,EXACT_DUPLICATE,Identical duplicate of F2993,100% identical values including NaN positions
+F3000,EXACT_DUPLICATE,Identical duplicate of F2997,100% identical values including NaN positions
+F3001,EXACT_DUPLICATE,Identical duplicate of F2998,100% identical values including NaN positions
+F3002,EXACT_DUPLICATE,Identical duplicate of F2999,100% identical values including NaN positions
+F3006,EXACT_DUPLICATE,Identical duplicate of F3003,100% identical values including NaN positions
+F3007,EXACT_DUPLICATE,Identical duplicate of F3004,100% identical values including NaN positions
+F3008,EXACT_DUPLICATE,Identical duplicate of F3005,100% identical values including NaN positions
+F3012,EXACT_DUPLICATE,Identical duplicate of F3009,100% identical values including NaN positions
+F3014,EXACT_DUPLICATE,Identical duplicate of F3011,100% identical values including NaN positions
+F3034,EXACT_DUPLICATE,Identical duplicate of F3031,100% identical values including NaN positions
+F3036,EXACT_DUPLICATE,Identical duplicate of F3033,100% identical values including NaN positions
+F3040,EXACT_DUPLICATE,Identical duplicate of F3037,100% identical values including NaN positions
+F3042,EXACT_DUPLICATE,Identical duplicate of F3039,100% identical values including NaN positions
+F3046,EXACT_DUPLICATE,Identical duplicate of F3043,100% identical values including NaN positions
+F3047,EXACT_DUPLICATE,Identical duplicate of F3044,100% identical values including NaN positions
+F3048,EXACT_DUPLICATE,Identical duplicate of F3045,100% identical values including NaN positions
+F3052,EXACT_DUPLICATE,Identical duplicate of F3049,100% identical values including NaN positions
+F3054,EXACT_DUPLICATE,Identical duplicate of F3051,100% identical values including NaN positions
+F3058,EXACT_DUPLICATE,Identical duplicate of F3055,100% identical values including NaN positions
+F3059,EXACT_DUPLICATE,Identical duplicate of F3056,100% identical values including NaN positions
+F3060,EXACT_DUPLICATE,Identical duplicate of F3057,100% identical values including NaN positions
+F3064,EXACT_DUPLICATE,Identical duplicate of F3061,100% identical values including NaN positions
+F3065,EXACT_DUPLICATE,Identical duplicate of F3062,100% identical values including NaN positions
+F3066,EXACT_DUPLICATE,Identical duplicate of F3063,100% identical values including NaN positions
+F3067,EXACT_DUPLICATE,Identical duplicate of F3061,100% identical values including NaN positions
+F3068,EXACT_DUPLICATE,Identical duplicate of F3062,100% identical values including NaN positions
+F3069,EXACT_DUPLICATE,Identical duplicate of F3063,100% identical values including NaN positions
+F3070,EXACT_DUPLICATE,Identical duplicate of F3061,100% identical values including NaN positions
+F3071,EXACT_DUPLICATE,Identical duplicate of F3062,100% identical values including NaN positions
+F3072,EXACT_DUPLICATE,Identical duplicate of F3063,100% identical values including NaN positions
+F3075,EXACT_DUPLICATE,Identical duplicate of F3073,100% identical values including NaN positions
+F3076,EXACT_DUPLICATE,Identical duplicate of F3073,100% identical values including NaN positions
+F3078,EXACT_DUPLICATE,Identical duplicate of F3073,100% identical values including NaN positions
+F3082,EXACT_DUPLICATE,Identical duplicate of F3079,100% identical values including NaN positions
+F3084,EXACT_DUPLICATE,Identical duplicate of F3081,100% identical values including NaN positions
+F3088,EXACT_DUPLICATE,Identical duplicate of F3085,100% identical values including NaN positions
+F3090,EXACT_DUPLICATE,Identical duplicate of F3087,100% identical values including NaN positions
+F3094,EXACT_DUPLICATE,Identical duplicate of F3091,100% identical values including NaN positions
+F3096,EXACT_DUPLICATE,Identical duplicate of F3093,100% identical values including NaN positions
+F3100,EXACT_DUPLICATE,Identical duplicate of F3097,100% identical values including NaN positions
+F3101,EXACT_DUPLICATE,Identical duplicate of F3098,100% identical values including NaN positions
+F3102,EXACT_DUPLICATE,Identical duplicate of F3099,100% identical values including NaN positions
+F3106,EXACT_DUPLICATE,Identical duplicate of F3103,100% identical values including NaN positions
+F3107,EXACT_DUPLICATE,Identical duplicate of F3104,100% identical values including NaN positions
+F3108,EXACT_DUPLICATE,Identical duplicate of F3105,100% identical values including NaN positions
+F3112,EXACT_DUPLICATE,Identical duplicate of F3109,100% identical values including NaN positions
+F3113,EXACT_DUPLICATE,Identical duplicate of F3110,100% identical values including NaN positions
+F3114,EXACT_DUPLICATE,Identical duplicate of F3111,100% identical values including NaN positions
+F3118,EXACT_DUPLICATE,Identical duplicate of F3115,100% identical values including NaN positions
+F3120,EXACT_DUPLICATE,Identical duplicate of F3117,100% identical values including NaN positions
+F3139,EXACT_DUPLICATE,Identical duplicate of F3136,100% identical values including NaN positions
+F3141,EXACT_DUPLICATE,Identical duplicate of F3138,100% identical values including NaN positions
+F3145,EXACT_DUPLICATE,Identical duplicate of F3142,100% identical values including NaN positions
+F3147,EXACT_DUPLICATE,Identical duplicate of F3144,100% identical values including NaN positions
+F3166,EXACT_DUPLICATE,Identical duplicate of F3160,100% identical values including NaN positions
+F3167,EXACT_DUPLICATE,Identical duplicate of F3161,100% identical values including NaN positions
+F3172,EXACT_DUPLICATE,Identical duplicate of F3160,100% identical values including NaN positions
+F3173,EXACT_DUPLICATE,Identical duplicate of F3161,100% identical values including NaN positions
+F3174,EXACT_DUPLICATE,Identical duplicate of F3168,100% identical values including NaN positions
+F3175,EXACT_DUPLICATE,Identical duplicate of F3169,100% identical values including NaN positions
+F3176,EXACT_DUPLICATE,Identical duplicate of F3170,100% identical values including NaN positions
+F3177,EXACT_DUPLICATE,Identical duplicate of F3171,100% identical values including NaN positions
+F3180,EXACT_DUPLICATE,Identical duplicate of F3178,100% identical values including NaN positions
+F3183,EXACT_DUPLICATE,Identical duplicate of F3181,100% identical values including NaN positions
+F3186,EXACT_DUPLICATE,Identical duplicate of F3184,100% identical values including NaN positions
+F3228,EXACT_DUPLICATE,Identical duplicate of F3226,100% identical values including NaN positions
+F3231,EXACT_DUPLICATE,Identical duplicate of F3229,100% identical values including NaN positions
+F3234,EXACT_DUPLICATE,Identical duplicate of F3232,100% identical values including NaN positions
+F3235,EXACT_DUPLICATE,Identical duplicate of F3232,100% identical values including NaN positions
+F3237,EXACT_DUPLICATE,Identical duplicate of F3232,100% identical values including NaN positions
+F3239,EXACT_DUPLICATE,Identical duplicate of F3238,100% identical values including NaN positions
+F3242,EXACT_DUPLICATE,Identical duplicate of F3241,100% identical values including NaN positions
+F3276,EXACT_DUPLICATE,Identical duplicate of F3270,100% identical values including NaN positions
+F3278,EXACT_DUPLICATE,Identical duplicate of F3272,100% identical values including NaN positions
+F3280,EXACT_DUPLICATE,Identical duplicate of F3274,100% identical values including NaN positions
+F3281,EXACT_DUPLICATE,Identical duplicate of F3275,100% identical values including NaN positions
+F3282,EXACT_DUPLICATE,Identical duplicate of F3270,100% identical values including NaN positions
+F3283,EXACT_DUPLICATE,Identical duplicate of F3277,100% identical values including NaN positions
+F3284,EXACT_DUPLICATE,Identical duplicate of F3272,100% identical values including NaN positions
+F3285,EXACT_DUPLICATE,Identical duplicate of F3279,100% identical values including NaN positions
+F3288,EXACT_DUPLICATE,Identical duplicate of F3286,100% identical values including NaN positions
+F3291,EXACT_DUPLICATE,Identical duplicate of F3289,100% identical values including NaN positions
+F3294,EXACT_DUPLICATE,Identical duplicate of F3292,100% identical values including NaN positions
+F3297,EXACT_DUPLICATE,Identical duplicate of F3295,100% identical values including NaN positions
+F3336,EXACT_DUPLICATE,Identical duplicate of F3334,100% identical values including NaN positions
+F3339,EXACT_DUPLICATE,Identical duplicate of F3337,100% identical values including NaN positions
+F3342,EXACT_DUPLICATE,Identical duplicate of F3340,100% identical values including NaN positions
+F3343,EXACT_DUPLICATE,Identical duplicate of F3340,100% identical values including NaN positions
+F3345,EXACT_DUPLICATE,Identical duplicate of F3340,100% identical values including NaN positions
+F3347,EXACT_DUPLICATE,Identical duplicate of F3346,100% identical values including NaN positions
+F3350,EXACT_DUPLICATE,Identical duplicate of F3349,100% identical values including NaN positions
+F3380,EXACT_DUPLICATE,Identical duplicate of F3379,100% identical values including NaN positions
+F3388,EXACT_DUPLICATE,Identical duplicate of F3382,100% identical values including NaN positions
+F3389,EXACT_DUPLICATE,Identical duplicate of F3383,100% identical values including NaN positions
+F3390,EXACT_DUPLICATE,Identical duplicate of F3384,100% identical values including NaN positions
+F3391,EXACT_DUPLICATE,Identical duplicate of F3385,100% identical values including NaN positions
+F3392,EXACT_DUPLICATE,Identical duplicate of F3386,100% identical values including NaN positions
+F3393,EXACT_DUPLICATE,Identical duplicate of F3387,100% identical values including NaN positions
+F3396,EXACT_DUPLICATE,Identical duplicate of F3394,100% identical values including NaN positions
+F3399,EXACT_DUPLICATE,Identical duplicate of F3397,100% identical values including NaN positions
+F3402,EXACT_DUPLICATE,Identical duplicate of F3400,100% identical values including NaN positions
+F3444,EXACT_DUPLICATE,Identical duplicate of F3442,100% identical values including NaN positions
+F3447,EXACT_DUPLICATE,Identical duplicate of F3445,100% identical values including NaN positions
+F3450,EXACT_DUPLICATE,Identical duplicate of F3448,100% identical values including NaN positions
+F3451,EXACT_DUPLICATE,Identical duplicate of F3340,100% identical values including NaN positions
+F3453,EXACT_DUPLICATE,Identical duplicate of F3340,100% identical values including NaN positions
+F3455,EXACT_DUPLICATE,Identical duplicate of F3454,100% identical values including NaN positions
+F3458,EXACT_DUPLICATE,Identical duplicate of F3457,100% identical values including NaN positions
+F3496,EXACT_DUPLICATE,Identical duplicate of F3490,100% identical values including NaN positions
+F3497,EXACT_DUPLICATE,Identical duplicate of F3491,100% identical values including NaN positions
+F3498,EXACT_DUPLICATE,Identical duplicate of F3492,100% identical values including NaN positions
+F3499,EXACT_DUPLICATE,Identical duplicate of F3493,100% identical values including NaN positions
+F3500,EXACT_DUPLICATE,Identical duplicate of F3494,100% identical values including NaN positions
+F3501,EXACT_DUPLICATE,Identical duplicate of F3495,100% identical values including NaN positions
+F3504,EXACT_DUPLICATE,Identical duplicate of F3502,100% identical values including NaN positions
+F3507,EXACT_DUPLICATE,Identical duplicate of F3505,100% identical values including NaN positions
+F3558,EXACT_DUPLICATE,Identical duplicate of F3556,100% identical values including NaN positions
+F3561,EXACT_DUPLICATE,Identical duplicate of F3559,100% identical values including NaN positions
+F3604,EXACT_DUPLICATE,Identical duplicate of F3598,100% identical values including NaN positions
+F3605,EXACT_DUPLICATE,Identical duplicate of F3599,100% identical values including NaN positions
+F3606,EXACT_DUPLICATE,Identical duplicate of F3600,100% identical values including NaN positions
+F3607,EXACT_DUPLICATE,Identical duplicate of F3601,100% identical values including NaN positions
+F3608,EXACT_DUPLICATE,Identical duplicate of F3602,100% identical values including NaN positions
+F3609,EXACT_DUPLICATE,Identical duplicate of F3603,100% identical values including NaN positions
+F3666,EXACT_DUPLICATE,Identical duplicate of F3664,100% identical values including NaN positions
+F3669,EXACT_DUPLICATE,Identical duplicate of F3667,100% identical values including NaN positions
+F3712,EXACT_DUPLICATE,Identical duplicate of F3706,100% identical values including NaN positions
+F3713,EXACT_DUPLICATE,Identical duplicate of F3707,100% identical values including NaN positions
+F3714,EXACT_DUPLICATE,Identical duplicate of F3708,100% identical values including NaN positions
+F3715,EXACT_DUPLICATE,Identical duplicate of F3709,100% identical values including NaN positions
+F3716,EXACT_DUPLICATE,Identical duplicate of F3710,100% identical values including NaN positions
+F3717,EXACT_DUPLICATE,Identical duplicate of F3711,100% identical values including NaN positions
+F3774,EXACT_DUPLICATE,Identical duplicate of F3772,100% identical values including NaN positions
+F3777,EXACT_DUPLICATE,Identical duplicate of F3775,100% identical values including NaN positions
