@@ -72,7 +72,7 @@ flowchart TD
     end
     subgraph Observable Pipeline Footprint
         B --> C["1. Elevated Liquidation Ratio (F156, F264 = 1.0)<br>All money moved immediately"]
-        B --> D["2. Minimal Dwell Time & Holding Balance (F3811)<br>Near-zero overnight reserves ($p < 10^{-19}$)"]
+        B --> D["2. Depleted Holding Balance (F3811)<br>Low average ledger reserves ($p < 10^{-19}$)"]
         B --> E["3. Specific Demographic Gateway<br>Student / Retail Savings Account ($p < 0.001$)"]
     end
     C --> F[Fraud Analyst Plain-English Intelligence]

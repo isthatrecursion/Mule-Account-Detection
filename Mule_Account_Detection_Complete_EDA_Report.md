@@ -42,7 +42,35 @@ The provided production extract (`DataSet__1_.csv`) presents a realistic banking
 * **3,924 Anonymized Feature Columns** (`F1` through `F3924`).
 * **Deceptive Structural Traps:** Target-sorted row orders, reporting-month batch leaks, and administrative disposition proxies that would cause naive machine learning pipelines to fail completely in production.
 
-This document compiles the exhaustive empirical investigation that diagnosed these traps, unmasked the real behavioral signatures of money laundering, and proved an operational pipeline delivering **88.0% Precision at daily review capacity ($K=50$)**.
+This document compiles the exhaustive empirical investigation that diagnosed these traps, unmasked the real behavioral signatures of money laundering, and proved an operational pipeline delivering **88.0% Precision at daily review capacity ($K=50$)** on development cross-validation.
+
+### 1.3. Epistemological Governance Framework: Distinguishing Facts, Decisions, and Hypotheses
+To maintain institutional scientific rigor, this report explicitly separates three categories of knowledge:
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 1. Empirically Measured Facts (Verified directly in data and reproducible code)             │
+│    • Exact counts: 9,082 accounts, 81 mules, 9,001 non-mules (111.12:1 imbalance).         │
+│    • Leakage structure: 100% segregation in F2230 (Oct25 vs Sep/Nov/Dec25).                │
+│    • Concordance: F3912 matches target in 9,077 / 9,082 records (99.94%, r = 0.9691).        │
+│    • Statistical significance: 742 features pass Benjamini–Hochberg FDR (q < 0.05).         │
+│    • Dev performance: LightGBM achieves 0.7825 PR-AUC and 88% P@50 on 5-fold CV on dev set. │
+├─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 2. Engineering Decisions (Prescribed architectural and pipeline actions)                    │
+│    • Exclude Unnamed: 0, F2230, F3912, and September query artifacts from model training.    │
+│    • Prune 1,402 feature columns (zero-variance, duplicates, >90% nulls) -> 2,521 active.  │
+│    • Preserve extreme financial values; reject synthetic SMOTE oversampling.                │
+│    • Lock 1,817-account holdout partition without evaluation until final deployment test.   │
+├─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 3. Unverified Domain Hypotheses (Requiring source data dictionary to certify)               │
+│    • Inferred business labels for anonymized continuous metrics (e.g. calling F156          │
+│      "liquidation concentration" or F3811 "holding reserves"). These are grounded domain     │
+│      hypotheses consistent with the math, but NOT certified enterprise definitions.        │
+│    • Interpreting F3912 as an "administrative freeze tag" (a plausible autopsy theory,      │
+│      but unconfirmed without core-banking metadata).                                        │
+│    • Prospective holdout generalization: Unseen holdout performance remains to be proven.   │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -251,18 +279,32 @@ A correlation scan between missingness indicators ($M_{ij} = 1$ if null) and the
 ## 6. Stage 4: Univariate Distributions & Active Feature Space
 
 ### 6.1. Active Feature Space Definition (2,521 Features)
-Applying approved preprocessing decisions pruned **1,404 uninformative columns**:
+A total of **1,404 columns** were cataloged in the exclusion register [`eda/05_leakage_and_feature_exclusions.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/05_leakage_and_feature_exclusions.csv). 
+
+#### Exact Accounting & Mutually-Exclusive Waterfall:
+* **Total Columns in Dataset:** **3,925** columns ($1\text{ index} + 3,923\text{ candidate features} + 1\text{ target}$).
+* **Total Items in Exclusion Register:** **1,404** columns ($2\text{ special columns} + 1,402\text{ feature exclusions}$).
+* **Net Active Feature Space:**
+  $$3,925\text{ total columns} - 1,404\text{ total exclusions} = \mathbf{2,521\text{ active features}}$$
+  $$3,923\text{ candidate features} - 1,402\text{ excluded features} = \mathbf{2,521\text{ active features}}$$
+
+To prevent double-counting across overlapping categories (e.g. all-null columns are both zero-variance and duplicate signatures), the sequential hierarchical waterfall operates as follows:
 
 ```text
-Raw Candidate Features: 3,923
- ├── Excluded Leaks / Proxies (F2230, F3912, F3287, etc.):           -8
- ├── Zero-Variance Columns on Dev (All-null + single-value):       -393
- ├── Exact-Match Duplicate Columns on Dev:                       -1,011
- ├── Extreme Missingness (> 90% nulls):                            -473
- └── Net Active Feature Space:                                    2,521
-```
+Total Columns: 3,925 (3,923 Candidate Features)
+ ├── Step 1: Special Columns & Fatal Leaks/Artifacts:
+ │    ├── Index Column (Unnamed: 0) & Target (F3924):                 -2
+ │    └── Quarantined Leaks/Artifacts (F2230, F3912, F3287, etc.):    -6
+ │    [Remaining Candidates: 3,917]
+ ├── Step 2: Zero-Variance Columns on Dev (All-null + single-value): -389
+ │    [Remaining Candidates: 3,528]
+ ├── Step 3: High Missingness (>= 90% nulls on remaining):           -440
+ │    [Remaining Candidates: 3,088]
+ ├── Step 4: Exact-Match Duplicate Columns (on remaining):           -567
+ └── Net Active Feature Space:                                      2,521
 
-Master exclusion register cataloged at [`eda/05_leakage_and_feature_exclusions.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/05_leakage_and_feature_exclusions.csv).
+Exclusion Register Breakdown: 2 special + 6 leaks + 389 zero-var + 440 high-null + 567 dups = 1,404 total.
+```
 
 ---
 
@@ -413,7 +455,7 @@ To ensure auditability, the system establishes a strict **Factuality Boundary** 
 
 3. Holding Reserve Depletion (Dimension 2 - Orthogonal):
    * Holding balance metric F3811 = 84,210 (bottom 4th percentile of savings accounts; normal peer median = 603,500).
-   * Overnight dwell time indicates rapid transit with near-zero capital retention.
+   * Reserve depletion relative to total throughput indicates minimal capital retention (pass-through profile).
 
 Disposition Recommendation:
    * Multi-factor convergence verified across 3 orthogonal dimensions.
@@ -445,6 +487,10 @@ Model Architecture                          ROC-AUC   PR-AUC (AP)   P@25    R@25
 4. LightGBM Ensemble (Active Clean Space)   0.9579      0.7825     100.0%  38.5%   88.00%  67.7%   53.00%  81.5%
 ================================================================================================================
 ```
+
+> [!IMPORTANT]
+> **Scope of Reported Performance:** The metrics above represent **Out-of-Fold (OOF) cross-validation on the 7,265-account Development Partition**. 
+> To prevent data contamination, the **1,817-account Holdout Partition** (`eda/holdout_split_indices.csv`) remains locked and has **NOT yet been scored**. Real-world generalization to future unseen cohorts remains an empirical hypothesis that will be validated only upon final pipeline unlock.
 
 ---
 

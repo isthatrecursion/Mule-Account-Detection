@@ -144,9 +144,9 @@ For each flagged account, the system generates a standardized, legally auditable
 * **Immediate Electronic Liquidation:** Flow concentration metric `F156 = 1.00` (100% electronic redirection of credits; 99th percentile vs. peer median of 0.33).
 * **Channel Activation:** Active mobile/digital channel flag `F3909 = 1` (present in only 0.58% of accounts; 8.0x mule risk multiplier).
 
-#### 3. Reserve Depletion & Dwell Time (Orthogonal Dimension 2)
+#### 3. Reserve Depletion & Pass-Through Profile (Orthogonal Dimension 2)
 * **Depleted Holding Balance:** Ledger holding metric `F3811 = 84,210` (bottom 4th percentile of retail savings accounts; normal peer median = 603,500).
-* **Rapid Pass-Through Signature:** Total turnover to overnight reserve ratio indicates zero capital retention.
+* **Rapid Pass-Through Signature:** Total turnover to average reserve ratio indicates minimal capital retention.
 
 #### 4. Compliance Audit Disposition
 * **Evidence Standard:** Multi-factor convergence observed across 3 orthogonal dimensions (Demographics + Complete Liquidation + Reserve Depletion).
