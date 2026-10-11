@@ -1,0 +1,184 @@
+{
+  "benchmark": {
+    "average_precision": 0.8514962853749205,
+    "cross_validation": {
+      "n_splits": 5,
+      "random_state": 42,
+      "shuffle": true,
+      "type": "StratifiedKFold"
+    },
+    "limitations": [
+      "Target and extraction month are perfectly confounded.",
+      "These metrics do not establish future-period or production performance.",
+      "No internal holdout rows were scored."
+    ],
+    "model": {
+      "class": "lightgbm.LGBMClassifier",
+      "colsample_bytree": 0.8,
+      "learning_rate": 0.05,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "num_leaves": 15,
+      "objective": "binary",
+      "reg_lambda": 1.0,
+      "scale_pos_weight": 10.0,
+      "subsample": 0.8,
+      "verbosity": -1
+    },
+    "roc_auc": 0.9742200854700854,
+    "scope": "development-only out-of-fold diagnostic",
+    "top_k": [
+      {
+        "k": 25,
+        "positives": 25,
+        "precision": 1.0,
+        "recall": 0.38461538461538464
+      },
+      {
+        "k": 50,
+        "positives": 48,
+        "precision": 0.96,
+        "recall": 0.7384615384615385
+      },
+      {
+        "k": 100,
+        "positives": 54,
+        "precision": 0.54,
+        "recall": 0.8307692307692308
+      }
+    ]
+  },
+  "development_feature_audit": {
+    "active_columns": 2521,
+    "columns_missing_for_all_development_positives": 27,
+    "development_positives": 65,
+    "development_rows": 7265,
+    "interpretation": "These are residual cohort-risk indicators, not proven leakage or proven behavioral signals. Perfect month/target confounding prevents that distinction.",
+    "maximum_missingness_gap": 0.340758547008547,
+    "missingness_gap_ge_0_10": 504,
+    "missingness_gap_ge_0_25": 36
+  },
+  "environment": {
+    "input_sha256": {
+      "dataset": "c6181fa1ae9aecc899ca17d2223e3ef1ce9f64fd2b6b1f3e252ee13b6cf07915",
+      "exclusion_register": "83b86ba350a7335af6f55547e1f2bc3d5286c6fc5eff21a3c582496df08f30ac",
+      "split_register": "053d1f03ede21cb9b6830c75b0d46d7a3bc99353ef2c21a718b8f9b26933cc06"
+    },
+    "packages": {
+      "lightgbm": "4.7.0",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.17.1"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "verification_script_sha256": "82b959877199384a98328cd3687a3258d0d0865787e97d912bfe4dd8fca5f4d1"
+  },
+  "folds": [
+    {
+      "average_precision": 0.7089602129439847,
+      "dropped": {
+        "exact_duplicate": 571,
+        "high_missingness": 436,
+        "zero_variance": 395
+      },
+      "fold": 1,
+      "model_random_state": 43,
+      "roc_auc": 0.9104166666666668,
+      "selected_raw_columns": 2516,
+      "train_rows": 5812,
+      "validation_positives": 13,
+      "validation_rows": 1453
+    },
+    {
+      "average_precision": 0.860246999377434,
+      "dropped": {
+        "exact_duplicate": 584,
+        "high_missingness": 432,
+        "zero_variance": 400
+      },
+      "fold": 2,
+      "model_random_state": 44,
+      "roc_auc": 0.9952991452991453,
+      "selected_raw_columns": 2502,
+      "train_rows": 5812,
+      "validation_positives": 13,
+      "validation_rows": 1453
+    },
+    {
+      "average_precision": 0.9685314685314683,
+      "dropped": {
+        "exact_duplicate": 578,
+        "high_missingness": 420,
+        "zero_variance": 391
+      },
+      "fold": 3,
+      "model_random_state": 45,
+      "roc_auc": 0.9995192307692308,
+      "selected_raw_columns": 2529,
+      "train_rows": 5812,
+      "validation_positives": 13,
+      "validation_rows": 1453
+    },
+    {
+      "average_precision": 0.8815871910894533,
+      "dropped": {
+        "exact_duplicate": 572,
+        "high_missingness": 426,
+        "zero_variance": 392
+      },
+      "fold": 4,
+      "model_random_state": 46,
+      "roc_auc": 0.9947115384615384,
+      "selected_raw_columns": 2528,
+      "train_rows": 5812,
+      "validation_positives": 13,
+      "validation_rows": 1453
+    },
+    {
+      "average_precision": 0.8871470301850046,
+      "dropped": {
+        "exact_duplicate": 559,
+        "high_missingness": 427,
+        "zero_variance": 454
+      },
+      "fold": 5,
+      "model_random_state": 47,
+      "roc_auc": 0.9789529914529915,
+      "selected_raw_columns": 2478,
+      "train_rows": 5812,
+      "validation_positives": 13,
+      "validation_rows": 1453
+    }
+  ],
+  "structure": {
+    "cohort_identifiability": "FAIL: target and extraction month cannot be separated in this dataset",
+    "columns": 3925,
+    "exclusion_count": 1404,
+    "month_target_crosstab": {
+      "0": {
+        "Dec25": 0,
+        "Nov25": 0,
+        "Oct25": 9001,
+        "Sep25": 0
+      },
+      "1": {
+        "Dec25": 10,
+        "Nov25": 23,
+        "Oct25": 0,
+        "Sep25": 48
+      }
+    },
+    "months_containing_both_classes": 0,
+    "positive_labels": 81,
+    "registered_active_columns": 2521,
+    "rows": 9082,
+    "split_counts": {
+      "('dev', 0)": 7200,
+      "('dev', 1)": 65,
+      "('holdout', 0)": 1801,
+      "('holdout', 1)": 16
+    }
+  }
+}

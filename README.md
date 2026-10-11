@@ -5,7 +5,10 @@
 [![Git LFS](https://img.shields.io/badge/Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-An institutional, end-to-end **Explainable Fraud Intelligence System** that identifies bank accounts used to receive and funnel illicit funds (**money mules**), prioritizing alerts for human investigators and generating **plain-English, legally defensible case intelligence briefs** for compliance and fraud operations.
+A research prototype for **explainable mule-account risk ranking**. It prioritizes accounts for human investigation and reports model evidence with explicit provenance and uncertainty boundaries.
+
+> [!IMPORTANT]
+> The current extract is retrospectively assembled: every negative is from `Oct25`, while every positive is from `Sep25`, `Nov25`, or `Dec25`. No month contains both classes. The dataset therefore cannot separate mule behavior from extraction-cohort effects, and results in this repository are development diagnostics rather than production performance. See [`eda/09_pre_architecture_verification_and_remediation.md`](eda/09_pre_architecture_verification_and_remediation.md).
 
 ---
 
@@ -26,43 +29,37 @@ Banks are drowning in transaction volume and losing the fight against financial 
 
 ## 🔍 Critical EDA Discoveries & Traps Averted
 
-Through a rigorous 7-stage, decision-driven Exploratory Data Analysis, we identified and quarantined fatal data traps:
+Through a decision-driven exploratory analysis, we identified known data traps and established a controlled prototype boundary:
 
 ### 1. Data Leakage Remediation (1,404 Columns Pruned)
 * **Row-Order Sorting Trap (`Unnamed: 0`):** Rows 1–9,001 were non-mules; rows 9,002–9,082 were all mules. Monotonic row index permanently stripped (`EDA-002`).
 * **Extraction Batch Leak (`F2230`):** 100% of non-mules originated from an `Oct25` extraction, while 100% of confirmed mules came from `Sep25`, `Nov25`, and `Dec25`. Naive models memorized the batch month rather than fraud behavior. Permanently quarantined (`EDA-003`).
-* **Post-Outcome Administrative Tag Proxy (`F3912`):** Exhibited 99.94% agreement with the target ($r = 0.969$). An autopsy of 5 mismatch cases confirmed it was an internal administrative hold/freeze tag. Blacklisted to prevent target leakage (`EDA-012`).
+* **Near-target proxy (`F3912`):** Exhibited 99.94% agreement with the target ($r = 0.969$). Its operational meaning is unverified, so it is conservatively blacklisted as a likely post-outcome field (`EDA-012`).
 * **September Schema Artifacts (`F3287`, `F3290`, `F3611`, `F3614`):** Features populated exclusively in the September fraud query. Blacklisted (`EDA-018`).
-* **Active Clean Feature Space:** Pruning 393 zero-variance and 1,011 duplicate columns established an active space of **2,521 clean features** (`EDA-023`).
+* **Registered candidate space:** The sequential exclusion register leaves **2,521 candidate features**. An automated follow-up found substantial residual cohort risk, so this space must not be described as leakage-free.
 
-### 2. Dissecting the Money Mule Typology
-* **Pass-Through / Zero-Reserve Liquidation:** Legitimate accounts maintain median holding reserves of **840,459** (`F3811`). Confirmed mules hold median reserves of only **135,589** ($p = 2.3 \times 10^{-19}$). Stolen funds are not stored; they are liquidated within minutes.
-* **Elevated Liquidation Concentration:** Ratios `F156`, `F264`, and `F261` reach **median 1.00 in mules** (100% electronic redirection) vs. 0.33–0.60 in legitimate accounts ($AUC = 0.78$–$0.79$).
-* **Orthogonal Dimensions ($r = 0.000$):** Reserve Depletion and Outflow Velocity have zero correlation with each other, providing the mathematical foundation for multi-factor legal reasoning.
-* **Demographic Gateway:** Students exhibit a **2.06% mule rate** (over **2.3x higher** than the 0.89% population baseline; $\chi^2 = 20.24, p = 0.0025$), reflecting global criminal recruitment typologies.
+### 2. Measured associations and interpretation limits
+* `F3811` has a development-set median of **840,459** for negatives and **135,589** for positives. Its source-system meaning is not certified.
+* `F156`, `F264`, and `F261` have median **1.00** among positives and lower medians among negatives. The values support a statistical contrast, not claims about electronic redirection or timing.
+* Near-zero Pearson correlation between selected features indicates low measured linear association in this sample. It does not establish independence, causality, or legal sufficiency.
+* Student status is associated with the sampled label, but month, case selection, and target are confounded. Demographic fields cannot independently trigger an alert or adverse action.
 
 ---
 
-## 📊 Empirical Baseline Performance Scorecard
+## 📊 Reproducible Development Diagnostic
 
-Evaluated under strict **5-Fold Stratified Cross-Validation on the Development Set** (7,265 accounts) with all 1,404 leakage features eliminated:
+The repository now includes a deterministic five-fold benchmark with preprocessing fitted separately inside every training fold. It saves out-of-fold predictions and never scores the internal holdout:
 
 ```text
 5-Fold Out-of-Fold Cross-Validation Performance:
 ================================================================================================================
 Model Architecture                          ROC-AUC   PR-AUC (AP)   P@25    R@25    P@50    R@50    P@100   R@100
 ================================================================================================================
-1. Random Uniform Ranking                   0.4929      0.0093      0.00%   0.0%    0.00%   0.0%    0.00%   0.0%
-2. Domain Heuristic Rule (Savings+Student)  0.7118      0.0260      8.00%   3.1%    6.00%   4.6%    3.00%   4.6%
-3. Regularized Logistic Regression (L2)     0.7573      0.0274      4.00%   1.5%    4.00%   3.1%    2.00%   3.1%
-4. LightGBM Ensemble (Active Clean Space)   0.9579      0.7825     100.0%  38.5%   88.00%  67.7%   53.00%  81.5%
+Fold-safe LightGBM diagnostic               0.9742      0.8515     100.0%  38.5%   96.00%  73.8%   54.00%  83.1%
 ================================================================================================================
 ```
 
-### Operational Fraud Operations Impact:
-* **$K = 25$ Urgent Queue:** **100.0% Precision** (25 of 25 alerts are true confirmed mules; zero false alarms).
-* **$K = 50$ Daily Queue:** **88.0% Precision** (44 confirmed mules, only 6 false alarms). **Catches 67.7% of all fraud in the bank within 50 daily investigations**.
-* **$K = 100$ Weekly Audit:** **81.5% Recall** (captures 53 out of 65 mules).
+These are historical, out-of-fold ranking results within the confounded development sample. They do not establish future-period precision, daily analyst throughput, or bank-wide fraud capture. The previously reported AP `0.7825` and Precision@50 `88%` lack their original code and predictions and are retained only in historical EDA documents.
 
 ---
 
@@ -75,11 +72,15 @@ Model Architecture                          ROC-AUC   PR-AUC (AP)   P@25    R@25
 ├── .gitignore                                  # Python & environment ignore rules
 ├── README.md                                   # Project architecture & executive briefing
 ├── Mule_Account_Detection_Complete_EDA_Plan Grevix.md # Master EDA plan & governance specification
-└── eda/
+├── architecture/
+│   ├── 01_system_architecture.md               # Complete target architecture and scale-up design
+│   ├── 02_complete_solution_14h_execution_plan.md # Capability-complete 13–14 hour build plan
+│   └── 03_delayed_transaction_resilience.md    # 10-minute buffer, reconciliation and acceptance gates
+├── eda/
     ├── 00_dataset_inventory.md                 # Stage 0: Physical profile, dimensions & initial verification
     ├── 01_schema_and_feature_dictionary.csv    # Stage 1: Full 3,925-column taxonomy & dictionary
     ├── 01_data_understanding_and_structural_audit.md # Stage 1: Account grain, feature families & latency
-    ├── holdout_split_indices.csv               # Stage 1: Protected 80/20 split (1,817 locked holdout accounts)
+    ├── holdout_split_indices.csv               # Internal 80/20 reference split; not production acceptance
     ├── 02_label_and_cohort_audit.md            # Stage 2: Target verification, F2230/F3912 autopsies, demographics
     ├── 03_data_quality_report.md               # Stage 3: Missingness leakage, zero-variance, duplicate pruning
     ├── 04_distribution_and_association_report.md # Stage 4: Active space (2,521 features), skewness, zero-mass
@@ -87,36 +88,31 @@ Model Architecture                          ROC-AUC   PR-AUC (AP)   P@25    R@25
     ├── 05_bivariate_and_multivariate_analysis.md # Stage 5: 742 FDR significant predictors, pass-through mechanics
     ├── 06_domain_capabilities_and_data_gaps.md # Stage 6: Architecture boundaries, plain-English governance
     ├── 07_evaluation_protocol.md               # Stage 7: 5-fold CV scorecard, top-K review budgets, bootstrap CIs
-    └── 08_eda_to_design_decisions.md           # Master Blueprint: 8 architectural answers & production design
+    ├── 08_eda_to_design_decisions.md           # Historical synthesis; subject to Stage 9 gates
+    └── 09_pre_architecture_verification_and_remediation.md # Authoritative readiness boundary
+├── scripts/pre_architecture_verification.py    # Reproducible audit and fold-safe benchmark
+└── artifacts/pre_architecture_verification/    # Saved audit, folds, metrics, and OOF scores
 ```
 
 ---
 
-## 🛡️ Explainability & Plain-English Intelligence Brief
+## 🛡️ Evidence-Limited Analyst Brief
 
-The system couples **TreeSHAP** feature attribution with a verified banking metadata synthesizer to generate legally defensible case intelligence briefs:
+The prototype may use SHAP to describe model behavior. Anonymous features remain anonymous until an approved source dictionary maps them to business concepts:
 
 ```markdown
-### 🚨 FRAUD INVESTIGATION BRIEF — HIGH-RISK MULE CANDIDATE
+### MODEL REVIEW BRIEF — HIGH PRIORITY RECORD
 **Account ID:** 9046 | **Risk Rank:** #3 of 7,265 | **Calculated Risk:** 99.4th Percentile
-**Primary Risk Profile:** RETAIL SAVINGS / STUDENT CONDUIT
+**Output Type:** MODEL-GENERATED REVIEW PRIORITY
 
-1. Demographic & Gateway Factors:
-   * 27-year-old student (F3891 = student, F3894 = 27), Retail Savings Account (F3886).
-   * Seasoned account (F3889 = G365D, open > 1 year). Matches sleeper recruitment typology.
-   * Standard bureau credit risk score band 600 (F3895 = 600).
+Observed inputs contributing to the score:
+* F156 = 1.00; high positive model contribution; business definition unverified.
+* F3811 = 84,210; low peer percentile; business definition unverified.
+* F3886 = Savings and F3891 = student; raw categorical values observed in the extract; source definitions pending.
 
-2. Liquidation & Velocity Anomalies (Dimension 1):
-   * Flow concentration metric F156 = 1.00 (100% electronic redirection of credits; 99th percentile).
-   * Active digital channel flag F3909 = 1 (8.0x positive mule risk multiplier).
-
-3. Holding Reserve Depletion (Dimension 2 - Orthogonal):
-   * Holding balance metric F3811 = 84,210 (bottom 4th percentile of savings accounts; normal peer median = 603,500).
-   * Reserve depletion relative to total turnover indicates minimal capital retention (pass-through profile).
-
-Disposition Recommendation:
-   * Multi-factor convergence verified across 3 orthogonal dimensions.
-   * Place temporary 24-hour administrative debit hold; request source-of-funds verification.
+Required next step:
+* Route to an authorized analyst for independent evidence review under bank policy.
+* Do not infer transaction timing, counterparties, criminal intent, or a required account action from this score.
 ```
 
 ---
@@ -147,12 +143,15 @@ source venv/bin/activate
 
 # Install dependencies
 pip install pandas numpy scikit-learn lightgbm scipy
+
+# Reproduce the structural audit and development-only benchmark
+python scripts\pre_architecture_verification.py --benchmark
 ```
 
 ---
 
 ## ⚖️ Governance & Compliance Standards
-* **Leakage Prevention:** 1,404 columns permanently quarantined in `eda/05_leakage_and_feature_exclusions.csv`.
-* **Ethical AI & Fairness:** Strict behavioral gates ensure no account is flagged on demographic identity alone (student false alert rate is bounded at **0.84%**).
-* **Model Risk Management (SR 11-7):** 95% bootstrap confidence intervals reported for all operational review capacities.
-* **Holdout Partition Protection:** 1,817 accounts locked in `eda/holdout_split_indices.csv` remain 100% untouched for final production validation.
+* **Known exclusions:** 1,404 columns are cataloged in `eda/05_leakage_and_feature_exclusions.csv`; residual cohort confounding remains unresolved.
+* **Fairness:** Demographic attributes cannot independently trigger an alert or adverse action. Prospective fairness validation is required on representative data.
+* **Human authority:** The model ranks cases for review. Holds, restrictions, SAR filings, and customer actions remain human and policy decisions.
+* **Validation:** The 1,817-row saved split is an internal reference holdout, not a production acceptance set. Production validation requires a new later-period cohort.

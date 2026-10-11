@@ -6,6 +6,9 @@
 **Status:** Completed & Reproducibly Verified  
 **Date:** 2026-10-11  
 
+> [!IMPORTANT]
+> Stage 9 is the authoritative readiness record and supersedes any unqualified feature-semantic, leakage-free, holdout, or production claim in this historical stage report. See `eda/09_pre_architecture_verification_and_remediation.md`.
+
 ---
 
 ## 1. Executive Summary & Objective
@@ -101,7 +104,7 @@ Correlation scanning across all 3,924 columns surfaced `F3912` as an extreme ano
 | **1** | 3 | 79 | 96.34% match |
 
 `F3912` matches candidate target `F3924` in **9,077 out of 9,082 rows (99.94% concordance)**.  
-**Diagnosis:** In banking systems, binary flags with this level of agreement almost certainly represent a post-detection operational tag (e.g., `ACCOUNT_FROZEN_FLAG`, `SAR_FILED_FLAG`, or `FRAUD_DISPOSITION_CONFIRMED`).  
+**Diagnosis:** The agreement makes `F3912` unsafe for prediction and consistent with a post-outcome proxy. Its actual operational meaning is unverified; examples such as freeze or disposition flags are hypotheses only.
 **Mandate:** `F3912` must be quarantined from training features to avoid evaluating a model that simply predicts an operational outcome flag.
 
 ---

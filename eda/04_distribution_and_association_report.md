@@ -6,6 +6,9 @@
 **Status:** Completed & Reproducibly Audited  
 **Date:** 2026-10-11  
 
+> [!IMPORTANT]
+> Stage 9 supersedes unqualified feature-semantic, leakage-free, and production-readiness claims in this historical report. Associations may reflect the perfectly confounded extraction cohorts.
+
 ---
 
 ## 1. Executive Summary & Objective
@@ -41,13 +44,13 @@ Raw Features: 3,923
 
 ### 2.1. Scale and Range Taxonomy on Active Numerics ($N = 2,514$)
 
-| Scale / Family | Column Count | Range / Bounds | Typical Financial Interpretation | Preprocessing Strategy |
+| Scale / Family | Column Count | Range / Bounds | Provisional statistical interpretation | Preprocessing Strategy |
 | :--- | :---: | :---: | :--- | :--- |
-| **Binary Indicator Flags** | 294 | $[0, 1]$ (discrete) | Product enablement, KYC tiers, digital channel activations. | Retain as binary integer flags. |
-| **Bounded Ratios & Proportions** | 341 | $[0.0, 1.0]$ | Inflow-to-outflow ratios, channel concentration fractions. | Min-max bounded; no scaling required for trees. |
-| **Standardized Z-Scores / Deltas** | 119 | $[-10, +20]$ | Normalized balance changes, z-scored counterparty velocity. | Mean-centered; standard robust scaling. |
-| **Large Currency & Volume Metrics** | 938 | $[0, 3.37 \times 10^{11}]$ | Absolute turnover, total debit/credit throughput, ledger balance. | Signed log-transform $f(x) = \text{sign}(x)\ln(1+\|x\|)$. |
-| **Discrete Integer Counts** | 822 | $[0, 50+]$ | Transaction frequencies, active relationship counts, logins. | Integer features; trees partition natively. |
+| **Binary indicators** | 294 | $[0, 1]$ (discrete) | Anonymous binary values; business meaning unverified. | Retain as binary integer flags. |
+| **Bounded values** | 341 | $[0.0, 1.0]$ | Ratio-like scale; numerator and denominator unverified. | No scaling required for trees. |
+| **Centered values** | 119 | $[-10, +20]$ | Standardized or delta-like scale; source meaning unverified. | Mean-centered; robust scaling for linear models. |
+| **Large-scale numerics** | 938 | $[0, 3.37 \times 10^{11}]$ | Currency-like magnitude; unit and business meaning unverified. | Signed log-transform $f(x) = \text{sign}(x)\ln(1+\|x\|)$. |
+| **Discrete integers** | 822 | $[0, 50+]$ | Count-like values; event meaning unverified. | Trees partition natively. |
 
 ---
 
@@ -222,7 +225,7 @@ Bureau Risk Band      F3895  612.73     66.60   400.000   600.000   600.000   60
 - **Dataset/Version:** `DataSet__1_.csv` (Development Set)
 - **Evidence:** `F3909` has $> 99\%$ zeros, but fires in 3 confirmed mules (7.14% mule rate, 8x baseline).
 - **Evidence Status:** Verified.
-- **Why it matters:** Proves that rare indicators can carry disproportionate fraud signal; blind variance thresholding destroys high-value alerts.
+- **Why it matters:** Shows that a rare indicator can be associated with the sampled label. Cohort confounding prevents a fraud-specific interpretation.
 - **Feature Decision:** **Preserve** `F3909` in the active feature space.
 - **Preprocessing Decision:** Exclude `F3909` from rare-column pruning.
 - **Model/Approach Decision:** Tree models can split on single rare flag branches.

@@ -6,6 +6,9 @@
 **Status:** Completed & Reproducibly Audited  
 **Date:** 2026-10-11  
 
+> [!IMPORTANT]
+> Stage 9 supersedes any feature-semantic, legal-sufficiency, or automated-action language below. Raw categorical values are observed, but business definitions for anonymous and metadata fields require an approved source dictionary. See `eda/09_pre_architecture_verification_and_remediation.md`.
+
 ---
 
 ## 1. Executive Summary & Objective
@@ -18,7 +21,7 @@ The objective of **Stage 6** is to establish the **capability boundaries** of th
    * **No Graph / Network Chains:** There are zero counterparty links, sender IDs, or transfer edges. Claims of Graph Neural Networks (GNN) or fraud-ring community detection are **scientifically impossible** on this dataset.
    * **No Temporal Event Sequences:** There are no discrete transaction timestamps or raw ledger event streams. Sequence models (LSTM/Transformers) are unsupported.
    * **No Geospatial / NLP Features:** No free-text narrative fields or spatial coordinates exist.
-3. **Supported Architecture:** An **Explainable Tabular Risk Intelligence Engine** combining gradient boosted ranking, cost-sensitive thresholding, and structured multi-factor plain-English case synthesizers grounded in verified metadata.
+3. **Supported Prototype:** A tabular ranking engine with evidence-limited review briefs. Business-language mappings are enabled only for catalog-approved fields.
 
 ---
 
@@ -45,51 +48,41 @@ The 2,521 active features map to 5 functional banking indicator families:
 ```mermaid
 graph TD
     subgraph Supported Banking Indicator Families
-        A["1. Verified Demographics & Entity<br>(F3886-F3894: Occupation, Age, Branch Tier)"]
-        B["2. Bureau & Credit Score Bands<br>(F3895-F3896: Score 600, Delinquency counts)"]
-        C["3. Digital Product & Channel Flags<br>(F3900-F3918: Mobile, UPI, Debit Card, F3909)"]
-        D["4. Liquidation Concentration Metrics<br>(F156, F264, F261: Bounded [0, 1] ratios)"]
-        E["5. Balance Reserve & Holding Scales<br>(F3811, F3805: Ledger balance, Cash reserves)"]
+        A["1. Observed categorical values<br>(F3886-F3894; meanings pending approval)"]
+        B["2. Discrete score-like values<br>(F3895-F3899; meanings pending approval)"]
+        C["3. Anonymous binary indicators<br>(F3900-F3918)"]
+        D["4. Anonymous bounded numerics<br>(F156, F264, F261)"]
+        E["5. Anonymous large-scale numerics<br>(F3811, F3805)"]
     end
     A & B & C & D & E --> F[Multi-Factor Intelligence Synthesizer]
 ```
 
-1. **Demographic & Account Gateway (Verified):**
-   * High-risk target vehicle: Retail Savings Account (`F3886 = Savings`, `F3893 = RETAIL`).
-   * High-risk occupation: Student (`F3891 = student`, 2.3x relative risk) or Agriculture (`F3891 = agriculture`, 1.3x relative risk).
-   * Age bracket: Young adults aged 20–35 (`F3894` median = 30.0 vs. 34.0 normal).
-   * Geographic tier: Rural bank branch (`F3890 = R`, 1.7x relative risk).
-2. **Liquidation & Electronic Flow Concentration (Inferred continuous family):**
-   * Features `F156`, `F264`, `F261` exhibit median $1.00$ in mules vs. $0.33$–$0.60$ in normal accounts.
-   * Indicates 100% redirection of incoming credit turnover via electronic transfer channels.
-3. **Holding Reserve Depletion (Inferred currency scale family):**
-   * Features `F3811` and `F3805`: Mules hold 6.2x lower median reserves (135,589 vs. 840,459 for regular accounts, $p = 2.3 \times 10^{-19}$).
-   * Proves transient pass-through velocity with near-zero overnight balances.
-4. **Bureau Score Band Gateway (Verified):**
-   * `F3895 = 600` in 86.15% of mules. Moderate, ordinary retail credit standing.
-5. **Specialized Channel Indicator (Verified):**
-   * `F3909 = 1` provides an 8.0x positive risk enrichment.
+1. **Observed category associations:** Values including `Savings`, `RETAIL`, `student`, and `R` occur at different rates across sampled labels. Their field definitions require catalog approval, and the associations may reflect cohort selection.
+2. **Anonymous bounded values:** `F156`, `F264`, and `F261` have median `1.00` in positives versus lower medians in negatives. No transaction-flow meaning can be assigned yet.
+3. **Anonymous large-scale values:** `F3811` and `F3805` are lower among positives. Units, calculation windows, and business meanings are unknown.
+4. **Discrete score-like values:** `F3895 = 600` occurs in 86.15% of positives. Whether this is a bureau score requires source confirmation.
+5. **Rare binary indicator:** `F3909 = 1` is associated with an 8.0x sampled-label enrichment. Its channel meaning is unverified.
 
 ---
 
 ## 4. Customer Baseline Segmentation & Bias Audit (Item 46)
 
-Legitimate baseline transaction volumes vary dramatically across customer occupations:
+The anonymous `F3811` value varies across observed `F3891` categories:
 
 ```text
-Legitimate Holding Balance (F3811) Baseline Across Occupations (Dev Negatives):
+F3811 Distribution Across F3891 Categories (Development Negatives):
   - Self-Employed:   Median = 969,928   (Mean: 16.25M)
   - Salaried:        Median = 862,095   (Mean: 39.32M)
   - Housewife:       Median = 900,110   (Mean: 10.58M)
   - Student:         Median = 603,507   (Mean: 21.75M)
   - Agriculture:     Median = 638,842   (Mean: 20.90M)
   ----------------------------------------------------
-  * Confirmed Mules: Median = 135,589   (Mean:  0.38M)
+  * Positive labels: Median = 135,589   (Mean:  0.38M)
 ```
 
 ### Critical Bias Safeguard:
-* Legitimate students maintain a median holding balance of **603,507**—more than **4.4x higher** than the mule median (135,589).
-* **Bias Protection Rule:** A student account must **never be flagged based on occupation alone**. A detection alert is legitimate only when an account exhibits **both** the demographic risk profile AND severe behavioral anomalies (e.g., complete liquidation concentration `F156 = 1.0` and depleted reserves `F3811 < 200,000`).
+* Development negatives with `F3891 = student` have median `F3811 = 603,507`, versus 135,589 among all positives. Both field meanings and the causal interpretation remain unverified.
+* **Bias rule:** A demographic category cannot independently trigger an alert or adverse action. Composite “behavioral gates” are also insufficient for certification until the anonymous inputs are defined and prospectively validated.
 
 ---
 
@@ -123,34 +116,26 @@ The product requirement mandates that detection decisions are explained in **pla
 | Citing account tenure bucket (`G365D` seasoned account vs newly opened). | Citing specific counterparty names ("Transferred to John Doe in New York"). |
 | Citing credit score bands (`F3895 = 600`). | Inventing geographical locations without GPS data ("Customer logged in from Miami IP"). |
 | Citing measured percentile holding balance depletion (`F3811` in bottom 10th percentile). | Inventing specific merchant codes or wire types not present in metadata. |
-| Citing mathematical liquidation concentration (`F156 = 1.0`, 100% electronic redirection). | Giving a single black-box probability score without multi-factor evidence. |
+| Citing an anonymous feature ID, observed value, peer percentile, and signed model contribution (`F156 = 1.0`). | Translating an anonymous feature into “electronic redirection” without a certified definition. |
 
 ---
 
-### 6.2. Production Case Narrative Template
-For each flagged account, the system generates a standardized, legally auditable **Fraud Intelligence Brief**:
+### 6.2. Prototype Analyst Evidence Template
+For each ranked account, the prototype may generate an evidence-limited review brief:
 
 ```markdown
-### 🚨 FRAUD INVESTIGATION ALERT — HIGH-RISK MULE CANDIDATE
-**Account ID:** 9046 | **Risk Rank:** #3 of 7,265 | **Calculated Mule Probability:** 88.4%
-**Primary Risk Segment:** RETAIL SAVINGS / STUDENT CONDUIT
+### MODEL-GENERATED REVIEW PRIORITY
+**Record ID:** 9046 | **Risk Rank:** #3 of 7,265 | **Score Type:** relative rank, not probability
 
-#### 1. Demographic & Gateway Factors
-* **Customer Profile:** 27-year-old student (`F3891 = student`, `F3894 = 27`), Retail Savings Account (`F3886`).
-* **Tenure Context:** Seasoned account (`F3889 = G365D`, open > 1 year). Typology matches sleeper account activation.
-* **Credit Rating:** Credit bureau risk score band 600 (`F3895 = 600`).
+#### Observed contributors
+* `F156 = 1.00`; high positive contribution; business definition unverified.
+* `F3811 = 84,210`; low peer percentile; business definition unverified.
+* `F3886 = Savings`, `F3891 = student`; observed raw category values; source definitions pending.
 
-#### 2. Transactional & Liquidation Anomaly (Orthogonal Dimension 1)
-* **Immediate Electronic Liquidation:** Flow concentration metric `F156 = 1.00` (100% electronic redirection of credits; 99th percentile vs. peer median of 0.33).
-* **Channel Activation:** Active mobile/digital channel flag `F3909 = 1` (present in only 0.58% of accounts; 8.0x mule risk multiplier).
-
-#### 3. Reserve Depletion & Pass-Through Profile (Orthogonal Dimension 2)
-* **Depleted Holding Balance:** Ledger holding metric `F3811 = 84,210` (bottom 4th percentile of retail savings accounts; normal peer median = 603,500).
-* **Rapid Pass-Through Signature:** Total turnover to average reserve ratio indicates minimal capital retention.
-
-#### 4. Compliance Audit Disposition
-* **Evidence Standard:** Multi-factor convergence observed across 3 orthogonal dimensions (Demographics + Complete Liquidation + Reserve Depletion).
-* **Recommended Analyst Action:** Place temporary 24-hour administrative hold on debit channels; initiate secondary KYC verification and request counterparty source documentation.
+#### Required analyst handling
+* Verify the source data and seek independent transactional or case evidence under bank policy.
+* Do not infer timing, counterparties, criminal intent, or a required account restriction from the model score.
+* Record the analyst outcome for prospective validation and monitoring.
 ```
 
 ---
@@ -177,8 +162,8 @@ For each flagged account, the system generates a standardized, legally auditable
 - **Dataset/Version:** `DataSet__1_.csv`
 - **Evidence:** Verified metadata columns (`F3886`–`F3923`) contrast with anonymized features (`F1`–`F3885`).
 - **Evidence Status:** Verified.
-- **Why it matters:** Fraud analysts cannot freeze accounts based on feature numbers ("F448 was high"), but legal teams prohibit hallucinating ungrounded narratives.
-- **Feature Decision:** Plain-English templates reference verified metadata fields; anonymous features are cited via statistical percentiles and mathematical factors.
+- **Why it matters:** Analysts need traceable evidence, while anonymous feature numbers cannot justify account action or be translated into invented behavior.
+- **Feature Decision:** Templates cite approved metadata mappings; all other fields use feature ID, value, percentile, and model contribution.
 - **Preprocessing Decision:** Automated template engine mapping SHAP importance to verified factor summaries.
 - **Model/Approach Decision:** Rule-guided Case Intelligence Generator.
 - **Evaluation Decision:** Human analyst review audit for narrative truthfulness.

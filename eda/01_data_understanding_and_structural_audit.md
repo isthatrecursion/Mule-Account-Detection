@@ -14,7 +14,7 @@ The objective of **Stage 1** is to establish what each record and feature repres
 
 ### Stage 1 Deliverables Summary
 * **Schema Register:** Complete 3,925-column taxonomy generated at [`eda/01_schema_and_feature_dictionary.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/01_schema_and_feature_dictionary.csv).
-* **Holdout Partition:** Immutable 80/20 stratified split locked at [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv).
+* **Reference Partition:** Saved 80/20 stratified split at `eda/holdout_split_indices.csv`; reclassified by Stage 9 as internal-only.
 * **Decision Records:** `EDA-006` through `EDA-010` formalized.
 
 ---
@@ -22,14 +22,14 @@ The objective of **Stage 1** is to establish what each record and feature repres
 ## 2. Row Granularity & Entity Identity (Item 2)
 
 * **Investigation:** Audited whether rows represent individual accounts, monthly snapshots of the same account, or multiple transactions.
-* **Finding:** Combining demographic and branch attributes (`F3887` Branch Code, `F3888` Open Date, `F3890` Region Tier, `F3891` Occupation, `F3892` Gender, `F3894` Age) yields **8,850 unique combinations across 9,082 rows**. The small number of duplicates (232 rows) correspond to shared branch/demographic clusters in high-density branches, not repeated accounts.
-* **Granularity Conclusion:** The dataset grain is **one row per unique bank account snapshot**. There are no multiple observations per account requiring group-based clustering.
+* **Finding:** Combining demographic and branch-like attributes (`F3887`, `F3888`, `F3890`, `F3891`, `F3892`, `F3894`) yields **8,850 unique combinations across 9,082 rows**.
+* **Granularity Conclusion:** This does not prove account identity. The extract has one row per supplied record, but it contains no verified stable account key that can rule out repeated or related entities. Account-level grain and the absence of group leakage remain assumptions until the data owner supplies an entity identifier.
 
 ---
 
 ## 3. Reverse-Engineered Feature Taxonomy & Dictionary (Items 3 & 5)
 
-While columns $F1$ through $F3885$ are anonymized, their distributions, ranges, and data types allow them to be grouped into distinct mathematical families:
+While columns $F1$ through $F3885$ are anonymized, their distributions, ranges, and data types allow provisional grouping into mathematical families. Business meanings in this section are hypotheses unless backed by an approved source dictionary.
 
 ```mermaid
 pie title Feature Space Breakdown (3,925 Columns)
@@ -79,10 +79,8 @@ pie title Feature Space Breakdown (3,925 Columns)
 ## 4. Sampling Provenance & Extraction Timing (Items 4, 6 & 7)
 
 * **Provenance Analysis:** The dataset exhibits **case-control retrospective assembly**. 9,001 non-mules were sampled from an `Oct25` extraction, while 81 mules were merged from three separate investigative batches (`Sep25`, `Nov25`, `Dec25`).
-* **Scoring-Time Availability:**
-  * Features derived from post-freeze actions (e.g., `F3912`) cannot be used in real-time screening.
-  * Account demographics and transaction aggregates are available at real-time or end-of-day scoring.
-* **Latency Policy:** Offline batch scoring is suitable for daily investigator queues, while transaction velocity flags can be evaluated for near-real-time alerting.
+* **Scoring-Time Availability:** `F3912` is conservatively excluded as a likely post-outcome proxy. Availability timing for every other feature is unverified and must be supplied in the source data contract before deployment.
+* **Latency Policy:** The current snapshot supports prototype batch scoring only. Near-real-time claims require event timestamps, refresh cadence, and feature-availability guarantees.
 
 ---
 
@@ -93,27 +91,27 @@ To comply with **Core Operating Rule 3** (protect the holdout before target-info
 | Partition | Total Accounts | Non-Mules (`0`) | Mules (`1`) | Mule Prevalence | File & Identifier Reference |
 | :--- | :---: | :---: | :---: | :---: | :--- |
 | **Development Set (`dev`)** | **7,265** (80.0%) | 7,200 | 65 | **0.8950%** | [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv) |
-| **Locked Holdout (`holdout`)** | **1,817** (20.0%) | 1,801 | 16 | **0.8806%** | [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv) |
+| **Internal reference holdout (`holdout`)** | **1,817** (20.0%) | 1,801 | 16 | **0.8806%** | `eda/holdout_split_indices.csv` |
 | **Total** | **9,082** | **9,001** | **81** | **0.8919%** | Seed: `random_state=42` |
 
-**Holdout Policy:**
-1. The 1,817 holdout rows are strictly isolated. No target-conditional EDA, feature selection, or imputation fitting is permitted on this set.
-2. All subsequent stages (Stages 2–5) operate exclusively on the `dev` partition (7,265 rows).
-3. The holdout partition is unlocked solely during final Stage 7 benchmarking.
+**Revised holdout policy:**
+1. The 1,817 rows remain excluded from new model fitting and from the Stage 9 reproducibility benchmark.
+2. Because dataset-wide inspection occurred before and during the EDA history, this split is not a pristine production acceptance set.
+3. Production validation requires a later-period external cohort frozen before target-aware inspection and containing both classes within comparable time windows.
 
 ---
 
 ## 6. Formal Stage 1 Decision Records
 
-### EDA-006 — Account Grain Confirmation (Single Observation Per Account)
+### EDA-006 — Account Grain Assumption (Single Supplied Record)
 - **Category:** Data Modeling & Splitting Strategy
 - **Dataset/Version:** `DataSet__1_.csv` (v1.0)
-- **Evidence:** 8,850 distinct demographic combinations across 9,082 rows; no repeated account-month temporal sequences present.
-- **Evidence Status:** Verified.
-- **Why it matters:** Confirms that row-level classification is appropriate and that group-based cross-validation (`GroupKFold`) by account ID is not required.
+- **Evidence:** 8,850 distinct demographic combinations across 9,082 rows; no stable entity identifier is available.
+- **Evidence Status:** Assumption pending data-owner verification.
+- **Why it matters:** A verified identifier is required to prevent the same or linked account from crossing training and validation partitions.
 - **Feature Decision:** Treat each record as an independent account entity.
 - **Preprocessing Decision:** N/A.
-- **Model/Approach Decision:** Train account-level tabular risk scorers.
+- **Model/Approach Decision:** Prototype at record level; use grouped temporal splitting once a stable account identifier is supplied.
 - **Evaluation Decision:** Use standard `StratifiedKFold` on the development set.
 - **Explainability Implications:** Explanations will be generated at the account level.
 - **Known Limitations:** Lack of raw transaction-level history means explanations describe account-aggregate behavior rather than individual transfer sequences.
@@ -124,14 +122,14 @@ To comply with **Core Operating Rule 3** (protect the holdout before target-info
 ### EDA-007 — Feature Dictionary Governance & Semantic Boundaries
 - **Category:** Explainability & Feature Governance
 - **Dataset/Version:** `DataSet__1_.csv`
-- **Evidence:** Full feature dictionary generated in `eda/01_schema_and_feature_dictionary.csv`. Verified 9 demographic fields (`F3886`–`F3894`), 5 bureau risk scores, 17 channel flags, and 3,885 anonymous numeric features.
-- **Evidence Status:** Verified.
-- **Why it matters:** Prevents "hallucinated" fraud explanations. Plain-English narratives can only reference verified metadata fields (`F3886`–`F3923`); anonymous features must be reported via statistical attributions.
-- **Feature Decision:** Keep verified metadata and non-redundant anonymous features; quarantine known proxy columns.
+- **Evidence:** Full statistical schema register generated in `eda/01_schema_and_feature_dictionary.csv`; raw types and values are verified, while business mappings remain provisional.
+- **Evidence Status:** Structural profile verified; source semantics pending.
+- **Why it matters:** Prevents unsupported fraud explanations. Raw categorical values may be cited with feature IDs, but business meanings require an approved dictionary.
+- **Feature Decision:** Keep observed metadata candidates and non-redundant anonymous features for the prototype; quarantine known proxies and attach dictionary status to explanations.
 - **Preprocessing Decision:** Categorical encoding for `F3886`, `F3889`, `F3890`, `F3891`, `F3893`; robust scaling for continuous metrics.
 - **Model/Approach Decision:** Tabular gradient boosting + linear baseline.
 - **Evaluation Decision:** Track feature attribution stability across folds.
-- **Explainability Implications:** Enforces strict audit boundary: plain-English for verified metadata; mathematical influence scores for anonymous continuous features.
+- **Explainability Implications:** Use raw values plus feature IDs for provisional metadata and mathematical influence scores for anonymous features.
 - **Owner and Status:** Data Governance Lead / Verified & Accepted.
 
 ---
@@ -141,7 +139,7 @@ To comply with **Core Operating Rule 3** (protect the holdout before target-info
 - **Dataset/Version:** `DataSet__1_.csv`
 - **Evidence:** `F3888` (Account Opening Date) contains minimum value `1900-01-03 00:00:00`.
 - **Evidence Status:** Verified.
-- **Why it matters:** `1900` is a classic core-banking migration placeholder. Calculating account tenure from 1900 will produce an erroneous 125-year tenure that distorts models.
+- **Why it matters:** A `1900` date is suspicious and consistent with a migration placeholder, but source confirmation is required. Treating it as literal tenure could distort models.
 - **Feature Decision:** Replace opening dates $\le 1950$ with `NaN` before computing account tenure; create a binary flag `IS_LEGACY_SYSTEM_DATE`.
 - **Preprocessing Decision:** Impute missing tenure with median and encode legacy indicator.
 - **Model/Approach Decision:** Trees handle missingness natively; linear models receive imputed values.
@@ -170,14 +168,14 @@ To comply with **Core Operating Rule 3** (protect the holdout before target-info
 - **Category:** Validation & Evaluation Governance
 - **Dataset/Version:** `DataSet__1_.csv`
 - **Evidence:** 20% stratified holdout (1,817 accounts: 1,801 negatives, 16 positives) exported to `eda/holdout_split_indices.csv`.
-- **Evidence Status:** Verified & Locked.
-- **Why it matters:** Completely prevents data leakage and over-optimistic evaluation metrics caused by performing target-guided EDA or preprocessing on test data.
+- **Evidence Status:** Saved and internally reserved; reclassified by Stage 9.
+- **Why it matters:** It supports internal comparison but cannot guarantee unbiased production evaluation after dataset-wide inspection.
 - **Feature Decision:** N/A.
 - **Preprocessing Decision:** All transformers (imputers, encoders, scalers) must fit strictly on `dev` folds.
-- **Model/Approach Decision:** Zero model access to holdout until final production scorecard evaluation.
-- **Evaluation Decision:** Immutable benchmark protocol.
-- **Explainability Implications:** Validates that SHAP explanations generalize to unseen accounts.
-- **Owner and Status:** Lead ML Engineer / Verified & Accepted.
+- **Model/Approach Decision:** Preserve the split for internal reference only; use a new temporal cohort for production acceptance.
+- **Evaluation Decision:** Internal reference only; acquire a new frozen temporal acceptance cohort.
+- **Explainability Implications:** Explanation generalization remains unverified.
+- **Owner and Status:** Lead ML Engineer / Superseded by Stage 9.
 
 ---
 

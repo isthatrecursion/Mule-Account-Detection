@@ -3,32 +3,35 @@
 **Project:** Explainable Fraud Intelligence System for Mule Account Detection  
 **Document ID:** `eda/08_eda_to_design_decisions.md`  
 **Phase:** Master Synthesis & Operational Handover  
-**Status:** Completed, Empirically Validated & Approved for Implementation  
+**Status:** Historical synthesis; approved only for controlled prototype implementation under Stage 9 gates
 **Date:** 2026-10-11  
 
 ---
 
+> [!IMPORTANT]
+> `eda/09_pre_architecture_verification_and_remediation.md` is the authoritative readiness decision. It supersedes conflicting claims in this document concerning leakage-free features, untouched holdout status, production performance, feature semantics, fairness certification, legal sufficiency, and automated account actions.
+
 ## 1. Executive Summary & Project Mandate
 
-This document serves as the **definitive bridge between Exploratory Data Analysis and Production Engineering**. It synthesizes all empirical discoveries, statistical hypothesis tests, and baseline benchmarks conducted across Stages 0 through 7 into an immutable blueprint for the **Explainable Fraud Intelligence System**.
+This document records the original bridge from EDA to engineering. Stage 9 converts it into a conditional prototype blueprint with explicit data and promotion gates.
 
 ### Core Operational Reality
 Banks lose the fraud battle when systems produce 10,000 black-box alerts with no context. By conducting a rigorous, decision-driven audit of `DataSet__1_.csv` (9,082 accounts, 81 confirmed mules, 111:1 imbalance):
 * We discovered and quarantined **fatal extraction batch leakage** (`F2230`, `F3912`, `Unnamed: 0`, and September-only artifacts).
-* We isolated a clean **Active Feature Space of 2,521 features** from the raw 3,923 columns by eliminating 1,404 zero-variance, duplicate, and sparse features.
-* We established that **LightGBM gradient boosted decision trees** capture the true non-linear, multi-factor nature of mule accounts (Velocity + Complete Liquidation + Reserve Depletion + Demographic Risk Gates), delivering an **Average Precision (PR-AUC) of 0.7825**, **100% Precision@25**, and **88% Precision@50** in 5-fold cross-validation.
-* Human analysts reviewing just **50 accounts daily** will catch **67.7% of all fraud in the bank** with an **88% true hit rate**, accompanied by plain-English, legally defensible case intelligence briefs.
+* The exclusion register leaves **2,521 candidate features**. Stage 9 found residual cohort-risk patterns, so this set is not certified leakage-free.
+* LightGBM is a reasonable prototype model family. The reproducible fold-safe diagnostic achieves AP `0.8515` and Precision@50 `0.96` within the development sample, but month/target confounding prevents a real-world performance interpretation.
+* Queue size, staffing, expected yield, and action policy must be supplied and prospectively validated by Fraud Operations and Compliance.
 
 ---
 
 ## 2. Definitive Answers to the 8 Core Architectural Questions
 
 ### 1. Prediction Target
-* **What event are we predicting?** Account-level mule status (`F3924 = 1`), representing an account utilized to receive and rapidly funnel illicit funds.
-* **Scoring Horizon:** Scored as an end-of-day batch queue or near-real-time screening prior to daily fund releases.
+* **Prototype target:** The binary value `F3924`. Its operational label definition, event time, maturity window, and adjudication process require data-owner confirmation.
+* **Scoring horizon:** Prototype batch ranking only. End-of-day or near-real-time service levels require refresh and feature-availability evidence.
 
 ### 2. Population & Validation Strategy
-* **Validation Partition:** Deterministic 80/20 stratified split (`random_state=42`) separating a development set (7,265 accounts: 7,200 non-mules, 65 mules) from an **untouched, locked holdout set** (1,817 accounts: 1,801 non-mules, 16 mules) preserved in [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv).
+* **Validation partition:** Deterministic 80/20 stratified split (`random_state=42`) separating a development set from a 1,817-row **internal reference holdout**. It is not a pristine production acceptance set because dataset-wide inspection occurred during the EDA history.
 * **Prevention of Position Leakage:** Row index `Unnamed: 0` permanently dropped; all training folds shuffled with fixed seeds.
 
 ### 3. Feature Trust & Leakage Quarantine
@@ -56,29 +59,26 @@ Banks lose the fraud battle when systems produce 10,000 black-box alerts with no
 * **Categorical Encoding:** Rare account products collapsed into `OTHER_LOANS` and `OTHER_DEPOSITS`.
 
 ### 5. Model Selection & Algorithmic Hierarchy
-* **Production Classifier:** **LightGBM Gradient Boosted Decision Trees** with `scale_pos_weight = 10.0`, `num_leaves = 15`, `learning_rate = 0.05`.
-* **Empirical Justification:** LightGBM achieves **PR-AUC = 0.7825**, vastly outperforming Domain Heuristic Rules (0.0260) and Regularized Logistic Regression (0.0274).
+* **Prototype classifier:** LightGBM gradient boosted trees. The Stage 9 reproducible configuration is recorded in `scripts/pre_architecture_verification.py`; model selection must be repeated on representative same-window cohorts.
+* **Evidence boundary:** Historical and Stage 9 cross-validation results measure ranking within the confounded retrospective development sample.
 * **Synthetic Sampling Rejected:** Synthetic oversampling (SMOTE) is prohibited in high-dimensional financial spaces to avoid generating unrealistic accounting records.
 
 ### 6. Operational Quality & Capacity Metrics
-* **Analyst Alert Budget:** Prioritize the top **$K = 50$ alerts daily**.
-* **Operational Performance:**
-  * **Precision@50 = 88.0% [95% CI: 78.0%, 96.0%]** (44 confirmed mules, only 6 false alarms).
-  * **Recall@50 = 67.7% [95% CI: 56.9%, 78.5%]** (Captures over two-thirds of total bank fraud).
-  * **Precision@25 = 100.0%** for immediate urgent freeze recommendations.
+* **Queue configuration:** Evaluate $K \in \{25,50,100\}$ as development diagnostics. The daily operating budget is unresolved until Fraud Operations supplies capacity and service-level requirements.
+* **Operational performance:** No live or prospective operational performance has been measured. Automated freeze recommendations are prohibited.
 
 ### 7. Explanation Quality & Regulatory Auditability
 * **Strict Factuality Boundary:**
-  * Plain-English narratives cite verified metadata fields: Retail Savings Account, Student/Occupation Profile, Young Adult Age, Rural Branch Tier, Credit Score Band 600, Digital Channel Flags.
-  * Anonymized continuous features are explained via mathematical factor percentiles: Complete electronic liquidation concentration (`F156 = 1.0`), Ledger reserve depletion (`F3811` in bottom 4th percentile).
-  * **Zero Hallucination Guarantee:** System is forbidden from inventing fictional merchant names, transaction times, or IP addresses.
+  * Raw categorical values may be shown with feature IDs, while business definitions remain provisional until catalog approval.
+  * Anonymous continuous features are explained only through feature ID, value, peer percentile, and signed model contribution.
+  * SHAP explains model behavior, not causality, criminal conduct, or legal sufficiency. Holds, restrictions, and filings remain human decisions.
 
 ### 8. Known Limitations & Enterprise Data Roadmap
 * **Data Modality Constraint:** Current data is single-record tabular snapshot only. Graph Neural Networks, transfer chains, and intraday event sequences are **unsupported** without ingesting raw transaction switch logs (`CORE_BANKING_LEDGER_TXNS`) and counterparty transfer edges (`PAYMENT_SWITCH_EDGES`).
 
 ---
 
-## 3. End-to-End Production Pipeline Architecture
+## 3. Conditional Prototype Pipeline
 
 ```mermaid
 flowchart TD
@@ -89,27 +89,27 @@ flowchart TD
     end
 
     subgraph Feature Engineering & Transformation
-        D --> E[Categorical Rare-Level Collapsing]
+        D --> E[Fold-Fitted Encoding & Cleaning]
         E --> F[Median Imputation & Zero Preservation]
-        F --> G[Hurdle Indicators & Lookback Velocity Ratios]
+        F --> G[Catalog-Approved Feature Engineering]
     end
 
     subgraph Cost-Sensitive Scoring Engine
-        G --> H["LightGBM Ensemble (scale_pos_weight=10)"]
+        G --> H["Versioned Prototype Ranker"]
         H --> I[Raw Probability Prediction]
         I --> J[Percentile Risk Rank Mapping & Queue Sorting]
     end
 
     subgraph Explainability & Case Synthesis Engine
-        J --> K{Analyst Capacity Filter Top K=50}
+        J --> K{Operations-Configured Review Capacity}
         K --> L[TreeSHAP Factor Attribution Decomposition]
-        L --> M[Multi-Factor Convergence Validator]
-        M --> N[Plain-English Case Narrative Generator]
+        L --> M[Evidence & Provenance Validator]
+        M --> N[Evidence-Limited Review Brief]
     end
 
     subgraph Fraud Operations Delivery
-        N --> O["Analyst Investigation Queue (P@50 = 88%)"]
-        N --> P["Compliance Audit Brief & SAR Filing Export"]
+        N --> O[Analyst Investigation Queue]
+        N --> P[Decision Log & Feedback Capture]
     end
 ```
 
@@ -156,12 +156,12 @@ flowchart TD
 | **EDA-035** | Stage 6 | Fairness | Enforce behavioral gates: no account flagged on demographic identity alone. |
 | **EDA-036** | Stage 6 | Engineering | Engineer lookback velocity acceleration ratios $\frac{\text{Short Window}}{\text{Long Window}}$. |
 | **EDA-037** | Stage 6 | Roadmap | Document upstream requirements for Phase 2 transaction ledger and graph ingestion. |
-| **EDA-038** | Stage 7 | Evaluation | Formalize daily review queue budget at $K = 50$ alerts. |
-| **EDA-039** | Stage 7 | Model Selection | Deploy LightGBM (`scale_pos_weight = 10.0`) as production classifier. |
+| **EDA-038** | Stage 7 | Evaluation | Treat K=25/50/100 as development cutoffs; Operations must define live capacity. |
+| **EDA-039** | Stage 7 | Model Selection | Retain LightGBM as a prototype comparator; repeat selection on representative temporal data. |
 | **EDA-040** | Stage 7 | UI / Operations | Present model outputs as Risk Percentiles (0–100th) and Priority Tiers. |
 | **EDA-041** | Stage 7 | Governance | Report 95% bootstrap confidence intervals for all production scorecard metrics. |
 | **EDA-042** | Stage 7 | Fairness | Bound student false alert rate below 1.0%; monitor disparate impact ratios. |
-| **EDA-043** | Stage 7 | Governance | Keep 1,817-account holdout locked until final production acceptance testing. |
+| **EDA-043** | Stage 7 | Governance | Preserve the saved split for internal reference; acquire a new temporal acceptance cohort. |
 
 ---
 
@@ -170,9 +170,9 @@ flowchart TD
 | Governance Domain | Identified Risk | Engineering Mitigation | Compliance Standard |
 | :--- | :--- | :--- | :--- |
 | **Target Leakage** | False 1.0 AUC scores from batch tags | 1,404 columns quarantined in exclusion register. | SR 11-7 Model Validation |
-| **Algorithmic Bias** | Penalizing students or rural branches | Behavioral gating: alerts require flow anomalies + balance depletion. | Fair Lending / ECOA |
-| **Analyst Fatigue** | 10,000 unprioritized false alerts | $K = 50$ queue with 88% precision; catches 67.7% of fraud. | Operational Efficiency |
-| **Black-Box Legal Risk** | Freeze rejected for lack of reasoning | Standardized plain-English multi-factor case intelligence briefs. | SAR Legal Defensibility |
+| **Algorithmic Bias** | Penalizing students or rural branches | Human review plus prospective subgroup monitoring on representative data. | Compliance policy required |
+| **Analyst Fatigue** | Unprioritized alerts | Operations-configured queue with prospectively measured yield. | Operational validation required |
+| **Decision traceability** | Model score mistaken for evidence of fraud | Evidence-limited brief, source provenance, and human decision log. | Compliance review required |
 | **Sample Size Variance** | High variance from $N = 81$ positives | 95% bootstrap confidence intervals reported on all metrics. | Model Risk Management |
 | **Data Modality Drift** | Claiming graph detection without edges | Architecture bounded strictly to tabular risk ranking. | IEEE AI Ethics & Integrity |
 

@@ -6,6 +6,9 @@
 **Status:** Completed & Reproducibly Audited  
 **Date:** 2026-10-11  
 
+> [!IMPORTANT]
+> Stage 9 supersedes unqualified source-semantic and readiness claims in this historical report. Sentinel handling remains a prototype rule until a source dictionary confirms the codes.
+
 ---
 
 ## 1. Executive Summary & Objective
@@ -140,8 +143,8 @@ flowchart LR
 
 ### 7.2. Account Opening Date Sentinels (`F3888`)
 * Minimum observed date is `1900-01-03`.
-* `1900` is the standard migration placeholder for legacy accounts with unrecorded opening dates.
-* **Cleaning Rule:** Dates before `1950-01-01` are treated as missing tenure placeholders (`NaN`), and an indicator flag `IS_LEGACY_OPEN_DATE = 1` is created.
+* Dates near `1900` are suspicious and consistent with a legacy placeholder, but their source meaning is unverified.
+* **Prototype Cleaning Rule:** Dates before `1950-01-01` are treated as missing (`NaN`) and an indicator `IS_LEGACY_OPEN_DATE = 1` is created. Production use requires source-owner confirmation.
 
 ### 7.3. Customer Age Sentinels (`F3894`)
 * Retail account ages include negative entries (e.g., `-2.0`), which represent extraction errors.

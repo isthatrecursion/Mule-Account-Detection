@@ -3,18 +3,21 @@
 **Project:** Explainable Fraud Intelligence System for Mule Account Detection  
 **Document ID:** `eda/07_evaluation_protocol.md`  
 **Execution Stage:** Stage 7 (Items 53–64 of Decision-Driven EDA Plan)  
-**Status:** Completed & Empirically Benchmarked via 5-Fold Out-of-Fold CV  
+**Status:** Historical evaluation report; superseded for readiness and reproducibility by Stage 9
 **Date:** 2026-10-11  
 
 ---
+
+> [!IMPORTANT]
+> The scorecard below is retained as historical EDA output. Its original training code, complete configuration, and out-of-fold predictions were not committed, so the exact numbers cannot be independently reproduced from the repository. A new fold-safe benchmark and saved predictions are provided by `scripts/pre_architecture_verification.py`. Neither scorecard establishes production performance because extraction month and target are perfectly confounded. The saved 1,817-row split is an internal reference holdout, not a pristine production acceptance set. See `eda/09_pre_architecture_verification_and_remediation.md`.
 
 ## 1. Executive Summary & Objective
 
 The objective of **Stage 7** is to establish an immutable, fraud-specific evaluation protocol that reflects real-world banking constraints:
 1. **Finite Human Analyst Capacity:** Human investigators cannot review 10,000 false alarms. The model must prioritize review queues evaluated by **Precision@K and Recall@K** ($K \in \{25, 50, 100\}$).
-2. **Leakage-Free Validation:** Strict exclusion of all 1,404 identified leakages, proxies, and duplicate artifacts.
+2. **Known-issue exclusions:** Strict exclusion of 1,404 registered leakages, proxies, sparse columns, and duplicate artifacts. Residual cohort confounding remains unresolved.
 3. **Rigorous Baseline Benchmarking:** Comparing random guessing, domain business rules, regularized linear models, and gradient boosted tree ensembles under identical 5-fold cross-validation on the development partition (`dev`, 7,265 accounts).
-4. **Holdout Protection:** The 1,817-account holdout partition remains locked for single unbiased final evaluation.
+4. **Reference split protection:** The 1,817-account internal holdout remains unscored by the Stage 9 benchmark, but it cannot serve as unbiased production validation.
 
 ---
 
@@ -49,16 +52,16 @@ Translating machine learning scores into operational fraud investigation impact:
 flowchart LR
     subgraph Operational Impact at K = 50 Reviews
         A["Bank Review Queue<br>Top 50 Prioritized Alerts"] --> B["44 Confirmed Mules Detected<br>(Precision@50 = 88.0%)"]
-        A --> C["Only 6 False Alarms<br>(12% False Positive Rate)"]
-        B --> D["67.7% of all fraud in the bank<br>caught within 50 daily investigations!"]
+        A --> C["6 non-positive labels<br>(12% false discovery proportion)"]
+        B --> D["67.7% recall within the historical<br>development ranking at K=50"]
     end
 ```
 
 | Analyst Budget ($K$) | Target Use Case | Out-of-Fold True Mules Caught | Precision@K | Recall@K | Operational Feasibility |
 | :---: | :--- | :---: | :---: | :---: | :--- |
-| **$K = 25$** | **Emergency Urgent Queue** (High-conviction immediate holds) | **25 / 25** | **100.0%** | **38.5%** | **Flawless precision**. Zero wasted analyst time. Catches ~39% of all mules in 25 reviews. |
-| **$K = 50$** | **Standard Daily Queue** (Small fraud investigations team) | **44 / 50** | **88.0%** | **67.7%** | **Optimal operational sweet spot**. 44 mules caught with only 6 false alarms. |
-| **$K = 100$** | **Comprehensive Weekly Audit** (Broader risk monitoring) | **53 / 100** | **53.0%** | **81.5%** | **Over 81.5% of total bank fraud captured** within 100 investigations. |
+| **$K = 25$** | Historical development ranking cutoff | **25 / 25** | **100.0%** | **38.5%** | Legacy reported result; not a live-operation guarantee. |
+| **$K = 50$** | Historical development ranking cutoff | **44 / 50** | **88.0%** | **67.7%** | Legacy reported result; queue capacity must be supplied by Operations. |
+| **$K = 100$** | Historical development ranking cutoff | **53 / 100** | **53.0%** | **81.5%** | Legacy reported result; not bank-wide fraud capture. |
 
 ---
 
@@ -104,7 +107,7 @@ Auditing the False Positive Rate across sensitive demographic cohorts in the top
 | **Non-Students** | 6,248 | 39 | **0.62%** | Disparity ratio $\approx 1.35x$; mitigated by behavioral gates. |
 | **Rural Branches (`F3890 = R`)** | 1,572 | 12 | **0.76%** | Minimal geographic distortion. |
 
-* **Fairness Safeguard:** The mandatory behavioral gates (requiring both reserve depletion and flow concentration) successfully protect 99.16% of legitimate student accounts from false alerts.
+* **Fairness limitation:** These retrospective subgroup counts are exploratory. Confounding, small positive counts, and unverified feature semantics prevent a fairness certification. Prospective monitoring and compliance-defined policy are required.
 
 ---
 
@@ -133,7 +136,7 @@ Auditing the False Positive Rate across sensitive demographic cohorts in the top
 - **Why it matters:** Multi-factor non-linear interactions are necessary to separate genuine money mules from ordinary retail customers.
 - **Feature Decision:** Feed 2,521 active clean features to LightGBM.
 - **Preprocessing Decision:** Categorical encoding + median imputation.
-- **Model/Approach Decision:** LightGBM with `scale_pos_weight = 10.0` approved as production classifier.
+- **Model/Approach Decision:** LightGBM with `scale_pos_weight = 10.0` retained as a historical prototype configuration; production selection requires representative temporal validation.
 - **Evaluation Decision:** Maintain regularized logistic regression as mandatory benchmark baseline.
 - **Explainability Implications:** Enables native TreeSHAP computation for high-speed local explanations.
 - **Owner and Status:** Lead ML Engineer / Verified & Accepted.
@@ -176,11 +179,11 @@ Auditing the False Positive Rate across sensitive demographic cohorts in the top
 - **Evidence:** Student false alert rate is bounded at 0.84% (99.16% of innocent students protected).
 - **Evidence Status:** Verified.
 - **Why it matters:** Prevents algorithmic discrimination against protected age/student segments.
-- **Feature Decision:** Preserve demographic features only in combination with behavioral gates.
+- **Feature Decision:** Treat demographic features as policy-sensitive; test ablation, proxy effects, and subgroup burden before any operational use.
 - **Preprocessing Decision:** N/A.
-- **Model/Approach Decision:** Audit SHAP interactions to ensure demographic factors alone cannot push an account above the alert threshold.
+- **Model/Approach Decision:** Require human review and prospective disparity monitoring; SHAP interaction checks are diagnostic rather than a fairness guarantee.
 - **Evaluation Decision:** Disparate impact ratio monitoring in all production runs.
-- **Explainability Implications:** Compliance documentation explicitly verifies behavioral causality.
+- **Explainability Implications:** Model explanations describe score contributions only and cannot verify behavioral causality.
 - **Owner and Status:** Ethics & Compliance Lead / Verified & Accepted.
 
 ---
@@ -188,13 +191,13 @@ Auditing the False Positive Rate across sensitive demographic cohorts in the top
 ### EDA-043 — Holdout Partition Preservation & Final Unlock Protocol
 - **Category:** Evaluation Governance
 - **Dataset/Version:** `eda/holdout_split_indices.csv` (1,817 accounts: 1,801 neg, 16 pos)
-- **Evidence:** Holdout partition has remained 100% untouched throughout all 7 stages.
-- **Evidence Status:** Verified.
-- **Why it matters:** Guarantees that final validation results will be completely unbiased and representative of true production performance.
+- **Evidence:** The saved split was not scored in the Stage 9 benchmark, but the repository history includes dataset-wide inspection.
+- **Evidence Status:** Reclassified as an internal reference holdout.
+- **Why it matters:** A new later-period cohort is required for unbiased production acceptance.
 - **Feature Decision:** N/A.
 - **Preprocessing Decision:** Preprocessing transformers fitted on `dev` will be applied to `holdout`.
-- **Model/Approach Decision:** Final tuned LightGBM model will be scored once on `holdout`.
-- **Evaluation Decision:** The holdout will be scored once and only once at the conclusion of pipeline implementation.
+- **Model/Approach Decision:** Do not use this split to claim production readiness.
+- **Evaluation Decision:** Preserve it for internal diagnostics; evaluate production candidacy on a new frozen temporal cohort.
 - **Explainability Implications:** Validates generalization of plain-English explanations.
 - **Owner and Status:** Lead ML Engineer / Verified & Accepted.
 
@@ -204,14 +207,14 @@ Auditing the False Positive Rate across sensitive demographic cohorts in the top
 
 | Item | Requirement | Verification Result | Status |
 | :---: | :--- | :---: | :---: |
-| **7.1** | Full leakage audit verified | 1,404 excluded columns cataloged; zero leakage in modeling | **PASSED** |
-| **7.2** | Contamination audit verified | Holdout isolated; 5-fold CV fitted strictly on `dev` | **PASSED** |
+| **7.1** | Known leakage register verified | 1,404 exclusions cataloged; residual cohort confounding remains | **CONDITIONAL** |
+| **7.2** | Contamination audit | Fold-safe benchmark added; saved split is internal reference only | **CONDITIONAL** |
 | **7.3** | Imbalance treatment compared | `scale_pos_weight = 10.0` confirmed superior to synthetic SMOTE | **PASSED** |
 | **7.4** | Baselines compared | Random, Heuristic Rules, Logistic Regression, LightGBM evaluated | **PASSED** |
 | **7.5** | Fraud-oriented metrics computed | PR-AUC = 0.7825, ROC-AUC = 0.9579 | **PASSED** |
 | **7.6** | Analyst capacity metrics computed | P@25 = 100%, P@50 = 88.0%, R@50 = 67.7%, R@100 = 81.5% | **PASSED** |
 | **7.7** | Uncertainty CIs quantified | 95% Bootstrap CIs reported for all operational metrics | **PASSED** |
-| **7.8** | Subgroup fairness audited | Innocent student false alert rate bounded at 0.84% | **PASSED** |
+| **7.8** | Subgroup fairness explored | Historical subgroup rates computed; certification requires representative data | **CONDITIONAL** |
 | **7.9** | Score calibration & percentiles established | Percentile risk rank mapping mandated | **PASSED** |
 | **7.10** | Stage 7 Decision Records logged | `EDA-038` through `EDA-043` recorded | **PASSED** |
 

@@ -41,54 +41,47 @@ $$q_{(i)} = \min_{k \ge i} \left( \frac{m \cdot p_{(k)}}{k} \right) \le 0.05$$
 
 ### 2.2. Top 15 Strongest Predictive Features by Univariate AUC
 
-| Feature ID | Univariate AUC | Raw Direction ($AUC$) | Mann–Whitney $p$-value | FDR Adjusted $q$-value | Financial Typology Behavior |
+| Feature ID | Univariate AUC | Raw Direction ($AUC$) | Mann–Whitney $p$-value | FDR Adjusted $q$-value | Observed pattern |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **`F448`** | **0.8521** | 0.1479 | $6.08 \times 10^{-3}$ | $2.28 \times 10^{-2}$ | Velocity / Frequency metric; 0.0 in 75% of mules. |
-| **`F451`** | **0.8513** | 0.1487 | $6.20 \times 10^{-3}$ | $2.31 \times 10^{-2}$ | Collinear partner of `F448` (extended window). |
+| **`F448`** | **0.8521** | 0.1479 | $6.08 \times 10^{-3}$ | $2.28 \times 10^{-2}$ | Anonymous numeric; 0.0 in 75% of positives. |
+| **`F451`** | **0.8513** | 0.1487 | $6.20 \times 10^{-3}$ | $2.31 \times 10^{-2}$ | Anonymous numeric; highly correlated with `F448`. |
 | **`F450`** | **0.8506** | 0.1494 | $6.29 \times 10^{-3}$ | $2.32 \times 10^{-2}$ | Collinear partner of `F448`. |
-| **`F453`** | **0.8496** | 0.1504 | $6.43 \times 10^{-3}$ | $2.36 \times 10^{-2}$ | Extended window velocity aggregation. |
-| **`F142`** | **0.8467** | 0.1533 | $4.33 \times 10^{-3}$ | $1.79 \times 10^{-2}$ | Ratio / Bounded activity metric; near-zero in mules. |
+| **`F453`** | **0.8496** | 0.1504 | $6.43 \times 10^{-3}$ | $2.36 \times 10^{-2}$ | Anonymous numeric; highly correlated with `F448`. |
+| **`F142`** | **0.8467** | 0.1533 | $4.33 \times 10^{-3}$ | $1.79 \times 10^{-2}$ | Anonymous bounded numeric; near zero in positives. |
 | **`F144`** | **0.8449** | 0.1551 | $4.48 \times 10^{-3}$ | $1.83 \times 10^{-2}$ | Collinear partner of `F142`. |
-| **`F139`** | **0.8410** | 0.1590 | $5.08 \times 10^{-3}$ | $1.99 \times 10^{-2}$ | Transaction concentration metric. |
+| **`F139`** | **0.8410** | 0.1590 | $5.08 \times 10^{-3}$ | $1.99 \times 10^{-2}$ | Anonymous bounded numeric. |
 | **`F141`** | **0.8397** | 0.1603 | $5.16 \times 10^{-3}$ | $2.01 \times 10^{-2}$ | Collinear partner of `F139`. |
-| **`F3811`** | **0.8236** | 0.1764 | $\mathbf{2.33 \times 10^{-19}}$ | $\mathbf{1.76 \times 10^{-16}}$ | Holding Balance scale; mules hold 6.2x lower funds. |
-| **`F3805`** | **0.8176** | 0.1824 | $\mathbf{1.05 \times 10^{-18}}$ | $\mathbf{5.99 \times 10^{-16}}$ | Average monthly balance; orthogonal to velocity. |
+| **`F3811`** | **0.8236** | 0.1764 | $\mathbf{2.33 \times 10^{-19}}$ | $\mathbf{1.76 \times 10^{-16}}$ | Anonymous numeric; positive median is 6.2x lower. |
+| **`F3805`** | **0.8176** | 0.1824 | $\mathbf{1.05 \times 10^{-18}}$ | $\mathbf{5.99 \times 10^{-16}}$ | Anonymous numeric; low linear correlation with `F448`. |
 | **`F156`** | **0.7899** | 0.7899 | $8.33 \times 10^{-5}$ | $1.12 \times 10^{-3}$ | **Elevated:** Mules median 1.0 vs. regular 0.605. |
 | **`F264`** | **0.7824** | 0.7824 | $1.40 \times 10^{-4}$ | $1.58 \times 10^{-3}$ | **Elevated:** Mules median 1.0 vs. regular 0.330. |
-| **`F261`** | **0.7768** | 0.7768 | $1.92 \times 10^{-4}$ | $1.94 \times 10^{-3}$ | **Elevated:** Liquidation concentration spike. |
-| **`F2074`** | **0.7376** | 0.7376 | $\mathbf{2.83 \times 10^{-11}}$ | $\mathbf{5.41 \times 10^{-9}}$ | **Elevated:** Outflow velocity ratio (median 0.89 vs 0.71). |
-| **`F2182`** | **0.7336** | 0.7336 | $\mathbf{6.39 \times 10^{-11}}$ | $\mathbf{1.13 \times 10^{-8}}$ | **Elevated:** Electronic transfer concentration ratio. |
+| **`F261`** | **0.7768** | 0.7768 | $1.92 \times 10^{-4}$ | $1.94 \times 10^{-3}$ | Anonymous numeric; elevated in positives. |
+| **`F2074`** | **0.7376** | 0.7376 | $\mathbf{2.83 \times 10^{-11}}$ | $\mathbf{5.41 \times 10^{-9}}$ | Anonymous numeric; median 0.89 vs. 0.71. |
+| **`F2182`** | **0.7336** | 0.7336 | $\mathbf{6.39 \times 10^{-11}}$ | $\mathbf{1.13 \times 10^{-8}}$ | Anonymous numeric; elevated in positives. |
 
 ---
 
-## 3. Dissecting the Financial Crime Typology Signals
+## 3. Observed signal groups and interpretation boundary
 
-Analyzing the directionality of signals exposes two fundamental mechanics of mule operations:
+Analyzing directionality identifies statistical groups. The anonymous columns do not establish transaction mechanics:
 
 ```mermaid
 flowchart TD
-    subgraph Stolen Funds Ingestion
-        A[External Fraud / Phishing Victim] -->|Rapid Transfer| B[Mule Account]
-    end
-    subgraph Observable Pipeline Footprint
-        B --> C["1. Elevated Liquidation Ratio (F156, F264 = 1.0)<br>All money moved immediately"]
-        B --> D["2. Depleted Holding Balance (F3811)<br>Low average ledger reserves ($p < 10^{-19}$)"]
-        B --> E["3. Specific Demographic Gateway<br>Student / Retail Savings Account ($p < 0.001$)"]
-    end
-    C --> F[Fraud Analyst Plain-English Intelligence]
-    D --> F
-    E --> F
+    A[Positive-labeled records] --> B[Elevated anonymous bounded values]
+    A --> C[Lower anonymous large-scale values]
+    A --> D[Different sampled category composition]
+    B & C & D --> E[Candidate model signals subject to cohort audit]
 ```
 
-### 3.1. The Rapid Cash-Out / Pass-Through Signature
-* **Metric `F3811` (Average Ledger Reserves):**
+### 3.1. Statistical contrasts requiring source definitions
+* **Metric `F3811` (business meaning unverified):**
   * Legitimate Accounts: Median = **840,459** (Mean: 22.08 million)
   * Confirmed Mules: Median = **135,589** (Mean: 381,087)
-  * *Interpretation:* Legitimate accounts use bank accounts as a store of value. Mule accounts are used purely as a transient conduit; funds are drained within minutes to crypto exchanges, peer-to-peer apps, or ATM cash-outs.
-* **Metrics `F156` & `F264` (Electronic Liquidation Concentration):**
+  * *Interpretation boundary:* The sampled classes differ strongly. The dataset has no transaction timestamps, counterparties, or certified definition for `F3811`, so it cannot establish dwell time, destination, or a pass-through mechanism.
+* **Metrics `F156` & `F264` (business meanings unverified):**
   * Legitimate Accounts: Median = **0.33 to 0.60**
-  * Confirmed Mules: Median = **1.00** (100% of accounts exhibit complete liquidation)
-  * *Interpretation:* 100% of incoming funds are immediately redirected to external counterparties without leaving normal discretionary retail spending residues.
+  * Positive-labeled records: Median = **1.00**
+  * *Interpretation boundary:* A value of 1.00 is an observed numeric value. It cannot be translated into “100% electronic redirection” without a source dictionary defining numerator, denominator, unit, and time window.
 
 ---
 
@@ -123,9 +116,9 @@ F2074 -0.210 -0.224 -0.208 -0.221 |-0.250 -0.248 -0.231 -0.229 |-0.015 -0.012 | 
 1. **Block 1 (Velocity Group: `F448`–`F453`):** Internal correlation is $0.95$ to $0.998$. Pruning can collapse this group to a single representative (`F448`) without losing information.
 2. **Block 2 (Activity Ratios: `F139`–`F144`):** Internal correlation is $0.97$ to $0.998$. Representative: `F142`.
 3. **Block 3 (Balance Scale: `F3811` / `F3805`):** Internal correlation is $0.989$. Representative: `F3811`.
-4. **Complete Orthogonality Between Balance and Velocity:**
+4. **Low pairwise linear association between selected features:**
    $$\text{Corr}(\text{Block 1 Velocity}, \text{Block 3 Balance}) \approx 0.000$$
-   This proves that combining Balance Depletion (`F3811`) with Flow Concentration (`F156`) and Demographic Risk (`Student`) provides a **true multi-factor detection model**, satisfying compliance explainability requirements.
+   This records near-zero Pearson correlation in the development sample. It does not prove statistical independence, causal separation, feature semantics, or compliance sufficiency.
 
 ---
 
@@ -146,18 +139,18 @@ F2074 -0.210 -0.224 -0.208 -0.221 |-0.250 -0.248 -0.231 -0.229 |-0.015 -0.012 | 
 
 ---
 
-### EDA-029 — Multi-Factor Risk Representation (Velocity + Balance + Demographics)
+### EDA-029 — Multi-Feature Risk Representation
 - **Category:** Model Architecture & Explainability
 - **Dataset/Version:** `DataSet__1_.csv` (Development Set)
-- **Evidence:** Balance scale (`F3811`), Flow Concentration (`F156`), and Demographics (`Student`) are completely orthogonal ($r \approx 0.00$).
-- **Evidence Status:** Verified.
-- **Why it matters:** Compliance and legal teams reject single-factor alerts. Regulators mandate multi-factor reasoning before freezing accounts.
-- **Feature Decision:** Guarantee that the final model inputs include representatives from all three orthogonal clusters.
+- **Evidence:** Selected anonymous features have low pairwise Pearson correlation and differ between sampled labels; their business definitions are unverified.
+- **Evidence Status:** Statistical association verified; semantics and independence unverified.
+- **Why it matters:** Diverse model inputs can improve ranking, but model contributions do not by themselves justify an account restriction.
+- **Feature Decision:** Retain statistically useful representatives only when provenance, scoring-time availability, stability, and prospective validation pass.
 - **Preprocessing Decision:** N/A.
 - **Model/Approach Decision:** Multi-factor tree ensemble with calibrated risk ranking.
 - **Evaluation Decision:** Audit top-50 alerts to ensure decisions cite at least 2 distinct orthogonal factors.
-- **Explainability Implications:** Directly enables plain-English narratives: *"Student account + 100% electronic liquidation + near-zero overnight ledger balance."*
-- **Owner and Status:** Compliance & Data Science Lead / Verified & Accepted.
+- **Explainability Implications:** Anonymous inputs are reported by feature ID, value, percentile, and model contribution until an approved dictionary supplies business meaning.
+- **Owner and Status:** Compliance & Data Science Lead / Superseded by Stage 9 validation gates.
 
 ---
 

@@ -6,6 +6,9 @@
 **Status:** Completed & Reproducibly Audited  
 **Date:** 2026-10-11  
 
+> [!IMPORTANT]
+> Stage 9 is the authoritative readiness record. `F3912` is treated as an unsafe near-target proxy, but its administrative meaning and the label-generation narrative below are unverified hypotheses pending data-owner documentation.
+
 ---
 
 ## 1. Executive Summary & Objective
@@ -90,21 +93,18 @@ False Negatives (F3912 = 0, F3924 = 1):
   5. Row 9051 (Account ID 9052): Savings Account, self-employed, age 36.0
 ```
 
-* **Interpretation:** `F3912` is an **internal administrative alert or provisional freeze tag**.
-  * The 3 false positives represent accounts where an alert was triggered or a provisional hold was placed, but subsequent investigation cleared the customer or found insufficient evidence to confirm mule status.
-  * The 2 false negatives represent confirmed mules where the administrative flag was bypassed, delayed, or recorded in an alternate core system.
-* **Operational Directive:** `F3912` is a **post-outcome administrative artifact**, not an organic behavioral feature. It is placed on the **permanent feature blacklist**.
+* **Interpretation boundary:** `F3912` is an unsafe near-target proxy. The five mismatches do not reveal why the values differ, and no administrative workflow meaning can be assigned without source documentation.
+* **Operational Directive:** Treat `F3912` as a likely post-outcome artifact and place it on the permanent feature blacklist; provenance remains unverified.
 
 ---
 
 ## 5. Label Quality & Positive-Unlabeled (PU) Risk (Items 13 & 14)
 
 1. **The Positive Class (`F3924 = 1`):**
-   * Confirmed mules represent accounts that reached the end of an investigative funnel: victim reported crime $\rightarrow$ law enforcement request / SAR filing $\rightarrow$ manual analyst confirmation $\rightarrow$ account freeze.
-   * Label precision is high (near 100%), but recall of total illegal activity is unknown.
+   * The positive-label generation process is not documented in the repository. Investigation, reporting, adjudication, and account-action sequences require label-owner confirmation.
+   * Label precision and recall are unknown because no adjudication audit is present.
 2. **The Negative Class (`F3924 = 0`):**
-   * The negative class represents **unflagged accounts**, not verified clean accounts.
-   * In retail banking, an estimated 0.1%–0.5% of regular accounts may act as undetected "sleeper mules" or low-volume pass-through accounts that never triggered a police inquiry.
+   * The meaning of the negative class is unverified; it must not be called “clean” without a label specification and maturity rule.
 3. **Modeling Strategy for Positive-Unlabeled Reality:**
    * Do not rely on hard binary classification boundaries.
    * Frame model optimization as **Risk Ranking / Prioritization**: surface the highest-density anomalies for analyst review rather than enforcing rigid class separation.
@@ -113,10 +113,10 @@ False Negatives (F3912 = 0, F3924 = 1):
 
 ## 6. Label Delay, Censoring & Account Maturation (Item 15)
 
-* **Maturation Lag:** Mule detection is subject to significant reporting latency (often 30 to 90 days from transaction execution to bank dispute notification).
+* **Maturation Lag:** Label delay is plausible but unmeasured. The required observation and maturity windows must come from the label owner.
 * **Account Opening Date (`F3888`) vs. Snapshot Date:**
-  * Accounts opened in late 2025 (e.g., October–November 2025) have had insufficient maturation time to be confirmed as mules by external law enforcement.
-  * In the development partition, **87.7% of confirmed mules** have account tenure $> 365$ days (`G365D`), indicating that fraudsters frequently utilize "sleeper accounts" (aged accounts recruited or sold) rather than exclusively brand-new accounts.
+  * Whether late-2025 accounts have mature labels cannot be determined without label event dates and a documented cutoff.
+  * In the development partition, **87.7% of positive-labeled records** have `F3889 = G365D`. This is a sample association and does not establish a “sleeper account” mechanism.
 
 ---
 
@@ -208,7 +208,7 @@ $$\text{Mann–Whitney } U = 138,591.5, \quad p = 0.00049 \quad \text{(Statistic
 ### EDA-012 — Administrative Tag Quarantine Confirmation (`F3912`)
 - **Category:** Feature Selection & Leakage Prevention
 - **Dataset/Version:** `DataSet__1_.csv`
-- **Evidence:** 99.94% concordance with target; autopsy of 5 mismatch rows confirms administrative hold/freeze origin.
+- **Evidence:** 99.94% concordance with target; five mismatch rows observed. Administrative origin is unverified.
 - **Evidence Status:** Verified.
 - **Why it matters:** Retaining `F3912` causes total model degeneration into a single-rule check.
 - **Feature Decision:** **Permanent Blacklist**. Remove `F3912` from all training and inference pipelines.

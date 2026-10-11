@@ -8,6 +8,9 @@
 **Author:** Fraud Intelligence & Machine Learning Engineering Team  
 **Date:** October 2026  
 
+> [!IMPORTANT]
+> This report is a historical EDA record. `eda/09_pre_architecture_verification_and_remediation.md` supersedes conflicting claims about leakage-free features, feature semantics, account identity, untouched holdout status, production performance, fairness certification, legal sufficiency, and automated account actions.
+
 ---
 
 ## Table of Contents
@@ -42,7 +45,7 @@ The provided production extract (`DataSet__1_.csv`) presents a realistic banking
 * **3,924 Anonymized Feature Columns** (`F1` through `F3924`).
 * **Deceptive Structural Traps:** Target-sorted row orders, reporting-month batch leaks, and administrative disposition proxies that would cause naive machine learning pipelines to fail completely in production.
 
-This document compiles the exhaustive empirical investigation that diagnosed these traps, unmasked the real behavioral signatures of money laundering, and proved an operational pipeline delivering **88.0% Precision at daily review capacity ($K=50$)** on development cross-validation.
+This document compiles the original empirical investigation. Its model metrics are historical development estimates; the original training code and predictions were not committed, and extraction month is perfectly confounded with the target.
 
 ### 1.3. Epistemological Governance Framework: Distinguishing Facts, Decisions, and Hypotheses
 To maintain institutional scientific rigor, this report explicitly separates three categories of knowledge:
@@ -132,7 +135,7 @@ An inspection of row indices uncovered an immediate, fatal assembly artifact:
 To establish whether rows represent unique accounts or recurring monthly observations, we combined demographic attributes (`F3887` Branch Code, `F3888` Open Date, `F3890` Region Tier, `F3891` Occupation, `F3892` Gender, `F3894` Age):
 * **Result:** **8,850 unique demographic combinations across 9,082 rows**.
 * The remaining 232 shared profiles represent high-density rural branch clusters rather than repeated snapshots of identical accounts.
-* **Conclusion:** The dataset grain is **one unique bank account per record** (`EDA-006`).
+* **Conclusion:** The extract has one supplied record per row. Unique account identity is unverified because no stable entity key is available (`EDA-006`, revised by Stage 9).
 
 ---
 
@@ -169,9 +172,9 @@ To guarantee unbiased future evaluation and avoid optimistic target-informed dat
 | Partition | Total Accounts | Non-Mule (`0`) | Mule (`1`) | Prevalence | Storage Reference |
 | :--- | :---: | :---: | :---: | :---: | :--- |
 | **Development (`dev`)** | **7,265** (80.0%) | 7,200 | 65 | **0.8950%** | [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv) |
-| **Protected Holdout (`holdout`)** | **1,817** (20.0%) | 1,801 | 16 | **0.8806%** | [`eda/holdout_split_indices.csv`](file:///c:/Users/omkud/Mule%20Account%20Detection/eda/holdout_split_indices.csv) |
+| **Internal reference holdout (`holdout`)** | **1,817** (20.0%) | 1,801 | 16 | **0.8806%** | `eda/holdout_split_indices.csv` |
 
-**Protocol:** All subsequent EDA, feature selection, and model training occurred strictly on `dev`. The holdout partition remained completely isolated.
+**Revised protocol:** New target-aware fitting remains restricted to `dev`. Because dataset-wide inspection occurred in the repository history, the saved split cannot be treated as a pristine production acceptance set.
 
 ---
 
@@ -208,8 +211,8 @@ False Negatives (F3912 = 0, Target = 1):
   5. Row 9051: Savings Account, self-employed, age 36
 ```
 
-* **Interpretation:** `F3912` is an **internal administrative freeze/alert tag**. The 3 false positives were accounts provisionally held and later cleared; the 2 false negatives were confirmed mules that bypassed standard administrative tags.
-* **Action Taken:** Blacklisted permanently to prevent predicting an operational post-freeze flag (`EDA-012`).
+* **Interpretation:** `F3912` is an unsafe near-target proxy. Its operational meaning and the reasons for the five mismatches are unverified.
+* **Action Taken:** Blacklisted permanently to prevent reliance on a likely post-outcome field (`EDA-012`).
 
 ---
 
@@ -364,9 +367,9 @@ F2074          0.7376       Elevated       2.83e-11            5.41e-09     Outf
 
 ---
 
-### 7.3. The Real-World Money Mule Typology
+### 7.3. Sample Associations and Hypothesized Typology
 
-The empirical analysis uncovers the exact physical mechanism of money laundering in the bank:
+The empirical analysis identifies class-associated values. The business mechanisms in the diagram are hypotheses pending source definitions and representative validation:
 
 ```mermaid
 flowchart TD
@@ -385,10 +388,10 @@ flowchart TD
 
 1. **Pass-Through / Rapid Dwell-Time Liquidation:**
    * Normal accounts maintain median reserves of **840,459** (`F3811`). Confirmed mules hold median reserves of only **135,589** ($p = 2.3 \times 10^{-19}$).
-   * Mules do not accumulate capital; money entering the account is drained within minutes to crypto exchanges, peer-to-peer accounts, or cash counters.
+   * The dataset has no event timestamps, counterparties, destination types, or certified definition for `F3811`; it cannot establish dwell time or destination.
 2. **Elevated Liquidation Concentration:**
    * Normal accounts spend money gradually across discretionary retail channels (ratios `F156`, `F264` median 0.33 to 0.60).
-   * Mules exhibit a **median liquidation concentration of 1.00 (100% electronic redirection)** ($AUC = 0.78$–$0.79$).
+   * Positive-labeled records have a **median value of 1.00** for selected anonymous features ($AUC = 0.78$–$0.79$). “Liquidation” and “electronic redirection” require an approved data dictionary.
 
 ---
 
@@ -411,7 +414,7 @@ F3805 (Balance)   0.003      0.000          -0.012     -0.014         0.989     
 ---------------------------------------------------------------------------------------------
 ```
 
-* **Critical Architectural Discovery:** **Balance Reserves (`F3811`) and Velocity (`F448`) have $0.000$ correlation with each other.** They are completely orthogonal. Combining them delivers the mathematical multi-factor reasoning required by banking regulators (`EDA-029`).
+* **Measured relationship:** `F3811` and `F448` have near-zero Pearson correlation in this sample. This shows low measured linear association only; it does not prove independence, causality, feature meaning, or regulatory sufficiency.
 
 ---
 
@@ -424,8 +427,8 @@ In compliance with the **Architecture Decision Rule** (`EDA-033`):
 | Fraud Intelligence Capability | Present in Dataset? | Supported Architecture? | Operational Status |
 | :--- | :---: | :---: | :--- |
 | **Account-Level Risk Prioritization** | **YES** | **YES (Primary Engine)** | Gradient boosted trees + cost-sensitive ranking. |
-| **Multi-Factor Plain-English Explanations** | **YES** | **YES (Primary Engine)** | TreeSHAP attributions mapped to verified metadata. |
-| **Liquidation Concentration Metrics** | **YES** | **YES** | Statistical ratios (`F156`, `F264`). |
+| **Evidence-limited model explanations** | **PARTIAL** | **YES (Prototype)** | SHAP with feature IDs and approved metadata only. |
+| **Anonymous numeric contrasts** | **YES** | **YES** | Values and percentiles (`F156`, `F264`); business meanings unverified. |
 | **Seasoned vs. New Baseline Profiling** | **YES** | **YES** | Tenure bucket segmentation (`F3889`). |
 | **Sequential Bursts / Dwell Time** | **NO** | **NO (Data Gap)** | Excluded; tabular lookback windows act as proxies. |
 | **Counterparty Graph & Fraud Ring GNN** | **NO** | **NO (Data Gap)** | **Strictly prohibited**. Do not claim network GNNs. |
@@ -435,31 +438,22 @@ In compliance with the **Architecture Decision Rule** (`EDA-033`):
 
 ### 8.2. Plain-English Explainability Governance & Feasibility
 To ensure auditability, the system establishes a strict **Factuality Boundary** (`EDA-034`):
-* **Permitted:** Citing verified demographic attributes (Retail Savings, Student, Young Adult, Rural Branch), credit score band 600, account tenure $> 365$ days, measured holding balance depletion percentiles, and electronic flow concentration ratios.
+* **Permitted:** Citing observed raw categories with feature IDs, plus anonymous feature values, peer percentiles, signed contributions, and dictionary-status flags.
 * **Strictly Prohibited:** Hallucinating fictional counterparty names, transaction timestamps, merchant locations, or IP addresses not present in the data.
 
-#### Production Case Intelligence Brief Template:
+#### Prototype Analyst Evidence Template:
 ```markdown
-### 🚨 FRAUD INVESTIGATION BRIEF — HIGH-RISK MULE CANDIDATE
-**Account ID:** 9046 | **Risk Rank:** #3 of 7,265 | **Calculated Risk:** 99.4th Percentile
-**Primary Risk Profile:** RETAIL SAVINGS / STUDENT CONDUIT
+### MODEL-GENERATED REVIEW PRIORITY
+**Record ID:** 9046 | **Risk Rank:** #3 of 7,265 | **Score Type:** relative rank, not probability
 
-1. Demographic & Gateway Factors:
-   * 27-year-old student (F3891 = student, F3894 = 27), Retail Savings Account (F3886).
-   * Seasoned account (F3889 = G365D, open > 1 year). Matches sleeper recruitment typology.
-   * Standard bureau credit risk score band 600 (F3895 = 600).
+Observed contributors:
+* `F156 = 1.00`; high positive contribution; business definition unverified.
+* `F3811 = 84,210`; low peer percentile; business definition unverified.
+* `F3886 = Savings`, `F3891 = student`; observed raw values; source definitions pending.
 
-2. Liquidation & Velocity Anomalies (Dimension 1):
-   * Flow concentration metric F156 = 1.00 (100% electronic redirection of credits; 99th percentile).
-   * Active digital channel flag F3909 = 1 (8.0x positive mule risk multiplier).
-
-3. Holding Reserve Depletion (Dimension 2 - Orthogonal):
-   * Holding balance metric F3811 = 84,210 (bottom 4th percentile of savings accounts; normal peer median = 603,500).
-   * Reserve depletion relative to total throughput indicates minimal capital retention (pass-through profile).
-
-Disposition Recommendation:
-   * Multi-factor convergence verified across 3 orthogonal dimensions.
-   * Place temporary 24-hour administrative debit hold; request source-of-funds verification.
+Required handling:
+* Route to an authorized analyst for independent evidence review under bank policy.
+* Do not infer timing, counterparties, criminal intent, or a required restriction from the model score.
 ```
 
 ---
@@ -490,13 +484,13 @@ Model Architecture                          ROC-AUC   PR-AUC (AP)   P@25    R@25
 
 > [!IMPORTANT]
 > **Scope of Reported Performance:** The metrics above represent **Out-of-Fold (OOF) cross-validation on the 7,265-account Development Partition**. 
-> To prevent data contamination, the **1,817-account Holdout Partition** (`eda/holdout_split_indices.csv`) remains locked and has **NOT yet been scored**. Real-world generalization to future unseen cohorts remains an empirical hypothesis that will be validated only upon final pipeline unlock.
+> The **1,817-row internal reference holdout** has not been scored by the Stage 9 reproducibility benchmark. It is not a pristine production acceptance set because dataset-wide inspection occurred during the EDA history. Real-world validation requires a new later-period cohort.
 
 ---
 
 ### 9.2. Operational Fraud Investigation Impact
 * **$K = 25$ Urgent Queue:** **100.0% Precision** (all 25 alerts are true confirmed mules; zero false alarms). Catches ~39% of all mules in 25 reviews.
-* **$K = 50$ Daily Queue:** **88.0% Precision** (44 confirmed mules, only 6 false alarms). **Catches 67.7% of all fraud in the bank in just 50 daily reviews**.
+* **$K = 50$ historical development cutoff:** Reported **88.0% Precision** and **67.7% recall**. This does not define daily capacity or bank-wide capture.
 * **$K = 100$ Weekly Audit:** **81.5% Recall** (captures 53 out of 65 mules).
 
 ---
@@ -557,12 +551,12 @@ Computed via 1,000 bootstrap resamples on out-of-fold predictions to adhere to M
 | **EDA-035** | Stage 6 | Fairness | Enforce behavioral gates: no account flagged on demographic identity alone. |
 | **EDA-036** | Stage 6 | Engineering | Engineer lookback velocity acceleration ratios $\frac{\text{Short Window}}{\text{Long Window}}$. |
 | **EDA-037** | Stage 6 | Roadmap | Document upstream requirements for Phase 2 transaction ledger and graph ingestion. |
-| **EDA-038** | Stage 7 | Evaluation | Formalize daily review queue budget at $K = 50$ alerts. |
-| **EDA-039** | Stage 7 | Model Selection | Deploy LightGBM (`scale_pos_weight = 10.0`) as production classifier. |
+| **EDA-038** | Stage 7 | Evaluation | Treat K=25/50/100 as development cutoffs; Operations must supply live capacity. |
+| **EDA-039** | Stage 7 | Model Selection | Use LightGBM as a prototype comparator; production selection requires representative temporal validation. |
 | **EDA-040** | Stage 7 | UI / Operations | Present model outputs as Risk Percentiles (0–100th) and Priority Tiers. |
 | **EDA-041** | Stage 7 | Governance | Report 95% bootstrap confidence intervals for all production scorecard metrics. |
 | **EDA-042** | Stage 7 | Fairness | Bound student false alert rate below 1.0%; monitor disparate impact ratios. |
-| **EDA-043** | Stage 7 | Governance | Keep 1,817-account holdout locked until final production acceptance testing. |
+| **EDA-043** | Stage 7 | Governance | Preserve the 1,817-row split for internal reference; acquire a new temporal production acceptance cohort. |
 
 ---
 
@@ -574,12 +568,12 @@ With all 64 items across Stages 0 through 7 verified, the diagnostic phase is co
 flowchart LR
     A["1. src/pipeline<br>Ingestion & Cleaning Engine"] --> B["2. src/models<br>LightGBM Tuning & Calibration"]
     B --> C["3. src/explainability<br>TreeSHAP Intelligence Generator"]
-    C --> D["4. src/dashboard<br>Streamlit / FastAPI Analyst App"]
-    D --> E["5. Final Holdout Scoring<br>Locked 1,817 Accounts Evaluated"]
+    C --> D["4. src/dashboard<br>Analyst Review & Feedback App"]
+    D --> E["5. External Acceptance Test<br>New Frozen Temporal Cohort"]
 ```
 
 1. **`src/pipeline/`:** Modular data transformers enforcing the exclusion blacklist, sentinel cleansing, and feature filtering.
 2. **`src/models/`:** Cost-sensitive LightGBM training with Platt probability calibration.
 3. **`src/explainability/`:** TreeSHAP factor attributions mapped to the Plain-English Case Intelligence Brief generator.
-4. **`src/dashboard/`:** Interactive Fraud Analyst Risk Dashboard displaying ranked investigation queues, SHAP waterfall charts, and compliance SAR export buttons.
-5. **Final Holdout Benchmark:** Single, uncorrupted evaluation of the locked 1,817-account holdout partition.
+4. **`src/dashboard/`:** Analyst review interface with ranked queues, evidence-limited explanations, human decisions, and feedback capture. Filing or account-action integrations require separate policy approval.
+5. **External Acceptance Benchmark:** Single evaluation on a new later-period cohort frozen before target-aware inspection.
