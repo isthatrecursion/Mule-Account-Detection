@@ -33,3 +33,29 @@ wheels/
 # Temporary & logs
 *.log
 scratch/
+
+# Secrets and operational/generated material (reviewed evidence stays trackable)
+.env
+.env.*
+!.env.example
+secrets/
+data/
+volumes/
+exports/
+private-fixtures/
+tests/fixtures/private/
+artifacts/runs/
+artifacts/models/
+*.joblib
+*.pkl
+*.pickle
+*.onnx
+*.db
+*.sqlite*
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage*
+htmlcov/
+test-results/
+.venv-*/

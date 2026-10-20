@@ -1,0 +1,87 @@
+{
+  "scope": "Fresh runtime lock installation and wheel import outside source checkout",
+  "executed_at": "2026-10-20T13:58:26.833017+00:00",
+  "executed_command": "\"C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe\" \"C:\\Users\\omkud\\Mule Account Detection\\scripts\\verify_installation.py\" --wheel artifacts/phase3/windows_persistence_v1/dist/mule_detection-0.1.0-py3-none-any.whl --output-dir artifacts/phase1/phase3_wheel_install_v1",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "wheel": {
+    "path": "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase3\\windows_persistence_v1\\dist\\mule_detection-0.1.0-py3-none-any.whl",
+    "sha256": "ef1a8b6efa3d4f8ddbb1569be961739582de66d99f5ec44bfe352e9dad6a358e"
+  },
+  "lock": {
+    "path": "requirements-windows.lock",
+    "sha256": "3e0d480907c59069cbe04a0db164cc85db145661229944b0a2ad22fdbf2519e4"
+  },
+  "script_sha256": "472113fc0479c85532eb09dd2d27bf8d52b306ca7f10048dd0e5071828cf032d",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "venv",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment"
+      ],
+      "exit_code": 0,
+      "evidence": "check_01.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--require-hashes",
+        "--only-binary=:all:",
+        "-r",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-windows.lock"
+      ],
+      "exit_code": 0,
+      "evidence": "check_02.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase3\\windows_persistence_v1\\dist\\mule_detection-0.1.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "evidence": "check_03.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_04.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-c",
+        "\nimport importlib.metadata as metadata\nimport json\nimport pathlib\nimport re\nimport sys\nimport mule_detection\nimport numpy, pandas, scipy, sklearn, lightgbm\nfrom mule_detection.persistence.models import Base\nfrom mule_detection.persistence.artifacts import ArtifactStore\nfrom mule_detection.application.review_service import ReviewService\nfrom mule_detection.application.job_service import JobService\nassert len(Base.metadata.tables) == 18\nassert all((ArtifactStore, ReviewService, JobService))\nassert pathlib.Path(mule_detection.__file__).resolve().is_relative_to(pathlib.Path(sys.prefix).resolve())\nassert mule_detection.__version__ == '0.1.0'\nexpected = dict(re.findall(r'^([a-zA-Z0-9_.-]+)==([^\\s;]+)', pathlib.Path(sys.argv[1]).read_text(), re.M))\nobserved = {name: metadata.version(name) for name in expected}\nassert observed == expected, {'expected': expected, 'observed': observed}\nprint(json.dumps({'status': 'PASSED', 'package_file': mule_detection.__file__, 'runtime_versions': observed}))\n",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-windows.lock"
+      ],
+      "exit_code": 0,
+      "evidence": "check_05.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "mule_detection.cli",
+        "--help"
+      ],
+      "exit_code": 0,
+      "evidence": "check_06.txt"
+    }
+  ],
+  "pass_fail": "PASSED"
+}

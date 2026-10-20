@@ -1,0 +1,13 @@
+E                                                                        [100%]
+=================================== ERRORS ====================================
+_______________________ ERROR at setup of test_negative _______________________
+
+    @pytest.fixture
+    def deliberately_broken():
+>       raise ValueError("synthetic broken fixture")
+E       ValueError: synthetic broken fixture
+
+scratch\negative_c61a941aea10478db4b25ff749612b3c\test_negative.py:4: ValueError
+=========================== short test summary info ===========================
+ERROR scratch\negative_c61a941aea10478db4b25ff749612b3c\test_negative.py::test_negative
+1 error in 0.14s

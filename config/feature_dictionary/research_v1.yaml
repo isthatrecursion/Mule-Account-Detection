@@ -1,0 +1,9 @@
+# No business meanings are certified from anonymous EDA associations.
+contract_version: feature_dictionary_v1
+dictionary_version: research_dictionary_v1
+known_feature_ids: [F156, F3811, F3886, F3893]
+entries:
+  - {feature_id: F156, status: UNVERIFIED, display_name: null, unit: null, source_table: null, calculation_window: null, availability_rule: null, sensitivity: UNKNOWN, approval_reference: null}
+  - {feature_id: F3811, status: UNVERIFIED, display_name: null, unit: null, source_table: null, calculation_window: null, availability_rule: null, sensitivity: UNKNOWN, approval_reference: null}
+  - {feature_id: F3886, status: PROVISIONAL, display_name: null, unit: null, source_table: null, calculation_window: null, availability_rule: null, sensitivity: UNKNOWN, approval_reference: null}
+  - {feature_id: F3893, status: PROVISIONAL, display_name: null, unit: null, source_table: null, calculation_window: null, availability_rule: null, sensitivity: UNKNOWN, approval_reference: null}

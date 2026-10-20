@@ -1,0 +1,196 @@
+* Getting build dependencies for sdist...
+running egg_info
+writing src/mule_detection.egg-info/PKG-INFO
+writing dependency_links to src/mule_detection.egg-info/dependency_links.txt
+writing entry points to src/mule_detection.egg-info/entry_points.txt
+writing requirements to src/mule_detection.egg-info/requires.txt
+writing top-level names to src/mule_detection.egg-info/top_level.txt
+reading manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+writing manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+* Building sdist...
+running sdist
+running egg_info
+writing src/mule_detection.egg-info/PKG-INFO
+writing dependency_links to src/mule_detection.egg-info/dependency_links.txt
+writing entry points to src/mule_detection.egg-info/entry_points.txt
+writing requirements to src/mule_detection.egg-info/requires.txt
+writing top-level names to src/mule_detection.egg-info/top_level.txt
+reading manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+writing manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+running check
+creating mule_detection-0.1.0
+creating mule_detection-0.1.0/src/mule_detection
+creating mule_detection-0.1.0/src/mule_detection.egg-info
+creating mule_detection-0.1.0/src/mule_detection/api
+creating mule_detection-0.1.0/src/mule_detection/application
+creating mule_detection-0.1.0/src/mule_detection/domain
+creating mule_detection-0.1.0/src/mule_detection/explanations
+creating mule_detection-0.1.0/src/mule_detection/features
+creating mule_detection-0.1.0/src/mule_detection/ingestion
+creating mule_detection-0.1.0/src/mule_detection/monitoring
+creating mule_detection-0.1.0/src/mule_detection/persistence
+creating mule_detection-0.1.0/src/mule_detection/reconciliation
+creating mule_detection-0.1.0/src/mule_detection/registry
+creating mule_detection-0.1.0/src/mule_detection/scoring
+creating mule_detection-0.1.0/src/mule_detection/training
+copying files to mule_detection-0.1.0...
+copying README.md -> mule_detection-0.1.0
+copying pyproject.toml -> mule_detection-0.1.0
+copying src/mule_detection/__init__.py -> mule_detection-0.1.0/src/mule_detection
+copying src/mule_detection/cli.py -> mule_detection-0.1.0/src/mule_detection
+copying src/mule_detection/py.typed -> mule_detection-0.1.0/src/mule_detection
+copying src/mule_detection/settings.py -> mule_detection-0.1.0/src/mule_detection
+copying src/mule_detection.egg-info/PKG-INFO -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection.egg-info/SOURCES.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection.egg-info/dependency_links.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection.egg-info/entry_points.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection.egg-info/requires.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection.egg-info/top_level.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+copying src/mule_detection/api/__init__.py -> mule_detection-0.1.0/src/mule_detection/api
+copying src/mule_detection/application/__init__.py -> mule_detection-0.1.0/src/mule_detection/application
+copying src/mule_detection/application/commands.py -> mule_detection-0.1.0/src/mule_detection/application
+copying src/mule_detection/application/context.py -> mule_detection-0.1.0/src/mule_detection/application
+copying src/mule_detection/application/logging.py -> mule_detection-0.1.0/src/mule_detection/application
+copying src/mule_detection/domain/__init__.py -> mule_detection-0.1.0/src/mule_detection/domain
+copying src/mule_detection/domain/clock.py -> mule_detection-0.1.0/src/mule_detection/domain
+copying src/mule_detection/domain/errors.py -> mule_detection-0.1.0/src/mule_detection/domain
+copying src/mule_detection/explanations/__init__.py -> mule_detection-0.1.0/src/mule_detection/explanations
+copying src/mule_detection/features/__init__.py -> mule_detection-0.1.0/src/mule_detection/features
+copying src/mule_detection/ingestion/__init__.py -> mule_detection-0.1.0/src/mule_detection/ingestion
+copying src/mule_detection/monitoring/__init__.py -> mule_detection-0.1.0/src/mule_detection/monitoring
+copying src/mule_detection/persistence/__init__.py -> mule_detection-0.1.0/src/mule_detection/persistence
+copying src/mule_detection/reconciliation/__init__.py -> mule_detection-0.1.0/src/mule_detection/reconciliation
+copying src/mule_detection/registry/__init__.py -> mule_detection-0.1.0/src/mule_detection/registry
+copying src/mule_detection/scoring/__init__.py -> mule_detection-0.1.0/src/mule_detection/scoring
+copying src/mule_detection/training/__init__.py -> mule_detection-0.1.0/src/mule_detection/training
+copying src/mule_detection.egg-info/SOURCES.txt -> mule_detection-0.1.0/src/mule_detection.egg-info
+Writing mule_detection-0.1.0/setup.cfg
+Creating tar archive
+removing 'mule_detection-0.1.0' (and everything under it)
+* Building wheel from sdist
+* Getting build dependencies for wheel...
+running egg_info
+writing src/mule_detection.egg-info/PKG-INFO
+writing dependency_links to src/mule_detection.egg-info/dependency_links.txt
+writing entry points to src/mule_detection.egg-info/entry_points.txt
+writing requirements to src/mule_detection.egg-info/requires.txt
+writing top-level names to src/mule_detection.egg-info/top_level.txt
+reading manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+writing manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/mule_detection
+copying src/mule_detection/settings.py -> build/lib/mule_detection
+copying src/mule_detection/cli.py -> build/lib/mule_detection
+copying src/mule_detection/__init__.py -> build/lib/mule_detection
+creating build/lib/mule_detection/training
+copying src/mule_detection/training/__init__.py -> build/lib/mule_detection/training
+creating build/lib/mule_detection/scoring
+copying src/mule_detection/scoring/__init__.py -> build/lib/mule_detection/scoring
+creating build/lib/mule_detection/registry
+copying src/mule_detection/registry/__init__.py -> build/lib/mule_detection/registry
+creating build/lib/mule_detection/reconciliation
+copying src/mule_detection/reconciliation/__init__.py -> build/lib/mule_detection/reconciliation
+creating build/lib/mule_detection/persistence
+copying src/mule_detection/persistence/__init__.py -> build/lib/mule_detection/persistence
+creating build/lib/mule_detection/monitoring
+copying src/mule_detection/monitoring/__init__.py -> build/lib/mule_detection/monitoring
+creating build/lib/mule_detection/ingestion
+copying src/mule_detection/ingestion/__init__.py -> build/lib/mule_detection/ingestion
+creating build/lib/mule_detection/features
+copying src/mule_detection/features/__init__.py -> build/lib/mule_detection/features
+creating build/lib/mule_detection/explanations
+copying src/mule_detection/explanations/__init__.py -> build/lib/mule_detection/explanations
+creating build/lib/mule_detection/domain
+copying src/mule_detection/domain/errors.py -> build/lib/mule_detection/domain
+copying src/mule_detection/domain/clock.py -> build/lib/mule_detection/domain
+copying src/mule_detection/domain/__init__.py -> build/lib/mule_detection/domain
+creating build/lib/mule_detection/application
+copying src/mule_detection/application/logging.py -> build/lib/mule_detection/application
+copying src/mule_detection/application/context.py -> build/lib/mule_detection/application
+copying src/mule_detection/application/commands.py -> build/lib/mule_detection/application
+copying src/mule_detection/application/__init__.py -> build/lib/mule_detection/application
+creating build/lib/mule_detection/api
+copying src/mule_detection/api/__init__.py -> build/lib/mule_detection/api
+running egg_info
+writing src/mule_detection.egg-info/PKG-INFO
+writing dependency_links to src/mule_detection.egg-info/dependency_links.txt
+writing entry points to src/mule_detection.egg-info/entry_points.txt
+writing requirements to src/mule_detection.egg-info/requires.txt
+writing top-level names to src/mule_detection.egg-info/top_level.txt
+reading manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+writing manifest file 'src/mule_detection.egg-info/SOURCES.txt'
+copying src/mule_detection/py.typed -> build/lib/mule_detection
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/mule_detection
+copying build/lib/mule_detection/py.typed -> build/bdist.linux-x86_64/wheel/./mule_detection
+creating build/bdist.linux-x86_64/wheel/mule_detection/api
+copying build/lib/mule_detection/api/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/api
+creating build/bdist.linux-x86_64/wheel/mule_detection/application
+copying build/lib/mule_detection/application/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/application
+copying build/lib/mule_detection/application/commands.py -> build/bdist.linux-x86_64/wheel/./mule_detection/application
+copying build/lib/mule_detection/application/context.py -> build/bdist.linux-x86_64/wheel/./mule_detection/application
+copying build/lib/mule_detection/application/logging.py -> build/bdist.linux-x86_64/wheel/./mule_detection/application
+creating build/bdist.linux-x86_64/wheel/mule_detection/domain
+copying build/lib/mule_detection/domain/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/domain
+copying build/lib/mule_detection/domain/clock.py -> build/bdist.linux-x86_64/wheel/./mule_detection/domain
+copying build/lib/mule_detection/domain/errors.py -> build/bdist.linux-x86_64/wheel/./mule_detection/domain
+creating build/bdist.linux-x86_64/wheel/mule_detection/explanations
+copying build/lib/mule_detection/explanations/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/explanations
+creating build/bdist.linux-x86_64/wheel/mule_detection/features
+copying build/lib/mule_detection/features/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/features
+creating build/bdist.linux-x86_64/wheel/mule_detection/ingestion
+copying build/lib/mule_detection/ingestion/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/ingestion
+creating build/bdist.linux-x86_64/wheel/mule_detection/monitoring
+copying build/lib/mule_detection/monitoring/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/monitoring
+creating build/bdist.linux-x86_64/wheel/mule_detection/persistence
+copying build/lib/mule_detection/persistence/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/persistence
+creating build/bdist.linux-x86_64/wheel/mule_detection/reconciliation
+copying build/lib/mule_detection/reconciliation/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/reconciliation
+creating build/bdist.linux-x86_64/wheel/mule_detection/registry
+copying build/lib/mule_detection/registry/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/registry
+creating build/bdist.linux-x86_64/wheel/mule_detection/scoring
+copying build/lib/mule_detection/scoring/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/scoring
+creating build/bdist.linux-x86_64/wheel/mule_detection/training
+copying build/lib/mule_detection/training/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection/training
+copying build/lib/mule_detection/__init__.py -> build/bdist.linux-x86_64/wheel/./mule_detection
+copying build/lib/mule_detection/cli.py -> build/bdist.linux-x86_64/wheel/./mule_detection
+copying build/lib/mule_detection/settings.py -> build/bdist.linux-x86_64/wheel/./mule_detection
+running install_egg_info
+Copying src/mule_detection.egg-info to build/bdist.linux-x86_64/wheel/./mule_detection-0.1.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/mule_detection-0.1.0.dist-info/WHEEL
+creating '/mnt/c/Users/omkud/Mule Account Detection/artifacts/phase1/linux_foundation_v3/dist/.tmp-jlvq5g95/mule_detection-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'mule_detection/__init__.py'
+adding 'mule_detection/cli.py'
+adding 'mule_detection/py.typed'
+adding 'mule_detection/settings.py'
+adding 'mule_detection/api/__init__.py'
+adding 'mule_detection/application/__init__.py'
+adding 'mule_detection/application/commands.py'
+adding 'mule_detection/application/context.py'
+adding 'mule_detection/application/logging.py'
+adding 'mule_detection/domain/__init__.py'
+adding 'mule_detection/domain/clock.py'
+adding 'mule_detection/domain/errors.py'
+adding 'mule_detection/explanations/__init__.py'
+adding 'mule_detection/features/__init__.py'
+adding 'mule_detection/ingestion/__init__.py'
+adding 'mule_detection/monitoring/__init__.py'
+adding 'mule_detection/persistence/__init__.py'
+adding 'mule_detection/reconciliation/__init__.py'
+adding 'mule_detection/registry/__init__.py'
+adding 'mule_detection/scoring/__init__.py'
+adding 'mule_detection/training/__init__.py'
+adding 'mule_detection-0.1.0.dist-info/METADATA'
+adding 'mule_detection-0.1.0.dist-info/WHEEL'
+adding 'mule_detection-0.1.0.dist-info/entry_points.txt'
+adding 'mule_detection-0.1.0.dist-info/top_level.txt'
+adding 'mule_detection-0.1.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built mule_detection-0.1.0.tar.gz and mule_detection-0.1.0-py3-none-any.whl

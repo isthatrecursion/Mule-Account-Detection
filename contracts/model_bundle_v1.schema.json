@@ -1,0 +1,141 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_digests": {
+      "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "maxLength": 512,
+        "minLength": 1
+      },
+      "title": "Artifact Digests",
+      "type": "object"
+    },
+    "bundle_id": {
+      "format": "uuid",
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "calibration_approval_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Calibration Approval Reference"
+    },
+    "contract_version": {
+      "const": "model_bundle_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "contribution_scale": {
+      "enum": [
+        "raw_margin",
+        "review_priority",
+        "calibrated_probability"
+      ],
+      "title": "Contribution Scale",
+      "type": "string"
+    },
+    "dictionary_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Dictionary Version",
+      "type": "string"
+    },
+    "feature_policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Feature Policy Hash",
+      "type": "string"
+    },
+    "feature_policy_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Feature Policy Version",
+      "type": "string"
+    },
+    "input_signature": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Input Signature",
+      "type": "string"
+    },
+    "model_card_reference": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Model Card Reference",
+      "type": "string"
+    },
+    "model_tier": {
+      "enum": [
+        "research_demo",
+        "candidate"
+      ],
+      "title": "Model Tier",
+      "type": "string"
+    },
+    "output_scale": {
+      "enum": [
+        "raw_margin",
+        "review_priority",
+        "calibrated_probability"
+      ],
+      "title": "Output Scale",
+      "type": "string"
+    },
+    "research_only": {
+      "title": "Research Only",
+      "type": "boolean"
+    },
+    "runtime_versions": {
+      "additionalProperties": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "propertyNames": {
+        "maxLength": 512,
+        "minLength": 1
+      },
+      "title": "Runtime Versions",
+      "type": "object"
+    },
+    "training_fingerprint": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Training Fingerprint",
+      "type": "string"
+    },
+    "transformed_signature": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Transformed Signature",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "bundle_id",
+    "artifact_digests",
+    "input_signature",
+    "transformed_signature",
+    "training_fingerprint",
+    "feature_policy_version",
+    "feature_policy_hash",
+    "runtime_versions",
+    "output_scale",
+    "contribution_scale",
+    "research_only",
+    "model_tier",
+    "model_card_reference",
+    "dictionary_version",
+    "calibration_approval_reference"
+  ],
+  "title": "ModelBundle",
+  "type": "object"
+}

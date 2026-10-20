@@ -1,0 +1,43 @@
+{
+  "pass_fail": "PASSED",
+  "executed_at": "2026-10-20T14:00:31.029937+00:00",
+  "scope": "Final Phase 3 wheel installed without network/dependency resolution in the fresh hash-locked runtime, imports outside checkout",
+  "wheel_sha256": "4a0200562797b2b74ae3bce386d7a58ff38af2daf880265093723138350883fc",
+  "runtime_installation_evidence": "artifacts/phase1/phase3_wheel_install_v1/report.json",
+  "script_sha256": "94215a76c8f2abaf050333b865b90f29ee6ad19ef460bb56664afe5b7f2d18eb",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase3\\windows_persistence_v3\\dist\\mule_detection-0.1.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "evidence": "check_01.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_02.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_f2e6497aa58d4934be22d6cd32a35e99\\environment\\Scripts\\python.exe",
+        "-c",
+        "\nimport importlib.metadata as metadata\nimport json\nimport pathlib\nimport re\nimport sys\nimport mule_detection\nimport numpy, pandas, scipy, sklearn, lightgbm\nfrom mule_detection.persistence.models import Base\nfrom mule_detection.persistence.artifacts import ArtifactStore\nfrom mule_detection.application.review_service import ReviewService\nfrom mule_detection.application.job_service import JobService\nassert len(Base.metadata.tables) == 18\nassert all((ArtifactStore, ReviewService, JobService))\nassert pathlib.Path(mule_detection.__file__).resolve().is_relative_to(pathlib.Path(sys.prefix).resolve())\nassert mule_detection.__version__ == '0.1.0'\nexpected = dict(re.findall(r'^([a-zA-Z0-9_.-]+)==([^\\s;]+)', pathlib.Path(sys.argv[1]).read_text(), re.M))\nobserved = {name: metadata.version(name) for name in expected}\nassert observed == expected, {'expected': expected, 'observed': observed}\nprint(json.dumps({'status': 'PASSED', 'package_file': mule_detection.__file__, 'runtime_versions': observed}))\n",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-windows.lock"
+      ],
+      "exit_code": 0,
+      "evidence": "check_03.txt"
+    }
+  ]
+}

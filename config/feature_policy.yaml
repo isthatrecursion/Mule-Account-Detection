@@ -1,0 +1,15 @@
+contract_version: feature_policy_v1
+policy_version: research_features_v1
+approval_context: Stage_9_research_safety_policy_not_qualified_approval
+historical_register_sha256: 83b86ba350a7335af6f55547e1f2bc3d5286c6fc5eff21a3c582496df08f30ac
+historical_register_count: 1404
+missingness_threshold: 0.9
+permanent_exclusions:
+  - {feature_id: 'Unnamed: 0', reason: target_sorted_row_reference}
+  - {feature_id: F3924, reason: target_label}
+  - {feature_id: F2230, reason: perfectly_confounded_extraction_month}
+  - {feature_id: F3912, reason: unverified_post_outcome_proxy}
+  - {feature_id: F3287, reason: september_schema_artifact}
+  - {feature_id: F3290, reason: september_schema_artifact}
+  - {feature_id: F3611, reason: september_schema_artifact}
+  - {feature_id: F3614, reason: september_schema_artifact}

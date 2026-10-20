@@ -1,0 +1,21 @@
+{
+  "scope": "Synthetic-only checkout copy with unpacked built wheel; no raw dataset or historical artifact directory",
+  "executed_at": "2026-10-20T12:18:20.004568+00:00",
+  "executed_command": [
+    "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests",
+    "-q",
+    "--basetemp",
+    "C:\\Users\\omkud\\Mule Account Detection\\scratch\\clean_checkout_6df41e9f10094a29aa2779ada15e29fd\\pytest",
+    "-m",
+    "not postgres and not benchmark"
+  ],
+  "cwd": "C:\\Users\\omkud\\Mule Account Detection\\scratch\\clean_checkout_6df41e9f10094a29aa2779ada15e29fd",
+  "input_hash": "5aa1b08a8936094addadc2be2b47a6c6fcbf43030b3c314162d41d76e2142697",
+  "observed_exit_code": 0,
+  "expected_exit_code": 0,
+  "observed": "......................................                                   [100%]\n38 passed in 1.14s",
+  "pass_fail": "PASSED"
+}

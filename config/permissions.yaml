@@ -1,0 +1,38 @@
+policy_version: permissions_v1
+default: deny
+permissions:
+  - queue:read
+  - case:assign
+  - case:review
+  - case:reopen
+  - export:create
+  - model:train
+  - model:approve
+  - job:retry
+  - audit:read
+roles:
+  analyst: [queue:read, case:assign, case:review]
+  reviewer: [queue:read, case:assign, case:review, case:reopen, export:create, model:approve, audit:read]
+  engineer: [model:train]
+  operator: [job:retry]
+  auditor: [audit:read]
+constraints:
+  own_case_assignment_only_for_analyst: true
+  review_requires_assignment: true
+  model_approval_requires_independent_actor: true
+  combined_roles_do_not_bypass_self_approval_denial: true
+  operator_case_note_access: false
+  export_requires_scope_and_reason: true
+  deployment_granted_by_model_approval: false
+  overrides_require: [actor_id, authorized_role, reason, expected_version, audit_event]
+  overrides_cannot_bypass: [self_approval_denial, qualified_data_gates, human_action_boundary]
+workflow:
+  initial_state: QUEUED
+  states: [QUEUED, ASSIGNED, IN_REVIEW, REVIEWED]
+  transitions:
+    - {from: QUEUED, to: ASSIGNED, permission: 'case:assign', event: ASSIGNED}
+    - {from: ASSIGNED, to: IN_REVIEW, permission: 'case:review', event: REVIEW_STARTED}
+    - {from: IN_REVIEW, to: REVIEWED, permission: 'case:review', event: REVIEW_SUBMITTED}
+    - {from: REVIEWED, to: ASSIGNED, permission: 'case:reopen', event: REOPENED}
+  conclusions: [NEEDS_MORE_INFORMATION, NO_FURTHER_REVIEW, REFER_FOR_ADJUDICATION]
+  conclusion_is_fraud_label: false

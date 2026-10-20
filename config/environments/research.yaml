@@ -1,0 +1,17 @@
+policy_version: research_runtime_v1
+environment: research
+purpose: controlled_research_demonstration
+approval_status: PENDING_OWNER_REVIEW
+allowed_data_tiers: [research, synthetic]
+allowed_model_tiers: [research_demo]
+tier_authority:
+  data: immutable_source_validation_record
+  model: immutable_model_approval_record
+  dashboard_request_or_environment_override_allowed: false
+internal_holdout_allowed: false
+qualified_promotion_allowed: false
+calibrated_fraud_probability_enabled: false
+automatic_account_action_enabled: false
+synthetic_events_to_anonymous_features_allowed: false
+access: localhost_or_approved_private_allowlist
+ci_data: synthetic_only

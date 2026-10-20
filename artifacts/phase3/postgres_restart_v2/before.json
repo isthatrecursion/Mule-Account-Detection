@@ -1,0 +1,83 @@
+{
+  "captured_at": "2026-10-20T13:58:03.696520+00:00",
+  "postgresql_version": "PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit",
+  "server_started_at": "2026-10-20 13:57:59.583448+00:00",
+  "snapshot": {
+    "database": "mule_test_phase3_v2",
+    "revision": "0005",
+    "tables": {
+      "approvals": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "artifacts": {
+        "count": 1,
+        "sha256": "6bb5bfd965ca65ad4e6fc90e7af8f65229037ee0101ff2e52d1c87b2c8534fba"
+      },
+      "audit_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "batches": {
+        "count": 1,
+        "sha256": "90dd1115b408d4200b5010a01172ab12d5814c75cb2350f97841bb46309597be"
+      },
+      "cases": {
+        "count": 1,
+        "sha256": "bf7ac87f1828d1d2c969b4cddbbad004e3c44c0eb80ec17dc52658deced6193a"
+      },
+      "datasets": {
+        "count": 1,
+        "sha256": "66c00ef7d013ee551ea516ad0f8562b777099543fca3453240ac6925598ba5f2"
+      },
+      "evidence": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "job_attempts": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "jobs": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "labels": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "model_refs": {
+        "count": 1,
+        "sha256": "b749a63467ced4d2012f38fbb5f22545e47c30875ada4fbe16c008bb12d8e5cd"
+      },
+      "outbox": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "queue_members": {
+        "count": 10000,
+        "sha256": "a3995609db0c24abf16ca8c3f040686151e0b283f06da2905d1459fde9d0575d"
+      },
+      "queue_snapshots": {
+        "count": 1,
+        "sha256": "268970ace5aed9e98fddb2e34d5fcf8c54f529c3abf8a4257b0115834a1915ae"
+      },
+      "review_events": {
+        "count": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "score_rows": {
+        "count": 10001,
+        "sha256": "37414b24a9a0f007eb4d917b569284d7938ee9ac896fbff1bb0f4495d65babae"
+      },
+      "score_runs": {
+        "count": 1,
+        "sha256": "a1658e92c07dadaf6629afe50dddf8e3fc112d95f86d2304b0127adf9a9b437e"
+      },
+      "validation_reports": {
+        "count": 1,
+        "sha256": "d764a302ce73d0ed22f455ce26644f8ddf814fbf96da192cb840f913dea36bfa"
+      }
+    }
+  }
+}

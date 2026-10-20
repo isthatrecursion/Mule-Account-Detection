@@ -1,0 +1,24 @@
+policy_version: qualified_runtime_v1
+environment: qualified
+purpose: approved_shadow_or_pilot_only
+approval_status: BLOCKED
+allowed_data_tiers: [qualified]
+allowed_model_tiers: [approved_for_shadow, approved_for_pilot]
+tier_authority:
+  data: immutable_source_validation_record
+  model: immutable_model_approval_record
+  dashboard_request_or_environment_override_allowed: false
+approval_predicate:
+  validated_source_contract_required: true
+  all_critical_dependencies_closed: true
+  representative_temporal_acceptance_required: true
+  independent_approver_required: true
+  explicit_scope_approval_required: true
+  self_approval_allowed: false
+  research_bundle_allowed: false
+  application_deployment_implies_model_approval: false
+  alias_change_implies_qualification: false
+internal_holdout_allowed: false
+automatic_account_action_enabled: false
+deployment_authority: separate_approved_release_record
+calibrated_probability_requires_representative_calibration_and_approval: true

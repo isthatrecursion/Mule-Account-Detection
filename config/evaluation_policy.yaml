@@ -1,0 +1,38 @@
+policy_version: qualified_evaluation_v1
+owner_role: model_risk
+approval_status: BLOCKED_PENDING_DATA_AND_OWNER_APPROVAL
+task: disjoint_entity_temporal_generalization
+time_standard: timezone_aware_UTC
+interval_convention: half_open
+windows:
+  train: {start: null, end: null, label_as_of: null}
+  tuning: {start: null, end: null, label_as_of: null}
+  calibration: {start: null, end: null, label_as_of: null}
+  final_acceptance: {start: null, end: null, label_as_of: null}
+unresolved_window_behavior: block_qualified_evaluation
+window_order: [train, tuning, calibration, final_acceptance]
+purge:
+  feature_lookback_seconds: null
+  label_outcome_window_seconds: null
+  gap_rule: max_feature_lookback_plus_label_outcome_window
+  unknown_duration_behavior: block_qualified_evaluation
+labels:
+  require_adjudicated: true
+  require_mature_at_or_before_partition_label_as_of: true
+  require_available_at_or_before_partition_label_as_of: true
+  both_mature_classes_each_evaluation_window: true
+groups:
+  keys: [account_id, related_entity_group_id]
+  remove_cross_partition_connected_groups: true
+  unresolved_links_behavior: block_qualified_evaluation
+acceptance_release:
+  require_model_and_config_frozen_before_labels: true
+  require_independent_custodian: true
+  require_inspection_register: true
+  reused_or_inspected_cohort_allowed_as_untouched: false
+  renewal: new_uninspected_later_period_cohort
+research:
+  development_only: true
+  internal_holdout_rows_excluded: 1817
+  random_fold_metrics_are_production_evidence: false
+  returning_account_forecasting_requires_new_reviewed_policy: true

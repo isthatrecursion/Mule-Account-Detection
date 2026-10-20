@@ -1,0 +1,353 @@
+{
+  "batch_manifest_v1": {
+    "batch_id": "00000000-0000-4000-8000-000000000001",
+    "source_id": "synthetic-source",
+    "schema_id": "research_v1",
+    "created_at": "2026-01-02T00:00:00Z",
+    "observation_cutoff": null,
+    "expected_row_count": 2,
+    "checksum": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "feature_policy_version": "research_features_v1",
+    "data_tier": "research",
+    "owner_reference": "synthetic-owner",
+    "producing_job": "synthetic-job",
+    "provenance_limitations": [
+      "Synthetic historical cutoff unknown"
+    ],
+    "contract_version": "batch_manifest_v1"
+  },
+  "qualified_snapshot_v1": {
+    "snapshot_id": "00000000-0000-4000-8000-000000000001",
+    "record_key": "00000000-0000-4000-8000-000000000002",
+    "account_id": "synthetic-a",
+    "source_id": "synthetic-source",
+    "source_contract_version": "synthetic-source-v1",
+    "identity_approval_reference": "SYNTHETIC_NOT_REAL_APPROVAL",
+    "snapshot_at": "2026-01-02T00:00:00Z",
+    "observation_start": "2026-01-01T00:00:00Z",
+    "observation_cutoff": "2026-01-02T00:00:00Z",
+    "available_at": "2026-01-02T00:00:00Z",
+    "features": {
+      "S1": 1.0
+    },
+    "source_coverage": [
+      {
+        "source_id": "synthetic-source",
+        "source_partition": "p0",
+        "window_start": "2026-01-01T00:00:00Z",
+        "window_end": "2026-01-02T00:00:00Z",
+        "complete_through": "2026-01-02T00:00:00Z",
+        "expected_count": 2,
+        "received_count": 2,
+        "sequence_gaps": 0,
+        "heartbeat_at": "2026-01-02T00:00:00Z",
+        "status": "COMPLETE"
+      }
+    ],
+    "correction_of": null,
+    "contract_version": "qualified_snapshot_v1"
+  },
+  "source_registry_v1": {
+    "sources": [
+      {
+        "source_id": "synthetic-source",
+        "contract_version": "synthetic-source-v1",
+        "approval_reference": "SYNTHETIC_NOT_REAL_APPROVAL",
+        "feature_ids": [
+          "S1"
+        ],
+        "required_partitions": [
+          "p0"
+        ],
+        "observation_rule": "cutoff_at_snapshot",
+        "availability_rule": "available_by_snapshot",
+        "max_clock_skew_seconds": 30
+      }
+    ],
+    "contract_version": "source_registry_v1"
+  },
+  "tabular_schema_v1": {
+    "schema_id": "research_v1",
+    "source_dictionary_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "raw_header_aliases": {
+      "": "Unnamed: 0"
+    },
+    "reorder": "canonicalize_to_registry_order",
+    "missing_tokens": [
+      "",
+      "nan",
+      "NaN"
+    ],
+    "columns": [
+      {
+        "name": "Unnamed: 0",
+        "logical_type": "integer",
+        "role": "lineage",
+        "required": true,
+        "missing": "forbidden"
+      },
+      {
+        "name": "F1",
+        "logical_type": "number",
+        "role": "predictor",
+        "required": true,
+        "missing": "imputable"
+      },
+      {
+        "name": "F2",
+        "logical_type": "integer",
+        "role": "predictor",
+        "required": true,
+        "missing": "imputable"
+      },
+      {
+        "name": "F3886",
+        "logical_type": "categorical",
+        "role": "predictor",
+        "required": true,
+        "missing": "imputable"
+      },
+      {
+        "name": "F2230",
+        "logical_type": "categorical",
+        "role": "lineage",
+        "required": true,
+        "missing": "imputable"
+      },
+      {
+        "name": "F3924",
+        "logical_type": "integer",
+        "role": "label",
+        "required": true,
+        "missing": "forbidden"
+      },
+      {
+        "name": "F3912",
+        "logical_type": "number",
+        "role": "forbidden",
+        "required": true,
+        "missing": "imputable"
+      }
+    ],
+    "contract_version": "tabular_schema_v1"
+  },
+  "feature_dictionary_v1": {
+    "dictionary_version": "synthetic-dictionary-v1",
+    "known_feature_ids": [
+      "S1"
+    ],
+    "entries": [
+      {
+        "feature_id": "S1",
+        "status": "UNVERIFIED",
+        "display_name": null,
+        "unit": null,
+        "source_table": null,
+        "calculation_window": null,
+        "availability_rule": null,
+        "sensitivity": "UNKNOWN",
+        "approval_reference": null
+      }
+    ],
+    "contract_version": "feature_dictionary_v1"
+  },
+  "label_v1": {
+    "label_id": "00000000-0000-4000-8000-000000000001",
+    "record_key": "synthetic-record",
+    "account_id": "synthetic-a",
+    "value": 1,
+    "label_source": "synthetic-adjudication",
+    "event_at": "2026-01-01T00:00:00Z",
+    "observed_at": "2026-01-01T00:00:00Z",
+    "available_at": "2026-01-01T00:00:00Z",
+    "mature_at": "2026-01-02T00:00:00Z",
+    "status": "ADJUDICATED",
+    "adjudication_reference": "synthetic-adjudication-1",
+    "negative_policy_reference": null,
+    "version": 1,
+    "supersedes": null,
+    "contract_version": "label_v1"
+  },
+  "model_bundle_v1": {
+    "bundle_id": "00000000-0000-4000-8000-000000000001",
+    "artifact_digests": {
+      "model": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "pipeline": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "peer_reference": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "model_card": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "input_signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "transformed_signature": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "training_fingerprint": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "feature_policy_version": "research_features_v1",
+    "feature_policy_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "runtime_versions": {
+      "python": "3.12"
+    },
+    "output_scale": "raw_margin",
+    "contribution_scale": "raw_margin",
+    "research_only": true,
+    "model_tier": "research_demo",
+    "model_card_reference": "synthetic-model-card",
+    "dictionary_version": "synthetic-dictionary-v1",
+    "calibration_approval_reference": null,
+    "contract_version": "model_bundle_v1"
+  },
+  "score_v1": {
+    "run_id": "00000000-0000-4000-8000-000000000001",
+    "record_key": "synthetic-record",
+    "snapshot_id": "00000000-0000-4000-8000-000000000001",
+    "bundle_id": "00000000-0000-4000-8000-000000000001",
+    "data_tier": "synthetic",
+    "raw_score": 0.8,
+    "rank": 1,
+    "percentile": 100.0,
+    "cohort_id": "00000000-0000-4000-8000-000000000002",
+    "evidence_reference": "synthetic-evidence",
+    "assessed_as_of": "2026-01-02T00:00:00Z",
+    "published_at": "2026-01-02T00:00:00Z",
+    "source_coverage": [
+      {
+        "source_id": "synthetic-source",
+        "source_partition": "p0",
+        "window_start": "2026-01-01T00:00:00Z",
+        "window_end": "2026-01-02T00:00:00Z",
+        "complete_through": "2026-01-02T00:00:00Z",
+        "expected_count": 2,
+        "received_count": 2,
+        "sequence_gaps": 0,
+        "heartbeat_at": "2026-01-02T00:00:00Z",
+        "status": "COMPLETE"
+      }
+    ],
+    "completeness": "COMPLETE",
+    "freshness": "COMPLETE",
+    "publication_event": null,
+    "baseline_score_id": null,
+    "provenance_limitations": [],
+    "contract_version": "score_v1"
+  },
+  "event_v1": {
+    "schema_version": "transaction_minor_units_v1",
+    "source_id": "synthetic-source",
+    "source_partition": "p0",
+    "sequence_epoch": "epoch-1",
+    "source_sequence": 1,
+    "event_id": "synthetic-event-1",
+    "account_id": "synthetic-a",
+    "event_time": "2026-01-01T00:00:00Z",
+    "ingested_at": "2026-01-01T00:00:00Z",
+    "event_type": "TRANSACTION",
+    "amount_minor": 12345,
+    "currency": "INR",
+    "direction": "IN",
+    "correction_of": null,
+    "reversal_of": null,
+    "contract_version": "event_v1"
+  },
+  "completeness_v1": {
+    "source_id": "synthetic-source",
+    "source_partition": "p0",
+    "sequence_epoch": "epoch-1",
+    "first_sequence": 1,
+    "contiguous_committed_sequence": 1,
+    "count_scope": "epoch_prefix",
+    "expected_count": 1,
+    "complete_through": "2026-01-01T00:00:00Z",
+    "heartbeat_at": "2026-01-01T00:00:00Z",
+    "producer_approval_reference": "SYNTHETIC_NOT_REAL_APPROVAL",
+    "contract_version": "completeness_v1"
+  },
+  "evidence_v1": {
+    "evidence_id": "00000000-0000-4000-8000-000000000001",
+    "record_key": "synthetic-record",
+    "bundle_id": "00000000-0000-4000-8000-000000000001",
+    "dictionary_version": "synthetic-dictionary-v1",
+    "contribution_scale": "raw_margin",
+    "base_value": 0.0,
+    "reference_context": "synthetic-peer-v1",
+    "observations": [
+      {
+        "feature_id": "S1",
+        "raw_value": 1.0,
+        "contribution": 0.2,
+        "direction": "POSITIVE",
+        "reference_percentile": 50.0,
+        "dictionary_status": "UNVERIFIED",
+        "display_name": "S1"
+      }
+    ],
+    "contract_version": "evidence_v1"
+  },
+  "review_v1": {
+    "case_id": "00000000-0000-4000-8000-000000000001",
+    "expected_case_version": 0,
+    "conclusion": "REFER_FOR_ADJUDICATION",
+    "note_reference": "synthetic-restricted-note",
+    "idempotency_key": "00000000-0000-4000-8000-000000000002",
+    "contract_version": "review_v1"
+  },
+  "job_v1": {
+    "job_id": "00000000-0000-4000-8000-000000000001",
+    "correlation_id": "00000000-0000-4000-8000-000000000002",
+    "actor_id": "synthetic-actor",
+    "state": "SUCCEEDED",
+    "created_at": "2026-01-02T00:00:00Z",
+    "data_tier": "research",
+    "contract_version": "job_v1"
+  },
+  "audit_v1": {
+    "audit_id": "00000000-0000-4000-8000-000000000001",
+    "occurred_at": "2026-01-02T00:00:00Z",
+    "actor_id": "synthetic-actor",
+    "correlation_id": "00000000-0000-4000-8000-000000000002",
+    "action": "case.review",
+    "entity_reference": "synthetic-case",
+    "request_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reason_reference": null,
+    "previous_event_id": null,
+    "contract_version": "audit_v1"
+  },
+  "feature_policy_v1": {
+    "contract_version": "feature_policy_v1",
+    "policy_version": "research_features_v1",
+    "approval_context": "Stage_9_research_safety_policy_not_qualified_approval",
+    "historical_register_sha256": "83b86ba350a7335af6f55547e1f2bc3d5286c6fc5eff21a3c582496df08f30ac",
+    "historical_register_count": 1404,
+    "missingness_threshold": 0.9,
+    "permanent_exclusions": [
+      {
+        "feature_id": "Unnamed: 0",
+        "reason": "target_sorted_row_reference"
+      },
+      {
+        "feature_id": "F3924",
+        "reason": "target_label"
+      },
+      {
+        "feature_id": "F2230",
+        "reason": "perfectly_confounded_extraction_month"
+      },
+      {
+        "feature_id": "F3912",
+        "reason": "unverified_post_outcome_proxy"
+      },
+      {
+        "feature_id": "F3287",
+        "reason": "september_schema_artifact"
+      },
+      {
+        "feature_id": "F3290",
+        "reason": "september_schema_artifact"
+      },
+      {
+        "feature_id": "F3611",
+        "reason": "september_schema_artifact"
+      },
+      {
+        "feature_id": "F3614",
+        "reason": "september_schema_artifact"
+      }
+    ]
+  }
+}

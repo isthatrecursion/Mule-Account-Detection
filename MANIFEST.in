@@ -1,0 +1,11 @@
+include alembic.ini compose.yaml compose.local.yaml
+recursive-include migrations *.py *.mako
+recursive-include docker *.sh
+recursive-include config *.yaml
+include scripts/init_local_secrets.py
+include scripts/configure_local_database.py
+include scripts/create_test_database.py
+include scripts/verify_persistence.py
+include scripts/verify_persistence_restart.py
+include docs/persistence.md docs/audit_controls.md docs/query_shapes.md
+global-exclude __pycache__ *.py[cod]

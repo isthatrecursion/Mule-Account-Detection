@@ -1,0 +1,233 @@
+{
+  "scope": "Phase 2 contracts and integrated foundation; no source/model qualification, model fitting, scoring or deployment",
+  "executed_at": "2026-10-20T12:57:51.198475+00:00",
+  "executed_command": "\"/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python\" \"/mnt/c/Users/omkud/Mule Account Detection/scripts/verify_contracts.py\" --output-dir artifacts/phase2/linux_contracts_v1",
+  "build_revision": "5160e2a3b7a42bc147264340666821056a37d43b",
+  "working_tree_dirty": true,
+  "environment": {
+    "python": "3.12.15 (main, Oct 14 2026, 01:05:27) [Clang 23.1.3 ]",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "packages": {
+      "pydantic": "2.14.1",
+      "pydantic-core": "2.50.1",
+      "numpy": "1.26.4",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "mypy": "2.4.0",
+      "ruff": "0.17.1"
+    }
+  },
+  "source_hashes": {
+    ".github/workflows/checks.yml": "2c0c583cb953e7784be95c6436c8223e256054e1d94f521f6bf8397aeac5c5cc",
+    "config/benchmarks.yaml": "4a9022007e3f6b704c88f951b0a8e524e001533f888bedf76a2f698565b65e1d",
+    "config/environments/local.yaml": "58944715fb25d19f032202cf1394503a8266f44b660fbe87c7d0b48bdabe32b7",
+    "config/environments/qualified.yaml": "47d5edf7a6a3841a8975483f426c68221af643349793b64190c19a592b8e973f",
+    "config/environments/research.yaml": "0e91c68d860e573b6fe7f0aee15bf3f45fe3f38a670d8cc8f06cdffc89041935",
+    "config/environments/staging.yaml": "898ed901c328cff297e9c15918fda4ba3c4c016b8293f40f80e0e28529b92c5a",
+    "config/environments/test.yaml": "9c32e0ebc4afb571eb6bbcdc9a324d75bf69f48ae6f5b449a971a74a0e06222c",
+    "config/evaluation_policy.yaml": "3989467f1e40c4a569bea4ff73a09251e739c2f5287e5afc75fe16e822e7c128",
+    "config/feature_dictionary/research_v1.yaml": "b724fa85f1168420d89e60d49a6f54948b1b69ba66e5762f0f669883fa7b4b62",
+    "config/feature_policy.yaml": "e00d99373293ee8f51f5283945972e55891157675a626e5af5de158f516c02cf",
+    "config/permissions.yaml": "e9c935cc91040967898fd8c979d86c3ce35195dfc6f461a2f866c9fdb5d15b3d",
+    "config/review_policy.yaml": "73ff5585ca74e190b7e8a0059683818d2844af1a302d73156cb8d6eb8342502e",
+    "config/schema_registry/research_v1.yaml": "c69ae5f97d91a1a4e98160567693b4807ab6ffec6d0acb6711ae73ed98d07c44",
+    "config/source_registry.yaml": "cae6c08215f559f1af9b88aae135467c15a47529c2972bd2f2ddf20f908aaf28",
+    "contracts/audit_v1.schema.json": "7465f1d6e2b6fb03c614613c78c2180f845de711fac69e0f013538b16146c2bc",
+    "contracts/batch_manifest_v1.schema.json": "910ac4151ebf382d3ca801b2d448cc90219804fa147f7824a7e78717c62d9534",
+    "contracts/completeness_v1.schema.json": "9f71259b6426165cc6530f97e374338d0b97870f6ee8434c222f89f799c25ed7",
+    "contracts/event_v1.schema.json": "9f6d532f941ae6519ebf213162ec9e0ddb201a8a26294d6782959ac25c9518e5",
+    "contracts/evidence_v1.schema.json": "10b10a4ea283e46b5f2ded1bde9b453d3979a4660e83ced8462049e35de18f5d",
+    "contracts/feature_dictionary_v1.schema.json": "d79d2fc1540e5f79c29ac77029daa02e558855cc253da369a02f850f7e3202e7",
+    "contracts/feature_policy_v1.schema.json": "33c9e5be588767aa57f40f907260d98905c63df0919cc00dafdceabe6f8e868c",
+    "contracts/job_v1.schema.json": "441863fbdc5034c2d2ee6a1e915db1cecfa3804430cbf4d07465a264a055027f",
+    "contracts/label_v1.schema.json": "41f4f8ff67c57a6d15fdf21dcfb769b8632c25d2d1d17486732a21d91c454b6e",
+    "contracts/model_bundle_v1.schema.json": "2c95e8dd87240eb82aaa383a91aadca3d6e4c192e5e61a29c304d1b449b51114",
+    "contracts/qualified_snapshot_v1.schema.json": "41f5a8c8292996f9fd3e6db7df5a297b66514a9c58aeca3be71f49095c93e36b",
+    "contracts/review_v1.schema.json": "ff679b110562d270c8a21a056131980a73fccd8d4bafb4c57901e81ec9dcd188",
+    "contracts/score_v1.schema.json": "297c36fd37f619725c0d0aec24a6d7a05f799f3cc20a6a9fcb6c970eb3883221",
+    "contracts/source_registry_v1.schema.json": "561f4e077650d3591fb2c7779234ec85495170d81b935199925636c5359917e3",
+    "contracts/tabular_schema_v1.schema.json": "75a62b616975c7a65f3f0564a6e2bd1dd949eee6c3017ae7bbee04c09ca5ae23",
+    "docs/reference_manifest.json": "4a67b8fde84fe50d9558d4537932c02d0a0ab0cb3722b8018544cf3f6cb9c103",
+    "pyproject.toml": "428cd1dddce99e733358880b73fd4b440bb12b7ff32d8e71f032d9f465b80c49",
+    "requirements-dev-linux.lock": "df94c25d1f1d760e33c90f18da9c9a482cde560eb07c581d6a93f0cd32f5bac1",
+    "requirements-dev-windows.lock": "20bf55d1102090f304b89d902d18356954a0c881e3449bd7e0e0c24cc80fb482",
+    "requirements-linux.lock": "bb8461d58a59a3f8e91d339ae053b3d718ea4112779dd47df68b8dddd707d5ed",
+    "requirements-windows.lock": "e56f28e57087bf6493744568716b087405f65fddc245a93e5148313d31f95a9c",
+    "scripts/generate_contract_schemas.py": "4c591d6847ebb6d05f4638d10c70881cef99a7619f5dc27153ecd24ee139ca64",
+    "scripts/generate_research_schema.py": "ad2bfb0a44512b99b968289db7874fd3bb6b3a18d6f4fdcb5399bb2087f0b8c2",
+    "scripts/verify_contracts.py": "266af27801b7ba59d639090d65784f0a7ff48b0c1396e6e4eb02b4aac5ad4c3c",
+    "src/mule_detection/__init__.py": "4a53d02eb58a325beadf9eeaaf26678f5ea7f390c9d73a8beaf74146b4614335",
+    "src/mule_detection/api/__init__.py": "3a52e8e4bc69a05a3fb973ced01ab8a85246c4c373f2564023ca645420a73b1d",
+    "src/mule_detection/application/__init__.py": "4c17665bc1d56acddfd532fda42ddd88f8437be45f174e4995ff3cd6b5505ea1",
+    "src/mule_detection/application/commands.py": "de5c1b1cef537b8c9f204c23e8ee3ee3399a3d1c8cfa46073bc9326b9b4fbb56",
+    "src/mule_detection/application/context.py": "082b8a40df8ad1a8d89669989290cdb0d0d67b0fcbb5c788acf9893cb4df579b",
+    "src/mule_detection/application/logging.py": "dc37f3849fa0f019bd0a85195e8608dc62c6f75c8b3f10b52f82822eb8649d30",
+    "src/mule_detection/application/review_requests.py": "cdcd9a42ce66d09abc2467d365d51424903bdf66a0e460206564047cdb56bb4a",
+    "src/mule_detection/cli.py": "c8fb05afb981a4046835518732d613a2401b6c622379a9bc716a5c64e9465a10",
+    "src/mule_detection/domain/__init__.py": "dec481c29d5da99c8eb6f92155769b53d306d12467bc5f9ede826690654b711f",
+    "src/mule_detection/domain/clock.py": "f04090e0b385fe03b625c6abac31991c521650aa2e02627b886b37f5c4dc131c",
+    "src/mule_detection/domain/contracts/__init__.py": "c01361eacc332edb21f449e0ff931ce4495bd37aa6e1aa4d466f3e6803605c26",
+    "src/mule_detection/domain/contracts/audit.py": "99707a54479530888b0cce7dba6f4a9554caee13e7d70f1b3b475257adbbe801",
+    "src/mule_detection/domain/contracts/batch.py": "81ff493ef557c8c2bdbe13aafd3e403d600278f8a1dd55577629597ae1cba817",
+    "src/mule_detection/domain/contracts/common.py": "bdb2190238555b06d571918df503fb608d50b7c5a42c08e16fcc81d69d9d07fd",
+    "src/mule_detection/domain/contracts/events.py": "64cef9109d9b5f8f1330badd81df5cbed085179e833bb0df4406ea093b387f54",
+    "src/mule_detection/domain/contracts/evidence.py": "148ba5680ed04697a06fc7c36593f038d7ef30aa7e96de46f106faae3e45f6de",
+    "src/mule_detection/domain/contracts/feature_dictionary.py": "7d5c9e09387ca3cab4b75a472ba66a212e568633fd52bb4729a655f85b86288d",
+    "src/mule_detection/domain/contracts/jobs.py": "28c4460a4da4f9ec8b26b79a0177a2931100fc0391e3b5bf493fd4448dff12f9",
+    "src/mule_detection/domain/contracts/labels.py": "54759bba15ebd28abb6665053f4aacf58fcab89af00ec786441ee79700510910",
+    "src/mule_detection/domain/contracts/models.py": "241ac36a76fcad83b68d6e58298754552f5132d8b8e8d8803565ddc792bed9d1",
+    "src/mule_detection/domain/contracts/registry.py": "db7009f12daa214c2cf110d6861d1dc3f8d189f7d5346a08d70c6914cfc1fa65",
+    "src/mule_detection/domain/contracts/reviews.py": "fb8bfd2a342c04b337dc32b618f14dfe945751ab8692d6188e6552fbfc3d1d29",
+    "src/mule_detection/domain/contracts/scores.py": "ba346926d7f2046a54f632b4f8bbf164385c35b9e5c9698aed69a4bdc602c6db",
+    "src/mule_detection/domain/contracts/snapshot.py": "1731ab13c62500ba7c3ee5b78722ac81903b8b562d6b4da2a6125f91f6b3c135",
+    "src/mule_detection/domain/contracts/tabular.py": "4712cba423d59d0b040b0ae1e0c6c0730c5434a045fda1d0de1dc6f12b0b19c5",
+    "src/mule_detection/domain/errors.py": "b891d588f2422a77220511195c50190c8d1cb0cca17ac76570f390e0071a407d",
+    "src/mule_detection/domain/feature_policy.py": "98b8bcd543292c52afb39a9783ed7531d31e9cc1b6cefae4ae9201f9a5c6a283",
+    "src/mule_detection/domain/identity.py": "f9801ff72fd08cc0b11fb360034e927592d15828b4e2bbe30f6d6bb76701c7a8",
+    "src/mule_detection/explanations/__init__.py": "65918cc74dcd3f4de5e4122e415d6c4b67a11b55f7395821c67d2f34567d37cf",
+    "src/mule_detection/features/__init__.py": "7b760b4e0a02773334cbe3af77144943bf1207c394967b0dd52271e6b6049add",
+    "src/mule_detection/ingestion/__init__.py": "c49fb159e848203968365c8354a518539a4a37025804a54b5baf605b39863f58",
+    "src/mule_detection/ingestion/research_adapter.py": "362ec8274e68a771457cd38a9f8518018951aa4b9797be9bdc520617994fb3a1",
+    "src/mule_detection/monitoring/__init__.py": "cae2a2ccb515ff6ee51c3d33545e46670f08a9876b736861e4d09b5c16e63cf4",
+    "src/mule_detection/persistence/__init__.py": "505989a6b44c9b3b623e1d20c4bc391d195336cf2d08e41eec7e761f5a981b2e",
+    "src/mule_detection/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/mule_detection/reconciliation/__init__.py": "6184c67afd815a11d6bff2bf1a51ee6aebdb20455d574c8d43e2731ed436918e",
+    "src/mule_detection/registry/__init__.py": "4aa32bc92a89066deea1aa41e57b682fa024c8ca4874d68a3dafd4a16a6a28a5",
+    "src/mule_detection/scoring/__init__.py": "5ec6cbe21873e97c6f36e09e41f2b1c80e3e96b5be8d1f4a178c910b0fce8b26",
+    "src/mule_detection/settings.py": "f0fde31ab0533fa6362615f18590b9822a551de63bbba4d122a3a1c1024eea4c",
+    "src/mule_detection/training/__init__.py": "0723e966091cd7c605fab3f9c161ebcc4cea094a1e94eb17b54da6ff51d59038",
+    "tests/__init__.py": "4a56e65a963126b8f364c1ef90523c0f986f51cfa249cf6d3f4fef947f5c644e",
+    "tests/conftest.py": "39511fda85ef926d45f1d53dd47f98435d6828add082497a02f0c20ddc99f690",
+    "tests/contracts/__init__.py": "094b383c0701448686466044b6bd59a77be18a697105fa8c70ab7852ab6dbe52",
+    "tests/contracts/helpers.py": "27b1265304e6baa78414a5ee97b958082d5b429b2efc2eed2ed3c1aaa3482443",
+    "tests/contracts/test_boundaries.py": "953d0ca702752b3efca2b1895eff0fc50c662e154b5ddc874279a3b928e43468",
+    "tests/contracts/test_research_adapter.py": "850bd86768d7ad6158cf8e1cd068061aa241da3a1e2a76297e396dcf64ab1cd2",
+    "tests/contracts/test_semantics.py": "319e931cd2497623526bf4cee373f42bf797cd6550c212fbbeaa96d10e17cb17",
+    "tests/factories.py": "85d8c185d7e9a8e305c68efc96e308b413a0dde86d7950bc13c1b28fd09953d1",
+    "tests/fixtures/README.md": "6612355c8df4e93cf1f01501a07cfaf1cd396875a5ca0031b706c8d1218760c5",
+    "tests/fixtures/contracts/failure_cases.json": "ea6f94470ecb3546a06505485034a44b9c90f13df450f85f794e6117177e1081",
+    "tests/fixtures/contracts/invalid_enums.json": "8f04951e87d8714017b92facfe061e19bfa917f969fc50ba9958516e57acfa87",
+    "tests/fixtures/contracts/minimal_valid.json": "db7d807af5d140e94db39620dbba08e03bbd0ad540ec985192e914f3f44af449",
+    "tests/fixtures/foundation/duplicate_columns.csv": "6e45ad5cd07d6222ffd7162ed1feb6dc6f0dd471e27b7d04826eb85294d70b5c",
+    "tests/fixtures/foundation/invalid_timestamps.csv": "3c10a8889d865ecc7b204ffb1e9d6d33d211550379e4622d68183d0ca447a90b",
+    "tests/fixtures/phase0/specification_examples.json": "01ba0976318e370ad082c32cab17636ddfb16e22cf7714df6e97bfb60fde7f28",
+    "tests/unit/test_foundation.py": "0785a27d81c212bd803cbf6f177a6d31629a2981eb0fecb4d97c8ad54a9dbd1b",
+    "tests/unit/test_reference_manifest.py": "ade99a667aadbba13246b079761ee6c0e0e5c0dc32b26639f38c7ab4cfb489d1",
+    "tests/unit/test_settings.py": "73c869f7468ee0670f1780f7f4b2001761dcfb6ed662242dbf488270296344ea"
+  },
+  "source_manifest_sha256": "948ae352b60923eb1d65f252f81e9d8ccdd7b8c93832582f2681ff779f01385e",
+  "input_hash": "db7d807af5d140e94db39620dbba08e03bbd0ad540ec985192e914f3f44af449",
+  "config_hash": "059bfba3f18057b0b9276d39f3b7321ad46d1f0c959082237bd26db8f47782a0",
+  "expected": "All implemented contract and prior foundation checks pass; schema drift rejected; research-only adapter emits saved development membership",
+  "observed": {
+    "successful_checks": 9,
+    "checks": 9
+  },
+  "checks": [
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_01.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "evidence": "check_02.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "evidence": "check_03.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "mypy",
+        "src/mule_detection"
+      ],
+      "exit_code": 0,
+      "evidence": "check_04.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "pytest",
+        "-m",
+        "not postgres and not benchmark",
+        "--basetemp",
+        "/tmp/mule-phase2-9jqahr1k/pytest",
+        "--junitxml",
+        "/mnt/c/Users/omkud/Mule Account Detection/artifacts/phase2/linux_contracts_v1/pytest.xml",
+        "-q"
+      ],
+      "exit_code": 0,
+      "evidence": "check_05.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/generate_contract_schemas.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_06.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/generate_research_schema.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_07.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/validate_phase0.py"
+      ],
+      "exit_code": 0,
+      "evidence": "check_08.txt"
+    },
+    {
+      "executed_command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "-m",
+        "build",
+        "--no-isolation",
+        "--outdir",
+        "/mnt/c/Users/omkud/Mule Account Detection/artifacts/phase2/linux_contracts_v1/dist"
+      ],
+      "exit_code": 0,
+      "evidence": "check_09.txt"
+    }
+  ],
+  "research_adapter": {
+    "status": "NOT_RUN (synthetic-only mode)"
+  },
+  "pass_fail": "PASSED",
+  "remote_CI": "NOT_RUN",
+  "reviewer": "PENDING_OWNER_REVIEW",
+  "external_dependencies": "OPEN",
+  "qualified_approval": "NOT_GRANTED"
+}

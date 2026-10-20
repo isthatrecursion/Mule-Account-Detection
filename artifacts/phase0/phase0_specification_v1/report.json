@@ -1,0 +1,1404 @@
+{
+  "scope": "Phase 0 specification checks and synthetic reference examples only; NOT runtime enforcement, performance measurement, external data validation, or human approval",
+  "executed_at": "2026-10-20T11:37:22.707880+00:00",
+  "executed_command": "C:\\Users\\omkud\\AppData\\Local\\Programs\\Python\\Python312\\python.exe \"C:\\Users\\omkud\\Mule Account Detection\\scripts\\validate_phase0.py\" --output-dir artifacts/phase0/phase0_specification_v1",
+  "build_revision": "5160e2a3b7a42bc147264340666821056a37d43b",
+  "working_tree_dirty": true,
+  "source_manifest_sha256": "a3a2af3105d19345b8ba52faadacdebdd1ae9c4317af49ac174f991381881cd7",
+  "input_hash": "01ba0976318e370ad082c32cab17636ddfb16e22cf7714df6e97bfb60fde7f28",
+  "config_hash": "f740a570c0bca4f3031d337c9377e08b67ea2f8f3c3d4dfa33d607fe9d9cd02f",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "PyYAML": "6.0.3"
+  },
+  "expected": "All Phase 0 specification checks pass; product requirements remain PLANNED; dependencies remain OPEN; approval PENDING",
+  "observed": {
+    "checks": 271,
+    "passed": 271
+  },
+  "pass_fail": "PASSED",
+  "reviewer": "PENDING_OWNER_REVIEW",
+  "approval": "PENDING",
+  "source_hashes": {
+    "System Architecture Roadmap.md": "8735b1bf528176699013fcc5a4c976422b11ad667ea733fbfe763d1786d66089",
+    "architecture/01_system_architecture.md": "62c8b9503d28acd8d19eeb4c6a32244a073593ef91686861a19be6dbbda82940",
+    "config/benchmarks.yaml": "4a9022007e3f6b704c88f951b0a8e524e001533f888bedf76a2f698565b65e1d",
+    "config/environments/qualified.yaml": "47d5edf7a6a3841a8975483f426c68221af643349793b64190c19a592b8e973f",
+    "config/environments/research.yaml": "0e91c68d860e573b6fe7f0aee15bf3f45fe3f38a670d8cc8f06cdffc89041935",
+    "config/evaluation_policy.yaml": "3989467f1e40c4a569bea4ff73a09251e739c2f5287e5afc75fe16e822e7c128",
+    "config/permissions.yaml": "e9c935cc91040967898fd8c979d86c3ce35195dfc6f461a2f866c9fdb5d15b3d",
+    "config/review_policy.yaml": "73ff5585ca74e190b7e8a0059683818d2844af1a302d73156cb8d6eb8342502e",
+    "docs/acceptance/index.csv": "a99fafad8f64c0f4b4603768ca2aa077c352817cf8724a32581c87a3807fb862",
+    "docs/acceptance/phase0_readiness.md": "e70531503b31fe6a17bb0ebd3864bb9fd078c8a6f21c170661d63d0311c37764",
+    "docs/acceptance/template.md": "f4a8c8e082016875833a5c10d6615087023e1dd2b1fd23bbf98dcfb25741eb0c",
+    "docs/data_dependencies.csv": "6451bd28ded233b3410ffff02901360b11e797ce71a8404c9452a66ee8263f89",
+    "docs/data_request.md": "cb6f652fc516f3e1132b2092a2b66aab570c16303a05281b6c0806a06555d8a8",
+    "docs/freshness_policy.md": "9ed19866286e6b2162da4c8bd23d7ab20d164e1743b59aa78065f3cc17fde5b5",
+    "docs/identity_and_grain.md": "b90c2678cc056f6d14b0769c996fa1687e2782e74cd536b55d60584b06eb3481",
+    "docs/performance_protocol.md": "19a1215ae2c4dd5c1b790337f73870d2f925e093dee7ac6145b63d67986277a5",
+    "docs/phase_by_phase_build_plan.md": "16f00d281b4a789084e19b0fda8bb98873c5734f249e80e23267ef363decdce8",
+    "docs/requirements_and_acceptance.md": "485e01868fb8df4dc565fd0760db3cfd1c3ecb5b5cfe14a2a7337696b92003a7",
+    "docs/review_workflow.md": "9cfed59d5226bf0ed36fd2751b60b135f913a917b571677fe75c0ac8a43e2b3f",
+    "eda/09_pre_architecture_verification_and_remediation.md": "1a62ff2d4ea7e95ac47a34d1c8bab89bc8549b829db23c8a8d3fc299eea9cc42",
+    "scripts/validate_phase0.py": "0df62351309cea7bca68dec18173d27cacbe9054c3baad63df816ae14a9f0e3c",
+    "tests/fixtures/phase0/specification_examples.json": "01ba0976318e370ad082c32cab17636ddfb16e22cf7714df6e97bfb60fde7f28"
+  },
+  "checks": [
+    {
+      "check": "artifact:docs/requirements_and_acceptance.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/identity_and_grain.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/review_workflow.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/performance_protocol.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/data_request.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/freshness_policy.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/acceptance/template.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/acceptance/phase0_readiness.md",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/permissions.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/review_policy.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/benchmarks.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/evaluation_policy.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/environments/research.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:config/environments/qualified.yaml",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/acceptance/index.csv",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/data_dependencies.csv",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:tests/fixtures/phase0/specification_examples.json",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "artifact:docs/acceptance/roadmap_status.csv",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "register:unique_ids",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "register:REQ-ING-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-ING-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-ING-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-ML-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-QUEUE-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EXP-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-CASE-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AUD-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-ML-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MOD-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MON-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EXP-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-NFR-008",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-DATA-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EVAL-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EVAL-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EVAL-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EVAL-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EVAL-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-EXP-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-CASE-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MOD-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MOD-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MOD-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SCORE-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SCORE-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SCORE-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SEC-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-OPS-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SCOPE-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-SCOPE-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-RES-008",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-FRESH-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-FRESH-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-FRESH-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-FRESH-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-REPLAY-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-MON-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-INV-008",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-001",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-002",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-003",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-004",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-005",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-006",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-007",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-008",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-009",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-010",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-011",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:REQ-AC-012",
+      "result": "PASSED",
+      "detail": "Product requirement remains planned with owner, observable check and valid roadmap mapping"
+    },
+    {
+      "check": "register:unique_tests",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-01",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_1",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-02",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_2",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-03",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_3",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-04",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_4",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-05",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_5",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-06",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_6",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-07",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_7",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-08",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_8",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-09",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_9",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-10",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_10",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-11",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_11",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:AC-12",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "acceptance:explicit_source_12",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_1",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_2",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_3",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_4",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_5",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_6",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_7",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_8",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_9",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_10",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_11",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "functional:source_12",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "register:eight_nfr",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "register:eight_shared_invariants",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependencies:unique",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-001",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-002",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-003",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-004",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-005",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-006",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-007",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-008",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-009",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-010",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-011",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-012",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-013",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependency:DEP-014",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "dependencies:seven_core_requests",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:retry",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:canonical_reference",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:dataset_namespace",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject:-1",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject:True",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject:'4.2'",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject:''",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject:' row42'",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "identity:reject_bad_digest",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:ties",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:percentiles",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:top_k",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:empty",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:singleton",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:K_does_not_change_scores",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:invalid_K:0",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:invalid_K:-1",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:invalid_K:True",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:duplicate",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:nonfinite",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "queue:configuration",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:deny_default",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:roles",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:queue:read:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:queue:read:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:assign:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:assign:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:review:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:review:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:reopen:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:case:reopen:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:export:create:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:export:create:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:model:train:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:model:train:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:model:approve:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:model:approve:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:job:retry:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:job:retry:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:audit:read:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:audit:read:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:exact:analyst",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:exact:reviewer",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:exact:engineer",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:exact:operator",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:exact:auditor",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "permissions:independence_and_override",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:exact_transitions",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:ASSIGNED:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:ASSIGNED:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REVIEW_STARTED:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REVIEW_STARTED:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REVIEW_SUBMITTED:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REVIEW_SUBMITTED:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REOPENED:allowed",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:REOPENED:denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:skip_denied",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:reopened_is_event",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "workflow:conclusion_separate",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:research_only",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:research:immutable_authority",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:qualified:immutable_authority",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:qualified_example",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:research_bundle",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:research_data",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:critical_dependency",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:self_approval",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:no_source",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:no_acceptance",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:reject:no_scope",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "tiers:approval_policy",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "completeness:valid_example",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "completeness:reject:gap",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "completeness:reject:count",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "completeness:reject:heartbeat",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "completeness:reject:watermark",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "freshness:outage_new_account",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "freshness:all_terms",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:no_invented_dates",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:unknown_blocks",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:valid_synthetic",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:reject:overlap",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:reject:shared_group",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:reject:reused_release",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:reject:early_release",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:maturity:train",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:maturity:tuning",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:maturity:calibration",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:maturity:final_acceptance",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evaluation:naive_time",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:four_scenarios",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:batch_10k:design_only",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:capacity_100k:design_only",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:api_reads:design_only",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:reconciliation_with_dashboard:design_only",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:architecture_limits",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:delay_gates",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "benchmarks:provenance_required",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "evidence:template_fields",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "roadmap:all_points",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "roadmap:ten_phase0_points",
+      "result": "PASSED",
+      "detail": ""
+    },
+    {
+      "check": "roadmap:future_planned",
+      "result": "PASSED",
+      "detail": ""
+    }
+  ]
+}

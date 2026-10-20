@@ -1,0 +1,22 @@
+usage: mule-detection [-h] [--version] [--root ROOT]
+                      [--environment {local,test,research,staging,qualified}]
+                      [--settings SETTINGS] [--dotenv DOTENV]
+                      [--secrets-dir SECRETS_DIR]
+                      {health,validate-batch,train,evaluate,score,reconcile,replay}
+                      ...
+
+Thin CLI adapter. Exit 2=arguments, 3=config, 4=unsupported, 1=internal error.
+
+positional arguments:
+  {health,validate-batch,train,evaluate,score,reconcile,replay}
+    health              Check configuration only; no operational readiness
+                        claim
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --root ROOT
+  --environment {local,test,research,staging,qualified}
+  --settings SETTINGS
+  --dotenv DOTENV
+  --secrets-dir SECRETS_DIR

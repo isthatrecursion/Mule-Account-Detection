@@ -1,0 +1,15 @@
+[
+  {"version":"batch_manifest_v1","path":["data_tier"],"value":"APPROVED"},
+  {"version":"qualified_snapshot_v1","path":["source_coverage",0,"status"],"value":"READY"},
+  {"version":"source_registry_v1","path":["sources",0,"observation_rule"],"value":"ANY_TIME"},
+  {"version":"tabular_schema_v1","path":["columns",0,"logical_type"],"value":"arbitrary_code"},
+  {"version":"feature_dictionary_v1","path":["entries",0,"status"],"value":"APPROVED"},
+  {"version":"label_v1","path":["status"],"value":"REVIEWED"},
+  {"version":"model_bundle_v1","path":["model_tier"],"value":"production"},
+  {"version":"score_v1","path":["freshness"],"value":"SUCCEEDED"},
+  {"version":"event_v1","path":["direction"],"value":"NEGATIVE"},
+  {"version":"completeness_v1","path":["count_scope"],"value":"unspecified"},
+  {"version":"evidence_v1","path":["contribution_scale"],"value":"fraud_fact"},
+  {"version":"review_v1","path":["conclusion"],"value":"FRAUD_LABEL_1"},
+  {"version":"job_v1","path":["state"],"value":"COMPLETE"}
+]

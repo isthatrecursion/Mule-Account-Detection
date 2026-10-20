@@ -1,0 +1,223 @@
+{
+  "$defs": {
+    "SourceCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_through": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Complete Through"
+        },
+        "expected_count": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Count"
+        },
+        "heartbeat_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Heartbeat At"
+        },
+        "received_count": {
+          "ge": 0,
+          "title": "Received Count",
+          "type": "integer"
+        },
+        "sequence_gaps": {
+          "ge": 0,
+          "title": "Sequence Gaps",
+          "type": "integer"
+        },
+        "source_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_partition": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Source Partition",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "COMPLETE",
+            "INCOMPLETE",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "window_end": {
+          "format": "date-time",
+          "title": "Window End",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date-time",
+          "title": "Window Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "source_partition",
+        "window_start",
+        "window_end",
+        "complete_through",
+        "expected_count",
+        "received_count",
+        "sequence_gaps",
+        "heartbeat_at",
+        "status"
+      ],
+      "title": "SourceCoverage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Account Id",
+      "type": "string"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "qualified_snapshot_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "correction_of": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Correction Of"
+    },
+    "features": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "propertyNames": {
+        "maxLength": 512,
+        "minLength": 1
+      },
+      "title": "Features",
+      "type": "object"
+    },
+    "identity_approval_reference": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Identity Approval Reference",
+      "type": "string"
+    },
+    "observation_cutoff": {
+      "format": "date-time",
+      "title": "Observation Cutoff",
+      "type": "string"
+    },
+    "observation_start": {
+      "format": "date-time",
+      "title": "Observation Start",
+      "type": "string"
+    },
+    "record_key": {
+      "format": "uuid",
+      "title": "Record Key",
+      "type": "string"
+    },
+    "snapshot_at": {
+      "format": "date-time",
+      "title": "Snapshot At",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "format": "uuid",
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "source_contract_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Contract Version",
+      "type": "string"
+    },
+    "source_coverage": {
+      "items": {
+        "$ref": "#/$defs/SourceCoverage"
+      },
+      "title": "Source Coverage",
+      "type": "array"
+    },
+    "source_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "snapshot_id",
+    "record_key",
+    "account_id",
+    "source_id",
+    "source_contract_version",
+    "identity_approval_reference",
+    "snapshot_at",
+    "observation_start",
+    "observation_cutoff",
+    "available_at",
+    "features",
+    "source_coverage",
+    "correction_of"
+  ],
+  "title": "QualifiedSnapshot",
+  "type": "object"
+}

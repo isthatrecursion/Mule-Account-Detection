@@ -1,0 +1,23 @@
+[
+  {"scenario":"missing_id", "expected_code":"CONTRACT_INVALID"},
+  {"scenario":"unknown_version", "expected_code":"CONTRACT_VERSION"},
+  {"scenario":"naive_timestamp", "expected_code":"TIMESTAMP_NAIVE"},
+  {"scenario":"malformed_timestamp", "expected_code":"TIMESTAMP_INVALID"},
+  {"scenario":"negative_count", "expected_code":"COUNT_INVALID"},
+  {"scenario":"duplicate_json_key", "expected_code":"SCHEMA_MISMATCH"},
+  {"scenario":"target_predictor", "expected_code":"FEATURE_FORBIDDEN"},
+  {"scenario":"numeric_coercion", "expected_code":"VALUE_INVALID"},
+  {"scenario":"research_hash", "expected_code":"HASH_MISMATCH"},
+  {"scenario":"research_split", "expected_code":"SPLIT_MISMATCH"},
+  {"scenario":"research_duplicate", "expected_code":"IDENTITY_CONFLICT"},
+  {"scenario":"source_conflict", "expected_code":"SOURCE_CONFLICT"},
+  {"scenario":"unknown_qualified_cutoff", "expected_code":"CUTOFF_MISMATCH"},
+  {"scenario":"uncertified_prose", "expected_code":"DICTIONARY_UNCERTIFIED"},
+  {"scenario":"label_correction_link", "expected_code":"LABEL_HISTORY_INVALID"},
+  {"scenario":"missing_bundle_artifact", "expected_code":"LINEAGE_INVALID"},
+  {"scenario":"unavailable_zero", "expected_code":"SCORE_STATE_INVALID"},
+  {"scenario":"epoch_reset", "expected_code":"EVENT_SEQUENCE_INVALID"},
+  {"scenario":"future_event", "expected_code":"EVENT_CLOCK_SKEW"},
+  {"scenario":"contradictory_count", "expected_code":"COMPLETENESS_INVALID"},
+  {"scenario":"terminal_job", "expected_code":"WORKFLOW_INVALID"}
+]

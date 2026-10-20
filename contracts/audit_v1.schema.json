@@ -1,0 +1,87 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Action",
+      "type": "string"
+    },
+    "actor_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "audit_id": {
+      "format": "uuid",
+      "title": "Audit Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "audit_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "correlation_id": {
+      "format": "uuid",
+      "title": "Correlation Id",
+      "type": "string"
+    },
+    "entity_reference": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Entity Reference",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "previous_event_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Previous Event Id"
+    },
+    "reason_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reason Reference"
+    },
+    "request_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Request Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "audit_id",
+    "occurred_at",
+    "actor_id",
+    "correlation_id",
+    "action",
+    "entity_reference",
+    "request_hash",
+    "reason_reference",
+    "previous_event_id"
+  ],
+  "title": "AuditEvent",
+  "type": "object"
+}

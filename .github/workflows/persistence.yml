@@ -1,0 +1,50 @@
+name: PostgreSQL persistence
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+jobs:
+  postgres:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-dev-linux.lock
+      - name: Install locked environment
+        run: |
+          python -m pip install --require-hashes -r requirements-dev-linux.lock
+          python -m pip install --no-deps --no-build-isolation -e .
+      - name: Initialize isolated PostgreSQL
+        run: |
+          python scripts/init_local_secrets.py
+          python scripts/configure_local_database.py --test-database mule_test_ci
+          docker compose -f compose.yaml -f compose.local.yaml up -d --wait
+          MULE_TEST_ENVIRONMENT=test MULE_TEST_ADMIN_DATABASE_URL_FILE=secrets/test_admin_database_url python scripts/create_test_database.py --database mule_test_ci
+      - name: Persistence checks
+        run: python scripts/verify_persistence.py --connections-file secrets/test_connections.json --output-dir artifacts/phase3/ci
+      - name: Synthetic verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postgres-verification
+          path: |
+            artifacts/phase3/ci/report.json
+            artifacts/phase3/ci/manifest.json
+            artifacts/phase3/ci/pytest.xml
+            artifacts/phase3/ci/check_*.txt
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Stop test services
+        if: always()
+        run: docker compose -f compose.yaml -f compose.local.yaml down

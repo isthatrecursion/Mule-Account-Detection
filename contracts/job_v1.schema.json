@@ -1,0 +1,61 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Actor Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "job_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "correlation_id": {
+      "format": "uuid",
+      "title": "Correlation Id",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "data_tier": {
+      "enum": [
+        "research",
+        "qualified",
+        "synthetic"
+      ],
+      "title": "Data Tier",
+      "type": "string"
+    },
+    "job_id": {
+      "format": "uuid",
+      "title": "Job Id",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "PENDING",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED"
+      ],
+      "title": "State",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "job_id",
+    "correlation_id",
+    "actor_id",
+    "state",
+    "created_at",
+    "data_tier"
+  ],
+  "title": "Job",
+  "type": "object"
+}

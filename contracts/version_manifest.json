@@ -1,0 +1,79 @@
+{
+  "versions": {
+    "audit_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "9fe5ecea00bf44189a5bcd84f3222451f780c9efda32c0a9a5c1611a2778fe37"
+    },
+    "batch_manifest_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "3a2ef476217884b507f16e38a895bb6c895b446f32c99da7d3917f0452c7f3c8"
+    },
+    "completeness_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "376f1e2244306b577daabf2272f691f9669cb0bd300c82e4eb1f0ce19a7fc1ed"
+    },
+    "event_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "dedcf61b2e6b797558e87f376e2717d4d572d9b479465236dee1ad93e9cf6894"
+    },
+    "evidence_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "c40671f6a74a5aa78ef11717a9cd196a9c1fcf06bcee0f8476a376b3e8797e97"
+    },
+    "feature_dictionary_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "7a80dbd855b3d4055bd333ab851d00e4ce51922418130321db99d09db0e49a92"
+    },
+    "feature_policy_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "9f6f4004a824329fb4a3e0d7ea5594d031fa05894ebb981c4fb02d339c5cdd9f"
+    },
+    "job_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "eeae23486d24ec0e5b5c67073f4ea98f8e7810400a9578d0f4e805c6043137a8"
+    },
+    "label_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "aeb09b6259776642383e71475b918f6878bdcd698fdff1bc4ff44a5657768008"
+    },
+    "model_bundle_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "092c0fe19d3de39ea0e287961a1485d4d389334d695abd69c8bd0a207a9049d0"
+    },
+    "qualified_snapshot_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "0d3899db07568cdf0b66c98a86c7b7dc258a2ad08c3d4911fd2b7b6cb3a1c959"
+    },
+    "review_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "e1d36b66364ce4e440123320d50b23751ed5d71ff0715d1d92680b709059c11d"
+    },
+    "score_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "8582d7c88a0bc4ac4b14ea517c81c3cbc7d52dfaf2c13936a235db0aa3060863"
+    },
+    "source_registry_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "34b689fa609bcb96c03d446092682f97decf8515d32ee05248481f2af0286559"
+    },
+    "tabular_schema_v1.schema.json": {
+      "decision_reference": "P02.11_initial_engineering_contracts",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "958f04ff052d49bd6a613b22ef79f4ddcabf67a12a7c9624cd8dba549d6b6c3c"
+    }
+  }
+}

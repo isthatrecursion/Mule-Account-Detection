@@ -1,0 +1,10 @@
+{
+  "pass_fail": "PASSED",
+  "scope": "Committed synthetic table state survives operator-run PostgreSQL restart",
+  "executed_at": "2026-10-20T16:57:07.327871+00:00",
+  "before": "before.json",
+  "after": "after.json",
+  "tables_checked": 18,
+  "revision": "0005",
+  "server_restart_observed": true
+}

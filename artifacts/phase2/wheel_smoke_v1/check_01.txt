@@ -1,0 +1,7 @@
+Processing c:\users\omkud\mule account detection\artifacts\phase2\windows_contracts_v3\dist\mule_detection-0.1.0-py3-none-any.whl
+Installing collected packages: mule-detection
+  Attempting uninstall: mule-detection
+    Found existing installation: mule-detection 0.1.0
+    Uninstalling mule-detection-0.1.0:
+      Successfully uninstalled mule-detection-0.1.0
+Successfully installed mule-detection-0.1.0

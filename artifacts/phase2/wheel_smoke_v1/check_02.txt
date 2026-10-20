@@ -1,0 +1,1 @@
+{"status": "PASSED", "installed_contracts": 15, "synthetic_roundtrips": 15, "package_file": "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_72e5d3ae46964879b979e912d3cb0804\\environment\\Lib\\site-packages\\mule_detection\\__init__.py"}

@@ -1,0 +1,81 @@
+{
+  "$defs": {
+    "Exclusion": {
+      "additionalProperties": false,
+      "properties": {
+        "feature_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Feature Id",
+          "type": "string"
+        },
+        "reason": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feature_id",
+        "reason"
+      ],
+      "title": "Exclusion",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "approval_context": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Approval Context",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "feature_policy_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "historical_register_count": {
+      "const": 1404,
+      "title": "Historical Register Count",
+      "type": "integer"
+    },
+    "historical_register_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Historical Register Sha256",
+      "type": "string"
+    },
+    "missingness_threshold": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Missingness Threshold",
+      "type": "number"
+    },
+    "permanent_exclusions": {
+      "items": {
+        "$ref": "#/$defs/Exclusion"
+      },
+      "title": "Permanent Exclusions",
+      "type": "array"
+    },
+    "policy_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Policy Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "policy_version",
+    "approval_context",
+    "historical_register_sha256",
+    "historical_register_count",
+    "permanent_exclusions",
+    "missingness_threshold"
+  ],
+  "title": "FeaturePolicy",
+  "type": "object"
+}

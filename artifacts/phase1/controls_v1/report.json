@@ -1,0 +1,103 @@
+{
+  "scope": "Executed negative exit-code, exclusion and package-content checks; remote GitHub Actions NOT_RUN",
+  "executed_at": "2026-10-20T12:14:54.095537+00:00",
+  "executed_command": "\"C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe\" \"C:\\Users\\omkud\\Mule Account Detection\\scratch\\check_phase1_controls.py\"",
+  "build_revision": "5160e2a3b7a42bc147264340666821056a37d43b",
+  "working_tree_dirty": true,
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "win32"
+  },
+  "source_hashes": {
+    ".gitignore": "67a6d6215c0392fa0dfcf88c1c3e6835d7865ba4344845fd55f307f27e591891",
+    ".dockerignore": "4637af52b1d8fd23374b99f34a5fc45932bdd246c7cdfdd7d0f71ac943810cd1",
+    "src/mule_detection/cli.py": "c8fb05afb981a4046835518732d613a2401b6c622379a9bc716a5c64e9465a10",
+    "scratch/check_phase1_controls.py": "52c2e92dee348704e8fe50b0fdc0808fc6ae2a91a3815fd69341859155e60ed9"
+  },
+  "checks": [
+    {
+      "check": "broken fixture",
+      "executed_command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\negative_c61a941aea10478db4b25ff749612b3c\\test_negative.py",
+        "--rootdir",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\negative_c61a941aea10478db4b25ff749612b3c",
+        "--basetemp",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\negative_c61a941aea10478db4b25ff749612b3c\\pytest",
+        "-q"
+      ],
+      "expected_exit_code": 1,
+      "observed_exit_code": 1,
+      "pass_fail": "PASSED",
+      "evidence": "negative_1.txt"
+    },
+    {
+      "check": "broken import",
+      "executed_command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-c",
+        "import mule_detection.__deliberately_missing_module__"
+      ],
+      "expected_exit_code": 1,
+      "observed_exit_code": 1,
+      "pass_fail": "PASSED",
+      "evidence": "negative_2.txt"
+    },
+    {
+      "check": "Docker context allowlist",
+      "pass_fail": "PASSED",
+      "checked_paths": [
+        "DataSet__1_.csv",
+        ".env.local",
+        "secrets/password",
+        "artifacts/pre_architecture_verification/oof_predictions.csv",
+        "exports/synthetic.csv",
+        ".venv/Lib/a.py"
+      ]
+    },
+    {
+      "check": "git ignore .env.local",
+      "expected_exit_code": 0,
+      "observed_exit_code": 0,
+      "pass_fail": "PASSED"
+    },
+    {
+      "check": "git ignore exports/synthetic.csv",
+      "expected_exit_code": 0,
+      "observed_exit_code": 0,
+      "pass_fail": "PASSED"
+    },
+    {
+      "check": "git ignore private-fixtures/synthetic.csv",
+      "expected_exit_code": 0,
+      "observed_exit_code": 0,
+      "pass_fail": "PASSED"
+    },
+    {
+      "check": "git ignore .env.example",
+      "expected_exit_code": 1,
+      "observed_exit_code": 1,
+      "pass_fail": "PASSED"
+    },
+    {
+      "check": "git ignore artifacts/pre_architecture_verification/verification_report.json",
+      "expected_exit_code": 1,
+      "observed_exit_code": 1,
+      "pass_fail": "PASSED"
+    },
+    {
+      "check": "wheel and sdist omit confidential/local inputs",
+      "pass_fail": "PASSED",
+      "unexpected_paths": []
+    },
+    {
+      "check": "bad CLI UUID does not leak raw input",
+      "expected_exit_code": 2,
+      "observed_exit_code": 2,
+      "pass_fail": "PASSED"
+    }
+  ],
+  "pass_fail": "PASSED"
+}

@@ -1,0 +1,38 @@
+{
+  "pass_fail": "PASSED",
+  "executed_at": "2026-10-20T14:02:56.710193+00:00",
+  "scope": "Source distribution contains matching migration/deployment/configuration assets and excludes secrets/private data",
+  "archive_sha256": "1070b3f7b48a4092ed28997bcb37134e3e722ae2cbcaab43df4fc293aef3564f",
+  "command": [
+    "python",
+    "-m",
+    "build",
+    "--sdist",
+    "--no-isolation",
+    "--outdir",
+    "artifacts/phase3/migration_source_package_v1/dist"
+  ],
+  "verified_file_hashes": {
+    "alembic.ini": "8965c450bfd77867a3b02b26c5a0cfce35002fbba0f57fd2cd25aa0009393d70",
+    "compose.yaml": "fcaeec63ea9c0fc0c1f815311a40be087a989e89406544b0002328f5480e3a6f",
+    "compose.local.yaml": "974d287b38e25569d51eab66ae2cffc18d562df0cf9e1f52032615865978d145",
+    "migrations/env.py": "f089c3a8972d6a7929be60ed1aaca40ac4643eb8155d76d1bb21530838b082f0",
+    "migrations/script.py.mako": "f98e6d716bda998058de35ca2d9108c516309ada5bb0ae25eb82f69471ab5158",
+    "docker/postgres/init/01-databases.sh": "65bd774dbc748f1716e41440ad15b96d8481fcaf93c62b281dadf6d24b5aeae6",
+    "scripts/init_local_secrets.py": "81e5231397341b95016db8009f2e2404043c94b63bd36d44c684a4bb7136ba53",
+    "scripts/configure_local_database.py": "714e91afc8cfd88fb697a20f1cf37433157e812d09ec7da58cf977a49bae38c2",
+    "scripts/create_test_database.py": "e5af5c60232da797a597798337cbf9b16fcc9ddc546e65ad3a83d70fabd67ebc",
+    "scripts/verify_persistence.py": "5fdb2f52e04a56522e5aa76191463cc132fa3f1b540524544ed402a7726907a9",
+    "scripts/verify_persistence_restart.py": "c5de32bb2eb135c4a5eb8536b90844ac2340eabbbdb4daf1f71d3d9a0910972d",
+    "docs/persistence.md": "235549d8ae24a33e653963032238038d4ec7b56e537222005552a8fb8a8e3cbf",
+    "docs/audit_controls.md": "d9f274d40583ca2ed3cd29b69da4e9779950762555675a5f48f74119f954f364",
+    "docs/query_shapes.md": "2d038ff14feb0f88bdce623611e77347f41bdbb1fdbd360890432e1adcb58948",
+    "migrations/versions/0001_lineage.py": "4dc43cf7977996a79a2109a5e27770014530cb07fe484027ea9a46e2d8d8e370",
+    "migrations/versions/0002_scoring.py": "42107936c015f2648309c79f73a9691746642415d7191c42fd17da65aed3c0c8",
+    "migrations/versions/0003_cases_audit.py": "b7d6973106dffdc1ce3d562f64f8d523806091d15cd1ba3e2cee3c5be7cf3bdf",
+    "migrations/versions/0004_runtime_grants.py": "9589915bbfeade90421fb8203aa65b1d3f337728b4a17041644de1e9313d3d9b",
+    "migrations/versions/0005_restrict_mutable_columns.py": "26ddef5d12d25294835754f26bf34623c09399e7c9f8cbbc8e980a7b2a001c37",
+    "MANIFEST.in": "f0352b9a2a10b3e19de4bbc853231a8ccc501ff6d3cde54904fb3e72d4954071"
+  },
+  "script_sha256": "ffb2ab8aad12c8e6c01789d03807c32ad365ae2d6ee8c760c8c7bb2006c26058"
+}

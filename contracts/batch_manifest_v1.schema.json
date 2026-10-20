@@ -1,0 +1,110 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "format": "uuid",
+      "title": "Batch Id",
+      "type": "string"
+    },
+    "checksum": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Checksum",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "batch_manifest_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "data_tier": {
+      "enum": [
+        "research",
+        "qualified",
+        "synthetic"
+      ],
+      "title": "Data Tier",
+      "type": "string"
+    },
+    "expected_row_count": {
+      "ge": 0,
+      "title": "Expected Row Count",
+      "type": "integer"
+    },
+    "feature_policy_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Feature Policy Version",
+      "type": "string"
+    },
+    "observation_cutoff": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Observation Cutoff"
+    },
+    "owner_reference": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Owner Reference",
+      "type": "string"
+    },
+    "producing_job": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Producing Job",
+      "type": "string"
+    },
+    "provenance_limitations": {
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Provenance Limitations",
+      "type": "array"
+    },
+    "schema_id": {
+      "enum": [
+        "research_v1",
+        "qualified_snapshot_v1",
+        "synthetic_snapshot_v1"
+      ],
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "batch_id",
+    "source_id",
+    "schema_id",
+    "created_at",
+    "observation_cutoff",
+    "expected_row_count",
+    "checksum",
+    "feature_policy_version",
+    "data_tier",
+    "owner_reference",
+    "producing_job",
+    "provenance_limitations"
+  ],
+  "title": "BatchManifest",
+  "type": "object"
+}

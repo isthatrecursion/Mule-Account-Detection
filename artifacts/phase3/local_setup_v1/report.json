@@ -1,0 +1,80 @@
+{
+  "pass_fail": "PASSED",
+  "executed_at": "2026-10-20T13:57:28.066475+00:00",
+  "scope": "Local controlled PostgreSQL initialization, operational migration and role isolation; Compose syntax validation only",
+  "postgresql_version": "PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0, 64-bit",
+  "database": "mule_operational",
+  "alembic_revision": "0005",
+  "tables": [
+    "alembic_version",
+    "datasets",
+    "validation_reports",
+    "model_refs",
+    "artifacts",
+    "job_attempts",
+    "score_runs",
+    "score_rows",
+    "evidence",
+    "queue_snapshots",
+    "queue_members",
+    "review_events",
+    "approvals",
+    "labels",
+    "audit_events",
+    "batches",
+    "jobs",
+    "cases",
+    "outbox"
+  ],
+  "roles": [
+    {
+      "rolname": "mule_migration",
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "mule_readonly",
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "mule_runtime",
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false
+    },
+    {
+      "rolname": "mule_tracking",
+      "rolsuper": false,
+      "rolcreatedb": false,
+      "rolcreaterole": false
+    }
+  ],
+  "connect_privileges": [
+    {
+      "rolname": "mule_migration",
+      "operational": true,
+      "tracking": false
+    },
+    {
+      "rolname": "mule_readonly",
+      "operational": true,
+      "tracking": false
+    },
+    {
+      "rolname": "mule_runtime",
+      "operational": true,
+      "tracking": false
+    },
+    {
+      "rolname": "mule_tracking",
+      "operational": false,
+      "tracking": true
+    }
+  ],
+  "compose_config_exit_code": 0,
+  "compose_runtime": "NOT_RUN: Docker Desktop secrets-engine socket startup failure; no reset/removal performed",
+  "script_sha256": "cd6e9375e3fbe18ee95679a3e624ce1215713b3614db0726b9c2f1954f372f11"
+}
