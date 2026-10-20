@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "complete_through": {
+      "format": "date-time",
+      "title": "Complete Through",
+      "type": "string"
+    },
+    "contiguous_committed_sequence": {
+      "ge": 0,
+      "title": "Contiguous Committed Sequence",
+      "type": "integer"
+    },
+    "contract_version": {
+      "const": "completeness_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "count_scope": {
+      "const": "epoch_prefix",
+      "title": "Count Scope",
+      "type": "string"
+    },
+    "expected_count": {
+      "ge": 0,
+      "title": "Expected Count",
+      "type": "integer"
+    },
+    "first_sequence": {
+      "exclusiveMinimum": 0,
+      "title": "First Sequence",
+      "type": "integer"
+    },
+    "heartbeat_at": {
+      "format": "date-time",
+      "title": "Heartbeat At",
+      "type": "string"
+    },
+    "producer_approval_reference": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Producer Approval Reference",
+      "type": "string"
+    },
+    "sequence_epoch": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Sequence Epoch",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_partition": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Partition",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "source_id",
+    "source_partition",
+    "sequence_epoch",
+    "first_sequence",
+    "contiguous_committed_sequence",
+    "count_scope",
+    "expected_count",
+    "complete_through",
+    "heartbeat_at",
+    "producer_approval_reference"
+  ],
+  "title": "CompletenessManifest",
+  "type": "object"
+}

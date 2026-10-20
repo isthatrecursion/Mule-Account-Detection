@@ -1,0 +1,4 @@
+environment: staging
+runtime:
+  artifact_root: var/staging-artifacts
+  model_tier: approved_for_shadow

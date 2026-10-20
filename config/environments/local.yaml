@@ -1,0 +1,10 @@
+environment: local
+runtime:
+  artifact_root: var/artifacts
+  max_upload_bytes: 134217728
+  max_batch_rows: 100000
+  worker_count: 1
+  batch_cadence_seconds: 86400
+  reconciliation_scan_seconds: 60
+  allowed_lateness_seconds: 600
+  model_tier: research_demo

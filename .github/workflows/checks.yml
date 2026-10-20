@@ -1,0 +1,59 @@
+name: Foundation checks
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+permissions:
+  contents: read
+jobs:
+  synthetic-checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            lock: requirements-dev-windows.lock
+          - os: ubuntu-24.04
+            lock: requirements-dev-linux.lock
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: ${{ matrix.lock }}
+      - name: Install pinned environment
+        run: python -m pip install --require-hashes -r ${{ matrix.lock }}
+      - name: Install package
+        run: python -m pip install --no-deps --no-build-isolation -e .
+      - name: Validate implemented foundation
+        run: python scripts/verify_foundation.py --output-dir artifacts/phase1/ci
+      - name: Check versioned contract schemas
+        run: |
+          python scripts/generate_contract_schemas.py --check
+          python scripts/generate_research_schema.py --check
+      - name: Verify built wheel outside checkout
+        shell: bash
+        run: |
+          python scripts/verify_installation.py --wheel artifacts/phase1/ci/dist/mule_detection-0.1.0-py3-none-any.whl --output-dir artifacts/phase1/ci-install
+      - name: Safe failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: foundation-${{ matrix.os }}-failure
+          path: |
+            artifacts/phase1/ci/report.json
+            artifacts/phase1/ci/manifest.json
+            artifacts/phase1/ci/check_*.txt
+            artifacts/phase1/ci/pytest.xml
+            artifacts/phase1/ci-install/*.json
+            artifacts/phase1/ci-install/check_*.txt
+          if-no-files-found: warn
+          retention-days: 7

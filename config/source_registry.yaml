@@ -1,0 +1,3 @@
+# Server-controlled source authority. No real source is qualified yet.
+contract_version: source_registry_v1
+sources: []

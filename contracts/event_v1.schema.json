@@ -1,0 +1,132 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Account Id",
+      "type": "string"
+    },
+    "amount_minor": {
+      "ge": 0,
+      "title": "Amount Minor",
+      "type": "integer"
+    },
+    "contract_version": {
+      "const": "event_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "correction_of": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Correction Of"
+    },
+    "currency": {
+      "title": "Currency",
+      "type": "string"
+    },
+    "direction": {
+      "enum": [
+        "IN",
+        "OUT"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "event_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "TRANSACTION",
+        "CORRECTION",
+        "REVERSAL"
+      ],
+      "title": "Event Type",
+      "type": "string"
+    },
+    "ingested_at": {
+      "format": "date-time",
+      "title": "Ingested At",
+      "type": "string"
+    },
+    "reversal_of": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Reversal Of"
+    },
+    "schema_version": {
+      "const": "transaction_minor_units_v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sequence_epoch": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Sequence Epoch",
+      "type": "string"
+    },
+    "source_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_partition": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Source Partition",
+      "type": "string"
+    },
+    "source_sequence": {
+      "exclusiveMinimum": 0,
+      "title": "Source Sequence",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_version",
+    "source_id",
+    "source_partition",
+    "sequence_epoch",
+    "source_sequence",
+    "event_id",
+    "account_id",
+    "event_time",
+    "ingested_at",
+    "event_type",
+    "amount_minor",
+    "currency",
+    "direction",
+    "correction_of",
+    "reversal_of"
+  ],
+  "title": "TransactionEvent",
+  "type": "object"
+}

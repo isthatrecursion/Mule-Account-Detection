@@ -1,0 +1,44 @@
+{
+  "scope": "Final Phase 2 wheel in previously verified isolated runtime environment; no network or private data",
+  "executed_at": "2026-10-20T13:14:58.192064+00:00",
+  "wheel_sha256": "17c39acfa6cc5a55ba2bad455b1762464cdaac8cb1c15361e14ec72759550903",
+  "runtime_lock_sha256": "e56f28e57087bf6493744568716b087405f65fddc245a93e5148313d31f95a9c",
+  "synthetic_fixture_sha256": "806fcdcde8805a6501547f2f24f202a41d5e501f0fbf4cf100361493eccfb468",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_72e5d3ae46964879b979e912d3cb0804\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--force-reinstall",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase2\\windows_contracts_v3\\dist\\mule_detection-0.1.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "evidence": "check_01.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_72e5d3ae46964879b979e912d3cb0804\\environment\\Scripts\\python.exe",
+        "-c",
+        "\nimport json,sys\nfrom pathlib import Path\nimport mule_detection\nfrom mule_detection.domain.contracts.registry import CONTRACTS, resolve_contract\nassert Path(mule_detection.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())\nfixtures=json.loads(Path(sys.argv[1]).read_text())\nassert len(CONTRACTS)==15 and set(CONTRACTS)==set(fixtures)\nfor version,payload in fixtures.items():\n    model=resolve_contract(version,payload)\n    assert resolve_contract(version,model.model_dump_json())==model\nprint(json.dumps({'status':'PASSED','installed_contracts':len(CONTRACTS),'synthetic_roundtrips':len(fixtures),'package_file':mule_detection.__file__}))\n",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase2_wheel_8d4a3d4d23774c0d9bcc098a93680085\\synthetic_contracts.json"
+      ],
+      "exit_code": 0,
+      "evidence": "check_02.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_72e5d3ae46964879b979e912d3cb0804\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_03.txt"
+    }
+  ],
+  "pass_fail": "PASSED"
+}

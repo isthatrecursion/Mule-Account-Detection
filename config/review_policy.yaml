@@ -1,0 +1,30 @@
+policy_version: research_review_v1
+environment: research
+owner_role: fraud_operations
+approval_status: RESEARCH_DEFAULT_PENDING_OWNER_REVIEW
+top_k: 50
+qualified_top_k: null
+eligible_snapshot_contract:
+  schema: research_v1
+  partition: development_only
+  exclude_internal_holdout: true
+  unique_record_key: true
+  required: [finite_raw_score, compatible_model_and_feature_policy, passed_validation]
+  default_queue_assessment: complete_baseline
+  provisional_escalations: separate_flagged_priority_overlay
+  unavailable_in_ranked_cohort: false
+sort: [raw_score_desc, record_key_asc]
+rank_origin: 1
+percentile:
+  formula: '100 * (N - rank) / (N - 1)'
+  singleton: 100
+  empty: no_values
+  meaning: position_in_versioned_eligible_cohort_not_fraud_probability
+refresh:
+  cadence: daily
+  scheduled_time_utc: '01:00:00'
+  trigger: accepted_batch_and_successful_atomic_publication
+  failure_behavior: retain_prior_snapshot_with_original_timestamps_and_freshness_warning
+snapshot_pins: [cohort_id, cohort_hash, policy_version, model_version, data_version, score_run_id]
+policy_change_requires_new_version: true
+top_k_change_requires_rescoring: false

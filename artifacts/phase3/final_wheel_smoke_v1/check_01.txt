@@ -1,0 +1,10 @@
+Processing c:\users\omkud\mule account detection\artifacts\phase3\windows_persistence_v3\dist\mule_detection-0.1.0-py3-none-any.whl
+Installing collected packages: mule-detection
+  Attempting uninstall: mule-detection
+    Found existing installation: mule-detection 0.1.0
+    Uninstalling mule-detection-0.1.0:
+      Successfully uninstalled mule-detection-0.1.0
+Successfully installed mule-detection-0.1.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: C:\Users\omkud\Mule Account Detection\scratch\install_f2e6497aa58d4934be22d6cd32a35e99\environment\Scripts\python.exe -m pip install --upgrade pip

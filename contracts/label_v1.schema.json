@@ -1,0 +1,135 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "account_id": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Account Id",
+      "type": "string"
+    },
+    "adjudication_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Adjudication Reference"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "label_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "event_at": {
+      "format": "date-time",
+      "title": "Event At",
+      "type": "string"
+    },
+    "label_id": {
+      "format": "uuid",
+      "title": "Label Id",
+      "type": "string"
+    },
+    "label_source": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Label Source",
+      "type": "string"
+    },
+    "mature_at": {
+      "format": "date-time",
+      "title": "Mature At",
+      "type": "string"
+    },
+    "negative_policy_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Negative Policy Reference"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "title": "Observed At",
+      "type": "string"
+    },
+    "record_key": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Record Key",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "UNREVIEWED",
+        "ADJUDICATED",
+        "POLICY_NEGATIVE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "supersedes": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Supersedes"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Value"
+    },
+    "version": {
+      "exclusiveMinimum": 0,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "contract_version",
+    "label_id",
+    "record_key",
+    "account_id",
+    "value",
+    "label_source",
+    "event_at",
+    "observed_at",
+    "available_at",
+    "mature_at",
+    "status",
+    "adjudication_reference",
+    "negative_policy_reference",
+    "version",
+    "supersedes"
+  ],
+  "title": "QualifiedLabel",
+  "type": "object"
+}

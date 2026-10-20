@@ -1,0 +1,19 @@
+# Only package and explicitly approved synthetic build inputs may enter images.
+**
+!pyproject.toml
+!requirements-*.lock
+!src/
+!src/**
+!config/
+!config/**
+!ui/
+!ui/**
+!docker/
+!docker/**
+**/__pycache__
+**/*.pyc
+**/.env*
+**/secrets/**
+**/private/**
+**/*.csv
+**/*.parquet

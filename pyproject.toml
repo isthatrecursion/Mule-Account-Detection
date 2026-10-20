@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools==82.0.1", "wheel==0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mule-detection"
+version = "0.1.0"
+description = "Evidence-limited research foundation for explainable mule-account review ranking"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "numpy==1.26.4", "pandas==2.2.3", "scikit-learn==1.5.2",
+  "lightgbm==4.7.0", "scipy==1.17.1",
+  "pydantic>=2.12,<3", "pydantic-settings>=2.10,<3", "PyYAML==6.0.3",
+  "SQLAlchemy==2.0.55", "alembic==1.20.0", "psycopg[binary]==3.3.6",
+  "cryptography==48.0.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.11,<1", "mypy>=1.15,<3", "types-PyYAML", "pip==25.0.1", "pip-tools==7.5.3", "build==1.2.2.post1", "wheel==0.45.1", "setuptools==82.0.1"]
+
+[project.scripts]
+mule-detection = "mule_detection.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mule_detection = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["postgres: requires an explicit dedicated test database", "benchmark: expensive performance experiment"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+include = ["src/**/*.py", "tests/**/*.py", "migrations/**/*.py", "scripts/init_local_secrets.py", "scripts/configure_local_database.py", "scripts/create_test_database.py", "scripts/verify_persistence.py", "scripts/verify_persistence_restart.py", "scripts/reference_manifest.py", "scripts/verify_foundation.py", "scripts/verify_installation.py", "scripts/generate_contract_schemas.py", "scripts/generate_research_schema.py", "scripts/verify_contracts.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src/mule_detection"]
+strict = true

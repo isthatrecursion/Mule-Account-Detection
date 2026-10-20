@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "case_id": {
+      "format": "uuid",
+      "title": "Case Id",
+      "type": "string"
+    },
+    "conclusion": {
+      "enum": [
+        "NEEDS_MORE_INFORMATION",
+        "NO_FURTHER_REVIEW",
+        "REFER_FOR_ADJUDICATION"
+      ],
+      "title": "Conclusion",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "review_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "expected_case_version": {
+      "ge": 0,
+      "title": "Expected Case Version",
+      "type": "integer"
+    },
+    "idempotency_key": {
+      "format": "uuid",
+      "title": "Idempotency Key",
+      "type": "string"
+    },
+    "note_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Note Reference"
+    }
+  },
+  "required": [
+    "contract_version",
+    "case_id",
+    "expected_case_version",
+    "conclusion",
+    "note_reference",
+    "idempotency_key"
+  ],
+  "title": "ReviewRequest",
+  "type": "object"
+}

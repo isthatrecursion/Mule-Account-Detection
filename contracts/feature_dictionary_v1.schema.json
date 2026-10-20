@@ -1,0 +1,159 @@
+{
+  "$defs": {
+    "DictionaryEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_reference": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Approval Reference"
+        },
+        "availability_rule": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Availability Rule"
+        },
+        "calculation_window": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Calculation Window"
+        },
+        "display_name": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Display Name"
+        },
+        "feature_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Feature Id",
+          "type": "string"
+        },
+        "sensitivity": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Sensitivity",
+          "type": "string"
+        },
+        "source_table": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Source Table"
+        },
+        "status": {
+          "enum": [
+            "UNVERIFIED",
+            "PROVISIONAL",
+            "CERTIFIED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "maxLength": 512,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "feature_id",
+        "status",
+        "display_name",
+        "unit",
+        "source_table",
+        "calculation_window",
+        "availability_rule",
+        "sensitivity",
+        "approval_reference"
+      ],
+      "title": "DictionaryEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "feature_dictionary_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "dictionary_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Dictionary Version",
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/DictionaryEntry"
+      },
+      "title": "Entries",
+      "type": "array"
+    },
+    "known_feature_ids": {
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Known Feature Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contract_version",
+    "dictionary_version",
+    "known_feature_ids",
+    "entries"
+  ],
+  "title": "FeatureDictionary",
+  "type": "object"
+}

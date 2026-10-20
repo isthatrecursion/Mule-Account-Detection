@@ -1,0 +1,93 @@
+{
+  "$defs": {
+    "SourceDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_reference": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Approval Reference",
+          "type": "string"
+        },
+        "availability_rule": {
+          "const": "available_by_snapshot",
+          "title": "Availability Rule",
+          "type": "string"
+        },
+        "contract_version": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "feature_ids": {
+          "items": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Feature Ids",
+          "type": "array"
+        },
+        "max_clock_skew_seconds": {
+          "ge": 0,
+          "title": "Max Clock Skew Seconds",
+          "type": "integer"
+        },
+        "observation_rule": {
+          "const": "cutoff_at_snapshot",
+          "title": "Observation Rule",
+          "type": "string"
+        },
+        "required_partitions": {
+          "items": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Required Partitions",
+          "type": "array"
+        },
+        "source_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "contract_version",
+        "approval_reference",
+        "feature_ids",
+        "required_partitions",
+        "observation_rule",
+        "availability_rule",
+        "max_clock_skew_seconds"
+      ],
+      "title": "SourceDefinition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "source_registry_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/SourceDefinition"
+      },
+      "title": "Sources",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contract_version",
+    "sources"
+  ],
+  "title": "SourceRegistry",
+  "type": "object"
+}

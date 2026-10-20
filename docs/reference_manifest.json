@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-10-20T11:55:38.230167+00:00",
+  "creation_context": "P01.01 evidence preservation; no benchmark rerun or source modification",
+  "reference_environment": {
+    "input_sha256": {
+      "dataset": "c6181fa1ae9aecc899ca17d2223e3ef1ce9f64fd2b6b1f3e252ee13b6cf07915",
+      "exclusion_register": "83b86ba350a7335af6f55547e1f2bc3d5286c6fc5eff21a3c582496df08f30ac",
+      "split_register": "053d1f03ede21cb9b6830c75b0d46d7a3bc99353ef2c21a718b8f9b26933cc06"
+    },
+    "packages": {
+      "lightgbm": "4.7.0",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.17.1"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "verification_script_sha256": "82b959877199384a98328cd3687a3258d0d0865787e97d912bfe4dd8fca5f4d1"
+  },
+  "files": [
+    {
+      "path": "DataSet__1_.csv",
+      "size_bytes": 116537521,
+      "sha256": "c6181fa1ae9aecc899ca17d2223e3ef1ce9f64fd2b6b1f3e252ee13b6cf07915"
+    },
+    {
+      "path": "eda/holdout_split_indices.csv",
+      "size_bytes": 115170,
+      "sha256": "053d1f03ede21cb9b6830c75b0d46d7a3bc99353ef2c21a718b8f9b26933cc06"
+    },
+    {
+      "path": "eda/05_leakage_and_feature_exclusions.csv",
+      "size_bytes": 121581,
+      "sha256": "83b86ba350a7335af6f55547e1f2bc3d5286c6fc5eff21a3c582496df08f30ac"
+    },
+    {
+      "path": "scripts/pre_architecture_verification.py",
+      "size_bytes": 15665,
+      "sha256": "82b959877199384a98328cd3687a3258d0d0865787e97d912bfe4dd8fca5f4d1"
+    },
+    {
+      "path": "eda/09_pre_architecture_verification_and_remediation.md",
+      "size_bytes": 10393,
+      "sha256": "1a62ff2d4ea7e95ac47a34d1c8bab89bc8549b829db23c8a8d3fc299eea9cc42"
+    },
+    {
+      "path": "artifacts/pre_architecture_verification/fold_feature_manifests.json",
+      "size_bytes": 172623,
+      "sha256": "7177246e25f28bcdb4073ce0584ca0f749902616756160a67dbf211446619f61"
+    },
+    {
+      "path": "artifacts/pre_architecture_verification/oof_predictions.csv",
+      "size_bytes": 234138,
+      "sha256": "b6a7480a130a163f2a0aa04b14c0e3d18278b1213ea1588f95b077897f40a73b"
+    },
+    {
+      "path": "artifacts/pre_architecture_verification/residual_cohort_risk.csv",
+      "size_bytes": 6522,
+      "sha256": "0fcec20208c23152e27674acfd6d9aa1bd3205aafa883d470d42c9a3e71cc093"
+    },
+    {
+      "path": "artifacts/pre_architecture_verification/verification_report.json",
+      "size_bytes": 5215,
+      "sha256": "5a5f0251e9162890f758045dbd69b383fd5db05a474913ca21b69856f562ccc8"
+    }
+  ]
+}

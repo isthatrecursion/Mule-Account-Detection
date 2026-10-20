@@ -1,0 +1,7 @@
+environment: test
+runtime:
+  artifact_root: var/test-artifacts
+  max_upload_bytes: 1048576
+  max_batch_rows: 100
+  worker_count: 1
+  model_tier: research_demo

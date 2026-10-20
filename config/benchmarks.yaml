@@ -1,0 +1,84 @@
+protocol_version: benchmarks_v1
+owner_role: operator
+approval_status: RESEARCH_EXPERIMENT_DESIGN_PENDING_REVIEW
+data_policy: synthetic_only_in_CI
+reference_hardware:
+  profile_id: proposed_single_vm_v1
+  status: PROPOSED_NOT_MEASURED
+  cpu: {architecture: x86_64, allocated_vcpu: 4, model: null}
+  ram_gib: 16
+  disk: local_SSD
+  os: Linux
+  worker_processes: 1
+  model_threads: 2
+  required_at_run: [cpu_model, os_version, python_version, dependency_lock_hash, image_digest, hardware_fingerprint, input_hash, config_hash, bundle_hash, code_revision]
+common:
+  seed: 20261020
+  feature_columns: 3924
+  model_candidate_columns: 2521
+  schema: synthetic_benchmark_v1
+  eligible_fraction: 1.0
+  worker_processes: 1
+  model_threads: 2
+  repetitions_per_cache_state: 5
+  cache_states: [cold_process, warm_bundle_and_database]
+  failure_budget: 0
+  missing_fingerprint_behavior: invalid_run
+  payload_bytes: null
+  payload_bytes_rule: record_exact_serialized_bytes_and_digest_before_timing
+scenarios:
+  batch_10k:
+    rows: 10000
+    eligible_rows: 10000
+    concurrent_batch_jobs: 1
+    concurrent_api_clients: 0
+    start_event: durable_accepted_batch_job_claimed
+    stop_event: scores_top50_explanations_and_queue_committed
+    expected: {wall_seconds_lt: 900}
+    observed: null
+  capacity_100k:
+    rows: 100000
+    eligible_rows: 100000
+    concurrent_batch_jobs: 1
+    concurrent_api_clients: 0
+    start_event: durable_accepted_batch_job_claimed
+    stop_event: scores_top50_explanations_and_queue_committed
+    expected: {completed_without_OOM_or_lost_rows: true, peak_rss_gib_lte: 12}
+    observed: null
+  api_reads:
+    rows: 10000
+    eligible_rows: 10000
+    concurrent_batch_jobs: 0
+    concurrent_api_clients: 5
+    requests_per_client: 200
+    endpoints: [queue_page_50, case_detail_with_evidence]
+    start_event: client_request_sent_on_internal_network
+    stop_event: complete_response_received
+    expected: {per_endpoint_p95_ms_lt: 500, error_count: 0}
+    observed: null
+  reconciliation_with_dashboard:
+    rows: 10000
+    eligible_rows: 10000
+    events: 100000
+    affected_accounts: 2000
+    concurrent_batch_jobs: 0
+    concurrent_reconciliation_workers: 1
+    concurrent_api_clients: 5
+    requests_per_client: 200
+    injected_delay_seconds: 600
+    recovery_scan_seconds: 60
+    score_epsilon: 0.00000001
+    risk_band_policy: frozen_fixture_band_v1
+    start_event: worker_starts_account_reconstruction
+    stop_event: corrected_features_scores_audit_and_queue_committed
+    expected:
+      assessment_consistency_gte: 0.95
+      top_k_overlap_gte: 0.95
+      affected_p95_compute_overhead_lte: 0.05
+      unaffected_p95_regression_lte: 0.05
+      duplicate_or_lost_events: 0
+      partial_data_downgrades: 0
+      corrected_lineage_fraction: 1.0
+      event_to_publication_p95_seconds_lte: 660
+      per_endpoint_api_p95_ms_lt: 500
+    observed: null

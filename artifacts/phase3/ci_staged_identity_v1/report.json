@@ -1,0 +1,16 @@
+{
+  "pass_fail": "PASSED",
+  "executed_at": "2026-10-20T21:40:57.928693+00:00",
+  "scope": "Verify the staged CI fix preserves the existing registered dictionary identity and all text values",
+  "staged_dictionary_sha256": "967a9f412a398c9c8b7f714eb87e80915ef3bfc6e66d03d98284ccdfd131739a",
+  "registered_dictionary_sha256": "967a9f412a398c9c8b7f714eb87e80915ef3bfc6e66d03d98284ccdfd131739a",
+  "working_dictionary_bytes_unchanged": true,
+  "same_content_ignoring_CRLF_LF": true,
+  "staged_whitespace_check_exit_code": 0,
+  "fix_file_hashes": {
+    ".gitattributes": "04711e8896a235a46d1cc858fb1d8413b6772caaad42f88421763ac7997acf9c",
+    "tests/unit/test_dictionary_checkout.py": "2a636b9a77f355820d6ec04169eaf3e544297f59abd3a4cfd81f3982f7a03caa",
+    "docs/acceptance/ci_line_endings_fix.md": "3ef6e57d10be276bdc406abdb7085910717ddd7ef290c8d1917385575c4043be"
+  },
+  "remote_CI": "PENDING_NEW_COMMIT_RUN"
+}

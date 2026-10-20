@@ -1,0 +1,277 @@
+{
+  "notice": "SYNTHETIC_SPECIFICATION_ONLY. No provider data, execution result or approval. Future runtime validators must implement these contracts.",
+  "identity": {
+    "acceptable": {
+      "account_id": "synthetic-a",
+      "source_id": "synthetic-source",
+      "related_entity_group_id": "synthetic-entity",
+      "key_version": "v1",
+      "correction_of": null,
+      "certified_key_semantics": "SYNTHETIC_EXAMPLE"
+    },
+    "reject": "missing stable ID or unresolved reissue semantics"
+  },
+  "cutoff": {
+    "acceptable": {
+      "snapshot_at": "2026-01-02T00:00:00Z",
+      "observation_start": "2026-01-01T00:00:00Z",
+      "observation_end": "2026-01-02T00:00:00Z"
+    },
+    "reject": "naive timestamp or end after cutoff"
+  },
+  "availability": {
+    "acceptable": {
+      "event_at": "2026-01-01T00:00:00Z",
+      "available_at": "2026-01-01T00:01:00Z",
+      "snapshot_at": "2026-01-02T00:00:00Z",
+      "producing_job": "synthetic-job"
+    },
+    "reject": "availability after cutoff"
+  },
+  "dictionary": {
+    "acceptable": {
+      "feature_id": "S1",
+      "definition": "synthetic sum",
+      "unit": "TEST",
+      "source": "synthetic",
+      "calculation_window": "[start,end)",
+      "availability_rule": "before cutoff",
+      "certified_by": "SYNTHETIC_NOT_REAL_APPROVAL",
+      "version": "v1",
+      "sensitivity": "synthetic"
+    },
+    "reject": "anonymous feature given uncertified business name"
+  },
+  "labels": {
+    "acceptable": {
+      "label": 1,
+      "label_status": "ADJUDICATED",
+      "label_source": "synthetic",
+      "label_event_at": "2026-01-03T00:00:00Z",
+      "label_available_at": "2026-01-04T00:00:00Z",
+      "label_mature_at": "2026-01-05T00:00:00Z",
+      "label_as_of": "2026-01-06T00:00:00Z",
+      "adjudication_id": "synthetic-1",
+      "label_version": "v1"
+    },
+    "reject": "immature or unadjudicated label"
+  },
+  "cohorts": {
+    "acceptable": [
+      {
+        "cohort_id": "synthetic-jan",
+        "labels": [
+          0,
+          1
+        ]
+      },
+      {
+        "cohort_id": "synthetic-feb",
+        "labels": [
+          0,
+          1
+        ]
+      }
+    ],
+    "reject": "one class per period, even if pooled classes are mixed"
+  },
+  "completeness": {
+    "acceptable": {
+      "source_id": "synthetic",
+      "source_partition": "p0",
+      "sequence_epoch": "e1",
+      "received_sequences": [
+        1,
+        2,
+        3
+      ],
+      "committed_sequence": 3,
+      "expected_count": 3,
+      "heartbeat_at": "2026-01-01T00:03:00Z",
+      "watermark": "2026-01-01T00:03:00Z",
+      "window_end": "2026-01-01T00:03:00Z"
+    },
+    "reject": "sequence [1,3], missing heartbeat, count mismatch or inadequate watermark"
+  },
+  "acceptance": {
+    "acceptable": {
+      "cohort_id": "new-synthetic-cohort",
+      "custodian": "synthetic-independent",
+      "freeze_at": "2026-01-01T00:00:00Z",
+      "labels_released_at": "2026-01-02T00:00:00Z",
+      "inspection_history": [],
+      "feature_lookback_seconds": 86400,
+      "label_outcome_window_seconds": 86400
+    },
+    "reject": "reused inspected cohort or label release before freeze"
+  },
+  "operations": {
+    "acceptable": {
+      "top_k": 50,
+      "approval": "SYNTHETIC_NOT_REAL_APPROVAL",
+      "outcome_definition": "independent adjudication",
+      "cost_matrix": "synthetic",
+      "ranking_thresholds": "owner-supplied finite values",
+      "minimum_counts": "owner-supplied positive integers",
+      "review_service_level": "owner-supplied"
+    },
+    "reject": "research default passed off as approved production capacity"
+  },
+  "vocabulary": {
+    "acceptable": {
+      "approved_vocabulary": [
+        "synthetic source value"
+      ],
+      "review_conclusions": [
+        "REFER_FOR_ADJUDICATION"
+      ],
+      "human_action_owner": "synthetic-authorized-human",
+      "approval_scope": "synthetic"
+    },
+    "reject": "model-generated causal narrative or automatic filing"
+  },
+  "fairness": {
+    "acceptable": {
+      "approved_attributes": [
+        "synthetic_group"
+      ],
+      "minimum_counts": 100,
+      "confidence_rule": "synthetic bootstrap",
+      "disparity_thresholds": "SYNTHETIC_NOT_REAL_THRESHOLD",
+      "remediation": "human review",
+      "approved_by": "SYNTHETIC_NOT_REAL_APPROVAL"
+    },
+    "reject": "certification with insufficient subgroup counts"
+  },
+  "security_recovery": {
+    "acceptable": {
+      "SSO": "synthetic OIDC",
+      "retention_by_class": [
+        "raw",
+        "scores",
+        "audit",
+        "models",
+        "exports"
+      ],
+      "RPO": "SYNTHETIC_PENDING_REAL_TARGET",
+      "RTO": "SYNTHETIC_PENDING_REAL_TARGET",
+      "incident_owner": "synthetic",
+      "release_authority": "synthetic"
+    },
+    "reject": "missing approved recovery or retention scope"
+  },
+  "reproducibility": {
+    "acceptable": {
+      "reference_hashes": "SYNTHETIC_SHA256_MANIFEST",
+      "dependency_lock": "synthetic-lock",
+      "metric_tolerance": "SYNTHETIC_PENDING_REAL_TOLERANCE",
+      "split_manifest": "synthetic-splits",
+      "fit_boundary_report": "training-only spy evidence",
+      "reviewer": "synthetic-independent"
+    },
+    "reject": "validation data accessible to a fitted transformer"
+  },
+  "representative_replay": {
+    "acceptable": {
+      "event_ledger_hash": "SYNTHETIC_EXAMPLE",
+      "feature_contract": "synthetic-ledger-v1",
+      "model_hash": "SYNTHETIC_EXAMPLE",
+      "hardware_profile": "synthetic-vm",
+      "mature_outcomes": "requires real source delivery",
+      "epsilon": 1e-08,
+      "band_policy": "frozen_fixture_band_v1"
+    },
+    "reject": "synthetic ledger used to claim real predictive validity"
+  },
+  "queue_examples": {
+    "scores": [
+      {
+        "record_key": "c",
+        "raw_score": 0.2
+      },
+      {
+        "record_key": "b",
+        "raw_score": 0.8
+      },
+      {
+        "record_key": "a",
+        "raw_score": 0.8
+      }
+    ],
+    "expected_keys": [
+      "a",
+      "b",
+      "c"
+    ],
+    "expected_percentiles": [
+      100,
+      50,
+      0
+    ],
+    "top_k": 2,
+    "expected_top": [
+      "a",
+      "b"
+    ]
+  },
+  "research_identity": {
+    "dataset_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "other_dataset_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "row_reference": 42,
+    "equivalent_row_reference": "00042"
+  },
+  "unavailable": {
+    "raw_score": null,
+    "rank": null,
+    "percentile": null,
+    "assessed_as_of": null,
+    "published_at": null,
+    "freshness": "UNAVAILABLE",
+    "completeness": "UNKNOWN"
+  },
+  "evaluation": {
+    "windows": [
+      {
+        "name": "train",
+        "start": "2026-01-01T00:00:00Z",
+        "end": "2026-01-03T00:00:00Z",
+        "label_as_of": "2026-01-04T00:00:00Z",
+        "groups": [
+          "a"
+        ]
+      },
+      {
+        "name": "tuning",
+        "start": "2026-01-05T00:00:00Z",
+        "end": "2026-01-07T00:00:00Z",
+        "label_as_of": "2026-01-08T00:00:00Z",
+        "groups": [
+          "b"
+        ]
+      },
+      {
+        "name": "calibration",
+        "start": "2026-01-09T00:00:00Z",
+        "end": "2026-01-11T00:00:00Z",
+        "label_as_of": "2026-01-12T00:00:00Z",
+        "groups": [
+          "c"
+        ]
+      },
+      {
+        "name": "final_acceptance",
+        "start": "2026-01-13T00:00:00Z",
+        "end": "2026-01-15T00:00:00Z",
+        "label_as_of": "2026-01-16T00:00:00Z",
+        "groups": [
+          "d"
+        ]
+      }
+    ],
+    "feature_lookback_seconds": 86400,
+    "label_outcome_window_seconds": 86400,
+    "freeze_at": "2026-01-15T00:00:00Z",
+    "labels_released_at": "2026-01-16T00:00:00Z",
+    "inspection_history": []
+  }
+}

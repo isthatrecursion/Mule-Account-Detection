@@ -1,0 +1,208 @@
+{
+  "scope": "Phase 1 foundation checks; no model/data qualification or human approval",
+  "executed_at": "2026-10-20T12:14:07.649173+00:00",
+  "executed_command": "\"C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe\" \"C:\\Users\\omkud\\Mule Account Detection\\scripts\\verify_foundation.py\" --with-reference --output-dir artifacts/phase1/windows_foundation_v2",
+  "build_revision": "5160e2a3b7a42bc147264340666821056a37d43b",
+  "working_tree_dirty": true,
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "pip": "25.0.1",
+      "setuptools": "82.0.1",
+      "wheel": "0.45.1",
+      "pip-tools": "7.5.3",
+      "build": "1.2.2.post1",
+      "pydantic-settings": "2.16.1",
+      "ruff": "0.17.1",
+      "mypy": "2.4.0",
+      "pytest": "9.1.1",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.5.2",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "input_policy": "synthetic fixtures only; optional reference check hashes approved local evidence without training/scoring",
+  "source_hashes": {
+    ".dockerignore": "4637af52b1d8fd23374b99f34a5fc45932bdd246c7cdfdd7d0f71ac943810cd1",
+    ".env.example": "473bb15359030604f3d3b63cbced26edfbb308342b1a11538a96ee9b728c6b72",
+    ".github/workflows/checks.yml": "d2841e87b32472d2422f71a0a414dbb20d57d5dcfbf2fdd65b079a2ebd4b7384",
+    ".gitignore": "67a6d6215c0392fa0dfcf88c1c3e6835d7865ba4344845fd55f307f27e591891",
+    "config/benchmarks.yaml": "4a9022007e3f6b704c88f951b0a8e524e001533f888bedf76a2f698565b65e1d",
+    "config/environments/local.yaml": "58944715fb25d19f032202cf1394503a8266f44b660fbe87c7d0b48bdabe32b7",
+    "config/environments/qualified.yaml": "47d5edf7a6a3841a8975483f426c68221af643349793b64190c19a592b8e973f",
+    "config/environments/research.yaml": "0e91c68d860e573b6fe7f0aee15bf3f45fe3f38a670d8cc8f06cdffc89041935",
+    "config/environments/staging.yaml": "898ed901c328cff297e9c15918fda4ba3c4c016b8293f40f80e0e28529b92c5a",
+    "config/environments/test.yaml": "9c32e0ebc4afb571eb6bbcdc9a324d75bf69f48ae6f5b449a971a74a0e06222c",
+    "config/evaluation_policy.yaml": "3989467f1e40c4a569bea4ff73a09251e739c2f5287e5afc75fe16e822e7c128",
+    "config/permissions.yaml": "e9c935cc91040967898fd8c979d86c3ce35195dfc6f461a2f866c9fdb5d15b3d",
+    "config/review_policy.yaml": "73ff5585ca74e190b7e8a0059683818d2844af1a302d73156cb8d6eb8342502e",
+    "docs/development.md": "df0f5c819ebefb22acfffb5005a3cbad8dcf1d4c5327e22d818f40020fb26a73",
+    "docs/reference_manifest.json": "4a67b8fde84fe50d9558d4537932c02d0a0ab0cb3722b8018544cf3f6cb9c103",
+    "pyproject.toml": "cec4a553fc256eabf76e8bf63fbbc65554e0e56209661e8b4ab2861d7440f801",
+    "requirements-dev-linux.lock": "df94c25d1f1d760e33c90f18da9c9a482cde560eb07c581d6a93f0cd32f5bac1",
+    "requirements-dev-windows.lock": "20bf55d1102090f304b89d902d18356954a0c881e3449bd7e0e0c24cc80fb482",
+    "requirements-linux.lock": "bb8461d58a59a3f8e91d339ae053b3d718ea4112779dd47df68b8dddd707d5ed",
+    "requirements-windows.lock": "e56f28e57087bf6493744568716b087405f65fddc245a93e5148313d31f95a9c",
+    "scripts/reference_manifest.py": "a01e17a6b4fd04348b7e13a48115491e4543a8ed222a564193769586d207d07b",
+    "scripts/validate_phase0.py": "0c816ee6803bccc385598541a5388ae801bde414802e2f75378a98d15a0b65f2",
+    "scripts/verify_foundation.py": "6340b1a22a048b9c530f37d92cac9c400ec54e5255449bb129e78e2729ef9c18",
+    "scripts/verify_installation.py": "396aa42231bd3af38363ab9a4e50a043dee3dd256bf6919eef9173b30f12ba21",
+    "src/mule_detection/__init__.py": "4a53d02eb58a325beadf9eeaaf26678f5ea7f390c9d73a8beaf74146b4614335",
+    "src/mule_detection/api/__init__.py": "3a52e8e4bc69a05a3fb973ced01ab8a85246c4c373f2564023ca645420a73b1d",
+    "src/mule_detection/application/__init__.py": "4c17665bc1d56acddfd532fda42ddd88f8437be45f174e4995ff3cd6b5505ea1",
+    "src/mule_detection/application/commands.py": "de5c1b1cef537b8c9f204c23e8ee3ee3399a3d1c8cfa46073bc9326b9b4fbb56",
+    "src/mule_detection/application/context.py": "082b8a40df8ad1a8d89669989290cdb0d0d67b0fcbb5c788acf9893cb4df579b",
+    "src/mule_detection/application/logging.py": "fd3589b683e6231aefb564e6c00c159436bfcba60941d2ae38f6eb990ffa25bc",
+    "src/mule_detection/cli.py": "c8fb05afb981a4046835518732d613a2401b6c622379a9bc716a5c64e9465a10",
+    "src/mule_detection/domain/__init__.py": "dec481c29d5da99c8eb6f92155769b53d306d12467bc5f9ede826690654b711f",
+    "src/mule_detection/domain/clock.py": "f04090e0b385fe03b625c6abac31991c521650aa2e02627b886b37f5c4dc131c",
+    "src/mule_detection/domain/errors.py": "0d2d5825aac21d8f9d4f2e1e8836f1aca687c7b827c61ee8057ea9866ebb4ba5",
+    "src/mule_detection/explanations/__init__.py": "65918cc74dcd3f4de5e4122e415d6c4b67a11b55f7395821c67d2f34567d37cf",
+    "src/mule_detection/features/__init__.py": "7b760b4e0a02773334cbe3af77144943bf1207c394967b0dd52271e6b6049add",
+    "src/mule_detection/ingestion/__init__.py": "c49fb159e848203968365c8354a518539a4a37025804a54b5baf605b39863f58",
+    "src/mule_detection/monitoring/__init__.py": "cae2a2ccb515ff6ee51c3d33545e46670f08a9876b736861e4d09b5c16e63cf4",
+    "src/mule_detection/persistence/__init__.py": "505989a6b44c9b3b623e1d20c4bc391d195336cf2d08e41eec7e761f5a981b2e",
+    "src/mule_detection/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/mule_detection/reconciliation/__init__.py": "6184c67afd815a11d6bff2bf1a51ee6aebdb20455d574c8d43e2731ed436918e",
+    "src/mule_detection/registry/__init__.py": "4aa32bc92a89066deea1aa41e57b682fa024c8ca4874d68a3dafd4a16a6a28a5",
+    "src/mule_detection/scoring/__init__.py": "5ec6cbe21873e97c6f36e09e41f2b1c80e3e96b5be8d1f4a178c910b0fce8b26",
+    "src/mule_detection/settings.py": "f0fde31ab0533fa6362615f18590b9822a551de63bbba4d122a3a1c1024eea4c",
+    "src/mule_detection/training/__init__.py": "0723e966091cd7c605fab3f9c161ebcc4cea094a1e94eb17b54da6ff51d59038",
+    "tests/__init__.py": "4a56e65a963126b8f364c1ef90523c0f986f51cfa249cf6d3f4fef947f5c644e",
+    "tests/conftest.py": "39511fda85ef926d45f1d53dd47f98435d6828add082497a02f0c20ddc99f690",
+    "tests/factories.py": "85d8c185d7e9a8e305c68efc96e308b413a0dde86d7950bc13c1b28fd09953d1",
+    "tests/fixtures/foundation/duplicate_columns.csv": "6e45ad5cd07d6222ffd7162ed1feb6dc6f0dd471e27b7d04826eb85294d70b5c",
+    "tests/fixtures/foundation/invalid_timestamps.csv": "3c10a8889d865ecc7b204ffb1e9d6d33d211550379e4622d68183d0ca447a90b",
+    "tests/fixtures/phase0/specification_examples.json": "01ba0976318e370ad082c32cab17636ddfb16e22cf7714df6e97bfb60fde7f28",
+    "tests/fixtures/README.md": "6612355c8df4e93cf1f01501a07cfaf1cd396875a5ca0031b706c8d1218760c5",
+    "tests/unit/test_foundation.py": "07704ad65ae247db2b51c8ae8149df0f0a4f56ddbe7bb61d897a16be386bdc45",
+    "tests/unit/test_reference_manifest.py": "ade99a667aadbba13246b079761ee6c0e0e5c0dc32b26639f38c7ab4cfb489d1",
+    "tests/unit/test_settings.py": "73c869f7468ee0670f1780f7f4b2001761dcfb6ed662242dbf488270296344ea"
+  },
+  "source_manifest_sha256": "165a0e89c76f73efe0ad33cae0d9b5a2f132582308c71316a367243ec30443a5",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "executed_at": "2026-10-20T12:13:55.535948+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_01.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "executed_at": "2026-10-20T12:13:56.611007+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_02.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "executed_at": "2026-10-20T12:13:56.781299+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_03.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mypy",
+        "src/mule_detection"
+      ],
+      "executed_at": "2026-10-20T12:13:56.973462+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_04.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-m",
+        "not postgres and not benchmark",
+        "--basetemp",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase1_43c3ff8bf28d484ea84b1635984c9dd9\\pytest",
+        "--junitxml",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase1\\windows_foundation_v2\\pytest.xml",
+        "-q"
+      ],
+      "executed_at": "2026-10-20T12:13:58.298226+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_05.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "scripts/validate_phase0.py"
+      ],
+      "executed_at": "2026-10-20T12:14:00.296506+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_06.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "mule_detection.cli",
+        "--help"
+      ],
+      "executed_at": "2026-10-20T12:14:01.314496+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_07.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "build",
+        "--no-isolation",
+        "--outdir",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase1\\windows_foundation_v2\\dist"
+      ],
+      "executed_at": "2026-10-20T12:14:01.810829+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_08.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "scripts/reference_manifest.py",
+        "--verify"
+      ],
+      "executed_at": "2026-10-20T12:14:07.101573+00:00",
+      "exit_code": 0,
+      "result": "PASSED",
+      "evidence": "check_09.txt"
+    }
+  ],
+  "pass_fail": "PASSED",
+  "remote_CI": "NOT_RUN",
+  "reviewer": "PENDING_OWNER_REVIEW",
+  "qualified_approval": "NOT_GRANTED"
+}

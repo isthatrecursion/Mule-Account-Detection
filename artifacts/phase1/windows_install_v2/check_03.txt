@@ -1,0 +1,3 @@
+Processing c:\users\omkud\mule account detection\artifacts\phase1\windows_foundation_v3\dist\mule_detection-0.1.0-py3-none-any.whl
+Installing collected packages: mule-detection
+Successfully installed mule-detection-0.1.0

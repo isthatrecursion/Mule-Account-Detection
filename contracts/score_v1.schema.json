@@ -1,0 +1,309 @@
+{
+  "$defs": {
+    "SourceCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "complete_through": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Complete Through"
+        },
+        "expected_count": {
+          "anyOf": [
+            {
+              "ge": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Expected Count"
+        },
+        "heartbeat_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Heartbeat At"
+        },
+        "received_count": {
+          "ge": 0,
+          "title": "Received Count",
+          "type": "integer"
+        },
+        "sequence_gaps": {
+          "ge": 0,
+          "title": "Sequence Gaps",
+          "type": "integer"
+        },
+        "source_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_partition": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Source Partition",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "COMPLETE",
+            "INCOMPLETE",
+            "UNKNOWN"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "window_end": {
+          "format": "date-time",
+          "title": "Window End",
+          "type": "string"
+        },
+        "window_start": {
+          "format": "date-time",
+          "title": "Window Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "source_partition",
+        "window_start",
+        "window_end",
+        "complete_through",
+        "expected_count",
+        "received_count",
+        "sequence_gaps",
+        "heartbeat_at",
+        "status"
+      ],
+      "title": "SourceCoverage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assessed_as_of": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Assessed As Of"
+    },
+    "baseline_score_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Baseline Score Id"
+    },
+    "bundle_id": {
+      "format": "uuid",
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "cohort_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Cohort Id"
+    },
+    "completeness": {
+      "enum": [
+        "COMPLETE",
+        "INCOMPLETE",
+        "UNKNOWN"
+      ],
+      "title": "Completeness",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "score_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "data_tier": {
+      "enum": [
+        "research",
+        "qualified",
+        "synthetic"
+      ],
+      "title": "Data Tier",
+      "type": "string"
+    },
+    "evidence_reference": {
+      "anyOf": [
+        {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Evidence Reference"
+    },
+    "freshness": {
+      "enum": [
+        "COMPLETE",
+        "BUFFERING",
+        "PROVISIONAL_HIGHER",
+        "STALE",
+        "UNAVAILABLE"
+      ],
+      "title": "Freshness",
+      "type": "string"
+    },
+    "percentile": {
+      "anyOf": [
+        {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Percentile"
+    },
+    "provenance_limitations": {
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Provenance Limitations",
+      "type": "array"
+    },
+    "publication_event": {
+      "anyOf": [
+        {
+          "enum": [
+            "RECONCILED",
+            "CORRECTED"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Publication Event"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Published At"
+    },
+    "rank": {
+      "anyOf": [
+        {
+          "exclusiveMinimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rank"
+    },
+    "raw_score": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Raw Score"
+    },
+    "record_key": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Record Key",
+      "type": "string"
+    },
+    "run_id": {
+      "format": "uuid",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "snapshot_id": {
+      "format": "uuid",
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "source_coverage": {
+      "items": {
+        "$ref": "#/$defs/SourceCoverage"
+      },
+      "title": "Source Coverage",
+      "type": "array"
+    }
+  },
+  "required": [
+    "contract_version",
+    "run_id",
+    "record_key",
+    "snapshot_id",
+    "bundle_id",
+    "data_tier",
+    "raw_score",
+    "rank",
+    "percentile",
+    "cohort_id",
+    "evidence_reference",
+    "assessed_as_of",
+    "published_at",
+    "source_coverage",
+    "completeness",
+    "freshness",
+    "publication_event",
+    "baseline_score_id",
+    "provenance_limitations"
+  ],
+  "title": "ScoreRow",
+  "type": "object"
+}

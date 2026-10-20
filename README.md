@@ -1,5 +1,13 @@
 # Fraud Intelligence System: Explainable Mule Account Detection
 
+Phase 0 specifications are implemented: [requirements and acceptance](docs/requirements_and_acceptance.md), [readiness and verification](docs/acceptance/phase0_readiness.md), and [roadmap tracker](docs/acceptance/roadmap_status.csv). Owner agreement remains pending; external data dependencies are open and qualified use remains blocked. Run `python scripts/validate_phase0.py` to check the specifications and synthetic examples.
+
+Phase 1 foundation is implemented: installable package, hashed platform locks, typed settings, safe CLI/logging, synthetic tests and CI configuration. See [development setup](docs/development.md) and [Phase 1 verification and handoff](docs/acceptance/phase1_readiness.md). Model and application services follow in later phases.
+
+Phase 2 contracts and the development-only research adapter are implemented. See [contract behavior](docs/contracts.md), [safe errors](docs/contract_error_catalog.md), and [Phase 2 evidence and handoff](docs/acceptance/phase2_readiness.md).
+
+Phase 3 adds PostgreSQL migrations, transactional repositories, audit/outbox, encrypted historical snapshots, optimistic reviews and fenced worker publication. See [database setup and boundaries](docs/persistence.md) and [Phase 3 verification](docs/acceptance/phase3_readiness.md). Qualified sources, model approval, scoring and public API services remain gated by later phases and external evidence.
+
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![LightGBM](https://img.shields.io/badge/Model-LightGBM%20Ensemble-brightgreen.svg)](https://lightgbm.readthedocs.io/)
 [![Git LFS](https://img.shields.io/badge/Storage-Git%20LFS-orange.svg)](https://git-lfs.github.com/)
@@ -72,10 +80,9 @@ These are historical, out-of-fold ranking results within the confounded developm
 ├── .gitignore                                  # Python & environment ignore rules
 ├── README.md                                   # Project architecture & executive briefing
 ├── Mule_Account_Detection_Complete_EDA_Plan Grevix.md # Master EDA plan & governance specification
-├── architecture/
-│   ├── 01_system_architecture.md               # Complete target architecture and scale-up design
-│   ├── 02_complete_solution_14h_execution_plan.md # Capability-complete 13–14 hour build plan
-│   └── 03_delayed_transaction_resilience.md    # 10-minute buffer, reconciliation and acceptance gates
+├── architecture/01_system_architecture.md      # Complete architecture, including delayed-data resilience
+├── docs/phase_by_phase_build_plan.md           # Detailed implementation phases and acceptance checks
+├── System Architecture Roadmap.md             # File-level implementation procedures for all 170 plan points
 ├── eda/
     ├── 00_dataset_inventory.md                 # Stage 0: Physical profile, dimensions & initial verification
     ├── 01_schema_and_feature_dictionary.csv    # Stage 1: Full 3,925-column taxonomy & dictionary

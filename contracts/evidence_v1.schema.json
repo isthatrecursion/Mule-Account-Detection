@@ -1,0 +1,153 @@
+{
+  "$defs": {
+    "Observation": {
+      "additionalProperties": false,
+      "properties": {
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        },
+        "dictionary_status": {
+          "enum": [
+            "UNVERIFIED",
+            "PROVISIONAL",
+            "CERTIFIED"
+          ],
+          "title": "Dictionary Status",
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "POSITIVE",
+            "NEGATIVE",
+            "ZERO"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "display_name": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Display Name",
+          "type": "string"
+        },
+        "feature_id": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Feature Id",
+          "type": "string"
+        },
+        "raw_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Raw Value"
+        },
+        "reference_percentile": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reference Percentile"
+        }
+      },
+      "required": [
+        "feature_id",
+        "raw_value",
+        "contribution",
+        "direction",
+        "reference_percentile",
+        "dictionary_status",
+        "display_name"
+      ],
+      "title": "Observation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "base_value": {
+      "title": "Base Value",
+      "type": "number"
+    },
+    "bundle_id": {
+      "format": "uuid",
+      "title": "Bundle Id",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "evidence_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "contribution_scale": {
+      "enum": [
+        "raw_margin",
+        "review_priority",
+        "calibrated_probability"
+      ],
+      "title": "Contribution Scale",
+      "type": "string"
+    },
+    "dictionary_version": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Dictionary Version",
+      "type": "string"
+    },
+    "evidence_id": {
+      "format": "uuid",
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "observations": {
+      "items": {
+        "$ref": "#/$defs/Observation"
+      },
+      "title": "Observations",
+      "type": "array"
+    },
+    "record_key": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Record Key",
+      "type": "string"
+    },
+    "reference_context": {
+      "maxLength": 512,
+      "minLength": 1,
+      "title": "Reference Context",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "evidence_id",
+    "record_key",
+    "bundle_id",
+    "dictionary_version",
+    "contribution_scale",
+    "base_value",
+    "reference_context",
+    "observations"
+  ],
+  "title": "Evidence",
+  "type": "object"
+}

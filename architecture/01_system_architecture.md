@@ -1,18 +1,14 @@
-# Mule Account Risk Ranking — System Architecture
+# Mule Account Risk Ranking — Complete System Architecture
 
-**Status:** Buildable controlled-prototype architecture
+**Status:** Complete controlled-prototype and production-hardening architecture
 
 **Architecture scope:** Batch risk ranking and analyst review; no automated account action
 
 **Source of truth for data limitations:** `eda/09_pre_architecture_verification_and_remediation.md`
 
-**Timeboxed implementation:** [`02_complete_solution_14h_execution_plan.md`](02_complete_solution_14h_execution_plan.md) preserves this complete architecture while packaging the first end-to-end vertical slice for a 13–14 hour AI-assisted build.
-
-**Delayed transaction resilience:** [`03_delayed_transaction_resilience.md`](03_delayed_transaction_resilience.md) defines the event contract, ten-minute durable buffer, freshness states, targeted reconciliation path, and measurable 95% consistency / 5% processing-overhead gates for a future transaction feed.
-
 ## Assumptions
 
-This document describes the target controlled-prototype architecture and its production-hardening path. The immediate 13–14 hour build is defined separately. Longer-term planning assumptions are:
+This document is the single source of truth for the target controlled-prototype architecture and its production-hardening path. Planning assumptions are:
 
 - one developer working for 8–10 weeks;
 - a controlled prototype for fraud analysts and ML reviewers;
@@ -87,6 +83,7 @@ flowchart LR
         S1[Account Feature Batch]
         S2[Batch Manifest and Data Contract]
         S3[Later: Mature Labels and Analyst Outcomes]
+        S4[Future Qualified Transaction Events]
     end
 
     subgraph Ingestion[Ingestion and Quality Gate]
@@ -94,6 +91,7 @@ flowchart LR
         I2[Schema, Provenance, Identity and Cohort Validator]
         I3{Validation Passed?}
         IQ[Quarantine Store]
+        EL[Durable Event Log and Gap Tracker]
     end
 
     subgraph Storage[Versioned Storage]
@@ -108,6 +106,7 @@ flowchart LR
         MR[MLflow Tracking and Model Registry]
         SC[Scheduled Batch Scorer]
         EX[Evidence-Limited Explanation Builder]
+        RC[Late-Event Reconciliation Worker]
     end
 
     subgraph App[Analyst Application]
@@ -130,9 +129,11 @@ flowchart LR
     I3 -->|Yes| R1
     R1 --> FP
     S3 --> DB
+    S4 --> EL --> RC
     FP --> TR --> MR
     MR --> SC
     R1 --> SC --> EX
+    RC --> SC
     SC --> DB
     EX --> DB
     DB --> API --> UI
@@ -166,6 +167,8 @@ The scorer is a scheduled worker, not a public real-time model endpoint. The API
 | Training/evaluation job | Create grouped/temporal partitions, fit baselines and candidates, save OOF predictions, compute uncertainty and subgroup diagnostics. | Versioned data + config → candidate bundle + evaluation report | Python, scikit-learn, LightGBM | XGBoost/CatBoost are valid comparators; change only after representative evaluation. |
 | Experiment tracking and registry | Record runs, parameters, data hashes, metrics, artifacts, approvals, and active model alias. | Training outputs → immutable run and registered model | MLflow with PostgreSQL backend and mounted artifact volume | A filesystem manifest is lighter, but loses searchable lineage and controlled model promotion. |
 | Batch scorer | Load one approved bundle, verify schema compatibility, score the batch, rank records, and persist results idempotently. | Accepted batch + approved model → score rows and run summary | Python worker container | In-process API scoring is simpler for ad hoc calls but couples analyst traffic to heavy batch work. |
+| Durable event buffer and gap tracker | Persist future transaction events, deduplicate them, detect sequence gaps, track watermarks, and isolate incomplete accounts. | Qualified event stream + source heartbeat → complete fast-path events or buffered gaps | Bank-managed event platform or Kafka-compatible log; SQLite WAL for local validation | Database polling is simpler but offers weaker ordering, backpressure, and replay behavior at sustained volume. |
+| Reconciliation worker | Apply late events in event-time order and atomically publish corrected feature/score versions for affected accounts only. | Buffered events + last complete feature state → reconciled score version and audit event | Python worker with transactional outbox | Full-window batch recomputation is simpler but delays unaffected accounts and wastes compute. |
 | Explanation builder | Produce top contributors and approved metadata facts with dictionary-status labels. | Model contribution vector + peer references → structured evidence JSON | LightGBM contribution output or SHAP TreeExplainer | LIME is model-agnostic but less stable and slower for this tree-based batch workload. |
 | Application API | Serve queues/cases, enforce permissions, validate analyst writes, and expose health/metrics. | HTTP requests ↔ PostgreSQL | FastAPI | Django adds built-in admin/auth but is heavier for a focused API and Streamlit client. |
 | Analyst UI | Present ranked queue, evidence, provenance, model/data versions, and disposition workflow. | API JSON ↔ analyst interactions | Streamlit | React offers stronger long-term UX but materially increases solo MVP effort. |
@@ -360,6 +363,10 @@ Do not introduce Kubernetes, Kafka, a feature store, or a graph database for the
 
 ## 8. Build Plan
 
+The detailed implementation sequence is maintained in [Complete System Build Plan](../docs/phase_by_phase_build_plan.md). It expands this architecture into ordered phases, concrete steps, deliverables, dependencies, and acceptance evidence. This file remains the architecture design authority.
+
+The [System Architecture Roadmap](<../System Architecture Roadmap.md>) provides the file-level construction procedures, interface/transaction examples, and verification instructions for every numbered plan point.
+
 ### MVP scope
 
 The MVP includes:
@@ -487,7 +494,133 @@ Data-owner work should start in week 1 and run in parallel. Lack of the required
 
 **Change when:** This control should not be removed. With an approved dictionary and representative temporal data, the policies can become less conservative and explanations can use certified business terminology, but lineage and fit-boundary enforcement remain mandatory.
 
-## Architecture Acceptance Criteria
+## 10. Delayed and Missing Transaction Resilience
+
+### Scope and evidence boundary
+
+The current dataset contains account-level snapshots and lacks verified transaction event IDs, event timestamps, source sequence numbers, and counterparties. The present batch scorer therefore cannot claim live transaction completeness. A qualified future transaction feed must use the buffering and reconciliation controls below before its data can influence risk assessment.
+
+The design preserves normal operations through two paths:
+
+- contiguous, on-time events follow the normal feature-update path;
+- accounts associated with gaps or delayed records enter a durable reconciliation path.
+
+The dashboard reads versioned scores from the operational store. It continues serving the last complete assessment while reconciliation runs and exposes freshness separately from model risk.
+
+```mermaid
+flowchart LR
+    TP[Transaction Producers] --> IG[Idempotent Ingestion Gateway]
+    IG --> DL[(Durable Raw Event Log)]
+    IG --> GT[Gap and Sequence Tracker]
+    GT -->|contiguous| NP[Normal Feature Update]
+    GT -->|gap or delayed| LB[(Ten-Minute Late-Event Buffer)]
+    DL --> WM[Per-Partition Watermarks]
+    LB --> RC[Reconciliation Worker]
+    WM --> RC
+    NP --> PF[Point-in-Time Feature Builder]
+    RC --> PF
+    PF --> CG{Completeness Gate}
+    CG -->|complete| SC[Risk Scorer]
+    CG -->|incomplete| LS[Keep Last Complete Score]
+    CG -->|partial evidence raises risk| PE[Provisional Escalation]
+    SC --> VS[(Versioned Score Store)]
+    LS --> VS
+    PE --> VS
+    VS --> API[Application API]
+    API --> UI[Streamlit Analyst UI]
+```
+
+### Required transaction contract
+
+Missing records cannot be distinguished from genuine inactivity unless the source supplies completeness evidence. Every event must include:
+
+| Field | Purpose |
+|---|---|
+| `event_id` | Source-scoped idempotency key |
+| `account_id` | Stable pseudonymous account identity |
+| `event_time` and `ingested_at` | Measure event time and arrival delay independently |
+| `source_id` and `source_partition` | Source lineage and independent watermark tracking |
+| `source_sequence` | Detect gaps and out-of-order delivery |
+| `event_type`, `amount`, `currency`, `direction` | Minimum feature payload, subject to an approved dictionary |
+| `schema_version` | Controlled event-schema evolution |
+| `correction_of` or `reversal_of` | Link corrections and reversals to prior events |
+
+The source must also emit a heartbeat or batch manifest with the latest committed sequence and expected record count. The ingestion gateway acknowledges a source position only after durably appending the unchanged event.
+
+### Buffering and reconciliation algorithm
+
+1. Validate the event contract and deduplicate on `(source_id, event_id)`.
+2. Append the event to the durable raw log before acknowledgement.
+3. Update sequence state and per-partition event-time watermarks.
+4. Send contiguous events to normal feature aggregation.
+5. On a sequence gap, late timestamp, heartbeat failure, or count mismatch, mark only impacted account windows incomplete.
+6. Retain delayed records in a ten-minute allowed-lateness buffer and run reconciliation at least once per minute.
+7. Rebuild order-sensitive features by `event_time`; update associative aggregates incrementally where safe.
+8. Verify sequence and expected-count completeness, then score each affected account once with the frozen model bundle.
+9. Commit feature state, score, freshness state, and audit event atomically; retain prior versions.
+10. Route delays beyond the grace interval through the same correction flow and reopen a case when policy thresholds are crossed.
+
+The ten-minute interval is a configurable starting requirement. Production configuration must be based on measured source-delay distributions and operational service levels.
+
+### Assessment states and safety policy
+
+| State | Meaning | Dashboard and decision behavior |
+|---|---|---|
+| `COMPLETE` | Required sources reached the assessment watermark | Show the current score and complete-as-of time. |
+| `BUFFERING` | A gap exists inside the allowed-lateness interval | Keep the last complete score and show a freshness warning. |
+| `PROVISIONAL_HIGHER` | Partial evidence raises risk | Raise review priority with an incomplete badge; do not automate adverse action. |
+| `RECONCILED` | Delayed events were applied | Publish the corrected version and retain reconciliation history. |
+| `STALE` | A source gap exceeded the grace interval | Keep the last complete score, show a prominent warning, and alert operations. |
+| `CORRECTED` | A post-closure event, reversal, or correction arrived | Publish a new audited version and reopen review when required. |
+
+Partial data can raise review priority but cannot lower or close a prior complete assessment. Risk score, completeness, and freshness are independent fields.
+
+### Ten-minute replay validation
+
+The present snapshot dataset cannot measure delayed-transaction behavior. Acceptance requires a timestamped historical ledger or production-like event fixture and two runs with an identical frozen model, configuration, hardware allocation, and event contents:
+
+1. replay all events in event-time order with no injected delay;
+2. delay a stratified sample—including high-risk, high-value, partition-boundary, and window-boundary events—by exactly ten minutes;
+3. reconcile the affected accounts and compare final scores, risk bands, queue membership, and compute duration.
+
+Let `E` be accounts eligible in both runs and `A` the accounts affected by injected delay:
+
+```text
+assessment_consistency =
+  count(account in E where
+        final_risk_band_delayed == risk_band_reference
+        and abs(final_score_delayed - score_reference) <= epsilon)
+  / count(E)
+
+affected_processing_overhead =
+  (p95_compute_ms_delayed(A) - p95_compute_ms_reference(A))
+  / p95_compute_ms_reference(A)
+
+freshness_lag = reconciled_published_at - event_time
+```
+
+The intentional upstream delay is measured as freshness lag. Processor execution time excludes source delay and queue waiting so the two operational effects remain visible.
+
+| Acceptance gate | Required result |
+|---|---:|
+| Final assessment consistency | At least 95% of eligible accounts |
+| Top-K review-queue overlap | At least 95% |
+| Affected-account p95 compute overhead | No more than 5% |
+| Unaffected-account p95 processing regression | No more than 5% |
+| Duplicate or lost events | Zero |
+| Partial-data downgrades | Zero |
+| Corrected-score lineage | 100% linked to events, model, and feature state |
+| Full ten-minute-delay freshness | p95 publication within eleven minutes of event time under a one-minute reconciliation cadence |
+
+Assessment consistency validates system behavior; it does not replace predictive validation. When mature outcomes exist, also report average precision, ROC-AUC, precision/recall at the review budget, score deltas, and rank displacement.
+
+The numerical gates remain unverified until this replay runs on representative event data and target hardware. After reconciliation, deterministic event-time reconstruction should reproduce the timely feature vector and score; unexplained mismatches are defects.
+
+### Resilience monitoring
+
+Monitor event arrival lag by source partition, watermark and heartbeat age, open sequence gaps, buffer depth, impacted-account count, reconciliation latency/failures, score freshness states, score/rank changes, duplicate/correction counts, and normal-path versus reconciliation-path latency. Alert on watermark age beyond ten minutes, missing heartbeats, sustained buffer growth, repeated reconciliation failures, or excessive stale assessments.
+
+## 11. Architecture Acceptance Criteria
 
 Architecture implementation is complete when:
 
@@ -501,3 +634,5 @@ Architecture implementation is complete when:
 8. the system has no endpoint that automatically freezes, blocks, or files a report;
 9. backup and restore are demonstrated;
 10. production promotion remains impossible until the Stage 9 external data gates pass.
+11. future transaction feeds cannot publish a complete assessment without passing sequence, watermark, and completeness checks;
+12. the delayed-event replay meets the 95% assessment-consistency and 5% processing-overhead gates before transaction-derived scoring is approved.

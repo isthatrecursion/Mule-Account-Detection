@@ -1,0 +1,40 @@
+{
+  "executed_at": "2026-10-20T21:58:03.330653+00:00",
+  "base_revision": "4bb835cee0e609b5add72eedf630ee4018476437",
+  "working_tree_dirty": true,
+  "scope": "Synthetic Linux PostgreSQL private-file startup regression; no persistent host volumes or published ports",
+  "image": "postgres:17.9-bookworm",
+  "fixture": {
+    "secret_owner_uid": 1001,
+    "secret_mode": "0600",
+    "authentication": "TCP SCRAM-SHA-256",
+    "generated_secrets_logged": false
+  },
+  "original": {
+    "initializer": "HEAD:docker/postgres/init/01-databases.sh",
+    "exit_code": 2,
+    "result": "Reproduced password authentication failed for mule_migration"
+  },
+  "fixed": {
+    "exit_code": 0,
+    "roles_authenticated": [
+      "mule_migration",
+      "mule_runtime",
+      "mule_readonly",
+      "mule_tracking"
+    ],
+    "wrong_passwords_rejected": true,
+    "missing_empty_unreadable_secrets_rejected": true,
+    "direct_init_read_errors_stop_before_sql": true
+  },
+  "full_regression": "../private_secrets_regression_v1/report.json",
+  "source_sha256": {
+    ".gitattributes": "0553ac90d33b57574fdcf8db0d052132ea461fbf3e6fcc6e34385ad190a5a1fd",
+    "compose.yaml": "32b83fff05ddf4ea3e2c1033d58e43d0112eca70ba9ce2c14a2dd09be350fa5d",
+    ".github/workflows/persistence.yml": "7021a07f0a3656c4bc7291854fca933904dad6749dfb23ab51122e63926c3bec",
+    "docker/postgres/entrypoint.sh": "329f3c0b027fcf96939278787bcc88e4d072b2a52b8e7d3aa989e4732777abc0",
+    "docker/postgres/init/01-databases.sh": "741e135dc24812803d277874adb3be22d65da7aba6f551560bdbc4cfc4082be2",
+    "tests/integration/postgres_startup.sh": "4edcba10216675de67329a41662eae529dc2b929ff795b3e14688c81d53eebb4"
+  },
+  "remote_ci": "Pending commit and push; local evidence is not remote CI success"
+}

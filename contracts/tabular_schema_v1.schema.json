@@ -1,0 +1,112 @@
+{
+  "$defs": {
+    "ColumnRule": {
+      "additionalProperties": false,
+      "properties": {
+        "logical_type": {
+          "enum": [
+            "number",
+            "integer",
+            "categorical"
+          ],
+          "title": "Logical Type",
+          "type": "string"
+        },
+        "missing": {
+          "enum": [
+            "imputable",
+            "forbidden"
+          ],
+          "title": "Missing",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 512,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "required": {
+          "title": "Required",
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "predictor",
+            "label",
+            "lineage",
+            "forbidden"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "logical_type",
+        "role",
+        "required",
+        "missing"
+      ],
+      "title": "ColumnRule",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "columns": {
+      "items": {
+        "$ref": "#/$defs/ColumnRule"
+      },
+      "title": "Columns",
+      "type": "array"
+    },
+    "contract_version": {
+      "const": "tabular_schema_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "missing_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Tokens",
+      "type": "array"
+    },
+    "raw_header_aliases": {
+      "additionalProperties": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Raw Header Aliases",
+      "type": "object"
+    },
+    "reorder": {
+      "const": "canonicalize_to_registry_order",
+      "title": "Reorder",
+      "type": "string"
+    },
+    "schema_id": {
+      "const": "research_v1",
+      "title": "Schema Id",
+      "type": "string"
+    },
+    "source_dictionary_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Source Dictionary Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "schema_id",
+    "source_dictionary_sha256",
+    "raw_header_aliases",
+    "reorder",
+    "missing_tokens",
+    "columns"
+  ],
+  "title": "TabularSchema",
+  "type": "object"
+}
