@@ -1,0 +1,59 @@
+{
+  "scope": "Reproduce failing Linux dictionary hash, then test the fixed clean LF checkout with private CSV left as LFS pointer",
+  "executed_at": "2026-10-20T21:43:48.786164+00:00",
+  "checks": [
+    {
+      "label": "reproduce_original_linux_failure",
+      "command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/generate_research_schema.py",
+        "--check"
+      ],
+      "expected_exit_code": 1,
+      "exit_code": 1,
+      "passed": true,
+      "evidence": "reproduce_original_linux_failure.txt"
+    },
+    {
+      "label": "fixed_contract_schemas",
+      "command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/generate_contract_schemas.py",
+        "--check"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "passed": true,
+      "evidence": "fixed_contract_schemas.txt"
+    },
+    {
+      "label": "fixed_research_schema",
+      "command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/generate_research_schema.py",
+        "--check"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "passed": true,
+      "evidence": "fixed_research_schema.txt"
+    },
+    {
+      "label": "clean_linux_foundation",
+      "command": [
+        "/mnt/c/Users/omkud/Mule Account Detection/.venv-linux/bin/python",
+        "scripts/verify_foundation.py",
+        "--output-dir",
+        "artifacts/phase1/ci_fix_lf"
+      ],
+      "expected_exit_code": 0,
+      "exit_code": 0,
+      "passed": true,
+      "evidence": "clean_linux_foundation.txt"
+    }
+  ],
+  "original_blob_sha256": "070c2a071d9a0e189df52511ab5e6ff7f8d51f7d83cd68e80c151384a1a49d0b",
+  "preserved_dictionary_sha256": "967a9f412a398c9c8b7f714eb87e80915ef3bfc6e66d03d98284ccdfd131739a",
+  "pass_fail": "PASSED",
+  "remote_CI": "PENDING_NEW_COMMIT_RUN"
+}

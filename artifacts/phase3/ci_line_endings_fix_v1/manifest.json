@@ -1,0 +1,18 @@
+{
+  "clean_linux_foundation.txt": "08165a967abc4c68631b22de03e0cec0135198f8292815f096c2c622d6861bc1",
+  "fixed_contract_schemas.txt": "2fe9bcf493b28d2665b4206087d6eb8ed8588ea8afefcb63f75e01da52030673",
+  "fixed_research_schema.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "report.json": "516ddc45e775eb43fa0d784d32d99f4800561a9fc1831c4cefe553ea111914eb",
+  "reproduce_original_linux_failure.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "foundation/check_01.txt": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+  "foundation/check_02.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+  "foundation/check_03.txt": "38f0dfe1a7daff274f5b6f83c4ee23fa63c25f59af378bb179f62bf8ce90eaf8",
+  "foundation/check_04.txt": "cd9c340faf049f23b702d9a64d1ac922e06d74db0f0721886b346ae6282a3aad",
+  "foundation/check_05.txt": "c60ce7260cbac583b58079594c61dcda6156ce358fbddf1a4d25d91eb2d43e9a",
+  "foundation/check_06.txt": "86ac2d596435e2706187930900bcc25e5a6b36323af57c406ba37371c15c8841",
+  "foundation/check_07.txt": "bf46d4637cc08b348f471252f5a680acecc310ec275e90d2c289100a16ac4a31",
+  "foundation/check_08.txt": "bf18875567a1da994550b3424339ed411bdfdbfc540e9e31e1123fb8051ebf5c",
+  "foundation/manifest.json": "ccef1384c7d4f49c978da0f619ef015158944e61d705f2fd7c8cd823e4f0b5ae",
+  "foundation/pytest.xml": "5c844a061598a2d6a2760d0ea99b1b8ca3d8b770567c4edc26b0c81753c513d0",
+  "foundation/report.json": "ffced4888c412f92bd778befbc11c7c38d5e56cfa9f73559837615ad6198a196"
+}

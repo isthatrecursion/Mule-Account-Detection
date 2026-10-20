@@ -1,0 +1,8 @@
+PASSED: -m pip check
+PASSED: -m ruff check .
+PASSED: -m ruff format --check .
+PASSED: -m mypy src/mule_detection
+PASSED: -m pytest -m not postgres and not benchmark --basetemp /tmp/mule-phase1-j2pc0u6x/pytest --junitxml /mnt/c/Users/omkud/Mule Account Detection/scratch/ci_debug/fixed_checkout/linux/artifacts/phase1/ci_fix_lf/pytest.xml -q
+PASSED: scripts/validate_phase0.py
+PASSED: -m mule_detection.cli --help
+PASSED: -m build --no-isolation --outdir /mnt/c/Users/omkud/Mule Account Detection/scratch/ci_debug/fixed_checkout/linux/artifacts/phase1/ci_fix_lf/dist
