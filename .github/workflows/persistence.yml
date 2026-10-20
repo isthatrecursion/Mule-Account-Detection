@@ -31,8 +31,37 @@ jobs:
           python scripts/configure_local_database.py --test-database mule_test_ci
           docker compose -f compose.yaml -f compose.local.yaml up -d --wait
           MULE_TEST_ENVIRONMENT=test MULE_TEST_ADMIN_DATABASE_URL_FILE=secrets/test_admin_database_url python scripts/create_test_database.py --database mule_test_ci
+      - name: Check private-secret startup
+        run: |
+          docker run --rm --entrypoint bash \
+            --mount "type=bind,source=$PWD/docker/postgres,target=/opt/mule,readonly" \
+            --mount "type=bind,source=$PWD/docker/postgres/init,target=/docker-entrypoint-initdb.d,readonly" \
+            --mount "type=bind,source=$PWD/tests/integration/postgres_startup.sh,target=/opt/postgres-startup-test.sh,readonly" \
+            postgres:17.9-bookworm /opt/postgres-startup-test.sh
       - name: Persistence checks
-        run: python scripts/verify_persistence.py --connections-file secrets/test_connections.json --output-dir artifacts/phase3/ci
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from sqlalchemy import text
+          from mule_detection.persistence.sqlalchemy import make_engine
+
+          connections = json.loads(Path("secrets/test_connections.json").read_text())
+          for variable, role in (
+              ("MULE_TEST_DATABASE_URL", "mule_migration"),
+              ("MULE_TEST_RUNTIME_DATABASE_URL", "mule_runtime"),
+              ("MULE_TEST_READONLY_DATABASE_URL", "mule_readonly"),
+              ("MULE_TEST_TRACKING_DATABASE_URL", "mule_tracking"),
+          ):
+              engine = make_engine(connections[variable])
+              try:
+                  with engine.connect() as connection:
+                      assert connection.scalar(text("SELECT current_user")) == role
+                  print(f"PASSED: database authentication for {role}", flush=True)
+              finally:
+                  engine.dispose()
+          PY
+          python scripts/verify_persistence.py --connections-file secrets/test_connections.json --output-dir artifacts/phase3/ci
       - name: Synthetic verification evidence
         if: always()
         uses: actions/upload-artifact@v4

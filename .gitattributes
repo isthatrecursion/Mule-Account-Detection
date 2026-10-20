@@ -2,3 +2,8 @@ DataSet__1_.csv filter=lfs diff=lfs merge=lfs -text
 # The registered research schema fingerprints this dictionary's exact source bytes.
 # Preserve its original CRLF serialization on every platform; do not normalize it.
 eda/01_schema_and_feature_dictionary.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Shell entrypoints must remain executable by Linux bash after Windows checkouts.
+*.sh text eol=lf
+# Preserve the bytes covered by the new verification evidence manifests.
+artifacts/phase3/ci_private_secrets_fix_v1/** -text whitespace=cr-at-eol
+artifacts/phase3/private_secrets_regression_v1/** -text whitespace=cr-at-eol

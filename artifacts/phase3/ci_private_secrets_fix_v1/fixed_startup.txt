@@ -1,0 +1,7 @@
+PASSED: missing, empty and unreadable secrets fail before initialization
+PASSED: direct initialization fails before SQL on secret read errors
+PASSED: private-file startup authenticates mule_migration
+PASSED: private-file startup authenticates mule_runtime
+PASSED: private-file startup authenticates mule_readonly
+PASSED: private-file startup authenticates mule_tracking
+PASSED: isolated PostgreSQL startup regression checks
