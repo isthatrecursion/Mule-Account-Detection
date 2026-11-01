@@ -1,0 +1,27 @@
+{
+  "executed_at": "2026-10-20T23:10:18.345032+00:00",
+  "scope": "Actual CLI bootstrap with runtime identity, binary stdin and isolated synthetic test data; built-wheel imports and source-package boundaries",
+  "cli_exit_code": 0,
+  "safe_result": {
+    "intake_id": "da081f7c-99fd-4212-9630-81a25074c66d",
+    "batch_id": "cee4b81c-1a17-4509-958c-0cd6e6f37ffb",
+    "outcome": "ACCEPTED",
+    "row_count": 2,
+    "finding_codes": [
+      "QUALIFIED_SOURCE_NOT_CERTIFIED"
+    ],
+    "finding_counts": {
+      "QUALIFIED_SOURCE_NOT_CERTIFIED": 1
+    },
+    "report_reference": "raw:sha256:a101184d636c4ac36d404fd126eaf34f8468b20453a3434f4aa269f207cced15",
+    "qualified_promotion_allowed": false
+  },
+  "wheel_imports": "PASSED",
+  "source_release_assets": "PASSED",
+  "private_files_excluded": "PASSED",
+  "reference_preservation": {
+    "status": "PASSED",
+    "mismatches": []
+  },
+  "pass_fail": "PASSED"
+}

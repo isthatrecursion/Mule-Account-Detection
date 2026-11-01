@@ -1,0 +1,18 @@
+# TEMPLATE ONLY. Replace HOST, CA and approved endpoint with organization values.
+# This file is never mounted automatically. No credentials belong in the image.
+location = /_gateway_auth {
+    internal;
+    proxy_pass https://IDENTITY_GATEWAY_HOST/APPROVED_INGRESS_AUTH_ENDPOINT;
+    proxy_pass_request_body off;
+    proxy_set_header Content-Length "";
+    proxy_set_header Cookie $http_cookie;
+    proxy_set_header X-Original-URI $request_uri;
+    proxy_set_header X-Original-Method $request_method;
+    proxy_set_header X-Mule-Session "";
+    proxy_set_header X-User "";
+    proxy_set_header X-Email "";
+    proxy_set_header Authorization "";
+    proxy_ssl_verify on;
+    proxy_ssl_server_name on;
+    proxy_ssl_trusted_certificate /etc/ssl/certs/ca-certificates.crt;
+}

@@ -1,0 +1,8 @@
+{
+  "executed_at": "2026-10-20T23:18:40.006284+00:00",
+  "scope": "Final wheel code identity and imports outside source checkout",
+  "wheel_sha256": "9b49fde2519a43d7e19479c30e0a546d271cd1d3777c8b084752a9639c97f9cd",
+  "all_packaged_python_bytes_match_current_source": true,
+  "isolated_imports": "PASSED",
+  "pass_fail": "PASSED"
+}

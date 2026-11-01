@@ -1,6 +1,6 @@
 # Phase 3 persistence
 
-The adapter uses SQLAlchemy 2, psycopg 3 and Alembic on PostgreSQL. It stores lineage and operational metadata in 18 tables. Wide raw/features are encrypted, immutable snapshots outside the case table. Phase 4 supplies intake validation; Phase 7 supplies actual model approval; Phase 8 supplies the scoring pipeline; Phase 9 authenticates callers and derives their permissions/scopes. No service here grants qualified approval or performs model inference.
+The adapter uses SQLAlchemy 2, psycopg 3 and Alembic on PostgreSQL. It stores lineage and operational metadata in 21 tables after Phase 4. Wide raw/features are encrypted, immutable snapshots outside the case table. [Phase 4 intake validation](ingestion.md) supplies published acceptance versions; Phase 7 supplies actual model approval; Phase 8 supplies the scoring pipeline; Phase 9 authenticates callers and derives their permissions/scopes. No service here grants qualified approval or performs model inference.
 
 ## Local setup
 

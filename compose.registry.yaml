@@ -1,0 +1,22 @@
+services:
+  mlflow:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.mlflow
+    image: mule-mlflow:3.17.2
+    depends_on:
+      postgres: {condition: service_healthy}
+    ports: ['127.0.0.1:5000:5000']
+    secrets: [mule_tracking_password, mlflow_username, mlflow_password, mlflow_flask_key]
+    volumes: [mlflow_artifacts:/mlartifacts]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5000/health', timeout=5)"]
+      interval: 5s
+      timeout: 6s
+      retries: 30
+secrets:
+  mlflow_username: {file: ./secrets/mlflow_username}
+  mlflow_password: {file: ./secrets/mlflow_password}
+  mlflow_flask_key: {file: ./secrets/mlflow_flask_key}
+volumes:
+  mlflow_artifacts:

@@ -1,0 +1,106 @@
+........................................................................ [ 26%]
+........................................................................ [ 52%]
+...............................................F...F.................... [ 79%]
+........................................................                 [100%]
+================================== FAILURES ===================================
+_____________ test_accepted_intake_trains_replays_and_audits_once _____________
+
+training = (<mule_detection.application.training_service.TrainingService object at 0x000001CD4E403BC0>, UUID('a5907601-1d7b-4f8b-...ion_approval_reference=None, subgroup_approval_reference=None, minimum_subgroup_rows=30, minimum_subgroup_positives=5))
+db = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://mule_migration:***@127.0.0.1:55432/mule_test_docker_local), autoflush=True, expire_on_commit=False)
+
+    def test_accepted_intake_trains_replays_and_audits_once(training, db):
+        service, batch_id, config = training
+        run_id = uuid4()
+>       result = service.train(batch_id, run_id, config, CONTEXT)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_training.py:113: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\mule_detection\application\training_service.py:110: in train
+    return run_experiment(
+src\mule_detection\training\runner.py:319: in run_experiment
+    before_finalize()
+src\mule_detection\application\training_service.py:100: in finalize
+    AuditService().append(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <mule_detection.application.audit_service.AuditService object at 0x000001CD4E32E480>
+session = <sqlalchemy.orm.session.Session object at 0x000001CD4D91BA70>
+context = ExecutionContext(actor_id='training-engineer', environment='test', correlation_id=UUID('d6cb8f43-f766-402d-aa75-14dad7a1cb59'))
+action = 'model:train'
+entity_reference = 'training:cbada189-5783-41ed-a9ef-8f253f083468'
+request_hash = '67f0c4d710d1e4c6a8e33ce0fa9e722a4ceefe28aebb3f0677718b684e8cea12'
+entity_version = None, before_reference = None
+after_reference = 'candidate:cbada189-5783-41ed-a9ef-8f253f083468'
+reason_reference = None
+idempotency_key = UUID('cbada189-5783-41ed-a9ef-8f253f083468')
+
+    def append(
+        self,
+        session: Session,
+        context: ExecutionContext,
+        *,
+        action: str,
+        entity_reference: str,
+        request_hash: str,
+        entity_version: int | None = None,
+        before_reference: str | None = None,
+        after_reference: str | None = None,
+        reason_reference: str | None = None,
+        idempotency_key: UUID | None = None,
+    ) -> UUID:
+        if action not in AUDITED_ACTIONS or not context.actor_id:
+>           raise ValueError("A supported action and trusted actor are required")
+E           ValueError: A supported action and trusted actor are required
+
+src\mule_detection\application\audit_service.py:54: ValueError
+______________ test_real_cli_dispatches_training_and_evaluation _______________
+
+training = (<mule_detection.application.training_service.TrainingService object at 0x000001CD4E32D4F0>, UUID('bdcee71f-623e-4d38-...ion_approval_reference=None, subgroup_approval_reference=None, minimum_subgroup_rows=30, minimum_subgroup_positives=5))
+app_root = WindowsPath('C:/Users/omkud/Mule Account Detection/scratch/phase6_5c1596caf9ee40dfbeea757681768036/pytest/test_real_cli_dispatches_train0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001CD4F83B680>
+capsys = <_pytest.capture.CaptureFixture object at 0x000001CD4F78D7F0>
+
+    def test_real_cli_dispatches_training_and_evaluation(training, app_root, monkeypatch, capsys):
+        service, batch_id, config = training
+        import mule_detection.application.training_bootstrap as bootstrap
+    
+        monkeypatch.setattr(bootstrap, "build_training", lambda _: service)
+        path = app_root / "config/training_test.yaml"
+        path.write_text(yaml.safe_dump(config.model_dump(mode="json")))
+        run_id = uuid4()
+        arguments = [
+            "--root",
+            str(app_root),
+            "train",
+            "--config",
+            "config/training_test.yaml",
+            "--mode",
+            "research",
+            "--batch-id",
+            str(batch_id),
+            "--run-id",
+            str(run_id),
+        ]
+>       assert main(arguments) == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = main(['--root', 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase6_5c1596caf9ee40dfbeea757681768036\\pytest\\test_real_cli_dispatches_train0', 'train', '--config', 'config/training_test.yaml', '--mode', ...])
+
+tests\integration\test_training.py:178: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"error": {"code": "INTERNAL_ERROR", "message": "The operation failed. Refer to the correlation ID.", "severity": "ERROR", "correlation_id": "732f2473-7f2d-4749-87b3-1ae8c485328a"}}
+---------------------------- Captured stderr call -----------------------------
+{"event": "command_started", "component": "cli", "severity": "INFO", "correlation_id": "732f2473-7f2d-4749-87b3-1ae8c485328a"}
+{"event": "configuration_loaded", "component": "cli", "severity": "INFO", "correlation_id": "732f2473-7f2d-4749-87b3-1ae8c485328a", "config_fingerprint": "0adda746db778d12c738162933f7f6f100ef0fa55e1ed23090e4fe39eba95bb7"}
+{"event": "command_failed", "component": "cli", "severity": "ERROR", "correlation_id": "732f2473-7f2d-4749-87b3-1ae8c485328a", "error_code": "INTERNAL_ERROR"}
+============================== warnings summary ===============================
+tests/integration/test_training.py: 6 warnings
+tests/unit/test_training.py: 10 warnings
+  C:\Users\omkud\Mule Account Detection\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:455: DeprecationWarning: scipy.optimize: The `disp` and `iprint` options of the L-BFGS-B solver are deprecated and will be removed in SciPy 1.18.0.
+    opt_res = optimize.minimize(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_training.py::test_accepted_intake_trains_replays_and_audits_once
+FAILED tests/integration/test_training.py::test_real_cli_dispatches_training_and_evaluation
+2 failed, 270 passed, 16 warnings in 48.26s

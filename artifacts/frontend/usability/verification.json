@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-01",
+  "timezone": "Asia/Calcutta",
+  "mode": "synthetic local preview",
+  "full_suite": {
+    "tests": 316,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "final_smoke": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ruff": "passed",
+  "ruff_format": "passed",
+  "mypy": {
+    "status": "passed",
+    "source_files": 159
+  },
+  "screenshots": {
+    "case-desktop.jpg": [
+      1366,
+      768
+    ],
+    "case-narrow.jpg": [
+      390,
+      843
+    ],
+    "exports-desktop.jpg": [
+      1366,
+      768
+    ],
+    "history-desktop.jpg": [
+      1366,
+      768
+    ],
+    "queue-desktop.jpg": [
+      1366,
+      768
+    ],
+    "queue-narrow.jpg": [
+      390,
+      843
+    ]
+  },
+  "source_sha256": {
+    "ui/__init__.py": "7257c439d327ea0eee845fb4df6e102efd251ef20aa009a084acf1f1de698887",
+    "ui/api_client.py": "7f1e90b23a5408a559556c6ab7ee371d5dba32d85eb75b8516c581495451382d",
+    "ui/app.py": "75034d7236e8078890841de9fcc7807299d0101a63e862bed7d855e2417b39bd",
+    "ui/auth.py": "3e19c48b454356f07119fbd28d7412258a338b7eebcf753d85a0c5f9d5da1aef",
+    "ui/cache.py": "216a6ea621a14a84c4063076435c358d09213c2cf198378e3a0be22745c0e470",
+    "ui/components/__init__.py": "04dc96be212979b99fe15f8953aff0094471fbcfb0e281120c5fbbc8c5a6bf3b",
+    "ui/components/actions.py": "66a6a7c0e281b108525e1d5358de88b41565004f67f9ad484cd6ec77e7868140",
+    "ui/components/badges.py": "8342676c9901e65bcc64c9dbdefb8fb9b932ad0d3f5ede57b12f7de576a8e4bb",
+    "ui/components/comparison.py": "ebbf27e964288ea8ae719255484a964399af9b0777afa52576763641217ac5b9",
+    "ui/components/contribution_chart.py": "643a80ef6d33bcf29a8eb3946b0370b8627708bc39076771969eb17199a00f64",
+    "ui/components/deployment.py": "2b5cbca5ad9896aaac44847a2c9b3e8216d9efec1310e427961f7556edaa57a2",
+    "ui/components/freshness.py": "27240d577dbffcd9cd80eb26fad168d0ee1a01c427a6b66cd7777904f034d877",
+    "ui/components/late_context.py": "018962afd160f851c27579f0379d265c3e86dbecfeaf354e46245ab690e3587a",
+    "ui/components/pager.py": "51f2d94ea956d6074271d8c29bd58e6dbd42a950e9b26494b9baa5bbe0fd2d33",
+    "ui/components/provenance_header.py": "fb61097434022924a0464c89c6c6afe72fa46af9cd4a143dcbb1127612276fe5",
+    "ui/components/research_banner.py": "fecb29963801b99e1a8d74b860e32b8bb1bec0d657470a3ae51961fe17055347",
+    "ui/components/score.py": "68f36969e89b129e49d6da368974dbaf031f53cf3ce13f62e8dd973780be2bea",
+    "ui/components/status_views.py": "c4cc3c5cde900aee0619aa425fc33d0a638c54caa3d56dd4eea804ee897f3000",
+    "ui/components/time_fmt.py": "ea5db0b56c3d86f8b6e71b9546fc0fc626b43512c6976b2a56f78dda629d17f6",
+    "ui/config.py": "32631441cabaec0bd069657867b51cb5c190fadc9764ff187871501b82bcb20d",
+    "ui/container.py": "e983097663233350dbf9a5cb0935a229c3b9848e7fefc04f6420e03c1ac319c1",
+    "ui/copy.py": "4c0107524999f2c36d87b8a03e699eb32c450e5bcaab51c812986ad592199ad6",
+    "ui/dev.py": "e69f7adf072912c2183e6931c025ecfc66f6a69c98dcdc1426db5f8aee78fab8",
+    "ui/dto.py": "4aef9f8768c689d8275b4c7c5d3dae98e259acf5003afc59499594cddbbe2407",
+    "ui/enums.py": "67f6031004f1abdedf0aaaf1681e5cdfc787bcaf32d7a34ecd5cf8e15c468798",
+    "ui/errors.py": "510e8a435717baaf42bce895e0a857e2c9c9b0b092ae0d35733b51c6a73e5818",
+    "ui/extensions.py": "24a2940dfde487c827897536ab0d41f31cb217d7bbc7055b3db67fd98add8bb8",
+    "ui/launcher.py": "abf62d9f04a58e48d3af1e7fd4bf62c6867108c7daf1153db6949879a27e5ba1",
+    "ui/logging_setup.py": "5e1577faa830b69f351a538a94379b4c57d04ef01bd69738cd65b40835e22224",
+    "ui/mock/__init__.py": "ef5375bee6e6f391d23a063dc0b825d7733ffb4ab9c9dee90afa24fba038d5ee",
+    "ui/mock/backend.py": "ad0705a93ca7f1dce2d9235ff93869b886f546c1138794bbfac09db207199a18",
+    "ui/mock/demo.py": "cb28f375a9dee5e8077a85758fe0c7a492677402b0e4caaa6fd32e733092a223",
+    "ui/mock/entry.py": "9cf4522e9c1e4f2faf7163fbc6325bbd8122964320c651e225ac5d371a0f9d1d",
+    "ui/mock/extensions.py": "a09301f2bcd3e654f9a56e31c923f07b98364e5fde918ea6e460bd1da23e186f",
+    "ui/pages/__init__.py": "f731fa7e269667e4c74a00cfc86d97d61507662132e8737879d02a235b57696b",
+    "ui/pages/_gallery.py": "1bc4c5478a044460df66df2a0652a0c8c884fbcde8f338dba2639153227607e8",
+    "ui/pages/case_detail.py": "fd1848bb862fc612a682fb449581e58825fa9afeecc7a05c4101f7440134a909",
+    "ui/pages/exports.py": "7b77518e95286cc1d403530e36213e33c52d25121c3e41bd60a7a38fc5deb3c9",
+    "ui/pages/extensions.py": "07d6a8e84e0df24f9842104e72b8e16f9e15ffb2aa97f2b1efb1a589e1a550ab",
+    "ui/pages/history.py": "6098c87ac3fb4c2f4b6d70f440898379ffbb0c8f8c494c9d44409d4b63688868",
+    "ui/pages/operations.py": "1994f7f00183c2030a90ce491f7c368d14b3abdfc0670f9e419604e0aca0919f",
+    "ui/pages/pilot.py": "fc105a747910c69d0769e6e42ed749c0cd07a4c3f1d722cf5ead616d818e8fd5",
+    "ui/pages/queue.py": "54c2f30701c8931b93c091e53db7c2b2246c7cf0875ce6b8ae8e5868bb491302",
+    "ui/performance.py": "6553b21e58ca697f2f8be0ed76eaf1a6786dd79504fb6b7b8bab7a19923be98a",
+    "ui/permissions.py": "cacb7c458ccf9ecefaf8358054f6485f11bf2a53e822551757de5806264a9c5c",
+    "ui/runtime.py": "dedf70fe4baf0dcd329d16b4c5fff049caeae5a8e395e4faf68523e25f8cf0f4",
+    "ui/state.py": "f39d2793ad968505f6c5ed7801cbce4692a258456a8110f16745e27a4f68644a"
+  },
+  "remaining_dependencies": [
+    "permission-scoped user search",
+    "accepted-batch listing",
+    "approved-bundle discovery",
+    "approved live extension routes"
+  ],
+  "browser_download_event": "capture timed out; callback CSV and authorization verified in tests",
+  "browser_checks": {
+    "queue_case_keyboard_navigation": "passed",
+    "desktop_queue_and_assignment_visibility": "passed at 1366x768",
+    "narrow_layout": "inspected at 390x844; document width equals viewport width",
+    "synthetic_review_to_history": "passed",
+    "synthetic_export_job_completion": "passed",
+    "browser_download_event": "not captured; callback verified by automated tests"
+  }
+}

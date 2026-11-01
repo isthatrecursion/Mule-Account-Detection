@@ -1,5 +1,19 @@
 # Fraud Intelligence System: Explainable Mule Account Detection
 
+Phase 10 adds the API-backed Streamlit analyst workspace: permission-aware operations, pinned queues, factual case evidence, conflict-safe reviews, immutable history and audited exports. See [workspace setup](docs/workspace.md), [identity integration](docs/identity_flow.md) and [Phase 10 readiness](docs/acceptance/phase10_readiness.md). Shared login remains blocked until the organization supplies its identity gateway and API trust settings.
+
+Phase 9 adds the authenticated FastAPI boundary, durable worker jobs, scoped versioned queues, pinned case evidence, transactional reviews with encrypted notes, approved adjudicated outcome intake and audited expiring exports. See [API setup and permissions](docs/api.md) and [Phase 9 readiness](docs/acceptance/phase9_readiness.md). Normal startup remains fail-closed until the organization supplies its OIDC trust configuration.
+
+Phase 8 adds idempotent research scoring, bounded encrypted chunks, raw-margin contribution evidence, deterministic full-cohort ranking, atomic queue publication and global correction/re-ranking. See [scoring commands and boundaries](docs/scoring.md) and [Phase 8 handoff](docs/acceptance/phase8_readiness.md). Qualified scoring and real cross-extract correction remain gated by certified source/identity evidence.
+
+Phase 7 adds fresh development-only final fitting, encrypted immutable inference bundles, authenticated MLflow registration, independent approval gates, durable job pins and audited rollback. See [registry setup and boundaries](docs/registry.md) and [Phase 7 handoff](docs/acceptance/phase7_readiness.md). Qualified promotion remains blocked by the current data limitations.
+
+Phase 6 adds accepted-batch research training and evaluation, comparable logistic/LightGBM candidates, inner-only tuning, encrypted fold evidence, temporal/as-of label controls and gated calibration. See [training behavior](docs/training.md) and [Phase 6 handoff](docs/acceptance/phase6_readiness.md). Qualified temporal training remains blocked pending certified inputs and feature rules.
+
+Phase 5 adds a reusable fold-safe feature pipeline, versioned legacy cleanup, raw-to-encoded mappings, training-only reference statistics and trusted fitted-state artifacts. See [feature behavior and verification](docs/features.md) and [Phase 5 handoff](docs/acceptance/phase5_readiness.md). Qualified use remains blocked by the existing data and approval gates.
+
+Phase 4 adds durable CSV intake, ordered validation/quarantine, immutable encrypted publication, research partition guards and exact replay. See [intake setup](docs/ingestion.md) and [verification and handoff](docs/acceptance/phase4_readiness.md). Acceptance remains restricted to the authorized research/synthetic workflow; it grants no qualified-use approval.
+
 Phase 0 specifications are implemented: [requirements and acceptance](docs/requirements_and_acceptance.md), [readiness and verification](docs/acceptance/phase0_readiness.md), and [roadmap tracker](docs/acceptance/roadmap_status.csv). Owner agreement remains pending; external data dependencies are open and qualified use remains blocked. Run `python scripts/validate_phase0.py` to check the specifications and synthetic examples.
 
 Phase 1 foundation is implemented: installable package, hashed platform locks, typed settings, safe CLI/logging, synthetic tests and CI configuration. See [development setup](docs/development.md) and [Phase 1 verification and handoff](docs/acceptance/phase1_readiness.md). Model and application services follow in later phases.

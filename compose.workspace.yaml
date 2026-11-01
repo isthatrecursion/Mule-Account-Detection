@@ -1,0 +1,99 @@
+# Opt-in deployment overlay. Both processes consume the same prebuilt immutable image.
+x-application: &application
+  image: ${MULE_APP_IMAGE:?Set the application image to an immutable repository@sha256 digest}
+  user: "10001:10001"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  init: true
+  tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m,uid=10001,gid=10001,mode=1770
+  pids_limit: 128
+  restart: unless-stopped
+services:
+  postgres:
+    networks: [default, database_private]
+  api:
+    <<: *application
+    profiles: [workspace]
+    command: [python, -m, mule_detection.api.server, --root, /app, --environment, research, --host, 0.0.0.0, --port, "8000"]
+    cpus: 2.0
+    mem_limit: 2g
+    secrets:
+      - source: api_database_url
+        target: /app/secrets/MULE_DATABASE_URL
+      - source: api_mlflow_uri
+        target: /app/secrets/MULE_MLFLOW_URI
+      - source: api_oidc_config
+        target: /app/secrets/oidc.json
+      - source: api_artifact_key
+        target: /app/secrets/artifact_key
+    volumes:
+      - workspace_artifacts:/app/var/artifacts
+    networks: [service_private, database_private, identity_egress]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/live',timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+  ui:
+    <<: *application
+    profiles: [workspace]
+    command: [python, -m, ui.container]
+    cpus: 1.0
+    mem_limit: 768m
+    secrets:
+      - source: ui_identity_config
+        target: /app/secrets/ui.json
+    networks: [ui_private, service_private, identity_egress]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health',timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+  ui_ingress:
+    image: ${MULE_NGINX_IMAGE:?Set a reviewed nginx image to an immutable digest}
+    profiles: [workspace]
+    user: "101:101"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp:rw,noexec,nosuid,size=16m,mode=1770,uid=101,gid=101]
+    pids_limit: 64
+    cpus: 0.5
+    mem_limit: 128m
+    ports: ["${MULE_UI_BIND_ADDRESS:-127.0.0.1}:${MULE_UI_TLS_PORT:-8443}:8443"]
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    secrets:
+      - source: ui_tls_certificate
+        target: /run/secrets/ui_tls_certificate
+      - source: ui_tls_key
+        target: /run/secrets/ui_tls_key
+      - source: ui_gateway_ingress
+        target: /run/secrets/ui_gateway_ingress.conf
+    networks:
+      ui_private: {}
+      service_private:
+        aliases: ["${MULE_REVIEW_HOST:?Set the certificate DNS hostname}"]
+      identity_egress: {}
+    depends_on:
+      ui: {condition: service_healthy}
+networks:
+  default: {}
+  ui_private: {internal: true}
+  service_private: {internal: true}
+  database_private: {internal: true}
+  # Explicit egress exists only for fixed identity/trust endpoints, never published UI/API ports.
+  identity_egress: {}
+volumes:
+  workspace_artifacts:
+secrets:
+  ui_identity_config: {file: ./secrets/ui.json}
+  api_database_url: {file: ./secrets/runtime_database_url}
+  api_mlflow_uri: {file: ./secrets/mlflow_uri}
+  api_oidc_config: {file: ./secrets/oidc.json}
+  api_artifact_key: {file: ./secrets/artifact_key}
+  ui_tls_certificate: {file: ./secrets/ui_tls_certificate.pem}
+  ui_tls_key: {file: ./secrets/ui_tls_key.pem}
+  ui_gateway_ingress: {file: ./secrets/ui_gateway_ingress.conf}

@@ -1,0 +1,31 @@
+{
+  "locks": {
+    "requirements-api-linux.lock": "b7a18d060526bd68b4ed63e0dc8a505a80c3abff7bd85131a9cf514116bc8377",
+    "requirements-api-windows.lock": "94ae41574a685dec104883095e9b204a9c877a6bcd2c74ac611cec224207d981",
+    "requirements-dev-linux.lock": "7f3daeb9aac3448aa23da1fd3f71dee6123bd308efee892ffa1d90cec2ec6667",
+    "requirements-dev-windows.lock": "aad059d2d416b1bb8b55bef85b3e728031990d6d964ddbb5a24c3eed06d7b0b9",
+    "requirements-linux.lock": "290e114502f42845553b9c321bf9de45a5d7edc4b0784527348673ebd5184ecc",
+    "requirements-ui-linux.lock": "d34b95bf9e20dfac52fe49f20f1fde81a9fe875a039d19ca5dd888a7770c459b",
+    "requirements-ui-windows.lock": "fd7ade7e05482bcefaaf398b346a824a83634519b039f46b78ceca9adee4f16e",
+    "requirements-windows.lock": "79f324e43321d582b5527a4a59725dd5b81776b77b8c843a19c84acea69b395e"
+  },
+  "ui": {
+    "ui\\api_client.py": "e9a2902f63416d285874f21a6ac4b620a4ed1761a18e1b477a2a0766fa61c58f",
+    "ui\\app.py": "d95e5b3d5efdcf6518f95b5f3174265fae62cb3f99ac47cbefde406e6c9334b6",
+    "ui\\auth.py": "8a1cd139f13a46a553f32c393a35ba656e01f42fd3ecf7b241c1899c092f046f",
+    "ui\\config.py": "9e9677feb076767575aa7744ee6c00aeccdc889316ff8fdac38db0c6eec38625",
+    "ui\\launcher.py": "4d468bb7f2918083facf331ac6fcf0f8aeaf0ac943c421720f270917e5960838",
+    "ui\\runtime.py": "b545e9d77b692a17095aade3e317797df090878f52e4a50bb0176f0b02d1cfa6",
+    "ui\\state.py": "1a8be6c2404a40a91f51decde765e29aed32046911cf8a35d78e7e2e79813a8d",
+    "ui\\__init__.py": "7257c439d327ea0eee845fb4df6e102efd251ef20aa009a084acf1f1de698887",
+    "ui\\components\\actions.py": "d81d2886be74dfdf0856c5d0115c7c323dda423cd8052d7cee96d5966adc3855",
+    "ui\\components\\freshness.py": "33779f705d37b1d5be880affa3a13cdcd58908559fe5d33506465ae121d64158",
+    "ui\\components\\__init__.py": "04dc96be212979b99fe15f8953aff0094471fbcfb0e281120c5fbbc8c5a6bf3b",
+    "ui\\pages\\case_detail.py": "75e9e1854b05fbdc7d14c9b6f528267976d137fe5a5222cb4fe82810862edfc7",
+    "ui\\pages\\exports.py": "e7b30969455eb61f26ce63590d02a9756d07b3d21852a3cd9c14fb35cf6fe018",
+    "ui\\pages\\history.py": "1808709ba26b90592de48f210afc6989c67cf40bf23dbfd15f891b17f1f6eddb",
+    "ui\\pages\\operations.py": "bdf01af204ff8458a35708117a0b9576c738bbf712cc4324c5a61d8e726e3b91",
+    "ui\\pages\\queue.py": "92be96b4065e4a631f29055a8667ae943ca2f8bc953ee76640942f0100878805",
+    "ui\\pages\\__init__.py": "f731fa7e269667e4c74a00cfc86d97d61507662132e8737879d02a235b57696b"
+  }
+}

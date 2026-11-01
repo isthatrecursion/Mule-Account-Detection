@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--phase", choices=["3", "4"], default="3")
     parser.add_argument(
         "--with-reference",
         action="store_true",
@@ -31,8 +32,11 @@ def main() -> int:
     )
     args = parser.parse_args()
     destination = (ROOT / args.output_dir).resolve()
-    if not destination.is_relative_to(ROOT / "artifacts/phase3") or destination.exists():
-        parser.error("Use a new directory under artifacts/phase3")
+    if (
+        not destination.is_relative_to(ROOT / f"artifacts/phase{args.phase}")
+        or destination.exists()
+    ):
+        parser.error(f"Use a new directory under artifacts/phase{args.phase}")
     environment = {key: value for key, value in os.environ.items() if not key.startswith("MULE_")}
     selected = {key: value for key, value in os.environ.items() if key.startswith("MULE_TEST_")}
     if args.connections_file:
@@ -70,6 +74,8 @@ def main() -> int:
     else:
         temporary = Path(tempfile.mkdtemp(prefix="mule-phase3-"))
     environment.update(TMP=str(temporary), TEMP=str(temporary), TMPDIR=str(temporary))
+    # Windows and WSL can verify one checkout concurrently; mypy caches are not portable.
+    environment["MYPY_CACHE_DIR"] = str(ROOT / "scratch" / f"mypy-{sys.platform}")
     python = sys.executable
     commands = [
         [python, "-m", "pip", "check"],
@@ -165,7 +171,7 @@ def main() -> int:
         ["git", "status", "--porcelain"], cwd=ROOT, capture_output=True, text=True, check=False
     )
     report = {
-        "scope": "Phase 3 synthetic PostgreSQL persistence; no model training/scoring or qualified approval",
+        "scope": f"Phase {args.phase} synthetic persistence/intake; no model training/scoring or qualified approval",
         "executed_at": datetime.now(UTC).isoformat(),
         "build_revision": revision.stdout.strip(),
         "working_tree_dirty": bool(state.stdout.strip()),

@@ -1,0 +1,14 @@
+{
+  "result": "PASSED",
+  "input_source": "SYNTHETIC_ONLY",
+  "upload_job_id": "92d45446-0467-4af3-8df5-3822298ccaa5",
+  "batch_id": "54d83638-78bb-477a-9b5d-b47e4bebb52e",
+  "scoring_job_id": "c5544e78-de84-4852-9a07-f2da05e8e3db",
+  "queue_version": "18874b9b-3c29-423a-a85e-c4aaaf079691",
+  "case_id": "c512e30a-97a8-49aa-806b-d7dd876bdc1c",
+  "review_event_id": "d6cb3934-0ac9-43df-b60f-2b93b41af730",
+  "export_job_id": "d6a3ecf2-0cd2-4a2b-a515-0ccf9cbecf19",
+  "export_rows": 40,
+  "hand_edited_database_rows": false,
+  "ui_exception_count": 0
+}

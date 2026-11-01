@@ -1,0 +1,19 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-21T18:56:31.768285+00:00",
+  "scope": "Current-code authenticated evaluation of the immutable development research run; no model refit, raw rows or predictions exported",
+  "run_id": "8adf55ea-39b8-42fe-9266-b97f782c3152",
+  "summary_matches_original": true,
+  "numerical_training_sources_unchanged": true,
+  "source_differences": {
+    "src\\mule_detection\\application\\audit_service.py": {
+      "run_sha256": "74bb50b4ccaae0dd08db524c608804ed7e54adf8f73cb75d9ff2b88142d54725",
+      "current_sha256": "dd7fbb1e378c3ea2cdd15a49dbd24094486ed58c8789015d4ad631d35d42a0d1"
+    },
+    "src\\mule_detection\\training\\report.py": {
+      "run_sha256": "3fd58ac539ea85434f288d77eef1fa95f14846c2b6c72d4b5219d496cd6e9af9",
+      "current_sha256": "b335c356e4ecfb9ae8742132856265ba4bd03fa5f77fccd796e5cc722a00cd37"
+    }
+  },
+  "difference_explanation": "Operational audit action allowance and authenticated run-state identity cross-check; numerical pipeline/model/split/metric code unchanged"
+}

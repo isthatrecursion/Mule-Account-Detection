@@ -8,7 +8,7 @@ permissions:
 jobs:
   postgres:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     env:
       PYTHONUTF8: '1'
     steps:
@@ -24,6 +24,8 @@ jobs:
       - name: Install locked environment
         run: |
           python -m pip install --require-hashes -r requirements-dev-linux.lock
+          python -m pip install --require-hashes -r requirements-api-linux.lock
+          python -m pip install --require-hashes -r requirements-ui-linux.lock
           python -m pip install --no-deps --no-build-isolation -e .
       - name: Initialize isolated PostgreSQL
         run: |
@@ -61,19 +63,38 @@ jobs:
               finally:
                   engine.dispose()
           PY
-          python scripts/verify_persistence.py --connections-file secrets/test_connections.json --output-dir artifacts/phase3/ci
+          python scripts/verify_persistence.py --phase 4 --connections-file secrets/test_connections.json --output-dir artifacts/phase4/ci
+      - name: Start authenticated registry
+        run: |
+          python scripts/init_registry_secrets.py
+          docker compose -f compose.yaml -f compose.local.yaml -f compose.registry.yaml up -d --build --wait
+      - name: API-backed analyst workspace and full synthetic regression
+        run: python scripts/verify_workspace.py --with-mlflow --with-approver --connections-file secrets/test_connections.json --output-dir artifacts/phase10/ci
       - name: Synthetic verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: postgres-verification
           path: |
-            artifacts/phase3/ci/report.json
-            artifacts/phase3/ci/manifest.json
-            artifacts/phase3/ci/pytest.xml
-            artifacts/phase3/ci/check_*.txt
+            artifacts/phase4/ci/report.json
+            artifacts/phase4/ci/manifest.json
+            artifacts/phase4/ci/pytest.xml
+            artifacts/phase4/ci/check_*.txt
+            artifacts/phase8/ci/report.json
+            artifacts/phase8/ci/checksums.json
+            artifacts/phase8/ci/pytest.xml
+            artifacts/phase8/ci/check_*.txt
+            artifacts/phase9/ci/report.json
+            artifacts/phase9/ci/checksums.json
+            artifacts/phase9/ci/pytest.xml
+            artifacts/phase9/ci/check_*.txt
+            artifacts/phase10/ci/report.json
+            artifacts/phase10/ci/checksums.json
+            artifacts/phase10/ci/pytest.xml
+            artifacts/phase10/ci/check_*.txt
+            artifacts/phase10/ci/walkthrough/*.json
           if-no-files-found: warn
           retention-days: 7
       - name: Stop test services
         if: always()
-        run: docker compose -f compose.yaml -f compose.local.yaml down
+        run: docker compose -f compose.yaml -f compose.local.yaml -f compose.registry.yaml down

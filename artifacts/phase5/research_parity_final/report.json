@@ -1,0 +1,109 @@
+{
+  "checked_at": "2026-10-21T18:22:45.189295+00:00",
+  "code_revision": "f9464bc7d109f6b4df7a35d1ccfa3e03ed3c9af4",
+  "eligible_rows": 7265,
+  "executed_command": "\"C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe\" scripts/compare_reference_pipeline.py --output-dir artifacts/phase5/research_parity_final --with-research-data --threads 2",
+  "fold_reports": 5,
+  "limitations": [
+    "Development diagnostics only; extraction cohort and target remain confounded.",
+    "No holdout fitting, tuning or scoring.",
+    "No production validation or model approval.",
+    "Per-record predictions/membership remain in memory; only hashes and aggregates saved."
+  ],
+  "metrics_packaged": {
+    "average_precision": 0.8514962853749205,
+    "roc_auc": 0.9742200854700854,
+    "top_k": [
+      {
+        "k": 25,
+        "positives": 25,
+        "precision": 1.0,
+        "recall": 0.38461538461538464
+      },
+      {
+        "k": 50,
+        "positives": 48,
+        "precision": 0.96,
+        "recall": 0.7384615384615385
+      },
+      {
+        "k": 100,
+        "positives": 54,
+        "precision": 0.54,
+        "recall": 0.8307692307692308
+      }
+    ]
+  },
+  "metrics_reference": {
+    "average_precision": 0.8514962853749205,
+    "roc_auc": 0.9742200854700854,
+    "top_k": [
+      {
+        "k": 25,
+        "positives": 25,
+        "precision": 1.0,
+        "recall": 0.38461538461538464
+      },
+      {
+        "k": 50,
+        "positives": 48,
+        "precision": 0.96,
+        "recall": 0.7384615384615385
+      },
+      {
+        "k": 100,
+        "positives": 54,
+        "precision": 0.54,
+        "recall": 0.8307692307692308
+      }
+    ]
+  },
+  "oof_coverage_exactly_once": true,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "positive_count": 65,
+  "prediction_max_delta": 0.0,
+  "result": "PASSED",
+  "runtime": {
+    "packages": {
+      "joblib": "1.6.0",
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.17.1"
+    },
+    "python": "3.12.10"
+  },
+  "source": {
+    "dataset_sha256": "c6181fa1ae9aecc899ca17d2223e3ef1ce9f64fd2b6b1f3e252ee13b6cf07915",
+    "excluded_holdout_rows": 1817,
+    "mode": "research_development_only",
+    "private_rows_written": false,
+    "split_sha256": "053d1f03ede21cb9b6830c75b0d46d7a3bc99353ef2c21a718b8f9b26933cc06"
+  },
+  "source_sha256": {
+    "config\\feature_policy.yaml": "e00d99373293ee8f51f5283945972e55891157675a626e5af5de158f516c02cf",
+    "config\\semantic_rules.yaml": "6b5a4e2d36633e20391e6130970682697faa15cde893b1485b1d5b40ea9799df",
+    "scripts\\compare_reference_pipeline.py": "1e0cd9f966b6483346c06e6b89b526272a36475562e64df65ad65cdda9be79d9",
+    "scripts\\pre_architecture_verification.py": "82b959877199384a98328cd3687a3258d0d0865787e97d912bfe4dd8fca5f4d1",
+    "src\\mule_detection\\features\\__init__.py": "7b760b4e0a02773334cbe3af77144943bf1207c394967b0dd52271e6b6049add",
+    "src\\mule_detection\\features\\artifacts.py": "31e853599d87d10760e9503fbbfc01246c42a9d12b96e532f2791e0e463911e7",
+    "src\\mule_detection\\features\\exclusion_report.py": "752548208798a456cc718418bbd8ea352d60623839f3f885fa5151bbcb5ab6a4",
+    "src\\mule_detection\\features\\inputs.py": "38fc5587ec86ee5701c5e9f4590689f0672b31874ea01c1028cad3095a4b6339",
+    "src\\mule_detection\\features\\pipeline.py": "bc4377e721fb27e476fcf91b43fa838eab28b7952a2e8e1225d9331f0601031a",
+    "src\\mule_detection\\features\\preprocessor.py": "39950ed4645c1351f9ea0f2cf5ae261687050cdf9c6c1e5846c52c751978496e",
+    "src\\mule_detection\\features\\semantic_cleanup.py": "bdf5caa04da61c6cf9526f29180451b1273be06f400b0559224fb43d58045376",
+    "src\\mule_detection\\features\\signature.py": "5d547b7565748cfc98c94bbabc0d5ea430dde369a9272751a47233cba452b5ef",
+    "src\\mule_detection\\features\\transformers.py": "9c7d528e5dd30e26c374ca36dcb2a4bf29516517e21e23625ab5b8e76f6c9c3f"
+  },
+  "tolerance": {
+    "matrix_atol": 0.0,
+    "metric_atol": 1e-12,
+    "prediction_atol": 1e-12,
+    "rtol": 0.0
+  },
+  "top_k_membership_equal": {
+    "100": true,
+    "25": true,
+    "50": true
+  }
+}

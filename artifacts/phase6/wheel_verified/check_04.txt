@@ -1,0 +1,1 @@
+{"result": "PASSED", "package_file": "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_b83268fa40c94b3781330f4a37a47fb3\\environment\\Lib\\site-packages\\mule_detection\\__init__.py", "families": ["logistic", "lightgbm"]}

@@ -1,0 +1,32 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-21T18:27:34.146004+00:00",
+  "scope": "Phase 5 engineering verification; qualified use remains blocked; remote CI and Linux execution not claimed",
+  "point_ids": [
+    "P05.01",
+    "P05.02",
+    "P05.03",
+    "P05.04",
+    "P05.05",
+    "P05.06",
+    "P05.07",
+    "P05.08",
+    "P05.09",
+    "P05.10"
+  ],
+  "verified_sources_still_match": true,
+  "evidence_sha256": {
+    "artifacts/phase5/windows_features_verified/report.json": "41fa36c22d04568752e91b10676b04ccd9c7b4d393a33403c1c1272d7fbf2c35",
+    "artifacts/phase5/research_parity_final/report.json": "b6789af04fe299b1897763cc6d56e0db7b78834cd87497069a4dbf7a5b5f0021",
+    "artifacts/phase5/wheel_import_verified/report.json": "c1d5b2813b618288c4857bac87a6a0e6e3667cea74a8188f2c4669002ae2eacb",
+    "artifacts/phase5/fresh_install_completion/report.json": "cdc370fd88fd05b473b233b339bcf2d6564d9cfee8deb48683199803d204ed38",
+    "docs/features.md": "986e1bf630dcb1980dbca320a4bfd75e993d3761c91f66efcac72088ce91c5aa",
+    "docs/acceptance/phase5_readiness.md": "ab113f601dcaa501ee08cf16e15dd68d903bfdfaeee78df3047556268e9e3545",
+    "docs/acceptance/roadmap_status.csv": "8798f62cd456bd6ddf8a17a11c77e13b0b755c12fac8770247775cd1bfca76a7",
+    "scripts/verify_installation.py": "8573402c25efa92aaa339b7602f8a832d5ecd3ddef4c1437e48b75be5053ee5f",
+    "requirements-windows.lock": "c21e225eceab6286cc50f59fd46be66446c3470f481ce17b7231e27b799354c6",
+    "requirements-linux.lock": "f16dd0bb97009121d57accea74b4256bcf528f40aee46fcbe8c599721c731c84",
+    "requirements-dev-windows.lock": "9d42a05a9b8ee41216a9581e43d4d976ee179f80cdafa5be0ae5e05838b26bc4",
+    "requirements-dev-linux.lock": "f555d62852ad4ce6eaf79b868367a112bd3a07d1be91e2194b841049a073c1d4"
+  }
+}

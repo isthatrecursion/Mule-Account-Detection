@@ -7,3 +7,16 @@ eda/01_schema_and_feature_dictionary.csv -text whitespace=blank-at-eol,blank-at-
 # Preserve the bytes covered by the new verification evidence manifests.
 artifacts/phase3/ci_private_secrets_fix_v1/** -text whitespace=cr-at-eol
 artifacts/phase3/private_secrets_regression_v1/** -text whitespace=cr-at-eol
+# Verification manifests cover exact output bytes on both operating systems.
+artifacts/phase4/** -text whitespace=cr-at-eol
+# Keep newly published verification evidence byte-identical to its recorded hashes.
+artifacts/phase5/** -text whitespace=cr-at-eol
+artifacts/phase6/** -text whitespace=cr-at-eol
+artifacts/phase7/** -text whitespace=cr-at-eol
+artifacts/phase8/** -text whitespace=cr-at-eol
+artifacts/phase9/** -text whitespace=cr-at-eol
+artifacts/phase10/** -text whitespace=cr-at-eol
+artifacts/frontend/** -text whitespace=cr-at-eol
+artifacts/phase0/phase7_handoff/** -text whitespace=cr-at-eol
+artifacts/phase0/phase8_handoff/** -text whitespace=cr-at-eol
+artifacts/phase1/phase5_install_verified/** -text whitespace=cr-at-eol

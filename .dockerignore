@@ -10,6 +10,8 @@
 !ui/**
 !docker/
 !docker/**
+!.streamlit/
+!.streamlit/config.toml
 **/__pycache__
 **/*.pyc
 **/.env*
@@ -17,3 +19,6 @@
 **/private/**
 **/*.csv
 **/*.parquet
+**/.streamlit/secrets.toml
+**/*.pem
+**/*.key

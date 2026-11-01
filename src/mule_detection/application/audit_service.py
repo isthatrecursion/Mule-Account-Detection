@@ -12,6 +12,15 @@ from mule_detection.persistence.models import AuditEvent
 AUDITED_ACTIONS = frozenset(
     {
         "model:approve",
+        "model:train",
+        "model:candidate",
+        "model:register",
+        "model:deploy",
+        "model:rollback",
+        "model:alias_reconcile",
+        "score:create",
+        "score:preflight_failed",
+        "score:failed",
         "queue:publish",
         "case:assign",
         "case:review",
@@ -19,6 +28,20 @@ AUDITED_ACTIONS = frozenset(
         "case:correct",
         "export:authorize",
         "job:retry",
+        "intake:receive",
+        "intake:finalize",
+        "intake:replay",
+        "intake:recover",
+        "intake:cleanup",
+        "intake:deduplicate",
+        "intake:diagnostics",
+        "intake:fail",
+        "batch:revalidate",
+        "api:enqueue",
+        "api:job_complete",
+        "api:job_failed",
+        "export:download",
+        "label:ingest",
     }
 )
 

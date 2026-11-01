@@ -1,0 +1,5 @@
+{
+  "result": "SUPERSEDED",
+  "scope": "Preliminary verification stopped before completion to encrypt export snapshots before final tests",
+  "final_verification": "artifacts/phase9/windows_api_verified/report.json"
+}

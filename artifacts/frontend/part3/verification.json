@@ -1,0 +1,92 @@
+{
+  "completed_date": "2026-11-01",
+  "timezone": "Asia/Calcutta",
+  "scope": "FE-9 through FE-13",
+  "tests": {
+    "tests": "283",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  "mypy_source_files_passed": 155,
+  "ruff": "PASSED",
+  "locks_unchanged": {
+    "requirements-api-linux.lock": true,
+    "requirements-api-windows.lock": true,
+    "requirements-dev-linux.lock": true,
+    "requirements-dev-windows.lock": true,
+    "requirements-linux.lock": true,
+    "requirements-ui-linux.lock": true,
+    "requirements-ui-windows.lock": true,
+    "requirements-windows.lock": true
+  },
+  "api_schema_sha256": "88fbdc50bfcef3a63945e45f6bc7e1ce9862c97360c6c88cede25f1937a440b4",
+  "extension_routes": "PROPOSED_MOCK_ONLY_NORMAL_CLIENT_REFUSES_BEFORE_HTTP",
+  "shared_identity": "BLOCKED_MISSING_ORGANIZATION_CONFIGURATION",
+  "postgres_journey": "NOT_RERUN",
+  "source_sha256": {
+    "ui/__init__.py": "7257c439d327ea0eee845fb4df6e102efd251ef20aa009a084acf1f1de698887",
+    "ui/api_client.py": "2639e3a1541623fb22df8cac0d46f808189daab6ff07c4c9ee18233bd0a6ffcc",
+    "ui/app.py": "a95a43eafb6d7915b77eb9011031a689a53190b18231f7fb95a63e7e6fe23778",
+    "ui/auth.py": "3e19c48b454356f07119fbd28d7412258a338b7eebcf753d85a0c5f9d5da1aef",
+    "ui/cache.py": "216a6ea621a14a84c4063076435c358d09213c2cf198378e3a0be22745c0e470",
+    "ui/components/__init__.py": "04dc96be212979b99fe15f8953aff0094471fbcfb0e281120c5fbbc8c5a6bf3b",
+    "ui/components/actions.py": "5e0bf005f3cb5ff461a8f9a0d0f7d5c9d35fc2357db942c73196211f3c5dfd85",
+    "ui/components/badges.py": "8342676c9901e65bcc64c9dbdefb8fb9b932ad0d3f5ede57b12f7de576a8e4bb",
+    "ui/components/comparison.py": "ebbf27e964288ea8ae719255484a964399af9b0777afa52576763641217ac5b9",
+    "ui/components/contribution_chart.py": "93594bbb9f08e004b21871418a8bc43b897d5dcf359736abae1f4e60b908b30e",
+    "ui/components/freshness.py": "6f47e7049b7fd5cefb021232951a6a28ce348aa9d78dad7f6262cbde3c1a874d",
+    "ui/components/late_context.py": "10eaf20a163aeed5b85f284ed87186bc95d095bdf823e7b62d96592c023891db",
+    "ui/components/pager.py": "51f2d94ea956d6074271d8c29bd58e6dbd42a950e9b26494b9baa5bbe0fd2d33",
+    "ui/components/provenance_header.py": "a48db837f99db39ccbef64738dc5af6da5b37368ba73616f5a416bb5ad09fdaf",
+    "ui/components/research_banner.py": "8b7fe368d195fc1b1e54c7bfc4d53930dfc2723d522837e950b5ffd266680153",
+    "ui/components/score.py": "650e0c2639e974f4f1102e704fe0019c44f99ceccabf1639e7f45b470c8c65f8",
+    "ui/components/status_views.py": "c4cc3c5cde900aee0619aa425fc33d0a638c54caa3d56dd4eea804ee897f3000",
+    "ui/components/time_fmt.py": "ea5db0b56c3d86f8b6e71b9546fc0fc626b43512c6976b2a56f78dda629d17f6",
+    "ui/config.py": "ddee872f12bb1b90e3e6f5ca1e8737ac984794c4251c693d302e3a5853544f76",
+    "ui/copy.py": "de65d8ea8ad80c550fb9a0cbeac775bdf4fb6ef174a6a00878fe31af43cfebb2",
+    "ui/dev.py": "4124ade7cd037cbf6aedf8df490ad3f81bbbb7f538cdcb53a14e1408dcc2cc98",
+    "ui/dto.py": "4aef9f8768c689d8275b4c7c5d3dae98e259acf5003afc59499594cddbbe2407",
+    "ui/enums.py": "67f6031004f1abdedf0aaaf1681e5cdfc787bcaf32d7a34ecd5cf8e15c468798",
+    "ui/errors.py": "510e8a435717baaf42bce895e0a857e2c9c9b0b092ae0d35733b51c6a73e5818",
+    "ui/extensions.py": "b29a70988b22811882fea3d69ba211528cda3ff6bd53d79dc5af3e3f14bffcf7",
+    "ui/launcher.py": "abf62d9f04a58e48d3af1e7fd4bf62c6867108c7daf1153db6949879a27e5ba1",
+    "ui/logging_setup.py": "5e1577faa830b69f351a538a94379b4c57d04ef01bd69738cd65b40835e22224",
+    "ui/mock/__init__.py": "ef5375bee6e6f391d23a063dc0b825d7733ffb4ab9c9dee90afa24fba038d5ee",
+    "ui/mock/backend.py": "7b1247567e2a74f7c5b789912a08268bf5711ccec89e6447bdc3aa3264fccadb",
+    "ui/mock/entry.py": "419060352cba6078477a37eef8ae7f7fea90ad4cf461c780f33ce59cfbc77b86",
+    "ui/mock/extensions.py": "5956bd4164268aa03b3bef1f5429258b85e447ccb140f1735f167a9d38aae724",
+    "ui/pages/__init__.py": "f731fa7e269667e4c74a00cfc86d97d61507662132e8737879d02a235b57696b",
+    "ui/pages/_gallery.py": "1bc4c5478a044460df66df2a0652a0c8c884fbcde8f338dba2639153227607e8",
+    "ui/pages/case_detail.py": "ab48ebe39ad6ca44a880808fc446ede8d78f97155081c295c84444b5f23e5a2a",
+    "ui/pages/exports.py": "af16fbcf049b82afa18de38292f62a750a6620f0c6ac3a8036ac4ecf84394e4d",
+    "ui/pages/extensions.py": "dcdcc945c191b46b28017c0ddf458e8971fb51929ffa0e8dff207e1d631b7a79",
+    "ui/pages/history.py": "6c1f10bc165712de4d73fd6487aa8eeb3ac8294833667202fa61322ea5c6cd92",
+    "ui/pages/operations.py": "9c138f6bd81f61a565b39d470543e528568a3f537b78395a6c3c9ce19f6e93d5",
+    "ui/pages/queue.py": "2b4e95b7444ab9f1863d64c4eb08c7f964d00c1f0df013b21d1350af24febc08",
+    "ui/performance.py": "6553b21e58ca697f2f8be0ed76eaf1a6786dd79504fb6b7b8bab7a19923be98a",
+    "ui/permissions.py": "9ea3739b93622fdd0c90931e05e06a58e4677da6ba42e1ddc8dc26fb613e1caf",
+    "ui/runtime.py": "dedf70fe4baf0dcd329d16b4c5fff049caeae5a8e395e4faf68523e25f8cf0f4",
+    "ui/state.py": "86c774b59a37218bc8fe8698007fa9f4af4181a6ac5ea4fe0384c8ab725619c9"
+  },
+  "browser": {
+    "data": "SYNTHETIC_ONLY",
+    "views_verified": [
+      "provisional assessment",
+      "separate complete baseline",
+      "source gap age",
+      "read-only evidence reports",
+      "FAILED vs PASSED vs BLOCKED vs NOT_RUN"
+    ],
+    "screenshots": [
+      "provisional-baseline.png",
+      "evidence-gates.png"
+    ]
+  },
+  "additional_checks": {
+    "panel_regressions_passed": 11,
+    "copy_exclusions_passed": 1,
+    "normal_startup": "UI_IDENTITY_CONFIGURATION_REQUIRED",
+    "git_diff_check": "PASSED"
+  }
+}

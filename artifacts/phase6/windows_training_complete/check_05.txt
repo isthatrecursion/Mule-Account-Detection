@@ -1,0 +1,12 @@
+........................................................................ [ 26%]
+........................................................................ [ 52%]
+........................................................................ [ 78%]
+..........................................................               [100%]
+============================== warnings summary ===============================
+tests/integration/test_training.py: 6 warnings
+tests/unit/test_training.py: 10 warnings
+  C:\Users\omkud\Mule Account Detection\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:455: DeprecationWarning: scipy.optimize: The `disp` and `iprint` options of the L-BFGS-B solver are deprecated and will be removed in SciPy 1.18.0.
+    opt_res = optimize.minimize(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+274 passed, 16 warnings in 46.20s

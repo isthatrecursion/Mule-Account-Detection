@@ -1,0 +1,20 @@
+{
+  "static_deployment_contract": "PASSED",
+  "ui_api_same_image": true,
+  "direct_ui_api_host_ports": false,
+  "secrets_excluded_from_source_copy": true,
+  "organization_identity": "BLOCKED",
+  "container_build_and_health": "NOT_RUN",
+  "ingress_tls_and_bypass_runtime": "NOT_RUN",
+  "image_history": "NOT_RUN",
+  "egress_note": "Fixed identity endpoints require egress; enforce host/network destination policy in the deployment environment.",
+  "compose_config": "PASSED",
+  "compose_inputs": "VALIDATION_ONLY_SYNTHETIC_IMAGE_DIGESTS_NOT_DEPLOYED",
+  "docker_engine": "UNAVAILABLE",
+  "input_sha256": {
+    "compose.workspace.yaml": "9929c4a056bcb4bffb10f34ab093fd401b345636fd0abf9c116121830d2c7376",
+    "docker/Dockerfile.app": "1c00d237adad3cd834d8f733a68754031c9531637ca832ff6e3aec9d136b539a",
+    "docker/nginx/nginx.conf": "85ee407483f5a19f74952feda4f3e26648a42290e3b95cff062a5070238c2da3",
+    ".dockerignore": "51c21cd2d01a59a64eafe85b356e7ee1bc0b17c64307cdb48171d94c48833438"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "affected_keys": {
+      "default": [],
+      "items": {
+        "maxLength": 512,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Affected Keys",
+      "type": "array"
+    },
+    "batch_id": {
+      "format": "uuid",
+      "title": "Batch Id",
+      "type": "string"
+    },
+    "bundle_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Bundle Digest",
+      "type": "string"
+    },
+    "contract_version": {
+      "const": "scoring_request_v1",
+      "default": "scoring_request_v1",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "environment": {
+      "enum": [
+        "local",
+        "test",
+        "research",
+        "staging",
+        "qualified"
+      ],
+      "title": "Environment",
+      "type": "string"
+    },
+    "replay_id": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Replay Id"
+    },
+    "replay_of": {
+      "anyOf": [
+        {
+          "format": "uuid",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Replay Of"
+    }
+  },
+  "required": [
+    "batch_id",
+    "bundle_digest",
+    "environment"
+  ],
+  "title": "ScoringRequest",
+  "type": "object"
+}

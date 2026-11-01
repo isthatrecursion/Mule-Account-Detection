@@ -263,6 +263,8 @@ Completion levels are explicit:
 
 ## 12. Phase 9 — FastAPI and Analyst Workflow
 
+Implementation and operating details are recorded in [API documentation](api.md) and [Phase 9 readiness](acceptance/phase9_readiness.md). Normal startup requires organization-owned OIDC issuer, audience, signing-key source and group-to-scope bindings; these are not yet supplied, so startup remains fail-closed.
+
 **Goal:** Expose an authorized application boundary around published results and case actions.
 
 ### Steps
@@ -283,6 +285,8 @@ Completion levels are explicit:
 **Exit check:** A reviewer can complete a case through the API with audit evidence; unauthorized callers cannot bypass the UI to alter data.
 
 ## 13. Phase 10 — Streamlit Analyst Workspace
+
+Implementation and operating details are recorded in [workspace documentation](workspace.md), [identity flow](identity_flow.md) and [Phase 10 readiness](acceptance/phase10_readiness.md). Organization identity integration and shared deployment remain blocked; isolated synthetic verification does not authorize qualified use.
 
 **Goal:** Make the operating workflow understandable without exposing unsupported claims.
 

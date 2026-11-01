@@ -41,6 +41,7 @@ scratch/
 secrets/
 data/
 volumes/
+var/
 exports/
 private-fixtures/
 tests/fixtures/private/
@@ -59,3 +60,4 @@ artifacts/models/
 htmlcov/
 test-results/
 .venv-*/
+.streamlit/secrets.toml

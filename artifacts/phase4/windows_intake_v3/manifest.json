@@ -1,0 +1,15 @@
+{
+  "check_01.txt": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+  "check_02.txt": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0",
+  "check_03.txt": "8e2bcae6f15b118f5b7eba9464afd91d68e615e9194a214779e35b91bec0af21",
+  "check_04.txt": "94052817dfe271c9180d5fb69d1a5187415e233dec083b3d4a14ff2067e6dba0",
+  "check_05.txt": "f55a3d2bd9694cbd0397efc7e5202f82cdaa2785e7bbe81ac171aa54dd1f2866",
+  "check_06.txt": "80c6bd064a1a088d5dd9a5e864f7adab3d48cd3ed951cbb0c572a710ffee2417",
+  "check_07.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "check_08.txt": "31ac88b7422cd65ff47d70a59f3eea8af37c9d85ee2b741f63ce30592e935b76",
+  "check_09.txt": "6b2958985907e6a659061478db76b0bf41166026e9b1d674bb4f5f7e7877ae24",
+  "dist/mule_detection-0.1.0-py3-none-any.whl": "e5fcc069e7cd9f3b94bf94e567726ebfd3435c066bab9e38a11d134249f9d43f",
+  "dist/mule_detection-0.1.0.tar.gz": "5bedecebcd75aad2253cef3d9f9ce4c167c38ea2cd046860d844f4b13eb73aa2",
+  "pytest.xml": "4f31ad3688a99f9ea360c157d13e5c69eb41f653454446fce1389c19950619de",
+  "report.json": "fbb38936af2720bcfb8ca3a6aa96cb96eadad44e9c50364aa4a4149234f363e0"
+}

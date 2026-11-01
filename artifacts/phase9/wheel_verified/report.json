@@ -1,0 +1,87 @@
+{
+  "scope": "Fresh runtime lock installation and wheel import outside source checkout",
+  "executed_at": "2026-10-22T18:26:02.392613+00:00",
+  "executed_command": "\"C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe\" \"C:\\Users\\omkud\\Mule Account Detection\\scripts\\verify_installation.py\" --api --wheel artifacts/phase9/packages_final/mule_detection-0.1.0-py3-none-any.whl --output-dir artifacts/phase9/wheel_verified",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "wheel": {
+    "path": "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase9\\packages_final\\mule_detection-0.1.0-py3-none-any.whl",
+    "sha256": "0455d4d348ee3f1684b263b098ff9880efe4544662017f7fa86ec4b88283a050"
+  },
+  "lock": {
+    "path": "requirements-api-windows.lock",
+    "sha256": "94ae41574a685dec104883095e9b204a9c877a6bcd2c74ac611cec224207d981"
+  },
+  "script_sha256": "cac8d0941a755ec19f8c13820ca243c49ea4dd3fea198d580b5de79298afc23f",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe",
+        "-m",
+        "venv",
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment"
+      ],
+      "exit_code": 0,
+      "evidence": "check_01.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--require-hashes",
+        "--only-binary=:all:",
+        "-r",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-api-windows.lock"
+      ],
+      "exit_code": 0,
+      "evidence": "check_02.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-deps",
+        "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase9\\packages_final\\mule_detection-0.1.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "evidence": "check_03.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0,
+      "evidence": "check_04.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment\\Scripts\\python.exe",
+        "-c",
+        "\nimport importlib.metadata as metadata\nimport json\nimport pathlib\nimport re\nimport sys\nimport mule_detection\nimport numpy, pandas, scipy, sklearn, lightgbm\nfrom mule_detection.persistence.models import Base\nfrom mule_detection.persistence.artifacts import ArtifactStore\nfrom mule_detection.application.review_service import ReviewService\nfrom mule_detection.application.job_service import JobService\nfrom mule_detection.features.pipeline import FeaturePipeline\nfrom mule_detection.features.inputs import research_frame\nfrom mule_detection.features.artifacts import save_pipeline, load_pipeline\nfrom mule_detection.training.runner import run_experiment, evaluate_run\nfrom mule_detection.training.model_factory import fit_candidate\nfrom mule_detection.application.training_service import TrainingService\nfrom mule_detection.registry.bundle_loader import BundleLoader\nfrom mule_detection.registry.model_resolver import ModelResolver\nfrom mule_detection.application.model_approval_service import ModelApprovalService\nfrom mule_detection.application.scoring_service import ScoringService\nfrom mule_detection.application.publication_service import PublicationService\nfrom mule_detection.explanations.contributions import contributions\nfrom mule_detection.scoring.ranking import rank_scores\nassert {'datasets', 'batches', 'score_runs', 'score_rows', 'audit_events',\n        'intake_requests', 'raw_publications', 'intake_contents', 'registry_candidates',\n        'model_decisions', 'model_deployments', 'model_pins', 'scoring_tasks',\n        'scoring_chunks', 'scoring_attempts', 'queue_heads'} <= set(Base.metadata.tables)\nassert all((ArtifactStore, ReviewService, JobService, FeaturePipeline,\n            research_frame, save_pipeline, load_pipeline, run_experiment,\n            evaluate_run, fit_candidate, TrainingService, BundleLoader, ModelResolver, ModelApprovalService,\n            ScoringService, PublicationService, contributions, rank_scores))\nassert pathlib.Path(mule_detection.__file__).resolve().is_relative_to(pathlib.Path(sys.prefix).resolve())\nassert mule_detection.__version__ == '0.1.0'\nexpected = dict(re.findall(r'^([a-zA-Z0-9_.-]+)==([^\\s;]+)', pathlib.Path(sys.argv[1]).read_text(), re.M))\nobserved = {name: metadata.version(name) for name in expected}\nassert observed == expected, {'expected': expected, 'observed': observed}\nprint(json.dumps({'status': 'PASSED', 'package_file': mule_detection.__file__, 'runtime_versions': observed}))\n\nimport tempfile, time\nfrom types import SimpleNamespace\nimport jwt\nfrom cryptography.hazmat.primitives.asymmetric import rsa\nfrom fastapi.testclient import TestClient\nfrom mule_detection.api.app import create_app\nfrom mule_detection.api.auth import AuthConfig\nfrom mule_detection.api.service import ApiService\nfrom mule_detection.settings import Settings\nkey = rsa.generate_private_key(public_exponent=65537, key_size=2048)\npublic = json.loads(jwt.algorithms.RSAAlgorithm.to_jwk(key.public_key()))\npublic.update(kid='installed-test', alg='RS256')\nwith tempfile.TemporaryDirectory() as directory:\n    settings = Settings(environment='test', root_path=pathlib.Path(directory),\n        database_url='postgresql+psycopg://schema@localhost/mule_test_installed',\n        mlflow_uri='http://localhost:5000', runtime_policy_path='config/test.yaml')\n    try:\n        create_app(settings)\n    except ValueError:\n        pass\n    else:\n        raise AssertionError('Missing trust must fail closed')\n    auth = AuthConfig(issuer='https://installed.example.test', audience='installed-api',\n        isolated_test=True, static_jwks={'keys': [public]},\n        groups={'review': {'roles': ['analyst'], 'scopes': ['installed-test']}})\n    service = SimpleNamespace(remember=lambda principal: None, ready=lambda: True)\n    claims = {'iss': auth.issuer, 'aud': auth.audience, 'sub': 'installed-analyst',\n        'iat': int(time.time())-1, 'exp': int(time.time())+300, 'groups': ['review']}\n    token = jwt.encode(claims, key, algorithm='RS256', headers={'kid': 'installed-test'})\n    with TestClient(create_app(settings, lambda _: (auth, service))) as http:\n        assert http.get('/v1/me').status_code == 401\n        result = http.get('/v1/me', headers={'Authorization': 'Bearer '+token})\n        assert result.status_code == 200 and result.json()['roles'] == ['analyst']\n        assert http.get('/health/ready').status_code == 200\nassert pathlib.Path(ApiService.__module__.replace('.', '/')).name == 'service'\nprint(json.dumps({'api_wheel': 'PASSED', 'signed_token_http': 'PASSED', 'missing_trust': 'BLOCKED'}))\n",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-api-windows.lock"
+      ],
+      "exit_code": 0,
+      "evidence": "check_05.txt"
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_e4e1bcd9f4244b359ebffbf7318a6f1b\\environment\\Scripts\\python.exe",
+        "-m",
+        "mule_detection.cli",
+        "--help"
+      ],
+      "exit_code": 0,
+      "evidence": "check_06.txt"
+    }
+  ],
+  "pass_fail": "PASSED"
+}

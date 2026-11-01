@@ -14,6 +14,7 @@ from mule_detection.domain.contracts.labels import QualifiedLabel
 from mule_detection.domain.contracts.models import ModelBundle
 from mule_detection.domain.contracts.reviews import ReviewRequest
 from mule_detection.domain.contracts.scores import ScoreRow
+from mule_detection.domain.contracts.scoring import ScoringRequest
 from mule_detection.domain.contracts.snapshot import QualifiedSnapshot, SourceRegistry
 from mule_detection.domain.contracts.tabular import TabularSchema
 from mule_detection.domain.errors import DomainError, ErrorCode
@@ -28,6 +29,7 @@ _MODELS = (
     QualifiedLabel,
     ModelBundle,
     ScoreRow,
+    ScoringRequest,
     TransactionEvent,
     CompletenessManifest,
     Evidence,

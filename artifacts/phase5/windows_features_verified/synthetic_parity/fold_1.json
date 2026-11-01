@@ -1,0 +1,29 @@
+{
+  "dropped": {
+    "exact_duplicate": [
+      "duplicate"
+    ],
+    "high_missingness": [],
+    "zero_variance": [
+      "constant"
+    ]
+  },
+  "fold": 1,
+  "prediction_max_delta": 0.0,
+  "selected_columns": [
+    "number",
+    "missing",
+    "category_under_score",
+    "F3888",
+    "F3893",
+    "F3894",
+    "F3888_IS_LEGACY"
+  ],
+  "train_matrix_max_delta": 0.0,
+  "train_membership_sha256": "7af15f2b6ca3e7a86bf518632373c84be33190cdd188bfb1578fe614bbe8925f",
+  "train_rows": 160,
+  "training_fingerprint": "e70908b462bac7d4f0f358182db4ddc8badc2e105469e22e2adbe74d5dbcb648",
+  "validation_matrix_max_delta": 0.0,
+  "validation_membership_sha256": "7b4fe6c79f2bccf26b3e782bf685a9708a31b1cdfb5f5381cb2ca033899d20f1",
+  "validation_rows": 40
+}

@@ -1,0 +1,17 @@
+{
+  "result": "PASSED",
+  "scope": "Final wheel source parity and signed-token HTTP verified; final sdist contains current readiness, all six locks, API schema/config and migration; private directories excluded",
+  "wheel": "artifacts\\phase9\\windows_api_verified\\dist\\mule_detection-0.1.0-py3-none-any.whl",
+  "wheel_sha256": "862be6b54e9af09b256919105d2517e979da5c1b4e117c1c7cadd02be03162b8",
+  "sdist": "artifacts/phase9/sdist_verified/mule_detection-0.1.0.tar.gz",
+  "sdist_sha256": "07133a203a50cd3f74ce4331635ccd303736254c781f62e87a4c66d97a08721a",
+  "dependency_locks": [
+    "requirements-api-linux.lock",
+    "requirements-api-windows.lock",
+    "requirements-dev-linux.lock",
+    "requirements-dev-windows.lock",
+    "requirements-linux.lock",
+    "requirements-windows.lock"
+  ],
+  "source_code_still_matches_full_verification": true
+}

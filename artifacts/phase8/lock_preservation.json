@@ -1,0 +1,10 @@
+{
+  "result": "PASSED",
+  "scope": "Phase 8 preserves all four Phase 7 runtime/development lock files byte-for-byte",
+  "locks": {
+    "requirements-dev-linux.lock": "7f3daeb9aac3448aa23da1fd3f71dee6123bd308efee892ffa1d90cec2ec6667",
+    "requirements-dev-windows.lock": "aad059d2d416b1bb8b55bef85b3e728031990d6d964ddbb5a24c3eed06d7b0b9",
+    "requirements-linux.lock": "290e114502f42845553b9c321bf9de45a5d7edc4b0784527348673ebd5184ecc",
+    "requirements-windows.lock": "79f324e43321d582b5527a4a59725dd5b81776b77b8c843a19c84acea69b395e"
+  }
+}
