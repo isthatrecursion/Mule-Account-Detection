@@ -36,6 +36,10 @@ class BundleLoader:
         environment.update(
             PYTHONDONTWRITEBYTECODE="1", OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2"
         )
+        if sys.platform == "win32":
+            creation_flags = subprocess.CREATE_NO_WINDOW
+        else:
+            creation_flags = 0
         with tempfile.TemporaryDirectory(dir=self.store.root, prefix=".worker-") as work:
             try:
                 completed = subprocess.run(
@@ -46,7 +50,7 @@ class BundleLoader:
                     cwd=work,
                     env=environment,
                     timeout=150,
-                    creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+                    creationflags=creation_flags,
                 )
                 response: dict[str, Any] = json.loads(completed.stdout)
                 if completed.returncode or not response.get("ok"):

@@ -26,6 +26,10 @@ def main() -> int:
         return 2
     environment = dict(os.environ)
     environment["STREAMLIT_BROWSER_GATHER_USAGE_STATS"] = "false"
+    if sys.platform == "win32":
+        creation_flags = subprocess.CREATE_NO_WINDOW
+    else:
+        creation_flags = 0
     return subprocess.call(
         [
             sys.executable,
@@ -43,7 +47,7 @@ def main() -> int:
         ],
         cwd=args.root.resolve(),
         env=environment,
-        creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
+        creationflags=creation_flags,
     )
 
 
