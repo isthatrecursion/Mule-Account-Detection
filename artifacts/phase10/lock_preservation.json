@@ -1,0 +1,29 @@
+{
+  "result": "PASSED",
+  "locks": {
+    "requirements-windows.lock": {
+      "phase9": "79f324e43321d582b5527a4a59725dd5b81776b77b8c843a19c84acea69b395e",
+      "current": "79f324e43321d582b5527a4a59725dd5b81776b77b8c843a19c84acea69b395e"
+    },
+    "requirements-linux.lock": {
+      "phase9": "290e114502f42845553b9c321bf9de45a5d7edc4b0784527348673ebd5184ecc",
+      "current": "290e114502f42845553b9c321bf9de45a5d7edc4b0784527348673ebd5184ecc"
+    },
+    "requirements-dev-windows.lock": {
+      "phase9": "aad059d2d416b1bb8b55bef85b3e728031990d6d964ddbb5a24c3eed06d7b0b9",
+      "current": "aad059d2d416b1bb8b55bef85b3e728031990d6d964ddbb5a24c3eed06d7b0b9"
+    },
+    "requirements-dev-linux.lock": {
+      "phase9": "7f3daeb9aac3448aa23da1fd3f71dee6123bd308efee892ffa1d90cec2ec6667",
+      "current": "7f3daeb9aac3448aa23da1fd3f71dee6123bd308efee892ffa1d90cec2ec6667"
+    },
+    "requirements-api-windows.lock": {
+      "phase9": "94ae41574a685dec104883095e9b204a9c877a6bcd2c74ac611cec224207d981",
+      "current": "94ae41574a685dec104883095e9b204a9c877a6bcd2c74ac611cec224207d981"
+    },
+    "requirements-api-linux.lock": {
+      "phase9": "b7a18d060526bd68b4ed63e0dc8a505a80c3abff7bd85131a9cf514116bc8377",
+      "current": "b7a18d060526bd68b4ed63e0dc8a505a80c3abff7bd85131a9cf514116bc8377"
+    }
+  }
+}

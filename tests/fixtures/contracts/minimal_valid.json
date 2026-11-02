@@ -349,5 +349,11 @@
         "reason": "september_schema_artifact"
       }
     ]
+  },
+  "scoring_request_v1": {
+    "batch_id": "00000000-0000-4000-8000-000000000001",
+    "bundle_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "environment": "test",
+    "contract_version": "scoring_request_v1"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "completed_date": "2026-11-01",
+  "timezone": "Asia/Calcutta",
+  "scope": "FE-14 through FE-16 frontend",
+  "build_revision": "f9464bc7d109f6b4df7a35d1ccfa3e03ed3c9af4+working-tree:3851cb06b57915ed",
+  "input_hash": "46f992e41dbdb7c81dc1296528fd1e9e89e98264632539f36c325f6a5aaf8cba",
+  "config_hash": "cb3655e1eac63295a67556b2cc499a1560ec6302b85aaf5918b81c6eda792767",
+  "source_sha256": "3851cb06b57915ede5d51bceb253270899cdaa55066ac5bb2c800dd748b578ab",
+  "tests": {
+    "tests": "307",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "1"
+  },
+  "passed": 306,
+  "mypy_source_files_passed": 159,
+  "lint_and_format": "PASSED",
+  "locks_unchanged": {
+    "requirements-api-linux.lock": true,
+    "requirements-api-windows.lock": true,
+    "requirements-dev-linux.lock": true,
+    "requirements-dev-windows.lock": true,
+    "requirements-linux.lock": true,
+    "requirements-ui-linux.lock": true,
+    "requirements-ui-windows.lock": true,
+    "requirements-windows.lock": true
+  },
+  "compose_config": "PASSED",
+  "container_runtime": "NOT_RUN_DOCKER_ENGINE_UNAVAILABLE",
+  "organization_identity": "BLOCKED_MISSING_ORGANIZATION_SETTINGS",
+  "qualified_pilot": "BLOCKED_MISSING_QUALIFIED_DATA_LABELS_APPROVAL",
+  "browser_demo": "http://127.0.0.1:8520",
+  "screen_evidence": [
+    "demo-output.png",
+    "pilot-output.png"
+  ],
+  "human_acceptance": "NOT_RUN_OWNER_REVIEW_PENDING",
+  "targeted_pilot_checks_passed": 3,
+  "post_suite_change": "Metric availability wording clarified; targeted pilot view tests passed.",
+  "preview_left_running": true
+}

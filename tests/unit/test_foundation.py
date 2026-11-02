@@ -129,16 +129,6 @@ def test_cli_health_is_honest_and_safe(app_root, capsys):
 @pytest.mark.parametrize(
     "arguments",
     [
-        ["validate-batch", "--manifest", "synthetic.json"],
-        ["train", "--config", "synthetic.yaml", "--mode", "research"],
-        ["evaluate", "--run-id", "00000000-0000-0000-0000-000000000001"],
-        [
-            "score",
-            "--batch-id",
-            "00000000-0000-0000-0000-000000000001",
-            "--model-version",
-            "synthetic",
-        ],
         ["reconcile", "--source", "synthetic"],
         ["replay", "--scenario", "synthetic.json"],
     ],

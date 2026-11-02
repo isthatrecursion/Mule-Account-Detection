@@ -1,0 +1,18 @@
+phase,implementation,synthetic_verification,live_acceptance,evidence,blocking_dependency
+FE-0,IMPLEMENTED,PASSED,NOT_APPLICABLE,frontend_part1.md,
+FE-1,IMPLEMENTED,PASSED,NOT_APPLICABLE,frontend_part1.md,
+FE-2,IMPLEMENTED,PASSED,BLOCKED,frontend_part1.md,Organization API identity settings
+FE-3,IMPLEMENTED,PASSED,BLOCKED,frontend_part1.md,Organization gateway identity integration
+FE-4,IMPLEMENTED,PASSED,NOT_APPLICABLE,frontend_part1.md,
+FE-5,IMPLEMENTED,PASSED,BLOCKED,frontend_part2.md,Organization identity and real worker deployment
+FE-6,IMPLEMENTED,PASSED,BLOCKED,frontend_part2.md,Organization identity
+FE-7,IMPLEMENTED,PASSED,BLOCKED,frontend_part2.md,Organization identity
+FE-8,IMPLEMENTED,PASSED,BLOCKED,frontend_part2.md,Organization identity
+FE-9,IMPLEMENTED,PASSED,BLOCKED,frontend_part3.md,Live historical evidence extensions
+FE-10,IMPLEMENTED,PASSED,NOT_APPLICABLE,frontend_part3.md,
+FE-11,IMPLEMENTED,PASSED,BLOCKED,frontend_part3.md,Organization identity
+FE-12,IMPLEMENTED,PASSED,BLOCKED,frontend_part3.md,Live source/baseline/correction extensions
+FE-13,IMPLEMENTED,PASSED,BLOCKED,frontend_part3.md,Backend-owner approved read extensions
+FE-14,IMPLEMENTED,PASSED,NOT_RUN,frontend_part4.md,Opt-in real-stack journey and owner acceptance
+FE-15,IMPLEMENTED,PASSED,BLOCKED,frontend_part4.md,Docker Linux engine and organization identity/TLS inputs
+FE-16,IMPLEMENTED,PASSED,BLOCKED,frontend_part4.md,Live decision/metric contracts and qualified data/labels/authorized approval

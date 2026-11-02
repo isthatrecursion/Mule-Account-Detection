@@ -1,0 +1,23 @@
+F821 Undefined name `json`
+   --> tests\unit\test_training.py:378:21
+    |
+376 |     state_path = store.path(run_id, "state.json")
+377 |     original_state = state_path.read_bytes()
+378 |     changed_state = json.loads(original_state)
+    |                     ^^^^
+379 |     changed_state["request_hash"] = "f" * 64
+380 |     state_path.write_text(json.dumps(changed_state))
+    |
+
+F821 Undefined name `json`
+   --> tests\unit\test_training.py:380:27
+    |
+378 |     changed_state = json.loads(original_state)
+379 |     changed_state["request_hash"] = "f" * 64
+380 |     state_path.write_text(json.dumps(changed_state))
+    |                           ^^^^
+381 |     with pytest.raises(DomainError):
+382 |         evaluate_run(store, run_id, actor_id="engineer")
+    |
+
+Found 2 errors.

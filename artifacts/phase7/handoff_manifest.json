@@ -1,0 +1,19 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-21T20:03:52.277842+00:00",
+  "scope": "Phase 7 handoff links, evidence identities and final verification source preservation",
+  "verification_sources_still_match": true,
+  "files": {
+    "docs/acceptance/phase7_readiness.md": "1f037d340241eb42bc6c8efaf636bac48eb07de9c753122ccf8bef0ec37332a7",
+    "docs/registry.md": "2077e2783f35a091fd9b0ae26d09881d0a80f5cda3177db0680be009db545398",
+    "docs/runbooks/model_rollback.md": "cb4f76ad85566efcfc4d1060e45f86cb9679fbe5f000ba278fd5f7fc47b9d4d5",
+    "docs/acceptance/roadmap_status.csv": "f06d3307f600bd88dda5d72727753ae5975ee1fd57641f63e49c71cf7f9d8548",
+    "artifacts/phase7/windows_registry_final/report.json": "d43d6f73bc8101f997d834cea32b7491ca586eb19e70662c2eb986a0d793f428",
+    "artifacts/phase7/windows_registry_final/checksums.json": "5ea0d06cf34ad73b0432c11b0bc73c6e35c20be8bb41f5d46a8dd6bc136d94a1",
+    "artifacts/phase7/wheel_verified/report.json": "63b9483d48243f2ee10922fdb558bc3559c3fe0f3ef48b4562b08f7dae1addaa",
+    "artifacts/phase7/research_bundle_v1/report.json": "e3fba6407051f405a355c198047a02ea8c5fdfce9efe56ed0e2566cd22c328b5",
+    "artifacts/phase7/research_current_parity.json": "4325130859e15127ac7743ebdd18521e886dcc0aa21f54124624bbe9bdd359ea",
+    "artifacts/phase7/lock_preservation.json": "6e582134d4b216648c911f8fdc663c6ebd34f6d961bd0d83bae4fb63982bc92a",
+    "artifacts/phase0/phase7_handoff/report.json": "4823add40be9c33d8c4431e988c9a9439f4b9ffc165ba0a61e528fb790faffa0"
+  }
+}

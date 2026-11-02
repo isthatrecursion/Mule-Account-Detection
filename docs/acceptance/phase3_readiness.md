@@ -1,5 +1,7 @@
 # Phase 3 implementation and handoff
 
+Follow-up, 2026-10-21: the Docker socket issue was repaired, Docker PostgreSQL verification and container recreation passed, and the owner confirmed all remote CI checks passed after the Linux checkout/private-secret fixes. See [checkout correction](ci_line_endings_fix.md), [private-secret correction](ci_private_secrets_fix.md), and their linked evidence. The preparation-time Docker/CI pending statements below are historical and superseded by this follow-up. Qualified-use gates remain separate.
+
 Prepared: 2026-10-20. Scope: PostgreSQL persistence, migrations, transactional history/audit and concurrency controls. Qualified use remains blocked. These internal adapters do not implement intake, model approval, inference, public authentication or an event worker.
 
 | Point | Delivered | Executed verification |

@@ -1,0 +1,10 @@
+{
+  "issuer": null,
+  "audience": null,
+  "algorithms": ["RS256"],
+  "jwks_url": null,
+  "groups_claim": "groups",
+  "groups": {},
+  "clock_skew_seconds": 30,
+  "cache_seconds": 300
+}

@@ -354,7 +354,7 @@ def validate() -> list[dict]:
         (row["status"] == "PLANNED" and row["result"] == "NOT_RUN")
         or (row["status"] in {"IN_PROGRESS", "PASSED", "FAILED", "BLOCKED", "NOT_RUN"}
             and row["evidence_path"] != "NOT_RUN"
-            and (ROOT / row["evidence_path"]).is_file())
+            and all((ROOT / path).is_file() for path in row["evidence_path"].split(";")))
         for row in status if not row["point_id"].startswith("P00.")))
     return checks
 

@@ -1,0 +1,30 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-21T19:01:13.801546+00:00",
+  "scope": "Phase 6 software verification; qualified execution and approval remain blocked; owner approval, remote CI and Linux execution not claimed",
+  "point_ids": [
+    "P06.01",
+    "P06.02",
+    "P06.03",
+    "P06.04",
+    "P06.05",
+    "P06.06",
+    "P06.07",
+    "P06.08",
+    "P06.09",
+    "P06.10"
+  ],
+  "verified_sources_still_match": true,
+  "evidence_sha256": {
+    "artifacts/phase6/windows_training_complete/report.json": "5d7e88b117c3d538cd196ddb5448b250ddaa3737a264c8cbbee711e844ba7eb6",
+    "artifacts/phase6/research_training_v1/report.json": "e55104a7c3252596ff2e4b741d27d851612ee798c201eed2b7868dc6b0ca6982",
+    "artifacts/phase6/research_current_evaluation.json": "86c63a94796789981e04d5a4485bed91a3417a217d2e70c63eaf6f0fd666462d",
+    "artifacts/phase6/wheel_current_verified/report.json": "ddf97e7ebbe06cda5961f7ca9e7566c5850c085055ba195c59ba7937517cb4f5",
+    "docs/training.md": "329f71cf78a8824633983d7a3b3eff27e474afcbbd218673d795136c59e9b13b",
+    "docs/acceptance/phase6_readiness.md": "116dc735051e72b842c822f634f0f2bf4ec39620350b32460e3332e32b5c2479",
+    "docs/acceptance/roadmap_status.csv": "2e7e7d55ca2d94bdfa3cad9907b005be729795f18963bae55598d2d1d9713131",
+    "scripts/verify_installation.py": "97e5abb7367db8aca06e496d9aa03bd41ed4215711dd7be886eeaa43baa41039",
+    "config/model_candidates.yaml": "5346a8d54283cfbfc17a4c4446eb73723db312269324a2ff8b5a738df0be17e8",
+    "config/evaluation_policy.yaml": "3989467f1e40c4a569bea4ff73a09251e739c2f5287e5afc75fe16e822e7c128"
+  }
+}

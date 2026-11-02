@@ -1,0 +1,24 @@
+config_version: research_training_v1
+mode: research
+outer_folds: 5
+inner_folds: 3
+seed: 42
+threads: 2
+top_k: [25, 50, 100]
+bootstrap_repetitions: 200
+selection_metric: mean_inner_average_precision
+candidates:
+  - name: logistic_reference_v1
+    family: logistic
+    C: 1.0
+    max_iter: 1000
+  - name: lightgbm_reference_v1
+    family: lightgbm
+    n_estimators: 300
+    learning_rate: 0.05
+    num_leaves: 15
+ablation_features: []
+ablation_approval_reference: null
+subgroup_approval_reference: null
+minimum_subgroup_rows: 30
+minimum_subgroup_positives: 5

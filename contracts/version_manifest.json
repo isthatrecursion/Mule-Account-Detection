@@ -65,6 +65,11 @@
       "reviewer": "PENDING_OWNER_REVIEW",
       "schema_sha256": "8582d7c88a0bc4ac4b14ea517c81c3cbc7d52dfaf2c13936a235db0aa3060863"
     },
+    "scoring_request_v1.schema.json": {
+      "decision_reference": "PHASE8_SCORING_REQUEST_SCHEMA",
+      "reviewer": "PENDING_OWNER_REVIEW",
+      "schema_sha256": "18be8d3ccf408a31bf8fa392ba6e9bc9364acb95c75bd41290c9d680f9ead64f"
+    },
     "source_registry_v1.schema.json": {
       "decision_reference": "P02.11_initial_engineering_contracts",
       "reviewer": "PENDING_OWNER_REVIEW",

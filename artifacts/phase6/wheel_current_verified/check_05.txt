@@ -1,0 +1,10 @@
+usage: mule-detection train [-h] --config CONFIG --mode
+                            {research,qualified_temporal} --batch-id BATCH_ID
+                            --run-id RUN_ID
+
+options:
+  -h, --help            show this help message and exit
+  --config CONFIG
+  --mode {research,qualified_temporal}
+  --batch-id BATCH_ID
+  --run-id RUN_ID

@@ -1,4 +1,5 @@
 include alembic.ini compose.yaml compose.local.yaml
+include requirements*.lock
 recursive-include migrations *.py *.mako
 recursive-include docker *.sh
 recursive-include config *.yaml
@@ -8,4 +9,32 @@ include scripts/create_test_database.py
 include scripts/verify_persistence.py
 include scripts/verify_persistence_restart.py
 include docs/persistence.md docs/audit_controls.md docs/query_shapes.md
+include docs/ingestion.md docs/acceptance/phase4_readiness.md docs/reference_manifest.json
+include docs/features.md docs/acceptance/phase5_readiness.md
+include scripts/compare_reference_pipeline.py scripts/verify_features.py
+include scripts/run_training_experiment.py scripts/verify_training.py
+include docs/training.md docs/acceptance/phase6_readiness.md
+include compose.registry.yaml
+include docker/Dockerfile.mlflow docker/mlflow_entrypoint.py
+include scripts/init_registry_secrets.py scripts/provision_model_approver.py
+include scripts/run_registry_experiment.py scripts/verify_registry.py
+include docs/registry.md docs/acceptance/phase7_readiness.md docs/runbooks/model_rollback.md
+include scripts/verify_scoring.py
+include docs/scoring.md docs/acceptance/phase8_readiness.md
+include config/oidc.example.json
+include docs/api.md docs/acceptance/phase9_readiness.md
+include scripts/generate_api_schema.py scripts/verify_api.py
+include scripts/verify_workspace.py
+include config/ui.example.json .streamlit/config.toml
+include docs/workspace.md docs/identity_flow.md docs/acceptance/phase10_readiness.md
+recursive-include ui *.py *.md
+recursive-include contracts *.json
+include compose.workspace.yaml docker/Dockerfile.app
+recursive-include docker/nginx *.conf *.example
+include scripts/verify_ui_deployment.py
+include docs/ui_spec.md docs/ui_extension_contracts.md docs/ui_deployment.md
+include docs/frontend_build_plan.md docs/frontend_part1_guide.md
+include docs/acceptance/frontend_part*.md docs/acceptance/frontend_status.csv
+include docs/acceptance/ui_walkthrough.md docs/acceptance/ui_walkthrough.csv
+include docs/acceptance/research_walkthrough.md
 global-exclude __pycache__ *.py[cod]

@@ -1,0 +1,44 @@
+........................................................................ [ 24%]
+........................................................................ [ 49%]
+...................................................F.................... [ 74%]
+........................................................................ [ 98%]
+...                                                                      [100%]
+================================== FAILURES ===================================
+____ test_separate_provisioned_identity_can_append_decision_and_audit_only ____
+
+registry = (<mule_detection.application.registry_service.RegistryService object at 0x00000162A6483500>, UUID('2b7ef974-6ef2-4baa-...Loader object at 0x00000162A9A5DB80>, <tests.integration.test_registry.FakeRegistry object at 0x00000162A655A1E0>, ...)
+
+    @pytest.mark.skipif(
+        os.getenv("MULE_TEST_APPROVER") != "1",
+        reason="Explicit local approval-role provisioning opt-in required",
+    )
+    def test_separate_provisioned_identity_can_append_decision_and_audit_only(registry):
+        service, candidate, _, _, _, _, _ = registry
+        service.synchronize(candidate, ENGINEER)
+        endpoint = make_url(os.environ["MULE_TEST_DATABASE_URL"])
+        assert endpoint.database.startswith("mule_test_")
+        result = subprocess.run(
+            [sys.executable, "scripts/provision_model_approver.py", "--database", endpoint.database],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+>       assert result.returncode == 0, "Separate local test approver provisioning failed"
+E       AssertionError: Separate local test approver provisioning failed
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\omkud\\Mule Account Detection\\.venv\\Scripts\\python.exe', 'scripts/provision_mode...No such file or directory: \'C:\\\\Users\\\\omkud\\\\Mule Account Detection\\\\secrets\\\\test_admin_database_url\'\n').returncode
+
+tests\integration\test_registry.py:157: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_mlflow.py: 3 warnings
+tests/integration/test_registry.py: 24 warnings
+tests/integration/test_training.py: 6 warnings
+tests/unit/test_registry.py: 21 warnings
+tests/unit/test_training.py: 10 warnings
+  C:\Users\omkud\Mule Account Detection\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:455: DeprecationWarning: scipy.optimize: The `disp` and `iprint` options of the L-BFGS-B solver are deprecated and will be removed in SciPy 1.18.0.
+    opt_res = optimize.minimize(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_registry.py::test_separate_provisioned_identity_can_append_decision_and_audit_only
+1 failed, 290 passed, 64 warnings in 158.35s (0:02:38)

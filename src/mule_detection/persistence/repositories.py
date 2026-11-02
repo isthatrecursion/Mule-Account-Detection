@@ -114,7 +114,9 @@ class Repositories:
                 Batch.id == batch_id,
                 Batch.status == "ACCEPTED",
                 ValidationReport.outcome == "ACCEPTED",
+                ValidationReport.published.is_(True),
             )
+            .with_for_update(of=Batch)
         ).one_or_none()
         if batch is None:
             raise PersistenceConflict()
@@ -134,6 +136,16 @@ class Repositories:
         if row is None:
             raise AccessDenied()
         artifact, record_key = row
+        # Phase 8 score contracts pin the exact input shard, including corrections.
+        # Earlier rows keep the run-level snapshot fallback.
+        score = self.session.scalar(
+            select(ScoreRow).join(Case, Case.score_id == ScoreRow.id).where(Case.id == case_id)
+        )
+        if score and score.contract_payload.get("snapshot_id"):
+            pinned = self.session.get(Artifact, UUID(str(score.contract_payload["snapshot_id"])))
+            if pinned is None or pinned.access_scope not in scopes:
+                raise AccessDenied()
+            artifact = pinned
         return ArtifactRef(
             artifact.digest, artifact.schema_id, artifact.row_count, artifact.access_scope
         ), record_key
@@ -148,7 +160,7 @@ class Repositories:
         policy_hash: str,
         snapshot_id: UUID,
     ) -> ScoreRun:
-        self.get_accepted_batch(batch_id)
+        accepted = self.get_accepted_batch(batch_id)
         identity: dict[str, object] = {
             "actor_id": actor_id,
             "operation": "score",
@@ -160,6 +172,7 @@ class Repositories:
                 "model_id": str(model_id),
                 "policy_hash": policy_hash,
                 "snapshot_id": str(snapshot_id),
+                "validation_id": str(accepted.accepted_validation_id),
             }
         )
         return insert_once(
@@ -171,6 +184,7 @@ class Repositories:
                 "model_id": model_id,
                 "policy_hash": policy_hash,
                 "snapshot_id": snapshot_id,
+                "validation_id": accepted.accepted_validation_id,
                 "request_hash": request_hash,
             },
             constraint="uq_run_request",

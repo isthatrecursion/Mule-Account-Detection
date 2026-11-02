@@ -1,0 +1,20 @@
+{
+  "result": "PASSED",
+  "qualified_use": "BLOCKED",
+  "normal_startup": "BLOCKED_PENDING_ORGANIZATION_OIDC",
+  "artifacts": {
+    "artifacts/phase9/windows_api_verified/report.json": "b6d621c110e0cef2a6b76f115f66fe6c89e9db664f1d92ea174b4d07d4d8d96e",
+    "artifacts/phase9/wheel_verified/report.json": "cb2bfaaeb828434023b298aa90e78efd8f09866715ec1512fe9746ad6a0d981b",
+    "artifacts/phase9/wheel_final/report.json": "11f53278223fab095993e2834a12bd5b8451dfeb4a396fa8a3c906bd14a372b5",
+    "artifacts/phase9/fresh_postgresql/report.json": "baec717bea35d098b90b6a5dfd91262a5c1145812a579f7e22388354bf78ad1c",
+    "artifacts/phase9/package_manifest.json": "29d8b49c1b2d803d2dcec5bb4199770f87a89d5e82ce0ba15f0795c6b69e7711",
+    "artifacts/phase9/lock_preservation.json": "30bf20b0319fc8088854f3734d210a6d39aaa0a8839cf2dee86c436201052d15",
+    "docs/api.md": "e01ab7a5bdce6fd99b30a8198ed7b385b68194ee8408a2fd2819a790a8de725c",
+    "docs/acceptance/phase9_readiness.md": "5ab97182025db217c4a2ef6464c46ab6715c1cb21f97c814af4412d89c79af37",
+    "docs/acceptance/roadmap_status.csv": "b1d4cb791573d3ea1bbe046fbb48c0b6bdc1c998545df75a983d84f77e897eb0",
+    "MANIFEST.in": "175a35f1204394817ce3ea79c47ae374774a157389b47434f7c687fe8e6b8721",
+    "README.md": "dbdee4fafd261af58794c31568c865d0a7bc88d75c23f7216cf056576d2ec893",
+    ".github/workflows/checks.yml": "b45c094f2fdc04f107b067ee683da647a99d7634daa529c29cdc86abff7608bb",
+    ".github/workflows/persistence.yml": "37a085614f32d4de3b864adb143f96478a89189cf69e328605ecfca211bd203f"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "result": "PASSED",
+  "scanned_text_files": 40,
+  "sensitive_value_matches": [],
+  "checked_source_hashes_match_full_verification": true,
+  "screenshots_manually_inspected_synthetic_only": true,
+  "scope": "Known local test passwords and JWT-shaped bearer values; no production data used"
+}

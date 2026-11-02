@@ -1,0 +1,15 @@
+# Local synthetic/research intake only. No real source certification is granted here.
+research_split_register: eda/holdout_split_indices.csv
+sources:
+  - source_id: synthetic-csv
+    schema_id: synthetic_snapshot_v1
+    data_tier: synthetic
+    policy_version: research_features_v1
+    access_scope: synthetic-development
+    identity_columns: [record_key]
+    columns:
+      - {name: record_key, logical_type: categorical, role: lineage, required: true, missing: forbidden}
+      - {name: amount, logical_type: number, role: predictor, required: true, missing: imputable}
+      - {name: category, logical_type: categorical, role: predictor, required: true, missing: imputable}
+    approved_categories:
+      category: [Savings, Current]

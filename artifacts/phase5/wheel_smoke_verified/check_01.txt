@@ -1,0 +1,1 @@
+Error: Command '['C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_wheel_smoke_verified\\environment\\Scripts\\python.exe', '-m', 'ensurepip', '--upgrade', '--default-pip']' returned non-zero exit status 1.

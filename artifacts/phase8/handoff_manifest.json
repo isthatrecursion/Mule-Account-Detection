@@ -1,0 +1,29 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-22T08:14:31.718547+00:00",
+  "scope": "Phase 8 handoff, final wheel/source consistency, verified source identities and evidence links",
+  "full_suite_tests_passed": 320,
+  "postgres_cases": 81,
+  "focused_reporting_tests_passed": 2,
+  "application_sources_identical_to_full_suite": true,
+  "reporting_only_changes_retested": true,
+  "source_archive_matches_current_docs_and_application": true,
+  "files": {
+    "docs/scoring.md": "6ecb6d370a558663cc3d52d6aaea003d738fe35f8b243f6409e1406add97ec5f",
+    "docs/acceptance/phase8_readiness.md": "17b20296a2524224dda2aca07bab10777bc50479a64449015df187011e8e09a3",
+    "docs/acceptance/roadmap_status.csv": "3a8dbe15700eb751a71b79f02df06596043907b662600896bc5075a1dccd5f45",
+    ".github/workflows/persistence.yml": "65690c3be04f08392b4240bcf41ad947dc17182c47de0f5db7adc4020982f4bf",
+    "MANIFEST.in": "50ff2316dc2f2fb5ecf2e8db8a885521095c5efc6c3ed7b0b5d5e942e6ba8b39",
+    "artifacts/phase8/windows_scoring_final/report.json": "b37c34488505475aa8cd397b98258d5ad82e560e8bf6690a2e521ec5962597a0",
+    "artifacts/phase8/windows_scoring_final/checksums.json": "031d4fc70fd262eb831ea5077c76379c8ba0136de316c12a2d3eed095855d0bc",
+    "artifacts/phase8/rehearsal_current/report.json": "d585e942324b03b444f78f666f1393748cc83aa1a32365d6b1649a225cb20428",
+    "artifacts/phase8/rehearsal_current/pytest.xml": "de53c8f9e06e52ed5014b19bf27b89469e939e8ddc4831dedd47f7a262667f40",
+    "artifacts/phase8/rehearsal_current/exports/complete.json": "dc396e4abf52ae8b1521c391eed37611b44c18f540430e2ed931f925d85f8dcf",
+    "artifacts/phase8/rehearsal_current/exports/correction.json": "2a47fdb6a0434ba065d1ee6a661a3e714af6c6a35088c5654a20568c8aba3c4e",
+    "artifacts/phase8/wheel_verified/report.json": "4dd59fd001a1f0bcec18fee6ac1e4b5d76202f24a5bb68040046887573631743",
+    "artifacts/phase8/lock_preservation.json": "87ea49119beaa4ad700bb90a9b0520f648d945e6e6fd23edc0e7177d2f8b08e1",
+    "artifacts/phase0/phase8_handoff/report.json": "1ace209d3ca9c3596d4c441514ad8d5f53ff890ad5fc2f9e1ac926acc271588d",
+    "artifacts/phase8/packages_final/mule_detection-0.1.0-py3-none-any.whl": "6b4476bf18dc160ac6f766749a0bea4048154d5655acee97775642d8377aba87",
+    "artifacts/phase8/sdist_verified/mule_detection-0.1.0.tar.gz": "faf52b8b84915ecd6c2adebeac31118f1acbfdae5e71e4ef48cfca792ce00c34"
+  }
+}

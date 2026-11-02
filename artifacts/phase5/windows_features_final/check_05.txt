@@ -1,0 +1,177 @@
+........................................................................ [ 35%]
+...................................................................FF... [ 70%]
+................................F...........................             [100%]
+================================== FAILURES ===================================
+_________ test_immutable_encrypted_authorized_historical_observations _________
+
+tmp_path = WindowsPath('C:/Users/omkud/Mule Account Detection/scratch/phase5_84ae9798e32647eeab45803d0983a98b/pytest/test_immutable_encrypted_autho0')
+
+    def test_immutable_encrypted_authorized_historical_observations(tmp_path):
+        context = ExecutionContext.create("synthetic", "test")
+        key = AESGCM.generate_key(bit_length=256)
+    
+        def allow(actor, scope, action):
+            return actor.actor_id == "synthetic" and scope == "team-a"
+    
+        store = ArtifactStore(tmp_path, key, allow)
+>       older = store.put(
+            {"record": {"value": "SYNTHETIC_PRIVATE_VALUE"}},
+            schema_id="synthetic_v1",
+            access_scope="team-a",
+            context=context,
+        )
+
+tests\unit\test_artifacts.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <mule_detection.persistence.artifacts.ArtifactStore object at 0x000002167FED1CD0>
+records = {'record': {'value': 'SYNTHETIC_PRIVATE_VALUE'}}
+schema_id = 'synthetic_v1', access_scope = 'team-a'
+context = ExecutionContext(actor_id='synthetic', environment='test', correlation_id=UUID('1d114894-c2e7-44c0-a6ad-6d37ff9663c7'))
+
+    def put(
+        self,
+        records: Mapping[str, Mapping[str, object]],
+        *,
+        schema_id: str,
+        access_scope: str,
+        context: ExecutionContext,
+    ) -> ArtifactRef:
+        self._check(context, access_scope, "write")
+        payload = json.dumps(
+            {
+                "format": "snapshot_json_v1",
+                "schema_id": schema_id,
+                "access_scope": access_scope,
+                "records": records,
+            },
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode()
+        if len(payload) > self.max_bytes:
+            raise ValueError("Artifact exceeds configured size")
+        digest = sha256(payload).hexdigest()
+        ref = ArtifactRef(digest, schema_id, len(records), access_scope)
+        path = self._path(digest)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        nonce = os.urandom(12)
+        encrypted = nonce + self._cipher.encrypt(nonce, payload, digest.encode())
+        # Hard-link publication is atomic and refuses replacement, even with concurrent writers.
+        with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(encrypted)
+            stream.flush()
+            os.fsync(stream.fileno())
+        try:
+            try:
+>               os.link(temporary, path)
+E               PermissionError: [WinError 5] Access is denied: 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_immutable_encrypted_autho0\\53\\tmpza94gaex' -> 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_immutable_encrypted_autho0\\53\\53dc64264e2881c45c6bd0bb8d4a2a01a4dbb48f78446d2718f09ac0543bef41.enc'
+
+src\mule_detection\persistence\artifacts.py:99: PermissionError
+___________ test_authorization_before_io_and_path_tamper_detection ____________
+
+tmp_path = WindowsPath('C:/Users/omkud/Mule Account Detection/scratch/phase5_84ae9798e32647eeab45803d0983a98b/pytest/test_authorization_before_io_a0')
+
+    def test_authorization_before_io_and_path_tamper_detection(tmp_path):
+        context = ExecutionContext.create("test", "test")
+        key = AESGCM.generate_key(bit_length=256)
+        store = ArtifactStore(tmp_path, key, lambda *args: True)
+>       ref = store.put(
+            {"a": {"S1": 1}}, schema_id="synthetic_v1", access_scope="test", context=context
+        )
+
+tests\unit\test_artifacts.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <mule_detection.persistence.artifacts.ArtifactStore object at 0x000002167FEE8200>
+records = {'a': {'S1': 1}}, schema_id = 'synthetic_v1', access_scope = 'test'
+context = ExecutionContext(actor_id='test', environment='test', correlation_id=UUID('439bd4fe-22c0-4b2a-982c-f9e006a8efbc'))
+
+    def put(
+        self,
+        records: Mapping[str, Mapping[str, object]],
+        *,
+        schema_id: str,
+        access_scope: str,
+        context: ExecutionContext,
+    ) -> ArtifactRef:
+        self._check(context, access_scope, "write")
+        payload = json.dumps(
+            {
+                "format": "snapshot_json_v1",
+                "schema_id": schema_id,
+                "access_scope": access_scope,
+                "records": records,
+            },
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode()
+        if len(payload) > self.max_bytes:
+            raise ValueError("Artifact exceeds configured size")
+        digest = sha256(payload).hexdigest()
+        ref = ArtifactRef(digest, schema_id, len(records), access_scope)
+        path = self._path(digest)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        nonce = os.urandom(12)
+        encrypted = nonce + self._cipher.encrypt(nonce, payload, digest.encode())
+        # Hard-link publication is atomic and refuses replacement, even with concurrent writers.
+        with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(encrypted)
+            stream.flush()
+            os.fsync(stream.fileno())
+        try:
+            try:
+>               os.link(temporary, path)
+E               PermissionError: [WinError 5] Access is denied: 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_authorization_before_io_a0\\88\\tmp6lqi3ngn' -> 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_authorization_before_io_a0\\88\\88d95a1766f89fdd15c6c9aeaab45356f5b27aeed034703cb8cd0d85f5bb97ae.enc'
+
+src\mule_detection\persistence\artifacts.py:99: PermissionError
+_______ test_raw_store_hash_recheck_immutable_encryption_and_boundaries _______
+
+tmp_path = WindowsPath('C:/Users/omkud/Mule Account Detection/scratch/phase5_84ae9798e32647eeab45803d0983a98b/pytest/test_raw_store_hash_recheck_im0')
+
+    def test_raw_store_hash_recheck_immutable_encryption_and_boundaries(tmp_path):
+        store = RawStore(tmp_path / "root", b"x" * 32)
+        staged = store.stage(io.BytesIO(b"synthetic-content"))
+        store.staging_path(staged.stage_id).write_bytes(b"tampered-content!")
+        with pytest.raises(IntakeRejected):
+            store.finalize(staged)
+        good = store.stage(io.BytesIO(b"synthetic-content"))
+>       store.finalize(good)
+
+tests\unit\test_ingestion.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <mule_detection.persistence.raw_store.RawStore object at 0x000002160D779430>
+staged = StagedRaw(stage_id=UUID('8bdc6d04-1073-42f1-8a1f-72834262f6d4'), digest='7879b91b74835447cac95069f93e67b1705052d13ccba8c6c193622d919bea29', byte_count=17)
+
+    def finalize(self, staged: StagedRaw) -> str:
+        target = self.object_path(staged.digest)
+        path = self.staging_path(staged.stage_id)
+        if path.exists():
+            if path.stat().st_size != staged.byte_count or staged.byte_count > self.max_bytes:
+                raise IntakeRejected("BYTE_LIMIT")
+            payload = path.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != staged.digest:
+                raise IntakeRejected("HASH_MISMATCH")
+            nonce = os.urandom(12)
+            encrypted = nonce + self.cipher.encrypt(nonce, payload, staged.digest.encode())
+            temporary = self._inside(self.root / "objects" / f"{uuid4()}.tmp")
+            try:
+                with temporary.open("xb") as destination:
+                    temporary.chmod(0o600)
+                    destination.write(encrypted)
+                    destination.flush()
+                    os.fsync(destination.fileno())
+                try:
+>                   os.link(temporary, target)
+E                   PermissionError: [WinError 5] Access is denied: 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_raw_store_hash_recheck_im0\\root\\objects\\80783ab1-5631-480f-a97d-7fb0af5bfd20.tmp' -> 'C:\\Users\\omkud\\Mule Account Detection\\scratch\\phase5_84ae9798e32647eeab45803d0983a98b\\pytest\\test_raw_store_hash_recheck_im0\\root\\objects\\7879b91b74835447cac95069f93e67b1705052d13ccba8c6c193622d919bea29.enc'
+
+src\mule_detection\persistence\raw_store.py:111: PermissionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_artifacts.py::test_immutable_encrypted_authorized_historical_observations
+FAILED tests/unit/test_artifacts.py::test_authorization_before_io_and_path_tamper_detection
+FAILED tests/unit/test_ingestion.py::test_raw_store_hash_recheck_immutable_encryption_and_boundaries
+3 failed, 201 passed, 52 deselected in 18.74s

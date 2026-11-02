@@ -1,0 +1,21 @@
+{"status": "PASSED", "package_file": "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_ba6f9734a2ee483b98030f39e0510c66\\environment\\Lib\\site-packages\\mule_detection\\__init__.py", "runtime_versions": {"alembic": "1.20.0", "altair": "6.3.0", "annotated-doc": "0.0.5", "annotated-types": "0.8.0", "anyio": "4.15.1", "attrs": "26.1.0", "certifi": "2026.10.19", "cffi": "2.1.1", "charset-normalizer": "3.5.2", "click": "8.5.0", "cloudpickle": "3.1.2", "cryptography": "48.0.1", "fastapi": "0.160.0", "greenlet": "3.5.6", "h11": "0.16.0", "httpcore": "1.0.9", "httpx": "0.28.1", "idna": "3.20", "itsdangerous": "2.2.0", "jinja2": "3.1.6", "joblib": "1.6.0", "jsonschema": "4.26.0", "jsonschema-specifications": "2025.9.1", "lightgbm": "4.7.0", "mako": "1.4.3", "markupsafe": "3.0.4", "narwhals": "2.27.1", "numpy": "1.26.4", "opentelemetry-api": "1.45.1", "packaging": "26.3", "pandas": "2.2.3", "pillow": "13.0.0", "protobuf": "7.36.2", "psycopg-binary": "3.3.6", "pyarrow": "25.0.1", "pycparser": "3.11", "pydantic": "2.14.1", "pydantic-core": "2.50.1", "pydantic-settings": "2.16.1", "pydeck": "0.9.3", "python-dateutil": "2.9.0.post0", "python-dotenv": "1.2.4", "python-multipart": "0.0.32", "pytz": "2026.5", "pyyaml": "6.0.3", "referencing": "0.37.0", "requests": "2.34.2", "rpds-py": "2026.9.1", "scikit-learn": "1.5.2", "scipy": "1.17.1", "six": "1.17.0", "sqlalchemy": "2.0.55", "starlette": "1.9.0", "streamlit": "1.66.1", "threadpoolctl": "3.7.0", "typing-extensions": "4.16.0", "typing-inspection": "0.4.4", "tzdata": "2026.5", "urllib3": "2.8.0", "uvicorn": "0.54.0", "watchdog": "6.0.0", "websockets": "17.3"}}
+{"api_wheel": "PASSED", "signed_token_http": "PASSED", "missing_trust": "BLOCKED"}
+C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+2026-10-23 19:58:08.898 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+Traceback (most recent call last):
+  File "<string>", line 85, in <module>
+  File "C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\streamlit\testing\v1\app_test.py", line 643, in run
+    return self._tree.run(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\streamlit\testing\v1\element_tree.py", line 3870, in run
+    result = self._runner._run(widget_states, timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\streamlit\testing\v1\app_test.py", line 547, in _run
+    self._tree = script_runner.run(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\streamlit\testing\v1\local_script_runner.py", line 183, in run
+    require_widgets_deltas(self, timeout)
+  File "C:\Users\omkud\Mule Account Detection\scratch\install_ba6f9734a2ee483b98030f39e0510c66\environment\Lib\site-packages\streamlit\testing\v1\local_script_runner.py", line 247, in require_widgets_deltas
+    raise RuntimeError(err_string)
+RuntimeError: AppTest script run timed out after 3(s)

@@ -1,0 +1,1 @@
+{"result": "PASSED", "report": "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase6\\windows_training_final\\synthetic_parity\\report.json", "run_id": "b81c0fd3-2b86-4d43-89cf-bacff314e721"}

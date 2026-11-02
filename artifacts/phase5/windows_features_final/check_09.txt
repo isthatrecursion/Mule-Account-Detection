@@ -1,0 +1,6 @@
+fold 1: matrix parity exact; prediction delta 0
+fold 2: matrix parity exact; prediction delta 0
+fold 3: matrix parity exact; prediction delta 0
+fold 4: matrix parity exact; prediction delta 0
+fold 5: matrix parity exact; prediction delta 0
+{"result": "PASSED", "report": "C:\\Users\\omkud\\Mule Account Detection\\artifacts\\phase5\\windows_features_final\\synthetic_parity\\report.json"}

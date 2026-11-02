@@ -46,7 +46,7 @@ def main() -> int:
         [python, "-m", "pip", "check"],
         [python, "-m", "ruff", "check", "."],
         [python, "-m", "ruff", "format", "--check", "."],
-        [python, "-m", "mypy", "src/mule_detection"],
+        [python, "-m", "mypy", "src/mule_detection", "ui"],
         [
             python,
             "-m",

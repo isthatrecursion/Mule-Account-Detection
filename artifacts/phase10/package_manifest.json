@@ -1,0 +1,19 @@
+{
+  "result": "PASSED",
+  "scope": "Final source distribution and exact fresh-verified wheel",
+  "wheel_source_modules": 129,
+  "wheel_source_byte_parity": true,
+  "installed_wheel_digest_matches": true,
+  "sdist_matches_current_ui_configuration_docs_and_locks": true,
+  "private_inputs_excluded": true,
+  "packages": {
+    "artifacts\\phase10\\packages_final\\mule_detection-0.1.0-py3-none-any.whl": {
+      "bytes": 195592,
+      "sha256": "9ab91cb26e4f2c71fee09bc7a9b730735be05ad025b6c900866b776aab138a32"
+    },
+    "artifacts\\phase10\\packages_final\\mule_detection-0.1.0.tar.gz": {
+      "bytes": 630997,
+      "sha256": "417d121e5af43c10d56a872ac97f642ad9bef835fe617e2faa505f30b9a44c9c"
+    }
+  }
+}

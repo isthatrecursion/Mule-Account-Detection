@@ -61,6 +61,8 @@ class ReviewService:
         conclusion: str | None = None,
         note_reference: str | None = None,
         assignee: str | None = None,
+        before_commit: Callable[[Session, ReviewResult], None] | None = None,
+        authorize_case: Callable[[Case], bool] | None = None,
     ) -> ReviewResult:
         operation = {
             "ASSIGNED": "case:assign",
@@ -111,6 +113,8 @@ class ReviewService:
                 if required not in permissions:
                     raise AccessDenied()
                 return ReviewResult(previous.id, previous.case_id, previous.case_version)
+            if authorize_case is not None and not authorize_case(case):
+                raise AccessDenied()
             if case.version != expected_version:
                 raise PersistenceConflict()
             validate_review_transition(case.state, target, permissions)
@@ -159,6 +163,8 @@ class ReviewService:
                 reason_reference=note_reference,
             )
             result = ReviewResult(event.id, case_id, changed)
+            if before_commit is not None:
+                before_commit(session, result)
         return result
 
     @staticmethod

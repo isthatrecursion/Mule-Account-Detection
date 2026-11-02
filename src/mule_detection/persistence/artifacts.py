@@ -131,3 +131,7 @@ class ArtifactStore:
     ) -> object:
         self._check(context, reference.access_scope, "read")
         return self._read(reference)[record_key]
+
+    def records(self, reference: ArtifactRef, context: ExecutionContext) -> dict[str, object]:
+        self._check(context, reference.access_scope, "read")
+        return self._read(reference)

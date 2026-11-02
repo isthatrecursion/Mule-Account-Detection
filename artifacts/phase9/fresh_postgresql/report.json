@@ -1,0 +1,7 @@
+{
+  "result": "PASSED",
+  "scope": "Fresh dedicated database migrations 0001 through 0009, runtime HTTP and persistence checks",
+  "database": "mule_test_api_1ded2f441a1c",
+  "exit_code": 0,
+  "evidence": "checks.txt"
+}

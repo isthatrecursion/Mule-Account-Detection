@@ -1,0 +1,9 @@
+policy_version: legacy_research_v1
+certification_status: UNVERIFIED
+qualified_use_allowed: false
+# F3888: coerce dates; mask legacy years; add F3888_IS_LEGACY; use ordinals.
+date_legacy_max_year: 1950
+# F3893/F3894: mask only RETAIL ages outside this inclusive range.
+retail_value: RETAIL
+retail_min_age: 18
+retail_max_age: 100

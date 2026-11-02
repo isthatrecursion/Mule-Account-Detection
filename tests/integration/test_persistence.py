@@ -74,6 +74,7 @@ def seed(factory) -> Lineage:
         session.add(batch)
         session.flush()
         report = ValidationReport(
+            published=True,
             batch_id=batch.id,
             rules_hash="c" * 64,
             findings_uri="artifact:findings",
@@ -146,7 +147,7 @@ def test_migrations_match_metadata_and_head(migrated_engine, record_testsuite_pr
     assert set(Base.metadata.tables) <= set(inspect(migrated_engine).get_table_names())
     with migrated_engine.connect() as connection:
         record_testsuite_property("postgresql_version", connection.scalar(text("SELECT version()")))
-        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0005"
+        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0009"
         assert compare_metadata(MigrationContext.configure(connection), Base.metadata) == []
 
 
@@ -154,7 +155,7 @@ def test_failed_migration_rolls_back_and_recovery_preserves_revision(db, migrate
     root = Path(__file__).resolve().parents[2]
     shutil.copytree(root / "migrations", tmp_path / "migrations")
     (tmp_path / "migrations/versions/0006_synthetic_failure.py").write_text(
-        "from alembic import op\nimport sqlalchemy as sa\nrevision='0006_test_failure'\ndown_revision='0005'\nbranch_labels=None\ndepends_on=None\n"
+        "from alembic import op\nimport sqlalchemy as sa\nrevision='0010_test_failure'\ndown_revision='0009'\nbranch_labels=None\ndepends_on=None\n"
         "def upgrade():\n    op.create_table('synthetic_should_rollback', sa.Column('id', sa.Integer))\n    op.execute('SELECT 1/0')\n"
     )
     cfg = Config(str(root / "alembic.ini"))
@@ -163,7 +164,7 @@ def test_failed_migration_rolls_back_and_recovery_preserves_revision(db, migrate
         cfg.attributes["connection"] = connection
         command.upgrade(cfg, "head")
     with migrated_engine.connect() as connection:
-        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0005"
+        assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "0009"
         assert (
             connection.scalar(text("SELECT to_regclass('public.synthetic_should_rollback')"))
             is None

@@ -1,0 +1,27 @@
+{
+  "result": "PASSED",
+  "checked_at": "2026-10-21T18:26:56.524396+00:00",
+  "scope": "Completion of interrupted fresh runtime wheel verification; earlier four install/dependency stages passed in linked original report",
+  "prior_report": "artifacts/phase1/phase5_install_verified/report.json",
+  "prior_report_sha256": "9fcc5a19e3df1f65ffa8df3a25e5cf0cbcc8ed76f851b6e0d50491b246c83776",
+  "checks": [
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_b83268fa40c94b3781330f4a37a47fb3\\environment\\Scripts\\python.exe",
+        "-c",
+        "\nimport importlib.metadata as metadata\nimport json\nimport pathlib\nimport re\nimport sys\nimport mule_detection\nimport numpy, pandas, scipy, sklearn, lightgbm\nfrom mule_detection.persistence.models import Base\nfrom mule_detection.persistence.artifacts import ArtifactStore\nfrom mule_detection.application.review_service import ReviewService\nfrom mule_detection.application.job_service import JobService\nfrom mule_detection.features.pipeline import FeaturePipeline\nfrom mule_detection.features.inputs import research_frame\nfrom mule_detection.features.artifacts import save_pipeline, load_pipeline\nassert {'datasets', 'batches', 'score_runs', 'score_rows', 'audit_events',\n        'intake_requests', 'raw_publications', 'intake_contents'} <= set(Base.metadata.tables)\nassert all((ArtifactStore, ReviewService, JobService, FeaturePipeline,\n            research_frame, save_pipeline, load_pipeline))\nassert pathlib.Path(mule_detection.__file__).resolve().is_relative_to(pathlib.Path(sys.prefix).resolve())\nassert mule_detection.__version__ == '0.1.0'\nexpected = dict(re.findall(r'^([a-zA-Z0-9_.-]+)==([^\\s;]+)', pathlib.Path(sys.argv[1]).read_text(), re.M))\nobserved = {name: metadata.version(name) for name in expected}\nassert observed == expected, {'expected': expected, 'observed': observed}\nprint(json.dumps({'status': 'PASSED', 'package_file': mule_detection.__file__, 'runtime_versions': observed}))\n",
+        "C:\\Users\\omkud\\Mule Account Detection\\requirements-windows.lock"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\omkud\\Mule Account Detection\\scratch\\install_b83268fa40c94b3781330f4a37a47fb3\\environment\\Scripts\\python.exe",
+        "-m",
+        "mule_detection.cli",
+        "--help"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

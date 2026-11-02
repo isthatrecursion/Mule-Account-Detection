@@ -1,0 +1,19 @@
+{
+  "result": "PASSED",
+  "scope": "Earlier isolated synthetic rehearsal; final regression journey recorded separately",
+  "checked_at": "2026-10-23T14:40:22.609636+00:00",
+  "case_id": "c512e30a-97a8-49aa-806b-d7dd876bdc1c",
+  "queue_version": "18874b9b-3c29-423a-a85e-c4aaaf079691",
+  "checks": {
+    "live_browser_rendered_queue": true,
+    "live_browser_rendered_case": true,
+    "freshness_unknown_cutoff_and_research_warning_visible": true,
+    "unverified_meanings_visible": true,
+    "table_csv_toolbar_removed": true,
+    "private_fixture_removed_and_servers_stopped": true
+  },
+  "screenshots": {
+    "queue.png": "1c616279f824abf84dc1146627f626f8a1148b4e65fe0c852c27a1aceadbf80f",
+    "case.png": "5e3fb05795bc18f47c4f8948b283edd70c4925e91b99fa5c2ca640cc9012ca69"
+  }
+}

@@ -6,6 +6,32 @@ on:
 permissions:
   contents: read
 jobs:
+  frontend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with: {lfs: false, persist-credentials: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Install pinned synthetic frontend environment
+        run: |
+          python -m pip install --require-hashes -r requirements-dev-linux.lock
+          python -m pip install --require-hashes -r requirements-api-linux.lock
+          python -m pip install --require-hashes -r requirements-ui-linux.lock
+          python -m pip install --no-deps --no-build-isolation -e .
+      - name: Verify frontend journeys and deployment contracts
+        run: |
+          python -m pytest tests/ui -q --junitxml=artifacts/frontend/part4/ci-tests.xml
+          python scripts/verify_ui_deployment.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frontend-synthetic-evidence
+          path: artifacts/frontend/part4/
+          if-no-files-found: warn
   synthetic-checks:
     strategy:
       fail-fast: false
@@ -13,8 +39,12 @@ jobs:
         include:
           - os: windows-latest
             lock: requirements-dev-windows.lock
+            api_lock: requirements-api-windows.lock
+            ui_lock: requirements-ui-windows.lock
           - os: ubuntu-24.04
             lock: requirements-dev-linux.lock
+            api_lock: requirements-api-linux.lock
+            ui_lock: requirements-ui-linux.lock
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     env:
@@ -30,7 +60,10 @@ jobs:
           cache: pip
           cache-dependency-path: ${{ matrix.lock }}
       - name: Install pinned environment
-        run: python -m pip install --require-hashes -r ${{ matrix.lock }}
+        run: |
+          python -m pip install --require-hashes -r ${{ matrix.lock }}
+          python -m pip install --require-hashes -r ${{ matrix.api_lock }}
+          python -m pip install --require-hashes -r ${{ matrix.ui_lock }}
       - name: Install package
         run: python -m pip install --no-deps --no-build-isolation -e .
       - name: Validate implemented foundation
@@ -39,6 +72,11 @@ jobs:
         run: |
           python scripts/generate_contract_schemas.py --check
           python scripts/generate_research_schema.py --check
+          python scripts/generate_api_schema.py --check
+      - name: Verify feature pipeline parity with synthetic data
+        run: python scripts/compare_reference_pipeline.py --output-dir artifacts/phase5/ci-synthetic-parity
+      - name: Verify synthetic candidate training
+        run: python scripts/run_training_experiment.py --output-dir artifacts/phase6/ci-synthetic-training
       - name: Verify built wheel outside checkout
         shell: bash
         run: |
@@ -55,5 +93,7 @@ jobs:
             artifacts/phase1/ci/pytest.xml
             artifacts/phase1/ci-install/*.json
             artifacts/phase1/ci-install/check_*.txt
+            artifacts/phase5/ci-synthetic-parity/*.json
+            artifacts/phase6/ci-synthetic-training/*.json
           if-no-files-found: warn
           retention-days: 7

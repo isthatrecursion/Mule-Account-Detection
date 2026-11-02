@@ -1,0 +1,29 @@
+{
+  "folds": 5,
+  "model_config": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.05,
+    "n_estimators": 300,
+    "n_jobs": 2,
+    "num_leaves": 15,
+    "objective": "binary",
+    "reg_lambda": 1.0,
+    "scale_pos_weight": 10.0,
+    "subsample": 0.8,
+    "verbosity": -1
+  },
+  "seed": 42,
+  "source": {
+    "dataset_sha256": "c6181fa1ae9aecc899ca17d2223e3ef1ce9f64fd2b6b1f3e252ee13b6cf07915",
+    "excluded_holdout_rows": 1817,
+    "mode": "research_development_only",
+    "private_rows_written": false,
+    "split_sha256": "053d1f03ede21cb9b6830c75b0d46d7a3bc99353ef2c21a718b8f9b26933cc06"
+  },
+  "tolerance": {
+    "matrix_atol": 0.0,
+    "metric_atol": 1e-12,
+    "prediction_atol": 1e-12,
+    "rtol": 0.0
+  }
+}
